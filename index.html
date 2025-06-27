@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alexandra Hartinger Portfolio</title>
 
-  <!-- Dramatic Fonts: Uncomment one to choose -->
-  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet"> -->
+  <!-- Spiderweb Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 
   <style>
     html, body {
@@ -15,7 +14,7 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: 'Black Ops One', sans-serif; /* or UnifrakturCook if you uncomment */
+      font-family: 'Creepster', cursive;
       background-color: black;
       color: white;
     }
@@ -72,8 +71,7 @@
       transform: translate(-50%, -50%);
       width: 100%;
       text-align: center;
-      font-size: 8vw;
-      letter-spacing: 1vw;
+      font-size: 10vw;
       color: white;
       white-space: nowrap;
       z-index: 2;
@@ -123,14 +121,26 @@
       transform: scale(1.1);
     }
 
-    @keyframes fadeOut {
-      to { opacity: 0; }
+    .shrink-header {
+      animation: shrinkToHeader 2s forwards;
+    }
+
+    @keyframes shrinkToHeader {
+      0% {
+        top: 55%;
+        font-size: 10vw;
+        transform: translate(-50%, -50%);
+      }
+      100% {
+        top: 5%;
+        font-size: 3vw;
+        transform: translate(-50%, 0);
+      }
     }
 
     @media (max-width: 600px) {
       .name-banner {
-        font-size: 12vw;
-        letter-spacing: 2vw;
+        font-size: 14vw;
       }
       .overlay-buttons button {
         font-size: 1.2em;
@@ -160,16 +170,11 @@
     <button onclick="location.href='projects.html'">View Projects</button>
   </div>
 
-  <!-- Sound effect -->
-  <audio id="typing-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3c3d25b017.mp3?filename=typewriter-typing-13-91890.mp3"></audio>
-
   <script>
     window.onload = () => {
       setTimeout(() => {
         const name = document.getElementById('name');
-        const sound = document.getElementById('typing-sound');
         name.style.opacity = 1;
-        sound.play();
       }, 2200); // after spider lands
 
       setTimeout(() => {
@@ -178,8 +183,13 @@
       }, 5500); // after name typing
 
       setTimeout(() => {
+        const name = document.getElementById('name');
+        name.classList.add('shrink-header');
+      }, 6000); // shrink name
+
+      setTimeout(() => {
         document.getElementById('buttons').style.opacity = 1;
-      }, 6000); // show buttons
+      }, 8000); // show buttons
     };
   </script>
 
