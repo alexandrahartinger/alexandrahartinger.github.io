@@ -3,63 +3,164 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Portfolio</title>
+  <title>Alexandra Hartinger Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
   <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    font-family: 'Orbitron', sans-serif; /* Retro sci-fi font */
-    background-color: black;
-    color: #00ffe0; /* Neon cyan text */
-  }
-  .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.2; /* Subtle video with dark overlay */
-  }
-  .overlay-buttons {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    opacity: 0;
-    transition: opacity 1s ease;
-    text-align: center;
-  }
-  .overlay-buttons button {
-    padding: 15px 30px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #00ffe0;
-    color: #00ffe0;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 10px;
-    text-transform: uppercase;
-    transition: transform 0.3s, background 0.3s;
-  }
-  .overlay-buttons button:hover {
-    background: #00ffe0;
-    color: black;
-    transform: scale(1.1);
-  }
-</style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+      background-color: black;
+      color: #00ffe0; /* Neon cyan */
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.2;
+    }
+
+    .name-banner {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 4vw;
+      letter-spacing: 2vw;
+      color: #00ffe0;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .overlay-buttons {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      transition: opacity 1s ease;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .overlay-buttons button {
+      padding: 15px 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #00ffe0;
+      color: #00ffe0;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 10px;
+      text-transform: uppercase;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .overlay-buttons button:hover {
+      background: #00ffe0;
+      color: black;
+      transform: scale(1.1);
+    }
+
+    .fall-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .falling {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: #00ffe0;
+      border-radius: 50%;
+      animation: fall 1s linear forwards;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .overlay-buttons button {
+        font-size: 1em;
+        padding: 12px 20px;
+      }
+      .name-banner {
+        font-size: 8vw;
+        letter-spacing: 4vw;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- your HTML elements here -->
+  <!-- Background video -->
+  <video class="background-video" autoplay muted loop playsinline>
+    <source src="your-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Name banner -->
+  <div class="name-banner">ALEXANDRA HARTINGER</div>
+
+  <!-- Overlay buttons -->
+  <div class="overlay-buttons" id="buttons">
+    <button onclick="location.href='project1.html'">Project 1</button>
+    <button onclick="location.href='project2.html'">Project 2</button>
+    <button onclick="location.href='project3.html'">Project 3</button>
+  </div>
+
+  <!-- Falling particles container -->
+  <div class="fall-container"></div>
 
   <script>
-    /* your JavaScript here */
+    // Fade in buttons after 3 seconds
+    window.onload = () => {
+      setTimeout(() => {
+        document.getElementById('buttons').style.opacity = 1;
+      }, 3000);
+    };
+
+    // Falling effect on hover
+    const buttons = document.querySelectorAll('.overlay-buttons button');
+    const fallContainer = document.querySelector('.fall-container');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('mouseenter', (e) => {
+        createFallingElement(e.pageX);
+      });
+    });
+
+    function createFallingElement(x) {
+      const falling = document.createElement('div');
+      falling.classList.add('falling');
+      falling.style.left = `${x}px`;
+      fallContainer.appendChild(falling);
+
+      falling.addEventListener('animationend', () => {
+        falling.remove();
+      });
+    }
   </script>
 
 </body>
