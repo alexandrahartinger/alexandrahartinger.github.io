@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,7 +10,60 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet"> -->
 
   <style>
-    /* ... your existing styles ... */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Black Ops One', sans-serif; /* or UnifrakturCook if you uncomment */
+      background-color: black;
+      color: white;
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.2;
+    }
+
+    .spider-thread {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 0;
+      background-color: white;
+      z-index: 2;
+      animation: dropThread 2s forwards;
+    }
+
+    .spider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      background-color: white;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      animation: dropSpider 2s forwards;
+    }
+
+    @keyframes dropThread {
+      0% { height: 0; }
+      100% { height: 50vh; }
+    }
+
+    @keyframes dropSpider {
+      0% { top: 0; }
+      100% { top: 50vh; }
+    }
 
     .name-banner {
       position: absolute;
@@ -19,16 +74,114 @@
       text-align: center;
       font-size: 8vw;
       letter-spacing: 1vw;
-      font-family: 'Black Ops One', sans-serif; /* or UnifrakturCook, uncomment above */
       color: white;
       white-space: nowrap;
       z-index: 2;
       overflow: hidden;
       border-right: 0.15em solid white;
-      animation: typing 3s steps(30, end) 2s forwards, blink 0.75s step-end infinite;
+      animation: typing 3s steps(30, end) 2.2s forwards, blink 0.75s step-end infinite 2.2s;
       opacity: 0;
     }
 
-    /* ... your existing styles ... */
+    @keyframes typing {
+      from { width: 0; opacity: 1; }
+      to { width: 100%; opacity: 1; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .overlay-buttons {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 1s ease;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .overlay-buttons button {
+      padding: 20px 40px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      font-size: 2em;
+      font-weight: 300;
+      cursor: pointer;
+      border-radius: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      transition: transform 0.4s, color 0.4s, border-color 0.4s;
+    }
+
+    .overlay-buttons button:hover {
+      color: #00ffe0;
+      border-color: #00ffe0;
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .name-banner {
+        font-size: 12vw;
+        letter-spacing: 2vw;
+      }
+      .overlay-buttons button {
+        font-size: 1.2em;
+        padding: 15px 25px;
+      }
+    }
   </style>
 </head>
+
+<body>
+
+  <!-- Background video -->
+  <video class="background-video" autoplay muted loop playsinline>
+    <source src="your-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Spider and thread -->
+  <div class="spider-thread"></div>
+  <div class="spider" id="spider"></div>
+
+  <!-- Name banner -->
+  <div class="name-banner" id="name">ALEXANDRA HARTINGER</div>
+
+  <!-- Overlay buttons -->
+  <div class="overlay-buttons" id="buttons">
+    <button onclick="location.href='projects.html'">View Projects</button>
+  </div>
+
+  <!-- Sound effect -->
+  <audio id="typing-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3c3d25b017.mp3?filename=typewriter-typing-13-91890.mp3"></audio>
+
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        const name = document.getElementById('name');
+        const sound = document.getElementById('typing-sound');
+        name.style.opacity = 1;
+        sound.play();
+      }, 2200); // after spider lands
+
+      setTimeout(() => {
+        const spider = document.getElementById('spider');
+        spider.style.animation = 'fadeOut 1s forwards';
+      }, 5500); // after name typing
+
+      setTimeout(() => {
+        document.getElementById('buttons').style.opacity = 1;
+      }, 6000); // show buttons
+    };
+  </script>
+
+</body>
+</html>
