@@ -1,137 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>I'm Alex - Portfolio</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      color: white;
-      background-color: #000;
-      overflow-x: hidden;
-    }
-
-    .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero-image {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1.2);
-      height: 100vh;
-      width: 100vw;
-      object-fit: cover;
-      z-index: 3;
-      opacity: 0;
-      filter: blur(30px);
-      animation: imageReveal 1.5s ease forwards, glitchExit 0.6s ease forwards;
-      animation-delay: 0s, 3s;
-      mix-blend-mode: screen;
-    }
-
-    @keyframes imageReveal {
-      0% { opacity: 0; filter: blur(30px); transform: translate(-50%, -50%) scale(1.2); }
-      100% { opacity: 1; filter: blur(0); transform: translate(-50%, -50%) scale(1); }
-    }
-
-    @keyframes glitchExit {
-      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      20% { transform: translate(-48%, -50%) scale(1.1); filter: hue-rotate(60deg); }
-      40% { transform: translate(-52%, -50%) scale(0.9); filter: hue-rotate(-60deg); }
-      60% { transform: translate(-50%, -52%) scale(1.2); filter: hue-rotate(30deg); }
-      80% { transform: translate(-50%, -48%) scale(0.8); filter: hue-rotate(-30deg); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-    }
-
-    .horizontal-magazine {
-      display: flex;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      width: 100%;
-      height: 100vh;
-      perspective: 1500px;
-    }
-
-    .pages {
-      display: flex;
-      width: 200vw;
-      height: 100%;
-    }
-
-    .page {
-      scroll-snap-align: center;
-      flex: 0 0 100vw;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-    }
-
-    .page-content {
-      text-align: center;
-      z-index: 2;
-      max-width: 90%;
-      backface-visibility: hidden;
-    }
-
-    .page::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Film_grain_texture.png') center/cover repeat;
-      opacity: 0.1;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .page::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(90deg, rgba(255,0,150,0.05), transparent, rgba(0,255,200,0.05));
-      mix-blend-mode: screen;
-      opacity: 0.2;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .article-text h1 {
-      font-size: 5vw;
-      margin-bottom: 1vh;
-      letter-spacing: 0.05em;
-    }
-
-    .article-text h3 {
-      font-size: 2vw;
-      margin-bottom: 2vh;
-      color: #ccc;
-    }
-
-    .article-text p {
-      font-size: 1.5vw;
-      line-height: 1.4;
-      max-width: 60ch;
-    }
-
-    footer {
-      text-align: center;
-      padding: 5vh 0;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>I'm Alex - Faces Universe</title>
+<style>
+  body, html { margin:0; padding:0; font-family:'Helvetica Neue',sans-serif; color:white; background:black; overflow:hidden; }
+  .hero { position:relative; width:100%; height:100vh; overflow:hidden; }
+  .hero-image { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); width:100vw; height:100vh; object-fit:cover; z-index:2; transition:transform 3s ease-in-out; }
+  .shape { position:absolute; width:40px; height:40px; opacity:0; border-radius:50%; z-index:3; pointer-events:none; animation:fall 3s forwards; }
+  .shape img { width:100%; height:100%; object-fit:contain; }
+  @keyframes fall {
+    0% { opacity:0; transform:translateY(-100px) rotate(0deg); }
+    30% { opacity:1; }
+    100% { opacity:0; transform:translateY(120vh) rotate(360deg); }
+  }
+  .horizontal-magazine { display:flex; overflow-x:scroll; scroll-snap-type:x mandatory; width:100%; height:100vh; perspective:1500px; position:absolute; top:0; left:0; opacity:0; transition:opacity 2s; }
+  .pages { display:flex; width:300vw; height:100%; }
+  .page { scroll-snap-align:center; flex:0 0 100vw; height:100%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; transform-style:preserve-3d; transition:transform 0.8s ease; }
+  .page-content { text-align:center; z-index:2; max-width:90%; backface-visibility:hidden; }
+  .page-content h2 { font-size:6vw; margin-bottom:2vh; letter-spacing:0.05em; }
+  .page-content p { font-size:2vw; max-width:600px; }
+  .page::before { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Film_grain_texture.png') center/cover repeat; opacity:0.1; z-index:1; pointer-events:none; }
+  .page::after { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(90deg,rgba(255,0,150,0.05),transparent,rgba(0,255,200,0.05)); mix-blend-mode:screen; opacity:0.2; z-index:1; pointer-events:none; }
+</style>
 </head>
 <body>
   <div class="hero">
@@ -140,50 +32,59 @@
 
   <section class="horizontal-magazine">
     <div class="pages">
-
-      <!-- Faces-only Rolling Stone article spread -->
-      <div class="page" style="background:#000; position: relative;">
-        <div class="page-content" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
-          <div class="album-cover" style="flex:1; max-width:40%; position: relative;">
-            <img src="assets/faces-album.jpg" alt="Faces Album" style="width:100%; border-radius: 12px; box-shadow:0 0 40px rgba(255,255,255,0.1);">
-          </div>
-        </div>
-        <div class="article-text" style="position:absolute; bottom:10%; left:5%; max-width:90%;">
-          <h1>THE ART THAT STARTED IT ALL</h1>
-          <h3>How Mac Miller’s <em>Faces</em> ignited my creative journey</h3>
-          <p>It was Mac Miller’s <em>Faces</em> that first opened my eyes to art’s power to reveal our deepest truths. The raw emotion and experimental visuals inspired me to pick up a brush and start telling my own story through color, igniting my lifelong passion for creative expression.</p>
+      <div class="page" style="background:#000;">
+        <div class="page-content">
+          <h2>THE ART THAT STARTED IT ALL</h2>
+          <p>How Mac Miller’s <em>Faces</em> inspired my creative journey and led me deeper into the art world.</p>
         </div>
       </div>
-
+      <div class="page" style="background:#111;">
+        <div class="page-content">
+          <h2>Next Chapter</h2>
+          <p>Exploring new horizons through creative expression and bold design.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 Alex | Designed with ❤️</p>
-  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const heroImg = document.querySelector('.hero-image');
+  const magazine = document.querySelector('.horizontal-magazine');
+  const facesSong = new Audio('assets/faces-song.mp3'); // add your uploaded song to /assets
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const pages = document.querySelectorAll('.page');
+  facesSong.volume = 0.4;
+  facesSong.play();
 
-      const pageFlipSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
-      const vinylSound = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-      vinylSound.loop = true;
-      vinylSound.volume = 0.1;
-      vinylSound.play();
+  // Step 1: Zoom into portrait
+  setTimeout(() => {
+    heroImg.style.transform = "translate(-50%, -50%) scale(5)";
+  }, 1000);
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const page = entry.target;
-            pageFlipSound.currentTime = 0;
-            pageFlipSound.play();
-          }
-        });
-      }, { threshold: 0.6 });
+  // Step 2: Create floating shapes
+  setTimeout(() => {
+    for (let i=0; i<40; i++) {
+      const shape = document.createElement('div');
+      shape.classList.add('shape');
+      shape.style.left = `${Math.random() * 100}vw`;
+      if (Math.random() > 0.5) {
+        // Use simple CSS shapes with random colors
+        shape.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
+      } else {
+        // Or use abstract PNGs if uploaded to /assets (e.g., face-shape1.png)
+        const img = document.createElement('img');
+        img.src = `assets/face-shape${Math.floor(Math.random()*5)+1}.png`;
+        shape.appendChild(img);
+      }
+      document.body.appendChild(shape);
+    }
+  }, 4000);
 
-      pages.forEach(page => observer.observe(page));
-    });
-  </script>
+  // Step 3: Reveal magazine pages after shapes finish
+  setTimeout(() => {
+    magazine.style.opacity = 1;
+  }, 7000);
+});
+</script>
 </body>
 </html>
