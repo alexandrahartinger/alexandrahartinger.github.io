@@ -1,57 +1,279 @@
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const spreads = document.querySelectorAll('.spread');
-    const pages = document.querySelectorAll('.page');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I'm Alex - Portfolio</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: white;
+      background-color: #000;
+      overflow-x: hidden;
+    }
 
-    // Fade in spreads on scroll
-    const revealOnScroll = () => {
-      spreads.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const revealPoint = 150;
-        if (elementTop < windowHeight - revealPoint) {
-          el.classList.add('active');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
 
-    // Parallax for spreads
-    spreads.forEach(spread => {
-      const img = spread.querySelector('img');
-      if (img) {
-        window.addEventListener('scroll', () => {
-          const scrollPos = window.scrollY + window.innerHeight;
-          const spreadTop = spread.offsetTop;
-          const offset = scrollPos - spreadTop;
-          img.style.transform = `translateY(${offset * -0.05}px) scale(1.05)`;
+    #particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .neon-stripes {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: 120%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .stripe {
+      height: 4px;
+      width: 100%;
+      opacity: 0;
+      filter: blur(10px);
+      transform: scaleX(0);
+      animation: stripeIntro 1s ease forwards;
+    }
+
+    .stripe1 { background: rgba(255,0,150,1); animation-delay: 0s; }
+    .stripe2 { background: rgba(0,255,200,1); animation-delay: 0.2s; }
+    .stripe3 { background: rgba(255,255,0,1); animation-delay: 0.4s; }
+
+    @keyframes stripeIntro {
+      0% { opacity: 0; transform: scaleX(0); }
+      50% { opacity: 1; transform: scaleX(1.2); }
+      100% { opacity: 0.2; transform: scaleX(1); }
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1.2);
+      height: 100vh;
+      width: 100vw;
+      object-fit: cover;
+      z-index: 3;
+      opacity: 0;
+      filter: blur(30px);
+      animation: imageReveal 1.5s ease forwards, glitchExit 0.6s ease forwards;
+      animation-delay: 0s, 3s;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes imageReveal {
+      0% { opacity: 0; filter: blur(30px); transform: translate(-50%, -50%) scale(1.2); }
+      100% { opacity: 1; filter: blur(0); transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @keyframes glitchExit {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      20% { transform: translate(-48%, -50%) scale(1.1); filter: hue-rotate(60deg); }
+      40% { transform: translate(-52%, -50%) scale(0.9); filter: hue-rotate(-60deg); }
+      60% { transform: translate(-50%, -52%) scale(1.2); filter: hue-rotate(30deg); }
+      80% { transform: translate(-50%, -48%) scale(0.8); filter: hue-rotate(-30deg); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    }
+
+    .neon-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      opacity: 0;
+      background: linear-gradient(270deg, #f0f, #0ff, #ff0, #f0f);
+      background-size: 600% 600%;
+      animation: lineAppear 0.5s 4s ease forwards, neonPulse 6s ease infinite;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    @keyframes lineAppear {
+      0% { opacity: 0; }
+      100% { opacity: 0.8; }
+    }
+
+    @keyframes neonPulse {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .horizontal-magazine {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      width: 100%;
+      height: 100vh;
+      perspective: 1500px;
+    }
+
+    .pages {
+      display: flex;
+      width: 300vw;
+      height: 100%;
+    }
+
+    .page {
+      scroll-snap-align: center;
+      flex: 0 0 100vw;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transform: rotateY(0deg);
+      transition: transform 0.8s ease;
+    }
+
+    .page.flipped {
+      transform: rotateY(-20deg);
+    }
+
+    .page-content {
+      text-align: center;
+      z-index: 2;
+      max-width: 80%;
+      backface-visibility: hidden;
+    }
+
+    .page-content h2 {
+      font-size: 6vw;
+      margin-bottom: 2vh;
+      letter-spacing: 0.05em;
+    }
+
+    .page-content p {
+      font-size: 2vw;
+      max-width: 600px;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Film_grain_texture.png') center/cover repeat;
+      opacity: 0.1;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, rgba(255,0,150,0.05), transparent, rgba(0,255,200,0.05));
+      mix-blend-mode: screen;
+      opacity: 0.2;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 5vh 0;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3"></script>
+</head>
+<body>
+  <div class="hero">
+    <canvas id="particles"></canvas>
+    <div class="neon-stripes">
+      <div class="stripe stripe1"></div>
+      <div class="stripe stripe2"></div>
+      <div class="stripe stripe3"></div>
+    </div>
+    <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
+  </div>
+
+  <div class="neon-line"></div>
+
+  <section class="horizontal-magazine">
+    <div class="pages">
+      <div class="page" style="background:#222;">
+        <div class="page-content">
+          <h2>Cover Story</h2>
+          <p>Analog textures meet modern design in this striking feature spread.</p>
+        </div>
+      </div>
+      <div class="page" style="background:#333;">
+        <div class="page-content">
+          <h2>Behind The Scenes</h2>
+          <p>Uncover the raw, unfiltered stories that shaped these projects.</p>
+        </div>
+      </div>
+      <div class="page" style="background:#111;">
+        <div class="page-content">
+          <h2>Studio Sessions</h2>
+          <p>See the process unfold in immersive visuals that echo vintage film.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Alex | Designed with ❤️</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pages = document.querySelectorAll('.page');
+
+      // Intersection Observer for page flip animation + sound
+      const pageFlipSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
+      const vinylSound = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); // replace with subtle vinyl loop if desired
+      vinylSound.loop = true;
+      vinylSound.volume = 0.15;
+      vinylSound.play();
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const page = entry.target;
+            page.classList.add('flipped');
+            pageFlipSound.currentTime = 0;
+            pageFlipSound.play();
+          } else {
+            entry.target.classList.remove('flipped');
+          }
         });
-      }
+      }, { threshold: 0.6 });
+
+      pages.forEach(page => observer.observe(page));
     });
 
-    // Intersection Observer for page flip sounds
-    const pageFlipSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387'); // royalty-free page flip
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          pageFlipSound.currentTime = 0;
-          pageFlipSound.play();
-        }
-      });
-    }, { threshold: 0.6 });
-
-    pages.forEach(page => observer.observe(page));
-  });
-
-  tsParticles.load("particles", {
-    background: { color: "#000000" },
-    particles: {
-      number: { value: 30 },
-      size: { value: 3 },
-      move: { speed: 1 },
-      opacity: { value: 0.4 },
-      color: { value: "#ffffff" }
-    }
-  });
-</script>
+    tsParticles.load("particles", {
+      background: { color: "#000000" },
+      particles: {
+        number: { value: 30 },
+        size: { value: 3 },
+        move: { speed: 1 },
+        opacity: { value: 0.4 },
+        color: { value: "#ffffff" }
+      }
+    });
+  </script>
+</body>
+</html>
