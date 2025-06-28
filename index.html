@@ -72,8 +72,8 @@
       z-index: 3;
       opacity: 0;
       filter: blur(30px);
-      animation: imageReveal 1.5s ease forwards, moveToHeader 1.5s ease forwards;
-      animation-delay: 0s, 2s;
+      animation: imageReveal 1.5s ease forwards, moveToHeader 1.5s ease forwards, fadeOutHero 0.5s ease forwards;
+      animation-delay: 0s, 2s, 4s;
       mix-blend-mode: screen;
     }
 
@@ -84,32 +84,39 @@
 
     @keyframes moveToHeader {
       0% { transform: translate(-50%, -50%) scale(1); height: 100vh; }
-      100% { transform: translate(0, 0) scale(0.2); height: 10vh; top: 0; left: 0; }
+      100% { transform: translate(-50%, -300%) scale(0.25); height: 10vh; }
     }
 
-    .header-text {
+    @keyframes fadeOutHero {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .header-name {
       position: fixed;
       top: 2vh;
-      left: 2vw;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 1.5rem;
+      text-align: center;
       opacity: 0;
       z-index: 4;
-      animation: fadeInHeader 1s ease forwards, glitchAnim 0.8s 4.5s ease forwards;
+      animation: fadeInName 0.5s ease forwards, glitchAnim 0.8s 4.8s ease forwards;
       pointer-events: none;
     }
 
-    @keyframes fadeInHeader {
+    @keyframes fadeInName {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
 
     @keyframes glitchAnim {
-      0% { transform: translate(0, 0); color: #fff; }
-      20% { transform: translate(-2px, 1px); color: #f0f; }
-      40% { transform: translate(3px, -2px); color: #0ff; }
-      60% { transform: translate(-1px, 2px); color: #ff0; }
-      80% { transform: translate(2px, -1px); color: #fff; }
-      100% { transform: translate(0, 0); color: #fff; }
+      0% { transform: translateX(-50%); color: #fff; }
+      20% { transform: translateX(-52%); color: #f0f; }
+      40% { transform: translateX(-48%); color: #0ff; }
+      60% { transform: translateX(-51%); color: #ff0; }
+      80% { transform: translateX(-49%); color: #fff; }
+      100% { transform: translateX(-50%); color: #fff; }
     }
 
     section {
@@ -146,7 +153,7 @@
     <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
   </div>
 
-  <div class="header-text" id="headerText">I'M ALEX.</div>
+  <div class="header-name" id="headerName">I'M ALEX.</div>
 
   <section class="about reveal">
     <h3>About Me</h3>
@@ -175,9 +182,9 @@
 
     // Switch text after glitch animation
     setTimeout(() => {
-      const header = document.getElementById("headerText");
-      if (header) header.textContent = "Alexandra Hartinger";
-    }, 5300);
+      const header = document.getElementById("headerName");
+      if (header) header.textContent = "ALEXANDRA HARTINGER";
+    }, 5600); // after glitch animation finishes
 
     tsParticles.load("particles", {
       background: { color: "#000000" },
