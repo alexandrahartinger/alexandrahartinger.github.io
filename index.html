@@ -6,8 +6,8 @@
 <title>I'm Alex - Faces Universe</title>
 <style>
   body, html { margin:0; padding:0; font-family:'Helvetica Neue',sans-serif; color:white; background:black; overflow:hidden; }
-  .hero { position:relative; width:100%; height:100vh; overflow:hidden; }
-  .hero-image { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); width:100vw; height:100vh; object-fit:cover; z-index:2; transition:transform 3s ease-in-out; }
+  .hero { position:relative; width:100%; height:100vh; overflow:hidden; transition: opacity 1s ease; }
+  .hero-image { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); width:100vw; height:100vh; object-fit:cover; z-index:2; transition:transform 5s ease-in-out; }
   .shape { position:absolute; width:40px; height:40px; opacity:0; border-radius:50%; z-index:3; pointer-events:none; animation:fall 3s forwards; }
   .shape img { width:100%; height:100%; object-fit:contain; }
   @keyframes fall {
@@ -49,41 +49,40 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  const hero = document.querySelector('.hero');
   const heroImg = document.querySelector('.hero-image');
   const magazine = document.querySelector('.horizontal-magazine');
-  const facesSong = new Audio('assets/faces-song.mp3'); // add your uploaded song to /assets
-
+  const facesSong = new Audio('assets/faces-song.mp3');
   facesSong.volume = 0.4;
   facesSong.play();
 
-  // Step 1: Zoom into portrait
+  // Step 1: Dramatic deep zoom
   setTimeout(() => {
-    heroImg.style.transform = "translate(-50%, -50%) scale(5)";
+    heroImg.style.transform = "translate(-50%, -50%) scale(15)";
   }, 1000);
 
-  // Step 2: Create floating shapes
+  // Step 2: Floating shapes start mid-zoom
   setTimeout(() => {
     for (let i=0; i<40; i++) {
       const shape = document.createElement('div');
       shape.classList.add('shape');
       shape.style.left = `${Math.random() * 100}vw`;
       if (Math.random() > 0.5) {
-        // Use simple CSS shapes with random colors
         shape.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
       } else {
-        // Or use abstract PNGs if uploaded to /assets (e.g., face-shape1.png)
         const img = document.createElement('img');
         img.src = `assets/face-shape${Math.floor(Math.random()*5)+1}.png`;
         shape.appendChild(img);
       }
       document.body.appendChild(shape);
     }
-  }, 4000);
+  }, 3000);
 
-  // Step 3: Reveal magazine pages after shapes finish
+  // Step 3: Fade hero, reveal magazine pages after zoom completes
   setTimeout(() => {
+    hero.style.opacity = 0;
     magazine.style.opacity = 1;
-  }, 7000);
+  }, 6000);
 });
 </script>
 </body>
