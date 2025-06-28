@@ -8,21 +8,7 @@
   body, html { margin:0; padding:0; font-family:'Helvetica Neue',sans-serif; color:white; background:black; overflow:hidden; }
   .hero { position:relative; width:100%; height:100vh; overflow:hidden; transition: opacity 1s ease; }
   .hero-image { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); width:100vw; height:100vh; object-fit:cover; z-index:2; transition:transform 5s ease-in-out; }
-  .shape { position:absolute; width:40px; height:40px; opacity:0; border-radius:50%; z-index:3; pointer-events:none; animation:fall 3s forwards; }
-  .shape img { width:100%; height:100%; object-fit:contain; }
-  @keyframes fall {
-    0% { opacity:0; transform:translateY(-100px) rotate(0deg); }
-    30% { opacity:1; }
-    100% { opacity:0; transform:translateY(120vh) rotate(360deg); }
-  }
-  .horizontal-magazine { display:flex; overflow-x:scroll; scroll-snap-type:x mandatory; width:100%; height:100vh; perspective:1500px; position:absolute; top:0; left:0; opacity:0; transition:opacity 2s; }
-  .pages { display:flex; width:300vw; height:100%; }
-  .page { scroll-snap-align:center; flex:0 0 100vw; height:100%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; transform-style:preserve-3d; transition:transform 0.8s ease; }
-  .page-content { text-align:center; z-index:2; max-width:90%; backface-visibility:hidden; }
-  .page-content h2 { font-size:6vw; margin-bottom:2vh; letter-spacing:0.05em; }
-  .page-content p { font-size:2vw; max-width:600px; }
-  .page::before { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:url('https://upload.wikimedia.org/wikipedia/commons/2/2e/Film_grain_texture.png') center/cover repeat; opacity:0.1; z-index:1; pointer-events:none; }
-  .page::after { content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(90deg,rgba(255,0,150,0.05),transparent,rgba(0,255,200,0.05)); mix-blend-mode:screen; opacity:0.2; z-index:1; pointer-events:none; }
+  .faces-cover { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); max-width:50vw; opacity:0; z-index:3; transition:opacity 2s ease; border-radius:12px; box-shadow:0 0 40px rgba(255,255,255,0.1); }
 </style>
 </head>
 <body>
@@ -30,59 +16,31 @@
     <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
   </div>
 
-  <section class="horizontal-magazine">
-    <div class="pages">
-      <div class="page" style="background:#000;">
-        <div class="page-content">
-          <h2>THE ART THAT STARTED IT ALL</h2>
-          <p>How Mac Miller’s <em>Faces</em> inspired my creative journey and led me deeper into the art world.</p>
-        </div>
-      </div>
-      <div class="page" style="background:#111;">
-        <div class="page-content">
-          <h2>Next Chapter</h2>
-          <p>Exploring new horizons through creative expression and bold design.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <img src="assets/faces-album.jpg" alt="Faces Album" class="faces-cover" />
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
   const heroImg = document.querySelector('.hero-image');
-  const magazine = document.querySelector('.horizontal-magazine');
+  const facesCover = document.querySelector('.faces-cover');
   const facesSong = new Audio('assets/faces-song.mp3');
   facesSong.volume = 0.4;
-  facesSong.play();
 
-  // Step 1: Dramatic deep zoom
+  // Step 1: Deep zoom into sunglasses lens
   setTimeout(() => {
-    heroImg.style.transform = "translate(-50%, -50%) scale(15)";
+    heroImg.style.transform = "translate(-50%, -50%) scale(50)";
   }, 1000);
 
-  // Step 2: Floating shapes start mid-zoom
-  setTimeout(() => {
-    for (let i=0; i<40; i++) {
-      const shape = document.createElement('div');
-      shape.classList.add('shape');
-      shape.style.left = `${Math.random() * 100}vw`;
-      if (Math.random() > 0.5) {
-        shape.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
-      } else {
-        const img = document.createElement('img');
-        img.src = `assets/face-shape${Math.floor(Math.random()*5)+1}.png`;
-        shape.appendChild(img);
-      }
-      document.body.appendChild(shape);
-    }
-  }, 3000);
-
-  // Step 3: Fade hero, reveal magazine pages after zoom completes
+  // Step 2: Fade hero to black after zoom completes
   setTimeout(() => {
     hero.style.opacity = 0;
-    magazine.style.opacity = 1;
   }, 6000);
+
+  // Step 3: Fade in Faces album cover + start song
+  setTimeout(() => {
+    facesCover.style.opacity = 1;
+    facesSong.play();
+  }, 7000);
 });
 </script>
 </body>
