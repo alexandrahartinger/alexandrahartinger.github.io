@@ -94,13 +94,22 @@
       font-size: 1.5rem;
       opacity: 0;
       z-index: 4;
-      animation: fadeInHeader 1s ease forwards;
-      animation-delay: 3.5s; /* after hero image moves */
+      animation: fadeInHeader 1s ease forwards, glitchAnim 0.8s 4.5s ease forwards;
+      pointer-events: none;
     }
 
     @keyframes fadeInHeader {
       0% { opacity: 0; }
       100% { opacity: 1; }
+    }
+
+    @keyframes glitchAnim {
+      0% { transform: translate(0, 0); color: #fff; }
+      20% { transform: translate(-2px, 1px); color: #f0f; }
+      40% { transform: translate(3px, -2px); color: #0ff; }
+      60% { transform: translate(-1px, 2px); color: #ff0; }
+      80% { transform: translate(2px, -1px); color: #fff; }
+      100% { transform: translate(0, 0); color: #fff; }
     }
 
     section {
@@ -137,7 +146,7 @@
     <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
   </div>
 
-  <div class="header-text">I'M ALEX.</div>
+  <div class="header-text" id="headerText">I'M ALEX.</div>
 
   <section class="about reveal">
     <h3>About Me</h3>
@@ -163,6 +172,12 @@
       };
       window.addEventListener('scroll', revealOnScroll);
     });
+
+    // Switch text after glitch animation
+    setTimeout(() => {
+      const header = document.getElementById("headerText");
+      if (header) header.textContent = "Alexandra Hartinger";
+    }, 5300);
 
     tsParticles.load("particles", {
       background: { color: "#000000" },
