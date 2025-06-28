@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>I'm Alex - Landing Page</title>
+  <title>I'm Alex - Portfolio</title>
   <style>
     body, html {
       margin: 0;
@@ -72,7 +72,7 @@
       z-index: 3;
       opacity: 0;
       filter: blur(30px);
-      animation: imageReveal 1.5s ease forwards, crtFlash 0.5s ease forwards;
+      animation: imageReveal 1.5s ease forwards, glitchExit 0.6s ease forwards;
       animation-delay: 0s, 3s;
       mix-blend-mode: screen;
     }
@@ -82,10 +82,13 @@
       100% { opacity: 1; filter: blur(0); transform: translate(-50%, -50%) scale(1); }
     }
 
-    @keyframes crtFlash {
-      0%   { opacity: 1; transform: translate(-50%, -50%) scale(1, 1); }
-      50%  { opacity: 1; transform: translate(-50%, -50%) scale(1.1, 0.05); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.1, 0); }
+    @keyframes glitchExit {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      20% { transform: translate(-48%, -50%) scale(1.1); filter: hue-rotate(60deg); }
+      40% { transform: translate(-52%, -50%) scale(0.9); filter: hue-rotate(-60deg); }
+      60% { transform: translate(-50%, -52%) scale(1.2); filter: hue-rotate(30deg); }
+      80% { transform: translate(-50%, -48%) scale(0.8); filter: hue-rotate(-30deg); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
     }
 
     .neon-line {
@@ -113,18 +116,75 @@
       100% { background-position: 0% 50%; }
     }
 
-    section {
-      padding: 10vh 5%;
-      max-width: 800px;
-      margin: 0 auto;
+    .spread {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 5vh 5vw;
+      color: white;
       opacity: 0;
       transform: translateY(50px);
       transition: all 1s ease;
     }
 
-    section.reveal.active {
+    .spread.active {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .spread-content {
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .spread-headline {
+      font-size: 6vw;
+      margin-bottom: 2vh;
+      letter-spacing: 0.1em;
+    }
+
+    .spread-subheadline {
+      font-size: 2vw;
+      margin-bottom: 4vh;
+    }
+
+    .spread-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+    }
+
+    .spread-editorial .spread-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4vw;
+      text-align: left;
+    }
+
+    .editorial-text {
+      flex: 1 1 45%;
+    }
+
+    .editorial-text h2 {
+      font-size: 4vw;
+      margin-bottom: 2vh;
+    }
+
+    .editorial-text p {
+      font-size: 1.5vw;
+      line-height: 1.5;
+    }
+
+    .editorial-image {
+      flex: 1 1 45%;
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
     }
 
     footer {
@@ -149,9 +209,22 @@
 
   <div class="neon-line"></div>
 
-  <section class="about reveal">
-    <h3>About Me</h3>
-    <p>I’m a creative with a passion for automotive branding and design, blending storytelling with strategy to create experiences that resonate.</p>
+  <section class="spread spread-feature" style="background: black;">
+    <div class="spread-content">
+      <h1 class="spread-headline">EXCLUSIVE PROJECT</h1>
+      <p class="spread-subheadline">A bold visual identity for the modern era.</p>
+      <img src="assets/featured-project.jpg" alt="Featured Project" class="spread-image">
+    </div>
+  </section>
+
+  <section class="spread spread-editorial" style="background: #111;">
+    <div class="spread-content editorial">
+      <div class="editorial-text">
+        <h2>In The Studio</h2>
+        <p>Dive deep into the creative process, from sketches to final production. This spread captures every moment of the journey, blending story and visuals like your favorite glossy mag.</p>
+      </div>
+      <img src="assets/editorial-photo.jpg" alt="Studio Photo" class="editorial-image">
+    </div>
   </section>
 
   <footer>
@@ -160,9 +233,9 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const reveals = document.querySelectorAll('.reveal');
+      const spreads = document.querySelectorAll('.spread');
       const revealOnScroll = () => {
-        reveals.forEach(el => {
+        spreads.forEach(el => {
           const windowHeight = window.innerHeight;
           const elementTop = el.getBoundingClientRect().top;
           const revealPoint = 150;
