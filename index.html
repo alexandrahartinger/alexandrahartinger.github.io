@@ -116,6 +116,42 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+
+    .horizontal-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .horizontal-wrapper {
+      display: flex;
+      height: 100%;
+      width: 300vw; /* 3 panels * 100vw each */
+      transition: transform 0.3s ease-out;
+    }
+
+    .horizontal-panel {
+      flex: 0 0 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5%;
+      color: white;
+    }
+
+    .horizontal-panel h2 {
+      font-size: 4vw;
+      margin-bottom: 1rem;
+    }
+
+    .horizontal-panel p {
+      font-size: 2vw;
+      max-width: 600px;
+      text-align: center;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@3"></script>
 </head>
@@ -131,6 +167,24 @@
   <section class="about reveal">
     <h3>About Me</h3>
     <p>I’m a creative with a passion for automotive branding and design, blending storytelling with strategy to create experiences that resonate.</p>
+  </section>
+
+  <!-- Horizontal Scroll Feature Section -->
+  <section class="horizontal-section">
+    <div class="horizontal-wrapper">
+      <div class="horizontal-panel" style="background: #111;">
+        <h2>Exclusive Interview</h2>
+        <p>Deep dive with the legends of rock.</p>
+      </div>
+      <div class="horizontal-panel" style="background: #222;">
+        <h2>Cover Story</h2>
+        <p>The iconic album art reimagined.</p>
+      </div>
+      <div class="horizontal-panel" style="background: #333;">
+        <h2>Behind The Scenes</h2>
+        <p>Stories that never made it to print.</p>
+      </div>
+    </div>
   </section>
 
   <section class="projects reveal">
@@ -181,6 +235,21 @@
         move: { speed: 1 },
         opacity: { value: 0.4 },
         color: { value: "#ffffff" }
+      }
+    });
+
+    // Horizontal scroll effect
+    const horizontalSection = document.querySelector('.horizontal-section');
+    const horizontalWrapper = document.querySelector('.horizontal-wrapper');
+
+    window.addEventListener('scroll', () => {
+      const sectionTop = horizontalSection.offsetTop;
+      const sectionHeight = horizontalSection.offsetHeight;
+      const scrollY = window.scrollY;
+
+      if (scrollY >= sectionTop && scrollY <= sectionTop + sectionHeight) {
+        const scrollProgress = (scrollY - sectionTop) / sectionHeight;
+        horizontalWrapper.style.transform = `translateX(-${scrollProgress * 200}vw)`;
       }
     });
   </script>
