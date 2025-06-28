@@ -72,8 +72,8 @@
       z-index: 3;
       opacity: 0;
       filter: blur(30px);
-      animation: imageReveal 1.5s ease forwards, moveToHeader 1.5s ease forwards, fadeOutHero 0.5s ease forwards;
-      animation-delay: 0s, 2s, 4s;
+      animation: imageReveal 1.5s ease forwards, moveToHeader 1.5s ease forwards;
+      animation-delay: 0s, 2s;
       mix-blend-mode: screen;
     }
 
@@ -87,36 +87,29 @@
       100% { transform: translate(-50%, -300%) scale(0.25); height: 10vh; }
     }
 
-    @keyframes fadeOutHero {
-      0% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-
-    .header-name {
+    .neon-line {
       position: fixed;
-      top: 2vh;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.5rem;
-      text-align: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
       opacity: 0;
-      z-index: 4;
-      animation: fadeInName 0.5s ease forwards, glitchAnim 0.8s 4.8s ease forwards;
+      background: linear-gradient(270deg, #f0f, #0ff, #ff0, #f0f);
+      background-size: 600% 600%;
+      animation: lineAppear 0.5s 4s ease forwards, neonPulse 6s ease infinite;
+      z-index: 5;
       pointer-events: none;
     }
 
-    @keyframes fadeInName {
+    @keyframes lineAppear {
       0% { opacity: 0; }
-      100% { opacity: 1; }
+      100% { opacity: 0.8; }
     }
 
-    @keyframes glitchAnim {
-      0% { transform: translateX(-50%); color: #fff; }
-      20% { transform: translateX(-52%); color: #f0f; }
-      40% { transform: translateX(-48%); color: #0ff; }
-      60% { transform: translateX(-51%); color: #ff0; }
-      80% { transform: translateX(-49%); color: #fff; }
-      100% { transform: translateX(-50%); color: #fff; }
+    @keyframes neonPulse {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     section {
@@ -153,7 +146,7 @@
     <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
   </div>
 
-  <div class="header-name" id="headerName">I'M ALEX.</div>
+  <div class="neon-line"></div>
 
   <section class="about reveal">
     <h3>About Me</h3>
@@ -179,12 +172,6 @@
       };
       window.addEventListener('scroll', revealOnScroll);
     });
-
-    // Switch text after glitch animation
-    setTimeout(() => {
-      const header = document.getElementById("headerName");
-      if (header) header.textContent = "ALEXANDRA HARTINGER";
-    }, 5600); // after glitch animation finishes
 
     tsParticles.load("particles", {
       background: { color: "#000000" },
