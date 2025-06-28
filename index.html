@@ -61,28 +61,6 @@
       100% { opacity: 0.2; transform: scaleX(1); }
     }
 
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      z-index: 2;
-      text-align: center;
-      width: 100%;
-      opacity: 0;
-      animation: textReveal 1s ease forwards, introScale 1.5s ease forwards;
-      animation-delay: 1.2s, 1.2s;
-      pointer-events: none;
-    }
-
-    .hero-text h1 {
-      font-size: 12vw;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.2);
-      white-space: nowrap;
-      mix-blend-mode: screen;
-    }
-
     .hero-image {
       position: absolute;
       top: 50%;
@@ -94,8 +72,8 @@
       z-index: 3;
       opacity: 0;
       filter: blur(30px);
-      animation: imageReveal 1.5s ease forwards, slowZoom 20s ease-in-out infinite alternate, introScale 1.5s ease forwards;
-      animation-delay: 0s, 2s, 1.2s;
+      animation: imageReveal 1.5s ease forwards, moveToHeader 1.5s ease forwards;
+      animation-delay: 0s, 2s;
       mix-blend-mode: screen;
     }
 
@@ -104,19 +82,25 @@
       100% { opacity: 1; filter: blur(0); transform: translate(-50%, -50%) scale(1); }
     }
 
-    @keyframes textReveal {
-      0% { opacity: 0; transform: translate(-50%, -50%) translateY(20px); }
-      100% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+    @keyframes moveToHeader {
+      0% { transform: translate(-50%, -50%) scale(1); height: 100vh; }
+      100% { transform: translate(0, 0) scale(0.2); height: 10vh; top: 0; left: 0; }
     }
 
-    @keyframes introScale {
-      0% { transform: translate(-50%, -50%) scale(1); }
-      100% { transform: translate(-50%, -50%) scale(0.9); }
+    .header-text {
+      position: fixed;
+      top: 2vh;
+      left: 2vw;
+      font-size: 1.5rem;
+      opacity: 0;
+      z-index: 4;
+      animation: fadeInHeader 1s ease forwards;
+      animation-delay: 3.5s; /* after hero image moves */
     }
 
-    @keyframes slowZoom {
-      0% { transform: translate(-50%, -50%) scale(0.9); }
-      100% { transform: translate(-50%, -50%) scale(0.95); }
+    @keyframes fadeInHeader {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
     section {
@@ -150,11 +134,10 @@
       <div class="stripe stripe2"></div>
       <div class="stripe stripe3"></div>
     </div>
-    <div class="hero-text">
-      <h1>I'M ALEX.</h1>
-    </div>
     <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
   </div>
+
+  <div class="header-text">I'M ALEX.</div>
 
   <section class="about reveal">
     <h3>About Me</h3>
@@ -179,18 +162,6 @@
         });
       };
       window.addEventListener('scroll', revealOnScroll);
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 30;
-      const y = (e.clientY / innerHeight - 0.5) * 30;
-
-      const heroImage = document.querySelector('.hero-image');
-      const heroText = document.querySelector('.hero-text');
-
-      heroImage.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(0.9)`;
-      heroText.style.transform = `translate(calc(-50% + ${x/2}px), calc(-50% + ${y/2}px)) scale(0.9)`;
     });
 
     tsParticles.load("particles", {
