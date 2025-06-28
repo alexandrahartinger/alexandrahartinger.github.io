@@ -1,22 +1,57 @@
-<section class="horizontal-magazine">
-  <div class="pages">
-    <div class="page" style="background:#222;">
-      <div class="page-content">
-        <h2>Cover Story</h2>
-        <p>Analog textures meet modern design in this striking feature spread.</p>
-      </div>
-    </div>
-    <div class="page" style="background:#333;">
-      <div class="page-content">
-        <h2>Behind The Scenes</h2>
-        <p>Uncover the raw, unfiltered stories that shaped these projects.</p>
-      </div>
-    </div>
-    <div class="page" style="background:#111;">
-      <div class="page-content">
-        <h2>Studio Sessions</h2>
-        <p>See the process unfold in immersive visuals that echo vintage film.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const spreads = document.querySelectorAll('.spread');
+    const pages = document.querySelectorAll('.page');
+
+    // Fade in spreads on scroll
+    const revealOnScroll = () => {
+      spreads.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 150;
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add('active');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // Parallax for spreads
+    spreads.forEach(spread => {
+      const img = spread.querySelector('img');
+      if (img) {
+        window.addEventListener('scroll', () => {
+          const scrollPos = window.scrollY + window.innerHeight;
+          const spreadTop = spread.offsetTop;
+          const offset = scrollPos - spreadTop;
+          img.style.transform = `translateY(${offset * -0.05}px) scale(1.05)`;
+        });
+      }
+    });
+
+    // Intersection Observer for page flip sounds
+    const pageFlipSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387'); // royalty-free page flip
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          pageFlipSound.currentTime = 0;
+          pageFlipSound.play();
+        }
+      });
+    }, { threshold: 0.6 });
+
+    pages.forEach(page => observer.observe(page));
+  });
+
+  tsParticles.load("particles", {
+    background: { color: "#000000" },
+    particles: {
+      number: { value: 30 },
+      size: { value: 3 },
+      move: { speed: 1 },
+      opacity: { value: 0.4 },
+      color: { value: "#ffffff" }
+    }
+  });
+</script>
