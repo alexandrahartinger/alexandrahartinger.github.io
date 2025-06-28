@@ -21,46 +21,6 @@
       overflow: hidden;
     }
 
-    #particles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
-    .neon-stripes {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 120%;
-      height: 120%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .stripe {
-      height: 4px;
-      width: 100%;
-      opacity: 0;
-      filter: blur(10px);
-      transform: scaleX(0);
-      animation: stripeIntro 1s ease forwards;
-    }
-
-    .stripe1 { background: rgba(255,0,150,1); animation-delay: 0s; }
-    .stripe2 { background: rgba(0,255,200,1); animation-delay: 0.2s; }
-    .stripe3 { background: rgba(255,255,0,1); animation-delay: 0.4s; }
-
-    @keyframes stripeIntro {
-      0% { opacity: 0; transform: scaleX(0); }
-      50% { opacity: 1; transform: scaleX(1.2); }
-      100% { opacity: 0.2; transform: scaleX(1); }
-    }
-
     .hero-image {
       position: absolute;
       top: 50%;
@@ -91,31 +51,6 @@
       100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
     }
 
-    .neon-line {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      opacity: 0;
-      background: linear-gradient(270deg, #f0f, #0ff, #ff0, #f0f);
-      background-size: 600% 600%;
-      animation: lineAppear 0.5s 4s ease forwards, neonPulse 6s ease infinite;
-      z-index: 5;
-      pointer-events: none;
-    }
-
-    @keyframes lineAppear {
-      0% { opacity: 0; }
-      100% { opacity: 0.8; }
-    }
-
-    @keyframes neonPulse {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     .horizontal-magazine {
       display: flex;
       overflow-x: scroll;
@@ -127,7 +62,7 @@
 
     .pages {
       display: flex;
-      width: 300vw;
+      width: 200vw;
       height: 100%;
     }
 
@@ -141,30 +76,14 @@
       position: relative;
       overflow: hidden;
       transform-style: preserve-3d;
-      transform: rotateY(0deg);
       transition: transform 0.8s ease;
-    }
-
-    .page.flipped {
-      transform: rotateY(-20deg);
     }
 
     .page-content {
       text-align: center;
       z-index: 2;
-      max-width: 80%;
+      max-width: 90%;
       backface-visibility: hidden;
-    }
-
-    .page-content h2 {
-      font-size: 6vw;
-      margin-bottom: 2vh;
-      letter-spacing: 0.05em;
-    }
-
-    .page-content p {
-      font-size: 2vw;
-      max-width: 600px;
     }
 
     .page::before {
@@ -188,6 +107,24 @@
       pointer-events: none;
     }
 
+    .article-text h1 {
+      font-size: 5vw;
+      margin-bottom: 1vh;
+      letter-spacing: 0.05em;
+    }
+
+    .article-text h3 {
+      font-size: 2vw;
+      margin-bottom: 2vh;
+      color: #ccc;
+    }
+
+    .article-text p {
+      font-size: 1.5vw;
+      line-height: 1.4;
+      max-width: 60ch;
+    }
+
     footer {
       text-align: center;
       padding: 5vh 0;
@@ -195,41 +132,29 @@
       color: #aaa;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3"></script>
 </head>
 <body>
   <div class="hero">
-    <canvas id="particles"></canvas>
-    <div class="neon-stripes">
-      <div class="stripe stripe1"></div>
-      <div class="stripe stripe2"></div>
-      <div class="stripe stripe3"></div>
-    </div>
     <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
   </div>
 
-  <div class="neon-line"></div>
-
   <section class="horizontal-magazine">
     <div class="pages">
-      <div class="page" style="background:#222;">
-        <div class="page-content">
-          <h2>Cover Story</h2>
-          <p>Analog textures meet modern design in this striking feature spread.</p>
+
+      <!-- Faces-only Rolling Stone article spread -->
+      <div class="page" style="background:#000; position: relative;">
+        <div class="page-content" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+          <div class="album-cover" style="flex:1; max-width:40%; position: relative;">
+            <img src="assets/faces-album.jpg" alt="Faces Album" style="width:100%; border-radius: 12px; box-shadow:0 0 40px rgba(255,255,255,0.1);">
+          </div>
+        </div>
+        <div class="article-text" style="position:absolute; bottom:10%; left:5%; max-width:90%;">
+          <h1>THE ART THAT STARTED IT ALL</h1>
+          <h3>How Mac Miller’s <em>Faces</em> ignited my creative journey</h3>
+          <p>It was Mac Miller’s <em>Faces</em> that first opened my eyes to art’s power to reveal our deepest truths. The raw emotion and experimental visuals inspired me to pick up a brush and start telling my own story through color, igniting my lifelong passion for creative expression.</p>
         </div>
       </div>
-      <div class="page" style="background:#333;">
-        <div class="page-content">
-          <h2>Behind The Scenes</h2>
-          <p>Uncover the raw, unfiltered stories that shaped these projects.</p>
-        </div>
-      </div>
-      <div class="page" style="background:#111;">
-        <div class="page-content">
-          <h2>Studio Sessions</h2>
-          <p>See the process unfold in immersive visuals that echo vintage film.</p>
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -241,38 +166,23 @@
     document.addEventListener('DOMContentLoaded', () => {
       const pages = document.querySelectorAll('.page');
 
-      // Intersection Observer for page flip animation + sound
       const pageFlipSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
-      const vinylSound = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); // replace with subtle vinyl loop if desired
+      const vinylSound = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
       vinylSound.loop = true;
-      vinylSound.volume = 0.15;
+      vinylSound.volume = 0.1;
       vinylSound.play();
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const page = entry.target;
-            page.classList.add('flipped');
             pageFlipSound.currentTime = 0;
             pageFlipSound.play();
-          } else {
-            entry.target.classList.remove('flipped');
           }
         });
       }, { threshold: 0.6 });
 
       pages.forEach(page => observer.observe(page));
-    });
-
-    tsParticles.load("particles", {
-      background: { color: "#000000" },
-      particles: {
-        number: { value: 30 },
-        size: { value: 3 },
-        move: { speed: 1 },
-        opacity: { value: 0.4 },
-        color: { value: "#ffffff" }
-      }
     });
   </script>
 </body>
