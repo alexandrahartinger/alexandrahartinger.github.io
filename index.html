@@ -21,6 +21,13 @@
       overflow: hidden;
     }
 
+    #particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0; /* particles behind everything */
+    }
+
     .hero-text {
       position: absolute;
       top: 50%;
@@ -106,9 +113,11 @@
       color: #aaa;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3"></script>
 </head>
 <body>
   <div class="hero">
+    <canvas id="particles"></canvas>
     <div class="hero-text">
       <h1>I'M ALEX.</h1>
     </div>
@@ -130,22 +139,45 @@
   </footer>
 
   <script>
+    // Scroll reveal
     document.addEventListener('DOMContentLoaded', () => {
       const reveals = document.querySelectorAll('.reveal');
-      
       const revealOnScroll = () => {
         reveals.forEach(el => {
           const windowHeight = window.innerHeight;
           const elementTop = el.getBoundingClientRect().top;
           const revealPoint = 150;
-
           if (elementTop < windowHeight - revealPoint) {
             el.classList.add('active');
           }
         });
       };
-
       window.addEventListener('scroll', revealOnScroll);
+    });
+
+    // Mouse parallax
+    document.addEventListener('mousemove', (e) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 30;
+      const y = (e.clientY / innerHeight - 0.5) * 30;
+
+      const heroImage = document.querySelector('.hero-image');
+      const heroText = document.querySelector('.hero-text');
+
+      heroImage.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1)`;
+      heroText.style.transform = `translate(calc(-50% + ${x/2}px), calc(-50% + ${y/2}px))`;
+    });
+
+    // Particles
+    tsParticles.load("particles", {
+      background: { color: "#000000" },
+      particles: {
+        number: { value: 30 },
+        size: { value: 3 },
+        move: { speed: 1 },
+        opacity: { value: 0.4 },
+        color: { value: "#ffffff" }
+      }
     });
   </script>
 </body>
