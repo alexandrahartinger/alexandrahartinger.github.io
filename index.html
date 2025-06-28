@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -25,7 +25,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 0; /* particles behind everything */
+      z-index: 0;
     }
 
     .hero-text {
@@ -33,19 +33,19 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) translateY(20px);
-      z-index: 1; /* text behind the image */
+      z-index: 1;
       text-align: center;
       width: 100%;
       opacity: 0;
       animation: textReveal 1s ease forwards;
-      animation-delay: 1.2s; /* comes in after image reveal starts */
+      animation-delay: 1.2s;
       pointer-events: none;
     }
 
     .hero-text h1 {
       font-size: 12vw;
       margin: 0;
-      color: rgba(255, 255, 255, 0.2); /* subtle text behind */
+      color: rgba(255, 255, 255, 0.2);
       white-space: nowrap;
     }
 
@@ -56,8 +56,8 @@
       transform: translate(-50%, -50%) scale(1.2);
       height: 100vh;
       width: 100vw;
-      object-fit: cover; /* fills entire screen */
-      z-index: 2; /* image on top of text */
+      object-fit: cover;
+      z-index: 2;
       opacity: 0;
       filter: blur(30px);
       animation: imageReveal 1.5s ease forwards, slowZoom 20s ease-in-out infinite alternate;
@@ -127,7 +127,7 @@
     .horizontal-wrapper {
       display: flex;
       height: 100%;
-      width: 300vw; /* 3 panels * 100vw each */
+      width: 300vw;
       transition: transform 0.3s ease-out;
     }
 
