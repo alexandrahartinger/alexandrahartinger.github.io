@@ -7,12 +7,15 @@
 <style>
   body, html { margin:0; padding:0; font-family:'Helvetica Neue',sans-serif; color:white; background:black; overflow:hidden; }
   .hero { position:relative; width:100%; height:100vh; overflow:hidden; transition: opacity 0.5s ease; }
-  .hero-image {
+  .hero-container {
     position:absolute; top:50%; left:50%;
-    transform:translate(-50%,-50%) scale(1);
-    transform-origin: 60% 45%; /* Adjust this to your sunglasses lens */
-    width:100vw; height:100vh; object-fit:cover;
-    z-index:2; transition:transform 1s ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+    transition:transform 1s ease-in-out;
+    z-index:2;
+  }
+  .hero-image {
+    position:absolute; top:0; left:0;
+    width:auto; height:100vh; object-fit:cover;
   }
   .faces-cover { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); max-width:50vw; opacity:0; z-index:3; border-radius:12px; box-shadow:0 0 40px rgba(255,255,255,0.1); mask-image: linear-gradient(to right, transparent 0%, white 50%, transparent 100%); mask-size: 200% 100%; mask-position: left; transition: opacity 0.5s ease, mask-position 1.5s ease; }
   .shape { position:absolute; width:40px; height:40px; opacity:0; border-radius:50%; z-index:4; pointer-events:none; animation:fall 3s forwards; }
@@ -26,7 +29,9 @@
 </head>
 <body>
   <div class="hero">
-    <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
+    <div class="hero-container">
+      <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
+    </div>
   </div>
 
   <img src="assets/faces-album.jpg" alt="Faces Album" class="faces-cover" />
@@ -34,17 +39,23 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
+  const heroContainer = document.querySelector('.hero-container');
   const heroImg = document.querySelector('.hero-image');
   const facesCover = document.querySelector('.faces-cover');
   const facesSong = new Audio('assets/faces-song.mp3');
   facesSong.volume = 0.4;
 
-  // Step 1: FAST zoom into lens
+  // Position the hero-image inside hero-container so sunglasses lens is centered.
+  // Adjust these based on your portrait: try shifting left/top until your lens is in the middle.
+  heroImg.style.left = "-20%";  // Shift image horizontally
+  heroImg.style.top = "-5%";    // Shift image vertically
+
+  // Step 1: FAST zoom hero-container into lens
   setTimeout(() => {
-    heroImg.style.transform = "translate(-50%, -50%) scale(50)";
+    heroContainer.style.transform = "translate(-50%, -50%) scale(50)";
   }, 500);
 
-  // Step 2: Hard fade hero to black after zoom
+  // Step 2: Fade hero to black after zoom
   setTimeout(() => {
     hero.style.opacity = 0;
   }, 1600);
