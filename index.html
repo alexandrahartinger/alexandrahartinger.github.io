@@ -7,24 +7,11 @@
 <style>
   body, html { margin:0; padding:0; font-family:'Helvetica Neue',sans-serif; color:white; background:black; overflow:hidden; }
   .hero { position:relative; width:100%; height:100vh; overflow:hidden; transition: opacity 0.5s ease; }
-  .hero-container {
-    position:absolute; top:50%; left:50%;
-    transform:translate(-50%, -50%) scale(1);
-    transition:transform 1s ease-in-out;
-    z-index:2;
-  }
-  .hero-image {
-    position:absolute; top:0; left:0;
-    width:auto; height:100vh; object-fit:cover;
-  }
-  .faces-cover { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); max-width:50vw; opacity:0; z-index:3; border-radius:12px; box-shadow:0 0 40px rgba(255,255,255,0.1); mask-image: linear-gradient(to right, transparent 0%, white 50%, transparent 100%); mask-size: 200% 100%; mask-position: left; transition: opacity 0.5s ease, mask-position 1.5s ease; }
-  .shape { position:absolute; width:40px; height:40px; opacity:0; border-radius:50%; z-index:4; pointer-events:none; animation:fall 3s forwards; }
-  .shape img { width:100%; height:100%; object-fit:contain; }
-  @keyframes fall {
-    0% { opacity:0; transform:translateY(-100px) rotate(0deg); }
-    30% { opacity:1; }
-    100% { opacity:0; transform:translateY(120vh) rotate(360deg); }
-  }
+  .hero-container { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%) scale(1); transition:transform 0.8s ease-in-out; z-index:2; }
+  .hero-image { position:absolute; top:0; left:0; width:100vw; height:100vh; object-fit:cover; }
+  .hero-text { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:8vw; font-weight:bold; text-transform:uppercase; z-index:3; }
+  .white-flash { position:fixed; top:0; left:0; width:100%; height:100%; background:white; opacity:0; z-index:4; transition:opacity 0.5s ease; }
+  .faces-cover { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); max-width:50vw; opacity:0; z-index:5; filter: drop-shadow(0 0 20px rgba(0,0,0,0.4)); transition: opacity 1.5s ease; }
 </style>
 </head>
 <body>
@@ -32,51 +19,39 @@
     <div class="hero-container">
       <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
     </div>
+    <div class="hero-text">I'M ALEX</div>
   </div>
 
+  <div class="white-flash"></div>
   <img src="assets/faces-album.jpg" alt="Faces Album" class="faces-cover" />
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
   const heroContainer = document.querySelector('.hero-container');
-  const heroImg = document.querySelector('.hero-image');
+  const heroText = document.querySelector('.hero-text');
+  const whiteFlash = document.querySelector('.white-flash');
   const facesCover = document.querySelector('.faces-cover');
   const facesSong = new Audio('assets/faces-song.mp3');
   facesSong.volume = 0.4;
 
-  // Position the hero-image inside hero-container so sunglasses lens is centered.
-  // Adjust these based on your portrait: try shifting left/top until your lens is in the middle.
-  heroImg.style.left = "-20%";  // Shift image horizontally
-  heroImg.style.top = "-5%";    // Shift image vertically
-
-  // Step 1: FAST zoom hero-container into lens
+  // Step 1: Fast zoom into hero text
   setTimeout(() => {
-    heroContainer.style.transform = "translate(-50%, -50%) scale(50)";
+    heroContainer.style.transform = "translate(-50%, -50%) scale(10)";
   }, 500);
 
-  // Step 2: Fade hero to black after zoom
+  // Step 2: Trigger white flash
+  setTimeout(() => {
+    whiteFlash.style.opacity = 1;
+  }, 1200);
+
+  // Step 3: Hide hero + flash, show Faces painting + start music
   setTimeout(() => {
     hero.style.opacity = 0;
-  }, 1600);
-
-  // Step 3: Brush stroke reveal + start music
-  setTimeout(() => {
+    whiteFlash.style.opacity = 0;
     facesCover.style.opacity = 1;
-    facesCover.style.maskPosition = "right";
     facesSong.play();
-  }, 2000);
-
-  // Step 4: Floating shapes around Faces album
-  setTimeout(() => {
-    for (let i=0; i<30; i++) {
-      const shape = document.createElement('div');
-      shape.classList.add('shape');
-      shape.style.left = `${Math.random() * 100}vw`;
-      shape.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
-      document.body.appendChild(shape);
-    }
-  }, 2500);
+  }, 1800);
 });
 </script>
 </body>
