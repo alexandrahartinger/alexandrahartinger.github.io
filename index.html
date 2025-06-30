@@ -3,84 +3,134 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Alexandra Hartinger Portfolio</title>
+<title>Alexandra Hartinger Intro</title>
 <style>
-  body, html { margin:0; padding:0; background:black; color:white; font-family:'Helvetica Neue',sans-serif; overflow-x:hidden; }
-  .container { height:100vh; display:flex; align-items:center; justify-content:center; }
-  .intro-text { display:flex; font-size:8vw; font-weight:bold; text-transform:uppercase; opacity:1; transition:opacity 0.6s ease; }
-  .intro-text span { display:inline-block; opacity:0; transform:translateY(100%); animation:letterIn 0.8s ease forwards; }
-  .intro-text span:nth-child(1){animation-delay:0s;} .intro-text span:nth-child(2){animation-delay:0.05s;}
-  .intro-text span:nth-child(3){animation-delay:0.1s;} .intro-text span:nth-child(4){animation-delay:0.15s;}
-  .intro-text span:nth-child(5){animation-delay:0.2s;} .intro-text span:nth-child(6){animation-delay:0.25s;}
-  .intro-text span:nth-child(7){animation-delay:0.3s;} .intro-text span:nth-child(8){animation-delay:0.35s;}
-  @keyframes letterIn{0%{opacity:0;transform:translateY(100%);}100%{opacity:1;transform:translateY(0);}}
-  .fixed-header { position:fixed; top:20px; left:50%; transform:translateX(-50%); font-size:2vw; font-weight:bold; text-transform:uppercase; opacity:0; animation:headerShow 0.8s ease forwards; animation-delay:3s; }
-  @keyframes headerShow{0%{opacity:0;}100%{opacity:1;}}
-  section { padding:15vh 10vw; min-height:100vh; display:flex; flex-direction:column; justify-content:center; }
-  section:nth-child(even) { background:#111; }
-  section h2 { font-size:5vw; margin-bottom:2vh; }
-  section p { font-size:2vw; max-width:700px; }
-  .gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:30px; }
-  .gallery img { max-width:30vw; border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.5); }
+  body, html {
+    margin:0; padding:0; background:black; color:white;
+    height:100%; width:100%;
+    overflow:hidden;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  .container {
+    position:relative; height:100vh; width:100%;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column;
+  }
+
+  .intro-text, .second-text {
+    display: flex;
+    font-size: 8vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity:1;
+    transition: opacity 0.6s ease;
+  }
+
+  .intro-text span, .second-text span {
+    display: inline-block;
+    opacity: 0;
+  }
+
+  .intro-text span {
+    transform: translateY(100%);
+    animation: letterIn 0.8s ease forwards;
+  }
+
+  .second-text span {
+    transform: translateY(0%);
+    animation: waveIn 0.8s ease forwards;
+  }
+
+  .intro-text span:nth-child(1) { animation-delay:0s; }
+  .intro-text span:nth-child(2) { animation-delay:0.05s; }
+  .intro-text span:nth-child(3) { animation-delay:0.1s; }
+  .intro-text span:nth-child(4) { animation-delay:0.15s; }
+  .intro-text span:nth-child(5) { animation-delay:0.2s; }
+  .intro-text span:nth-child(6) { animation-delay:0.25s; }
+  .intro-text span:nth-child(7) { animation-delay:0.3s; }
+  .intro-text span:nth-child(8) { animation-delay:0.35s; }
+
+  .second-text span:nth-child(odd) { animation-name: waveUp; }
+  .second-text span:nth-child(even) { animation-name: waveDown; }
+  .second-text span:nth-child(1) { animation-delay:0s; }
+  .second-text span:nth-child(2) { animation-delay:0.05s; }
+  .second-text span:nth-child(3) { animation-delay:0.1s; }
+  .second-text span:nth-child(4) { animation-delay:0.15s; }
+  .second-text span:nth-child(5) { animation-delay:0.2s; }
+  .second-text span:nth-child(6) { animation-delay:0.25s; }
+  .second-text span:nth-child(7) { animation-delay:0.3s; }
+  .second-text span:nth-child(8) { animation-delay:0.35s; }
+  .second-text span:nth-child(9) { animation-delay:0.4s; }
+  .second-text span:nth-child(10){ animation-delay:0.45s; }
+  .second-text span:nth-child(11){ animation-delay:0.5s; }
+  .second-text span:nth-child(12){ animation-delay:0.55s; }
+  .second-text span:nth-child(13){ animation-delay:0.6s; }
+  .second-text span:nth-child(14){ animation-delay:0.65s; }
+  .second-text span:nth-child(15){ animation-delay:0.7s; }
+  .second-text span:nth-child(16){ animation-delay:0.75s; }
+  .second-text span:nth-child(17){ animation-delay:0.8s; }
+  .second-text span:nth-child(18){ animation-delay:0.85s; }
+  .second-text span:nth-child(19){ animation-delay:0.9s; }
+
+  @keyframes letterIn {
+    0% { opacity:0; transform:translateY(100%); }
+    100% { opacity:1; transform:translateY(0); }
+  }
+
+  @keyframes waveUp {
+    0% { opacity:0; transform:translateY(100%); }
+    100% { opacity:1; transform:translateY(0); }
+  }
+
+  @keyframes waveDown {
+    0% { opacity:0; transform:translateY(-100%); }
+    100% { opacity:1; transform:translateY(0); }
+  }
+
+  .fixed-header {
+    position:fixed; top:20px; left:50%;
+    transform:translateX(-50%);
+    font-size:2vw; font-weight:bold; text-transform:uppercase;
+    opacity:0;
+    animation: headerShow 0.8s ease forwards;
+    animation-delay:6s;
+  }
+
+  @keyframes headerShow { 0% {opacity:0;} 100% {opacity:1;} }
 </style>
 </head>
 <body>
 
-  <!-- HERO INTRO -->
   <div class="container">
     <div class="intro-text" id="intro-text"></div>
+    <div class="second-text" id="second-text" style="opacity:0;"></div>
   </div>
   <div class="fixed-header">Alexandra Hartinger</div>
 
-  <!-- ABOUT SECTION -->
-  <section>
-    <h2>About Me</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Your creative story, mission statement, or personal intro goes here.</p>
-  </section>
-
-  <!-- FEATURED WORK SECTION -->
-  <section>
-    <h2>Featured Project: Faces Painting</h2>
-    <p>A short description of your Mac Miller tribute, what it meant, and what you learned.</p>
-    <div class="gallery">
-      <img src="assets/faces-album.jpg" alt="Faces Painting"/>
-    </div>
-  </section>
-
-  <!-- PHOTO GALLERY SECTION -->
-  <section>
-    <h2>Studio Sessions</h2>
-    <p>Photos from your workspace, showing your process and personality.</p>
-    <div class="gallery">
-      <img src="assets/_H6A7253.png" alt="Studio Shot 1"/>
-      <img src="assets/_H6A7263-Edit.png" alt="Studio Shot 2"/>
-      <img src="assets/_H6A7250-Edit.png" alt="Studio Shot 3"/>
-      <img src="assets/_H6A7283.png" alt="Studio Shot 4"/>
-      <img src="assets/_H6A7362.png" alt="Studio Shot 5"/>
-    </div>
-  </section>
-
-  <!-- PROJECTS OR MAGAZINE SECTION -->
-  <section>
-    <h2>Rolling Stone-Style Magazine</h2>
-    <p>Use this area for your interactive magazine experience — you could embed your horizontal spreads or storytelling sections here.</p>
-  </section>
-
-  <!-- CONTACT / FOOTER SECTION -->
-  <section>
-    <h2>Get In Touch</h2>
-    <p>Add your contact info, links to your LinkedIn, resume, email, or any calls to action here.</p>
-  </section>
-
 <script>
-  const text = "I'M ALEX";
-  const container = document.getElementById('intro-text');
-  text.split('').forEach(char => {
+  const intro = "I'M ALEX";
+  const second = "I LIKE TO TELL STORIES";
+  const introContainer = document.getElementById('intro-text');
+  const secondContainer = document.getElementById('second-text');
+
+  intro.split('').forEach(char => {
     const span = document.createElement('span');
     span.textContent = char===' ' ? '\u00A0' : char;
-    container.appendChild(span);
+    introContainer.appendChild(span);
   });
-  setTimeout(()=>{container.style.opacity=0;},2500);
+
+  setTimeout(() => {
+    introContainer.style.opacity=0;
+    secondContainer.style.opacity=1;
+    second.split('').forEach(char => {
+      const span = document.createElement('span');
+      span.textContent = char===' ' ? '\u00A0' : char;
+      secondContainer.appendChild(span);
+    });
+  },2500);
+
+  setTimeout(()=>{secondContainer.style.opacity=0;},5500);
 </script>
 
 </body>
