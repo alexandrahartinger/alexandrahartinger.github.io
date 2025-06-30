@@ -3,96 +3,101 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Alex - Faces Universe + Rolling Stone Zine</title>
+<title>Alex - Portal Intro</title>
 <style>
-  body, html { margin:0; padding:0; font-family:'Helvetica Neue',sans-serif; background:black; color:white; overflow:hidden; }
-  .hero { position:relative; width:100%; height:100vh; overflow:hidden; transition: opacity 0.5s ease; }
-  .hero-container { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%) scale(1); transition:transform 0.8s ease-in-out; z-index:2; }
-  .hero-image { position:absolute; top:0; left:0; width:100vw; height:100vh; object-fit:cover; }
-  .hero-text { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); font-size:8vw; font-weight:bold; text-transform:uppercase; z-index:3; }
-  .white-flash { position:fixed; top:0; left:0; width:100%; height:100%; background:white; opacity:0; z-index:4; transition:opacity 0.5s ease; }
-  .faces-cover { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); max-width:50vw; opacity:0; z-index:5; filter: drop-shadow(0 0 20px rgba(0,0,0,0.4)); transition: opacity 1.5s ease; }
-  .magazine { display:none; flex-direction: row; overflow-x: scroll; scroll-snap-type: x mandatory; width: 100%; height: 100vh; perspective: 1500px; background:#111; }
-  .spread { scroll-snap-align: center; flex: 0 0 100vw; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .page-content { max-width: 80%; text-align: center; position: relative; z-index: 2; padding: 40px; }
-  .page-content h2 { font-size: 6vw; margin-bottom: 2vh; font-family: serif; letter-spacing: 0.05em; position:relative; }
-  .page-content p { font-size: 2vw; max-width: 600px; margin: 0 auto; }
-  .magazine img { max-height:80vh; border-radius:12px; margin:20px; box-shadow:0 0 40px rgba(0,0,0,0.5); }
-  .scribble { position:absolute; font-family:'Comic Sans MS', cursive; font-size:2vw; color:rgba(255,255,255,0.7); transform: rotate(-10deg); opacity:0.8; z-index:3; pointer-events:none; }
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+    background: black;
+    color: white;
+  }
+
+  .flash-bg {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: black;
+    z-index: -1;
+    animation: bgFlash 2s ease forwards;
+  }
+
+  @keyframes bgFlash {
+    0% { background: black; }
+    50% { background: white; }
+    100% { background: black; }
+  }
+
+  .hero-text {
+    position: absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%) scale(1);
+    font-size: 8vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 1;
+    animation: textGrow 1s ease forwards, textGlitch 2.2s forwards;
+  }
+
+  @keyframes textGrow {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-50%, -50%) scale(3); }
+  }
+
+  @keyframes textGlitch {
+    0% { filter: none; opacity:1; }
+    20% { filter: hue-rotate(60deg) contrast(1.5); transform: translate(-50%, -60%) scale(2.5); }
+    40% { filter: hue-rotate(-60deg); transform: translate(-48%, -55%) scale(2); }
+    60% { filter: hue-rotate(120deg); opacity:0.8; transform: translate(-52%, -50%) scale(1.5); }
+    100% { opacity:0; transform: translate(-50%, -50%) scale(0); }
+  }
+
+  .portal {
+    position: absolute;
+    top:50%; left:50%;
+    width:0; height:0;
+    border-radius:50%;
+    background: radial-gradient(circle, #00ffcc 10%, transparent 70%);
+    z-index: 0;
+    opacity:0;
+    animation: portalOpen 1s ease-out 2s forwards, portalShrink 1s ease-in 3s forwards;
+  }
+
+  @keyframes portalOpen {
+    0% { opacity:0; width:0; height:0; transform: translate(-50%, -50%) rotate(0deg); }
+    100% { opacity:1; width:200vw; height:200vw; transform: translate(-50%, -50%) rotate(720deg); }
+  }
+
+  @keyframes portalShrink {
+    0% { opacity:1; width:200vw; height:200vw; transform: translate(-50%, -50%) rotate(720deg); }
+    100% { opacity:0; width:0; height:0; transform: translate(-50%, -50%) rotate(1080deg); }
+  }
+
+  .header {
+    position: fixed;
+    top:20px; left:50%;
+    transform: translateX(-50%) scale(0);
+    font-size: 2vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 10;
+    opacity:0;
+    animation: headerAppear 0.5s ease-out 4s forwards;
+  }
+
+  @keyframes headerAppear {
+    0% { opacity:0; transform: translateX(-50%) scale(0); }
+    100% { opacity:1; transform: translateX(-50%) scale(1); }
+  }
 </style>
 </head>
 <body>
 
-  <div class="hero">
-    <div class="hero-container">
-      <img src="assets/your-new-portrait.png" alt="Alex" class="hero-image" />
-    </div>
-    <div class="hero-text">I'M ALEX</div>
-  </div>
+  <div class="flash-bg"></div>
+  <div class="hero-text">I'M ALEX</div>
+  <div class="portal"></div>
+  <div class="header">ALEXANDRA HARTINGER</div>
 
-  <div class="white-flash"></div>
-  <img src="assets/faces-album.jpg" alt="Faces Album" class="faces-cover" />
-
-  <section class="magazine">
-    <div class="spread">
-      <div class="page-content">
-        <h2>Faces Tribute</h2>
-        <p>My hand-painted homage to Mac Miller's masterpiece, where my art journey and passion for storytelling began.</p>
-        <img src="assets/faces-album.jpg" alt="Faces Painting" />
-        <div class="scribble" style="top:20%; left:5%;">"Express yourself!"</div>
-      </div>
-    </div>
-
-    <div class="spread">
-      <div class="page-content">
-        <h2>Vinyl & Green Day</h2>
-        <p>Music has always been my inspiration — flipping records, finding stories, making connections.</p>
-        <img src="assets/_H6A7253.png" alt="Green Day Shot 1" />
-        <img src="assets/_H6A7263-Edit.png" alt="Green Day Shot 2" />
-        <div class="scribble" style="bottom:15%; right:10%;">"Punk forever!"</div>
-      </div>
-    </div>
-
-    <div class="spread">
-      <div class="page-content">
-        <h2>Studio Vibes</h2>
-        <p>Moments captured during creative chaos: playing records, getting inspired, and building something bigger than myself.</p>
-        <img src="assets/_H6A7250-Edit.png" alt="Studio Shot 1" />
-        <img src="assets/_H6A7283.png" alt="Studio Shot 2" />
-        <img src="assets/_H6A7362.png" alt="Studio Shot 3" />
-        <div class="scribble" style="top:10%; left:30%;">"Dream big"</div>
-      </div>
-    </div>
-  </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const hero = document.querySelector('.hero');
-  const heroContainer = document.querySelector('.hero-container');
-  const heroText = document.querySelector('.hero-text');
-  const whiteFlash = document.querySelector('.white-flash');
-  const facesCover = document.querySelector('.faces-cover');
-  const magazine = document.querySelector('.magazine');
-
-  setTimeout(() => {
-    heroContainer.style.transform = "translate(-50%, -50%) scale(10)";
-  }, 500);
-
-  setTimeout(() => {
-    whiteFlash.style.opacity = 1;
-  }, 1200);
-
-  setTimeout(() => {
-    hero.style.opacity = 0;
-    whiteFlash.style.opacity = 0;
-    facesCover.style.opacity = 1;
-  }, 1800);
-
-  setTimeout(() => {
-    facesCover.style.opacity = 0;
-    magazine.style.display = "flex";
-  }, 4000);
-});
-</script>
 </body>
 </html>
