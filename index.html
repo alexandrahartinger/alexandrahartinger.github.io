@@ -18,83 +18,57 @@
     flex-direction:column;
   }
 
-  .intro-text, .second-text {
+  .intro-text, .second-text, .third-text {
     display: flex;
     font-size: 8vw;
     font-weight: bold;
     text-transform: uppercase;
     opacity:1;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.4s ease;
   }
 
-  .intro-text span, .second-text span {
+  .intro-text span, .second-text span, .third-text span {
     display: inline-block;
     opacity: 0;
   }
 
-  .intro-text span {
-    transform: translateY(100%);
-    animation: letterIn 0.8s ease forwards;
-  }
+  .intro-text span { transform: translateY(100%); animation: letterIn 0.5s ease forwards; }
+  .second-text span { transform: translateY(0%); animation: waveIn 0.5s ease forwards; }
+  .third-text span { transform: scale(0.5); animation: popIn 0.3s ease forwards; }
 
-  .second-text span {
-    transform: translateY(0%);
-    animation: waveIn 0.8s ease forwards;
-  }
-
-  .intro-text span:nth-child(1) { animation-delay:0s; }
-  .intro-text span:nth-child(2) { animation-delay:0.05s; }
-  .intro-text span:nth-child(3) { animation-delay:0.1s; }
-  .intro-text span:nth-child(4) { animation-delay:0.15s; }
-  .intro-text span:nth-child(5) { animation-delay:0.2s; }
-  .intro-text span:nth-child(6) { animation-delay:0.25s; }
-  .intro-text span:nth-child(7) { animation-delay:0.3s; }
-  .intro-text span:nth-child(8) { animation-delay:0.35s; }
+  .intro-text span:nth-child(1){animation-delay:0s;} .intro-text span:nth-child(2){animation-delay:0.03s;}
+  .intro-text span:nth-child(3){animation-delay:0.06s;} .intro-text span:nth-child(4){animation-delay:0.09s;}
+  .intro-text span:nth-child(5){animation-delay:0.12s;} .intro-text span:nth-child(6){animation-delay:0.15s;}
+  .intro-text span:nth-child(7){animation-delay:0.18s;} .intro-text span:nth-child(8){animation-delay:0.21s;}
 
   .second-text span:nth-child(odd) { animation-name: waveUp; }
   .second-text span:nth-child(even) { animation-name: waveDown; }
-  .second-text span:nth-child(1) { animation-delay:0s; }
-  .second-text span:nth-child(2) { animation-delay:0.05s; }
-  .second-text span:nth-child(3) { animation-delay:0.1s; }
-  .second-text span:nth-child(4) { animation-delay:0.15s; }
-  .second-text span:nth-child(5) { animation-delay:0.2s; }
-  .second-text span:nth-child(6) { animation-delay:0.25s; }
-  .second-text span:nth-child(7) { animation-delay:0.3s; }
-  .second-text span:nth-child(8) { animation-delay:0.35s; }
-  .second-text span:nth-child(9) { animation-delay:0.4s; }
-  .second-text span:nth-child(10){ animation-delay:0.45s; }
-  .second-text span:nth-child(11){ animation-delay:0.5s; }
-  .second-text span:nth-child(12){ animation-delay:0.55s; }
-  .second-text span:nth-child(13){ animation-delay:0.6s; }
-  .second-text span:nth-child(14){ animation-delay:0.65s; }
-  .second-text span:nth-child(15){ animation-delay:0.7s; }
-  .second-text span:nth-child(16){ animation-delay:0.75s; }
-  .second-text span:nth-child(17){ animation-delay:0.8s; }
-  .second-text span:nth-child(18){ animation-delay:0.85s; }
-  .second-text span:nth-child(19){ animation-delay:0.9s; }
+  .second-text span:nth-child(1){animation-delay:0s;} .second-text span:nth-child(2){animation-delay:0.03s;}
+  .second-text span:nth-child(3){animation-delay:0.06s;} .second-text span:nth-child(4){animation-delay:0.09s;}
+  .second-text span:nth-child(5){animation-delay:0.12s;} .second-text span:nth-child(6){animation-delay:0.15s;}
+  .second-text span:nth-child(7){animation-delay:0.18s;} .second-text span:nth-child(8){animation-delay:0.21s;}
+  .second-text span:nth-child(9){animation-delay:0.24s;} .second-text span:nth-child(10){animation-delay:0.27s;}
+  .second-text span:nth-child(11){animation-delay:0.3s;} .second-text span:nth-child(12){animation-delay:0.33s;}
+  .second-text span:nth-child(13){animation-delay:0.36s;} .second-text span:nth-child(14){animation-delay:0.39s;}
+  .second-text span:nth-child(15){animation-delay:0.42s;} .second-text span:nth-child(16){animation-delay:0.45s;}
+  .second-text span:nth-child(17){animation-delay:0.48s;} .second-text span:nth-child(18){animation-delay:0.51s;}
+  .second-text span:nth-child(19){animation-delay:0.54s;}
 
-  @keyframes letterIn {
-    0% { opacity:0; transform:translateY(100%); }
-    100% { opacity:1; transform:translateY(0); }
-  }
+  .third-text span:nth-child(1){animation-delay:0s;} .third-text span:nth-child(2){animation-delay:0.05s;}
+  .third-text span:nth-child(3){animation-delay:0.1s;} .third-text span:nth-child(4){animation-delay:0.15s;}
 
-  @keyframes waveUp {
-    0% { opacity:0; transform:translateY(100%); }
-    100% { opacity:1; transform:translateY(0); }
-  }
-
-  @keyframes waveDown {
-    0% { opacity:0; transform:translateY(-100%); }
-    100% { opacity:1; transform:translateY(0); }
-  }
+  @keyframes letterIn { 0%{opacity:0;transform:translateY(100%);}100%{opacity:1;transform:translateY(0);} }
+  @keyframes waveUp { 0%{opacity:0;transform:translateY(100%);}100%{opacity:1;transform:translateY(0);} }
+  @keyframes waveDown { 0%{opacity:0;transform:translateY(-100%);}100%{opacity:1;transform:translateY(0);} }
+  @keyframes popIn { 0%{opacity:0;transform:scale(0.5);}100%{opacity:1;transform:scale(1);} }
 
   .fixed-header {
     position:fixed; top:20px; left:50%;
     transform:translateX(-50%);
     font-size:2vw; font-weight:bold; text-transform:uppercase;
     opacity:0;
-    animation: headerShow 0.8s ease forwards;
-    animation-delay:6s;
+    animation: headerShow 0.6s ease forwards;
+    animation-delay:5s;
   }
 
   @keyframes headerShow { 0% {opacity:0;} 100% {opacity:1;} }
@@ -105,14 +79,18 @@
   <div class="container">
     <div class="intro-text" id="intro-text"></div>
     <div class="second-text" id="second-text" style="opacity:0;"></div>
+    <div class="third-text" id="third-text" style="opacity:0;"></div>
   </div>
   <div class="fixed-header">Alexandra Hartinger</div>
 
 <script>
   const intro = "I'M ALEX";
   const second = "I LIKE TO TELL STORIES";
+  const third = "REAL";
+
   const introContainer = document.getElementById('intro-text');
   const secondContainer = document.getElementById('second-text');
+  const thirdContainer = document.getElementById('third-text');
 
   intro.split('').forEach(char => {
     const span = document.createElement('span');
@@ -128,9 +106,19 @@
       span.textContent = char===' ' ? '\u00A0' : char;
       secondContainer.appendChild(span);
     });
-  },2500);
+  },1800);
 
-  setTimeout(()=>{secondContainer.style.opacity=0;},5500);
+  setTimeout(() => {
+    secondContainer.style.opacity=0;
+    thirdContainer.style.opacity=1;
+    third.split('').forEach(char => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      thirdContainer.appendChild(span);
+    });
+  },3800);
+
+  setTimeout(()=>{thirdContainer.style.opacity=0;},5000);
 </script>
 
 </body>
