@@ -8,12 +8,14 @@
     body, html {
       margin: 0; padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      color: white; background: black; overflow-x: hidden;
+      background: black; color: white; overflow-x: hidden;
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black; display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px; box-sizing: border-box;
+      background: black;
+      display: flex; justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
@@ -22,40 +24,63 @@
     nav a {
       color: white; text-decoration: none; margin-left: 30px;
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
-      transition: color 0.3s;
     }
     nav a:hover { color: #aaa; }
-    section { padding: 140px 40px 60px; max-width: 1200px; margin: 0 auto; }
-    h1, h2 { text-transform: uppercase; margin-bottom: 20px; }
-    .video-container video {
-      width: 100%; height: auto; border-radius: 10px;
+    section {
+      padding: 140px 40px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .stills { display: flex; flex-wrap: wrap; gap: 10px; }
+    h1, h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .stills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
     .stills img {
-      width: calc(33.333% - 6.66px); height: auto;
-      border-radius: 8px; object-fit: cover;
+      width: calc(33.333% - 6.66px);
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
     }
     .carousel-container {
-      margin: 60px auto; overflow: hidden; max-width: 1200px;
+      margin: 60px auto;
+      overflow: hidden;
+      max-width: 1200px;
     }
     .carousel {
-      display: flex; animation: scroll 40s linear infinite;
+      display: flex;
+      animation: scroll 40s linear infinite;
     }
     .carousel img {
-      flex: 0 0 auto; width: 25%;
-      height: auto; margin-right: 10px; border-radius: 8px; object-fit: contain;
+      flex: 0 0 auto;
+      width: 25%;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      object-fit: contain;
     }
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
     footer {
-      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #aaa;
       background: black;
     }
   </style>
 </head>
-
 <body>
   <header>
     <div class="logo">Alexandra Hartinger</div>
@@ -119,15 +144,14 @@
 
   <section>
     <h2>The Incredible Team</h2>
-    <p>This is the amazing SCADpro team that made this project possible. That’s me in the pinstriped suit running around to get in the picture!</p>
-    <img src="Image 5.png" alt="SCADpro Team Photo" style="width:100%; max-width:1200px; border-radius:8px;">
+    <p>This is the amazing SCADpro team that made this project possible. That’s me in the pinstriped suit who ran around to get in the photo!</p>
+    <img src="Image 5.png" alt="SCADpro Team" style="width:100%; max-width:1200px; border-radius:8px;">
   </section>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
 
-  <!-- Background piano music -->
-  <audio src="soft-piano-christmas.mp3" autoplay loop volume="0.2"></audio>
+  <audio src="soft-piano-christmas.mp3" autoplay loop></audio>
 </body>
 </html>
