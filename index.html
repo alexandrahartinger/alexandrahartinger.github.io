@@ -10,10 +10,30 @@
       color: white; background: black; overflow-x: hidden;
     }
 
-    section { padding: 80px 5%; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 10;
+      background: black; display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    header .logo {
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+    }
+
+    nav a {
+      color: white; text-decoration: none; margin-left: 30px;
+      font-size: 1rem; text-transform: uppercase; font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #aaa; }
+
+    section { padding: 120px 5% 80px; border-bottom: 1px solid rgba(255,255,255,0.2); }
 
     .hero-video {
       position: relative; height: 90vh; width: 100%; overflow: hidden;
+      margin-top: 80px;
     }
 
     .hero-video video {
@@ -46,10 +66,24 @@
     }
 
     .bts-grid video { width: 100%; border-radius: 8px; }
+
+    footer {
+      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
+      background: black;
+    }
   </style>
 </head>
 
 <body>
+
+  <header>
+    <div class="logo">Alexandra Hartinger</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
   <!-- Hero Video Section -->
   <div class="hero-video">
@@ -90,9 +124,13 @@
       <video muted loop controls>
         <source src="assets/bts3.mp4" type="video/mp4">
       </video>
-      <!-- Add more BTS videos here -->
+      <!-- Add more BTS videos as needed -->
     </div>
   </section>
+
+  <footer>
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+  </footer>
 
 </body>
 </html>
