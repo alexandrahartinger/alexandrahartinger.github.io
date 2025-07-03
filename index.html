@@ -3,128 +3,96 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alexandra Hartinger Portfolio</title>
+  <title>David Yurman - Create Joy Campaign</title>
   <style>
     body, html {
       margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif;
       color: white; background: black; overflow-x: hidden;
     }
 
-    header {
-      position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black; display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px; box-sizing: border-box;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+    section { padding: 80px 5%; border-bottom: 1px solid rgba(255,255,255,0.2); }
+
+    .hero-video {
+      position: relative; height: 90vh; width: 100%; overflow: hidden;
     }
 
-    header .logo {
-      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
-    }
-
-    nav a {
-      color: white; text-decoration: none; margin-left: 30px;
-      font-size: 1rem; text-transform: uppercase; font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover { color: #aaa; }
-
-    .section {
-      position: relative; height: 80vh; width: 100%; overflow: hidden;
-      display: flex; align-items: center;
-    }
-
-    .section video {
+    .hero-video video {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover; z-index: 0; pointer-events: none;
-      transition: filter 0.5s ease;
+      object-fit: cover; z-index: 0;
     }
 
-    .overlay {
+    .hero-overlay {
       position: relative; z-index: 1; text-align: left;
-      padding: 0 60px; max-width: 50%;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      padding: 0 60px; max-width: 60%; top: 50%; transform: translateY(30%);
     }
 
-    .overlay h2 {
-      font-size: 4vw; margin: 0 0 20px; text-transform: uppercase;
-      transition: color 0.5s ease;
+    .hero-overlay h1 {
+      font-size: 5vw; margin: 0 0 20px; text-transform: uppercase;
     }
 
-    .overlay p {
-      font-size: 1.2rem; max-width: 600px; margin-bottom: 30px;
+    .hero-overlay p {
+      font-size: 1.5rem; max-width: 600px;
     }
 
-    .overlay a {
-      text-decoration: none; padding: 15px 30px;
-      background: white; color: black; font-weight: bold;
-      text-transform: uppercase; border-radius: 4px;
-      transition: background 0.3s;
+    h2 { font-size: 3rem; margin-bottom: 30px; text-transform: uppercase; }
+
+    video.standard-video {
+      width: 100%; border-radius: 8px; margin-bottom: 20px;
     }
 
-    .overlay a:hover { background: #ddd; }
-
-    .section:hover video { filter: brightness(0.5) saturate(0.7); }
-    .section:hover .overlay h2 { color: #ffffff; }
-
-    footer {
-      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
-      background: black;
+    .bts-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
     }
+
+    .bts-grid video { width: 100%; border-radius: 8px; }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="logo">Alexandra Hartinger</div>
-    <nav>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <!-- David Yurman Section with corrected video path -->
-  <div class="section" id="david-yurman">
+  <!-- Hero Video Section -->
+  <div class="hero-video">
     <video autoplay muted loop playsinline>
       <source src="assets/DYCreateJoy.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
     </video>
-    <div class="overlay">
-      <h2>David Yurman</h2>
-      <p>Create Joy Holiday Film: a luxury campaign celebrating light, emotion, and craftsmanship.</p>
-      <a href="#david-yurman-project">See More</a>
+    <div class="hero-overlay">
+      <h1>[Campaign Title Placeholder]</h1>
+      <p>[One-liner description placeholder]</p>
     </div>
   </div>
 
-  <!-- NASCAR placeholder section -->
-  <div class="section" id="nascar">
-    <video autoplay muted loop playsinline>
-      <source src="assets/videos/placeholder-nascar.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
-    <div class="overlay">
-      <h2>NASCAR</h2>
-      <p>Exciting campaigns and behind-the-scenes content from the world of racing.</p>
-      <a href="#nascar-project">See More</a>
-    </div>
-  </div>
+  <!-- Overview Section -->
+  <section>
+    <h2>[About the Project Placeholder]</h2>
+    <p>[This is where you can describe your role as art director, the overall concept, or any credits. Replace this text later.]</p>
+  </section>
 
-  <!-- Main Street Auto placeholder section -->
-  <div class="section" id="main-street-auto">
-    <video autoplay muted loop playsinline>
-      <source src="assets/videos/placeholder-mainstreet.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
+  <!-- Making Of Video Section -->
+  <section>
+    <h2>[Making Of Video Placeholder]</h2>
+    <video class="standard-video" controls>
+      <source src="assets/DYMakingOf.mp4" type="video/mp4">
     </video>
-    <div class="overlay">
-      <h2>Main Street Auto</h2>
-      <p>Creative strategies and visual storytelling for a dynamic auto repair brand.</p>
-      <a href="#main-street-project">See More</a>
-    </div>
-  </div>
+    <p>[Short description of the making-of video goes here. Replace later.]</p>
+  </section>
 
-  <footer>
-    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
-  </footer>
+  <!-- BTS Gallery Section -->
+  <section>
+    <h2>[Behind the Scenes Placeholder]</h2>
+    <div class="bts-grid">
+      <video muted loop controls>
+        <source src="assets/bts1.mp4" type="video/mp4">
+      </video>
+      <video muted loop controls>
+        <source src="assets/bts2.mp4" type="video/mp4">
+      </video>
+      <video muted loop controls>
+        <source src="assets/bts3.mp4" type="video/mp4">
+      </video>
+      <!-- Add more BTS videos here -->
+    </div>
+  </section>
 
 </body>
 </html>
