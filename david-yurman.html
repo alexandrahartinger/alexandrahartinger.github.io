@@ -24,16 +24,63 @@
       transition: color 0.3s;
     }
     nav a:hover { color: #aaa; }
+    .hero {
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    }
+    .hero video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .hero-content {
+      position: relative; z-index: 1; text-align: center;
+      top: 50%; transform: translateY(-50%);
+      max-width: 80%; margin: 0 auto;
+    }
+    .hero-content h1 {
+      font-size: 4vw; margin: 0 0 20px; text-transform: uppercase;
+    }
+    .hero-content p {
+      font-size: 1.2rem; max-width: 800px; margin: 0 auto;
+    }
+    .section {
+      padding: 80px 60px; max-width: 1000px; margin: 0 auto;
+    }
+    .section h2 {
+      font-size: 3rem; margin-bottom: 20px; text-transform: uppercase;
+    }
+    .section p {
+      font-size: 1.2rem; line-height: 1.6;
+    }
+    .video-section {
+      text-align: center; margin: 40px auto; max-width: 1000px;
+    }
+    .video-section iframe {
+      width: 100%; height: 500px; border-radius: 8px; margin-bottom: 40px;
+    }
+    .melting-stills {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;
+      margin: 60px auto; max-width: 1200px; text-align: center;
+    }
+    .melting-stills img {
+      width: 30%; min-width: 250px; border-radius: 8px;
+      animation: fadein 2s ease-in forwards;
+      opacity: 0;
+    }
+    .melting-stills img:nth-child(1) { animation-delay: 0.3s; }
+    .melting-stills img:nth-child(2) { animation-delay: 0.6s; }
+    .melting-stills img:nth-child(3) { animation-delay: 0.9s; }
+    @keyframes fadein {
+      to { opacity: 1; }
+    }
     .carousel-container {
-      margin: 120px auto; padding: 20px 0;
+      margin: 60px auto; padding: 20px 0;
       overflow: hidden; max-width: 1200px;
     }
     .carousel {
       display: flex; animation: scroll 40s linear infinite;
     }
     .carousel img {
-      flex: 0 0 auto; width: 25%; /* 4 images visible at once */
-      height: auto; margin-right: 10px; border-radius: 8px;
+      flex: 0 0 auto; width: 25%; height: auto; margin-right: 10px; border-radius: 8px;
     }
     @keyframes scroll {
       0% { transform: translateX(0); }
@@ -66,6 +113,30 @@
     </nav>
   </header>
 
+  <div class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="assets/DYCreateJoy.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h1>Create Joy Holiday Campaign</h1>
+      <p>Celebrating light, emotion, and craftsmanship in David Yurman's iconic holiday film.</p>
+    </div>
+  </div>
+
+  <div class="video-section">
+    <h2>Final Holiday Film</h2>
+    <iframe src="https://www.youtube.com/embed/T1U8KZrycwo" title="Final Holiday Film" frameborder="0" allowfullscreen></iframe>
+
+    <h2>Making of the Film</h2>
+    <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" title="Making of Create Joy Holiday Film" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="melting-stills">
+    <img src="assets/Image 1.png" alt="Still 1">
+    <img src="assets/Image 2.png" alt="Still 2">
+    <img src="assets/Image 3.png" alt="Still 3">
+  </div>
+
   <div class="carousel-container">
     <div class="carousel">
       <img src="assets/image 6.jpeg" alt="image 6">
@@ -85,7 +156,7 @@
   </div>
 
   <div class="team-section">
-    <img src="assets/Image 5.jpeg" alt="Image 5">
+    <img src="assets/Image 5.jpeg" alt="SCADpro Team">
     <p>Meet the amazing SCADpro team that helped bring this campaign to life. And yes — that’s me in the pinstriped suit running around to the front just in time for the photo. Sometimes you’ve got to pop out and show ’em!</p>
   </div>
 
