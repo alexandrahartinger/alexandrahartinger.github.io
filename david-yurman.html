@@ -12,10 +12,8 @@
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black;
-      display: flex; justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px; box-sizing: border-box;
+      background: black; display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
@@ -35,7 +33,7 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-    .video-container video {
+    .video-container video, .video-container iframe {
       width: 100%;
       height: auto;
       border-radius: 8px;
@@ -92,6 +90,7 @@
     </nav>
   </header>
 
+  <!-- HEADER VIDEO -->
   <section>
     <h1>David Yurman Create Joy Campaign</h1>
     <div class="video-container">
@@ -99,50 +98,55 @@
     </div>
   </section>
 
+  <!-- FINAL CAMPAIGN VIDEO FROM YOUTUBE -->
   <section>
     <h2>Final Campaign Video</h2>
     <div class="video-container">
-      <video src="assets/Holiday2023DOCUMENTARY.mp4" controls poster="assets/Image 2.png"></video>
+      <iframe src="https://www.youtube.com/embed/T1U8KZrycwo" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
 
+  <!-- BTS VIDEO FROM YOUTUBE -->
+  <section>
+    <h2>Behind the Scenes Video</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- FEATURED STILLS -->
   <section>
     <h2>Featured Stills</h2>
     <div class="stills">
-      <img src="assets/image 6.jpeg" alt="Still 1">
-      <img src="assets/image 7.jpeg" alt="Still 2">
-      <img src="assets/image 8.jpeg" alt="Still 3">
+      <img src="assets/image 6.png" alt="Still 1">
+      <img src="assets/image 7.png" alt="Still 2">
+      <img src="assets/image 8.png" alt="Still 3">
     </div>
   </section>
 
-  <section>
-    <h2>Making of Our Holiday Film</h2>
-    <div class="video-container">
-      <video src="assets/Holiday2023DOCUMENTARY.mp4" controls poster="assets/Image 3.png"></video>
-    </div>
-  </section>
-
+  <!-- CAROUSEL -->
   <section>
     <h2>Behind the Scenes Carousel</h2>
     <div class="carousel-container">
       <div class="carousel">
-        <img src="assets/image 6.jpeg" alt="Carousel 1">
-        <img src="assets/image 7.jpeg" alt="Carousel 2">
-        <img src="assets/image 8.jpeg" alt="Carousel 3">
+        <img src="assets/image 6.png" alt="Carousel 1">
+        <img src="assets/image 7.png" alt="Carousel 2">
+        <img src="assets/image 8.png" alt="Carousel 3">
         <img src="assets/image 9.png" alt="Carousel 4">
-        <img src="assets/image 10.jpeg" alt="Carousel 5">
+        <img src="assets/image 10.png" alt="Carousel 5">
         <img src="assets/image 11.png" alt="Carousel 6">
         <!-- Duplicate for seamless scroll -->
-        <img src="assets/image 6.jpeg" alt="Carousel 1 duplicate">
-        <img src="assets/image 7.jpeg" alt="Carousel 2 duplicate">
-        <img src="assets/image 8.jpeg" alt="Carousel 3 duplicate">
+        <img src="assets/image 6.png" alt="Carousel 1 duplicate">
+        <img src="assets/image 7.png" alt="Carousel 2 duplicate">
+        <img src="assets/image 8.png" alt="Carousel 3 duplicate">
         <img src="assets/image 9.png" alt="Carousel 4 duplicate">
-        <img src="assets/image 10.jpeg" alt="Carousel 5 duplicate">
+        <img src="assets/image 10.png" alt="Carousel 5 duplicate">
         <img src="assets/image 11.png" alt="Carousel 6 duplicate">
       </div>
     </div>
   </section>
 
+  <!-- TEAM PHOTO -->
   <section>
     <h2>The Incredible Team</h2>
     <p>This is the amazing SCADpro team that made this project possible. That’s me in the pinstriped suit who ran around to get in the photo!</p>
