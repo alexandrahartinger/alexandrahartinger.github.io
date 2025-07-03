@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>David Yurman – Create Joy Campaign</title>
   <style>
@@ -24,43 +24,21 @@
       transition: color 0.3s;
     }
     nav a:hover { color: #aaa; }
-    .hero-video {
-      position: relative; width: 100%; height: 100vh; overflow: hidden;
+
+    section {
+      padding: 120px 20px 60px; text-align: center;
     }
-    .hero-video video {
-      width: 100%; height: 100%; object-fit: cover;
+    section h2 {
+      margin-bottom: 40px; text-transform: uppercase; font-size: 2rem;
     }
-    .hero-content {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      text-align: center; padding: 0 20px;
+
+    .three-stills {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
     }
-    .hero-content h1 {
-      font-size: 3rem; margin-bottom: 20px;
+    .three-stills img {
+      width: 32%; height: auto; border-radius: 8px;
     }
-    .hero-content p {
-      font-size: 1.2rem; color: #ccc; max-width: 800px; margin: 0 auto;
-    }
-    .section {
-      margin: 80px auto; max-width: 1000px; padding: 0 20px;
-    }
-    .section h2 {
-      font-size: 2.5rem; margin-bottom: 20px; text-align: center;
-    }
-    .video-section iframe {
-      display: block; margin: 0 auto; width: 100%; max-width: 900px;
-      height: 506px; border-radius: 8px;
-    }
-    .stills-row {
-      display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px;
-    }
-    .stills-row img {
-      width: 30%; border-radius: 8px;
-      animation: melt 4s ease forwards;
-    }
-    @keyframes melt {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+
     .carousel-container {
       margin: 60px auto; padding: 20px 0;
       overflow: hidden; max-width: 1200px;
@@ -69,23 +47,13 @@
       display: flex; animation: scroll 40s linear infinite;
     }
     .carousel img {
-      flex: 0 0 auto; width: 20%; height: auto; margin-right: 10px;
-      border-radius: 8px;
+      flex: 0 0 auto; width: 25%; margin-right: 10px; border-radius: 8px;
     }
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    .team-section {
-      text-align: center; margin: 80px auto;
-      max-width: 900px; padding: 0 20px;
-    }
-    .team-section img {
-      width: 100%; border-radius: 12px; margin-bottom: 20px;
-    }
-    .team-section p {
-      font-size: 1.2rem; color: #ccc;
-    }
+
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
       background: black;
@@ -103,71 +71,66 @@
     </nav>
   </header>
 
-  <div class="hero-video">
-    <video autoplay muted loop playsinline>
-      <source src="assets/DYCreateJoy.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-content">
-      <h1>Create Joy Holiday Campaign</h1>
-      <p>Celebrating light, emotion, and craftsmanship in David Yurman's iconic holiday film.</p>
-    </div>
-  </div>
+  <!-- Title video -->
+  <section>
+    <video src="assets/DYCreateJoy.mp4" controls autoplay muted playsinline loop width="100%"></video>
+  </section>
 
-  <div class="section">
+  <!-- Final campaign video -->
+  <section>
     <h2>Final Holiday Film</h2>
-    <div class="video-section">
-      <iframe src="https://www.youtube.com/embed/T1U8KZrycwo" title="Final Holiday Film" allowfullscreen></iframe>
+    <video src="assets/GGive DY.webm" controls width="80%"></video>
+  </section>
+
+  <!-- 3 still images side by side -->
+  <section>
+    <h2>Key Holiday Stills</h2>
+    <div class="three-stills">
+      <img src="assets/image 6.jpeg" alt="Still 1" width="1372" height="768" style="max-width:100%;height:auto;">
+      <img src="assets/image 7.jpeg" alt="Still 2" width="1376" height="768" style="max-width:100%;height:auto;">
+      <img src="assets/image 8.jpeg" alt="Still 3" width="1367" height="768" style="max-width:100%;height:auto;">
     </div>
-  </div>
+  </section>
 
-  <div class="stills-row">
-    <img src="assets/Image 1.png" alt="Still 1">
-    <img src="assets/Image 2.png" alt="Still 2">
-    <img src="assets/Image 3.png" alt="Still 3">
-  </div>
+  <!-- Making-of video -->
+  <section>
+    <h2>Making Our Holiday Film</h2>
+    <video src="assets/Holiday2023DOCUMENTARY.mp4" controls width="80%"></video>
+  </section>
 
-  <div class="section">
-    <h2>Making of Our Holiday Film</h2>
-    <div class="video-section">
-      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" title="Making of the Film" allowfullscreen></iframe>
+  <!-- BTS carousel -->
+  <section>
+    <h2>Behind the Scenes</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="assets/image 6.jpeg" alt="BTS" width="1372" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 7.jpeg" alt="BTS" width="1376" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 8.jpeg" alt="BTS" width="1367" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 9.png" alt="BTS" width="1372" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 10.jpeg" alt="BTS" width="1374" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 11.png" alt="BTS" width="1370" height="768" style="max-width:100%;height:auto;">
+        <!-- Duplicate for seamless scroll -->
+        <img src="assets/image 6.jpeg" alt="BTS duplicate" width="1372" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 7.jpeg" alt="BTS duplicate" width="1376" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 8.jpeg" alt="BTS duplicate" width="1367" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 9.png" alt="BTS duplicate" width="1372" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 10.jpeg" alt="BTS duplicate" width="1374" height="768" style="max-width:100%;height:auto;">
+        <img src="assets/image 11.png" alt="BTS duplicate" width="1370" height="768" style="max-width:100%;height:auto;">
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="carousel-container">
-    <div class="carousel">
-      <img src="assets/image 6.jpeg" alt="image 6">
-      <img src="assets/image 7.jpeg" alt="image 7">
-      <img src="assets/image 8.jpeg" alt="image 8">
-      <img src="assets/image 9.png" alt="image 9">
-      <img src="assets/image 10.jpeg" alt="image 10">
-      <img src="assets/image 11.png" alt="image 11">
-      <!-- Duplicate for seamless scroll -->
-      <img src="assets/image 6.jpeg" alt="image 6 duplicate">
-      <img src="assets/image 7.jpeg" alt="image 7 duplicate">
-      <img src="assets/image 8.jpeg" alt="image 8 duplicate">
-      <img src="assets/image 9.png" alt="image 9 duplicate">
-      <img src="assets/image 10.jpeg" alt="image 10 duplicate">
-      <img src="assets/image 11.png" alt="image 11 duplicate">
-    </div>
-  </div>
+  <!-- Team photo -->
+  <section>
+    <h2>Meet the SCADpro Team That Made This Possible</h2>
+    <img src="assets/Image 5.jpeg" alt="Team Photo" width="1600" height="768" style="max-width:100%;height:auto;">
+    <p style="margin-top:20px;font-size:1rem;color:#ccc;">I'm the one in the pinstriped suit who had to sprint around the front to pop into the shot!</p>
+  </section>
 
-  <div class="team-section">
-    <img src="assets/Image 5.png" alt="SCADpro Team">
-    <p>Meet the amazing SCADpro team that helped bring this campaign to life. And yes — that’s me in the pinstriped suit running around to the front just in time for the photo. Sometimes you’ve got to pop out and show ’em!</p>
-  </div>
-
-  <!-- Background piano Christmas music -->
+  <!-- Christmas music -->
   <audio autoplay loop>
-    <source src="assets/light-christmas-piano.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+    <source src="assets/slow-christmas-piano.mp3" type="audio/mpeg">
   </audio>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const audio = document.querySelector('audio');
-      if (audio) audio.volume = 0.1; // faint volume
-    });
-  </script>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
