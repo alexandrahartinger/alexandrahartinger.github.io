@@ -24,8 +24,15 @@
       transition: color 0.3s;
     }
     nav a:hover { color: #aaa; }
+    .hero-video {
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    }
+    .hero-video video {
+      width: 100%; height: 100%; object-fit: cover;
+    }
     .hero-content {
-      margin-top: 120px; text-align: center; padding: 0 20px;
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      text-align: center; padding: 0 20px;
     }
     .hero-content h1 {
       font-size: 3rem; margin-bottom: 20px;
@@ -43,12 +50,11 @@
       display: block; margin: 0 auto; width: 100%; max-width: 900px;
       height: 506px; border-radius: 8px;
     }
-    .melting-stills {
-      display: flex; flex-direction: column; align-items: center;
-      margin-top: 80px;
+    .stills-row {
+      display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px;
     }
-    .melting-stills img {
-      width: 80%; max-width: 900px; margin-bottom: 20px;
+    .stills-row img {
+      width: 30%; border-radius: 8px;
       animation: melt 4s ease forwards;
     }
     @keyframes melt {
@@ -63,7 +69,7 @@
       display: flex; animation: scroll 40s linear infinite;
     }
     .carousel img {
-      flex: 0 0 auto; width: 25%; height: auto; margin-right: 10px;
+      flex: 0 0 auto; width: 20%; height: auto; margin-right: 10px;
       border-radius: 8px;
     }
     @keyframes scroll {
@@ -97,9 +103,15 @@
     </nav>
   </header>
 
-  <div class="hero-content">
-    <h1>Create Joy Holiday Campaign</h1>
-    <p>Celebrating light, emotion, and craftsmanship in David Yurman's iconic holiday film.</p>
+  <div class="hero-video">
+    <video autoplay muted loop playsinline>
+      <source src="assets/DYCreateJoy.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>Create Joy Holiday Campaign</h1>
+      <p>Celebrating light, emotion, and craftsmanship in David Yurman's iconic holiday film.</p>
+    </div>
   </div>
 
   <div class="section">
@@ -107,16 +119,19 @@
     <div class="video-section">
       <iframe src="https://www.youtube.com/embed/T1U8KZrycwo" title="Final Holiday Film" allowfullscreen></iframe>
     </div>
-    <h2>Making of the Film</h2>
-    <div class="video-section">
-      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" title="Making of the Film" allowfullscreen></iframe>
-    </div>
   </div>
 
-  <div class="melting-stills">
+  <div class="stills-row">
     <img src="assets/Image 1.png" alt="Still 1">
     <img src="assets/Image 2.png" alt="Still 2">
     <img src="assets/Image 3.png" alt="Still 3">
+  </div>
+
+  <div class="section">
+    <h2>Making of Our Holiday Film</h2>
+    <div class="video-section">
+      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" title="Making of the Film" allowfullscreen></iframe>
+    </div>
   </div>
 
   <div class="carousel-container">
@@ -139,7 +154,7 @@
 
   <div class="team-section">
     <img src="assets/Image 5.png" alt="SCADpro Team">
-    <p>Meet the amazing SCADpro team that helped bring this campaign to life.</p>
+    <p>Meet the amazing SCADpro team that helped bring this campaign to life. And yes — that’s me in the pinstriped suit running around to the front just in time for the photo. Sometimes you’ve got to pop out and show ’em!</p>
   </div>
 
   <!-- Background piano Christmas music -->
@@ -150,7 +165,7 @@
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const audio = document.querySelector('audio');
-      if (audio) audio.volume = 0.1; // set faint volume
+      if (audio) audio.volume = 0.1; // faint volume
     });
   </script>
 
