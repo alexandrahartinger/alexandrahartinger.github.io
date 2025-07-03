@@ -4,11 +4,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>David Yurman - Create Joy Campaign</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body, html {
-      margin: 0; padding: 0; font-family: 'Playfair Display', serif;
-      color: #f5f5f5; background: black; overflow-x: hidden;
+      margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif;
+      color: white; background: black; overflow-x: hidden;
     }
 
     header {
@@ -19,12 +18,11 @@
     }
 
     header .logo {
-      font-size: 2rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 2px; color: #d4af37;
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
     }
 
     nav a {
-      color: #f5f5f5; text-decoration: none; margin-left: 30px;
+      color: white; text-decoration: none; margin-left: 30px;
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
       transition: color 0.3s;
     }
@@ -32,50 +30,51 @@
     nav a:hover { color: #aaa; }
 
     .hero {
-      position: relative; height: 100vh; width: 100%; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
 
     .hero video {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover; z-index: 0; filter: brightness(0.7);
+      object-fit: cover; z-index: 0;
     }
 
     .hero-content {
-      position: relative; z-index: 1; text-align: center; padding: 0 20px;
+      position: relative; z-index: 1; text-align: center;
+      top: 50%; transform: translateY(-50%);
+      max-width: 80%; margin: 0 auto;
     }
 
     .hero-content h1 {
-      font-size: 6vw; margin: 0 0 20px; text-transform: uppercase;
-      color: #f5f5f5; animation: fadeIn 2s ease-in-out;
+      font-size: 4vw; margin: 0 0 20px; text-transform: uppercase;
     }
 
     .hero-content p {
-      font-size: 1.4rem; max-width: 700px; margin: 0 auto;
-      color: #ddd; animation: fadeIn 3s ease-in-out;
+      font-size: 1.2rem; max-width: 800px; margin: 0 auto;
     }
 
-    section {
-      padding: 100px 60px; max-width: 1000px; margin: 0 auto;
+    .section {
+      padding: 80px 60px; max-width: 1000px; margin: 0 auto;
     }
 
-    section h2 {
+    .section h2 {
       font-size: 3rem; margin-bottom: 20px; text-transform: uppercase;
-      color: #d4af37; animation: fadeIn 1.5s ease-in-out;
     }
 
-    section p {
-      font-size: 1.3rem; line-height: 1.7; color: #f5f5f5; animation: fadeIn 2s ease-in-out;
+    .section p {
+      font-size: 1.2rem; line-height: 1.6;
+    }
+
+    .video-section {
+      text-align: center; margin-top: 40px;
+    }
+
+    .video-section video {
+      width: 100%; max-width: 800px; border-radius: 8px;
     }
 
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
       background: black;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -96,27 +95,25 @@
     </video>
     <div class="hero-content">
       <h1>Create Joy Holiday Campaign</h1>
-      <p>Celebrating light, emotion, and craftsmanship with David Yurman’s 2023 Holiday film.</p>
+      <p>Celebrating light, emotion, and craftsmanship in David Yurman's iconic holiday film.</p>
     </div>
   </div>
 
-  <section>
-    <h2>Overview</h2>
-    <p>David Yurman’s Holiday 2023 Campaign, “Create Joy,” evokes warmth, intimacy, and timeless luxury. As an art director, I helped craft a visual story blending light and emotion to capture the spirit of the holidays.</p>
-  </section>
+  <div class="section">
+    <h2>About This Project</h2>
+    <p>This campaign was a collaboration with the David Yurman creative team, where I contributed as an art director guiding the aesthetic and visual storytelling of the holiday film, “Create Joy.” The project leaned into a luxurious, emotive approach to celebrate moments of giving and light.</p>
 
-  <section>
-    <h2>Vision & Approach</h2>
-    <p>We embraced evocative storytelling and cinematic visuals to create a sense of wonder. Drawing inspiration from holiday traditions and the sparkle of DY’s signature designs, we set out to make a film that felt both modern and timeless.</p>
-  </section>
-
-  <section>
-    <h2>Execution & Impact</h2>
-    <p>The final campaign featured a 60-second hero film and stills showcased across global platforms, bringing the message of “Create Joy” to life and driving engagement with David Yurman’s heritage of elegance.</p>
-  </section>
+    <div class="video-section">
+      <h2>Behind the Scenes</h2>
+      <video controls>
+        <source src="assets/videos/placeholder-bts.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
+
 </body>
 </html>
