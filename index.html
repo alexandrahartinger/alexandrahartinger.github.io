@@ -34,7 +34,6 @@
       display: flex; align-items: center;
     }
 
-    .section iframe,
     .section video {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover; z-index: 0; pointer-events: none;
@@ -65,7 +64,6 @@
 
     .overlay a:hover { background: #ddd; }
 
-    .section:hover iframe,
     .section:hover video { filter: brightness(0.5) saturate(0.7); }
     .section:hover .overlay h2 { color: #ffffff; }
 
@@ -85,10 +83,12 @@
     </nav>
   </header>
 
-  <!-- David Yurman Section with fullscreen YouTube background -->
+  <!-- David Yurman Section with compressed video -->
   <div class="section" id="david-yurman">
-    <iframe src="https://www.youtube.com/embed/SFI0uEe8n88?autoplay=1&loop=1&playlist=SFI0uEe8n88&controls=0&showinfo=0&mute=1&modestbranding=1&iv_load_policy=3&rel=0"
-            frameborder="0" allow="autoplay; fullscreen"></iframe>
+    <video autoplay muted loop playsinline>
+      <source src="assets/videos/DYCreateJoy.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
     <div class="overlay">
       <h2>David Yurman</h2>
       <p>Create Joy Holiday Film: a luxury campaign celebrating light, emotion, and craftsmanship.</p>
