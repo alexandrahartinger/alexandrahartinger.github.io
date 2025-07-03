@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>David Yurman - Create Joy Campaign</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <style>
     body, html {
       margin: 0; padding: 0; font-family: 'Playfair Display', serif;
@@ -68,6 +69,19 @@
       font-size: 1.3rem; line-height: 1.7; color: #f5f5f5; animation: fadeIn 2s ease-in-out;
     }
 
+    .swiper {
+      width: 100%; height: 70vh; margin: 50px auto;
+    }
+
+    .swiper-slide {
+      text-align: center; font-size: 18px; display: flex;
+      justify-content: center; align-items: center;
+    }
+
+    .swiper-slide img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
       background: black;
@@ -115,8 +129,33 @@
     <p>The final campaign featured a 60-second hero film and stills showcased across global platforms, bringing the message of “Create Joy” to life and driving engagement with David Yurman’s heritage of elegance.</p>
   </section>
 
+  <section>
+    <h2>Campaign Stills</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="assets/still1.jpg" alt="Campaign Still 1"></div>
+        <div class="swiper-slide"><img src="assets/still2.jpg" alt="Campaign Still 2"></div>
+        <div class="swiper-slide"><img src="assets/still3.jpg" alt="Campaign Still 3"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      autoplay: { delay: 4000 },
+      effect: 'fade'
+    });
+  </script>
 </body>
 </html>
