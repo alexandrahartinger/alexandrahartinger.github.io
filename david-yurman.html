@@ -24,10 +24,28 @@
       transition: color 0.3s;
     }
     nav a:hover { color: #aaa; }
-
+    .hero-content {
+      margin-top: 120px; text-align: center; padding: 0 20px;
+    }
+    .hero-content h1 {
+      font-size: 3rem; margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 1.2rem; color: #ccc; max-width: 800px; margin: 0 auto;
+    }
+    .section {
+      margin: 80px auto; max-width: 1000px; padding: 0 20px;
+    }
+    .section h2 {
+      font-size: 2.5rem; margin-bottom: 20px; text-align: center;
+    }
+    .video-section iframe {
+      display: block; margin: 0 auto; width: 100%; max-width: 900px;
+      height: 506px; border-radius: 8px;
+    }
     .melting-stills {
       display: flex; flex-direction: column; align-items: center;
-      margin-top: 120px;
+      margin-top: 80px;
     }
     .melting-stills img {
       width: 80%; max-width: 900px; margin-bottom: 20px;
@@ -37,7 +55,6 @@
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .carousel-container {
       margin: 60px auto; padding: 20px 0;
       overflow: hidden; max-width: 1200px;
@@ -53,7 +70,6 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-
     .team-section {
       text-align: center; margin: 80px auto;
       max-width: 900px; padding: 0 20px;
@@ -64,7 +80,6 @@
     .team-section p {
       font-size: 1.2rem; color: #ccc;
     }
-
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
       background: black;
@@ -81,6 +96,22 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
+  <div class="hero-content">
+    <h1>Create Joy Holiday Campaign</h1>
+    <p>Celebrating light, emotion, and craftsmanship in David Yurman's iconic holiday film.</p>
+  </div>
+
+  <div class="section">
+    <h2>Final Holiday Film</h2>
+    <div class="video-section">
+      <iframe src="https://www.youtube.com/embed/T1U8KZrycwo" title="Final Holiday Film" allowfullscreen></iframe>
+    </div>
+    <h2>Making of the Film</h2>
+    <div class="video-section">
+      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" title="Making of the Film" allowfullscreen></iframe>
+    </div>
+  </div>
 
   <div class="melting-stills">
     <img src="assets/Image 1.png" alt="Still 1">
@@ -108,7 +139,7 @@
 
   <div class="team-section">
     <img src="assets/Image 5.png" alt="SCADpro Team">
-    <p>Meet the amazing SCADpro team that helped bring this campaign to life. </p>
+    <p>Meet the amazing SCADpro team that helped bring this campaign to life.</p>
   </div>
 
   <!-- Background piano Christmas music -->
