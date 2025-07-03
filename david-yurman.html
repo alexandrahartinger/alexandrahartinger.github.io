@@ -24,57 +24,21 @@
       transition: color 0.3s;
     }
     nav a:hover { color: #aaa; }
-    .hero {
-      position: relative; width: 100%; height: 100vh; overflow: hidden;
-    }
-    .hero video {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover; z-index: 0;
-    }
-    .hero-content {
-      position: relative; z-index: 1; text-align: center;
-      top: 50%; transform: translateY(-50%);
-      max-width: 80%; margin: 0 auto;
-    }
-    .hero-content h1 {
-      font-size: 4vw; margin: 0 0 20px; text-transform: uppercase;
-    }
-    .hero-content p {
-      font-size: 1.2rem; max-width: 800px; margin: 0 auto;
-    }
-    .section {
-      padding: 80px 60px; max-width: 1000px; margin: 0 auto;
-    }
-    .section h2 {
-      font-size: 3rem; margin-bottom: 20px; text-transform: uppercase;
-    }
-    .video-section {
-      text-align: center; margin-top: 40px;
-    }
-    .video-section iframe {
-      width: 90vw; max-width: 1000px; height: 56.25vw; max-height: 562.5px;
-      border: none; border-radius: 8px; margin-bottom: 40px;
-    }
     .carousel-container {
-      position: relative; max-width: 1000px; margin: 80px auto;
-      overflow: hidden; border-radius: 8px;
+      margin: 120px auto; padding: 20px 0;
+      overflow: hidden; max-width: 1200px;
     }
-    .carousel-slide {
-      display: flex; transition: transform 0.5s ease-in-out;
-      width: calc(100% * 6); /* 6 images */
+    .carousel {
+      display: flex; animation: scroll 40s linear infinite;
     }
-    .carousel-slide img {
-      width: 100%; height: auto; flex-shrink: 0;
+    .carousel img {
+      flex: 0 0 auto; width: 25%; /* 4 images visible at once */
+      height: auto; margin-right: 10px; border-radius: 8px;
     }
-    .carousel-nav {
-      text-align: center; margin-top: 20px;
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
-    .carousel-dot {
-      display: inline-block; width: 12px; height: 12px;
-      margin: 0 6px; background: #555; border-radius: 50%;
-      cursor: pointer; transition: background 0.3s;
-    }
-    .carousel-dot.active { background: white; }
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
       background: black;
@@ -92,75 +56,26 @@
     </nav>
   </header>
 
-  <div class="hero">
-    <video autoplay muted loop playsinline>
-      <source src="assets/DYCreateJoy.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <h1>Create Joy Holiday Campaign</h1>
-      <p>Celebrating light, emotion, and craftsmanship in David Yurman's iconic holiday film.</p>
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="assets/image 6.jpeg" alt="BTS 1">
+      <img src="assets/image 7.jpeg" alt="BTS 2">
+      <img src="assets/image 8.jpeg" alt="BTS 3">
+      <img src="assets/image 9.png" alt="BTS 4">
+      <img src="assets/image 10.jpeg" alt="BTS 5">
+      <img src="assets/image 11.png" alt="BTS 6">
+      <!-- Duplicate for seamless scroll -->
+      <img src="assets/image 6.jpeg" alt="BTS 1 duplicate">
+      <img src="assets/image 7.jpeg" alt="BTS 2 duplicate">
+      <img src="assets/image 8.jpeg" alt="BTS 3 duplicate">
+      <img src="assets/image 9.png" alt="BTS 4 duplicate">
+      <img src="assets/image 10.jpeg" alt="BTS 5 duplicate">
+      <img src="assets/image 11.png" alt="BTS 6 duplicate">
     </div>
-  </div>
-
-  <div class="section">
-    <h2>Final Holiday Film</h2>
-    <div class="video-section">
-      <iframe src="https://www.youtube.com/embed/T1U8KZrycwo?rel=0" title="Final Holiday Film" allowfullscreen></iframe>
-    </div>
-
-    <h2>Behind the Scenes</h2>
-    <div class="video-section">
-      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM?rel=0" title="Making of Create Joy Holiday Film" allowfullscreen></iframe>
-    </div>
-
-    <h2>On Set – Behind the Scenes Carousel</h2>
-    <div class="carousel-container">
-      <div class="carousel-slide">
-        <img src="assets/image 6.jpeg" alt="BTS 1">
-        <img src="assets/image 7.jpeg" alt="BTS 2">
-        <img src="assets/image 8.jpeg" alt="BTS 3">
-        <img src="assets/image 9.png" alt="BTS 4">
-        <img src="assets/image 10.jpeg" alt="BTS 5">
-        <img src="assets/image 11.png" alt="BTS 6">
-      </div>
-    </div>
-    <div class="carousel-nav" id="carousel-dots"></div>
   </div>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
-
-  <script>
-    const slide = document.querySelector('.carousel-slide');
-    const totalSlides = document.querySelectorAll('.carousel-slide img').length;
-    const dotsContainer = document.getElementById('carousel-dots');
-    let currentSlide = 0;
-
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('span');
-      dot.classList.add('carousel-dot');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-    }
-
-    const dots = document.querySelectorAll('.carousel-dot');
-
-    function goToSlide(index) {
-      currentSlide = index;
-      slide.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
-
-    function autoSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      goToSlide(currentSlide);
-    }
-
-    setInterval(autoSlide, 4000); // 4 seconds
-  </script>
-
 </body>
 </html>
