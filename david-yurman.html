@@ -39,16 +39,29 @@
       font-size: 4vw; text-align: center;
       z-index: 1; margin: 0; text-transform: uppercase;
       color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+      animation: meltSnow 3s ease forwards;
+    }
+    @keyframes meltSnow {
+      0% { opacity: 0; transform: translate(-50%, -60%) scale(1.1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
     }
     section {
       padding: 80px 40px;
       max-width: 1200px;
       margin: 0 auto;
     }
-    h2 {
+    section:not(#team) h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-align: left;
+      font-size: 2rem;
+    }
+    section#team h2 {
       text-transform: uppercase;
       margin-bottom: 20px;
       text-align: center;
+      font-size: 2rem;
     }
     .video-container video, .video-container iframe {
       width: 100%;
@@ -109,7 +122,6 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION WITH OVERLAY TITLE -->
   <div class="hero">
     <video src="assets/DYCreateJoy.mp4" autoplay muted loop playsinline poster="assets/Image 1.png"></video>
     <h1>David Yurman Create Joy Campaign</h1>
@@ -148,7 +160,6 @@
         <img src="assets/image 9.png" alt="Carousel 4">
         <img src="assets/image 10.png" alt="Carousel 5">
         <img src="assets/image 11.png" alt="Carousel 6">
-        <!-- Duplicate for seamless scroll -->
         <img src="assets/image 6.png" alt="Carousel 1 duplicate">
         <img src="assets/image 7.png" alt="Carousel 2 duplicate">
         <img src="assets/image 8.png" alt="Carousel 3 duplicate">
@@ -159,10 +170,10 @@
     </div>
   </section>
 
-  <section>
+  <section id="team">
     <h2>The Incredible Team</h2>
-    <p>This is the amazing SCADpro team that made this project possible. That’s me in the pinstriped suit who ran around to get in the photo!</p>
-    <img src="assets/Image 5.webp" alt="SCADpro Team" style="width:100%; max-width:1200px; border-radius:8px;">
+    <p style="text-align:center;">This is the amazing SCADpro team that made this project possible. That’s me in the pinstriped suit who ran around to get in the photo!</p>
+    <img src="assets/Image 5.webp" alt="SCADpro Team" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
   </section>
 
   <footer>
