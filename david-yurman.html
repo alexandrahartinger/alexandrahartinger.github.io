@@ -6,16 +6,13 @@
   <title>David Yurman – Create Joy Campaign</title>
   <style>
     body, html {
-      margin: 0; padding: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: black; color: white; overflow-x: hidden;
+      margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif;
+      color: white; background: black; overflow-x: hidden;
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black;
-      display: flex; justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px; box-sizing: border-box;
+      background: black; display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
@@ -24,63 +21,63 @@
     nav a {
       color: white; text-decoration: none; margin-left: 30px;
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
+      transition: color 0.3s;
     }
     nav a:hover { color: #aaa; }
     section {
-      padding: 140px 40px 60px;
-      max-width: 1200px;
-      margin: 0 auto;
+      margin: 120px auto; max-width: 1200px; padding: 20px;
     }
-    h1, h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
+    section.video, section.carousel-section, section.team {
+      text-align: center;
     }
-    .video-container video {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
+    video {
+      width: 100%; border-radius: 8px; margin-bottom: 40px;
     }
-    .stills {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .still-images {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 40px;
     }
-    .stills img {
-      width: calc(33.333% - 6.66px);
-      height: auto;
-      border-radius: 8px;
+    .still-images img {
+      width: 32%; height: auto; border-radius: 8px;
       object-fit: cover;
     }
     .carousel-container {
-      margin: 60px auto;
-      overflow: hidden;
-      max-width: 1200px;
+      overflow: hidden; margin: 40px auto; max-width: 1200px;
     }
     .carousel {
-      display: flex;
-      animation: scroll 40s linear infinite;
+      display: flex; animation: scroll 40s linear infinite;
     }
     .carousel img {
-      flex: 0 0 auto;
-      width: 25%;
-      height: auto;
-      margin-right: 10px;
-      border-radius: 8px;
-      object-fit: contain;
+      flex: 0 0 auto; width: 25%; height: auto; margin-right: 10px; border-radius: 8px;
+      object-fit: cover;
     }
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+    .team-photo {
+      display: flex; flex-direction: column; align-items: center; margin: 40px 0;
+    }
+    .team-photo img.main {
+      width: 80%; max-width: 1000px; border-radius: 8px; margin-bottom: 20px;
+    }
+    .team-photo .extras {
+      display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+      margin-top: 20px;
+    }
+    .team-photo .extras img {
+      width: 30%; border-radius: 8px; object-fit: cover;
+    }
+    .caption {
+      font-size: 1rem; color: #ccc; max-width: 800px; margin: 20px auto;
+    }
     footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      background: black;
+      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
+      background: black; margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo">Alexandra Hartinger</div>
@@ -91,38 +88,34 @@
     </nav>
   </header>
 
-  <section>
-    <h1>David Yurman Create Joy Campaign</h1>
-    <div class="video-container">
-      <video src="DYCreateJoy.mp4" controls poster="Image 1.png"></video>
-    </div>
+  <section class="video">
+    <video controls autoplay muted loop>
+      <source src="DYCreateJoy.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </section>
 
-  <section>
-    <h2>Final Campaign Video</h2>
-    <div class="video-container">
-      <video src="Holiday2023DOCUMENTARY.mp4" controls poster="Image 2.png"></video>
-    </div>
+  <section class="video">
+    <video controls>
+      <source src="Holiday2023DOCUMENTARY.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </section>
 
-  <section>
-    <h2>Featured Stills</h2>
-    <div class="stills">
-      <img src="image 6.jpeg" alt="Still 1">
-      <img src="image 7.jpeg" alt="Still 2">
-      <img src="image 8.jpeg" alt="Still 3">
-    </div>
+  <section class="still-images">
+    <img src="image 6.jpeg" alt="Behind the scenes 1">
+    <img src="image 7.jpeg" alt="Behind the scenes 2">
+    <img src="image 8.jpeg" alt="Behind the scenes 3">
   </section>
 
-  <section>
-    <h2>Making of Our Holiday Film</h2>
-    <div class="video-container">
-      <video src="Holiday2023DOCUMENTARY.mp4" controls poster="Image 3.png"></video>
-    </div>
+  <section class="video">
+    <video controls>
+      <source src="DYCreateJoy.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </section>
 
-  <section>
-    <h2>Behind the Scenes Carousel</h2>
+  <section class="carousel-section">
     <div class="carousel-container">
       <div class="carousel">
         <img src="image 6.jpeg" alt="Carousel 1">
@@ -131,7 +124,6 @@
         <img src="image 9.png" alt="Carousel 4">
         <img src="image 10.jpeg" alt="Carousel 5">
         <img src="image 11.png" alt="Carousel 6">
-        <!-- Duplicate for seamless scroll -->
         <img src="image 6.jpeg" alt="Carousel 1 duplicate">
         <img src="image 7.jpeg" alt="Carousel 2 duplicate">
         <img src="image 8.jpeg" alt="Carousel 3 duplicate">
@@ -142,16 +134,24 @@
     </div>
   </section>
 
-  <section>
-    <h2>The Incredible Team</h2>
-    <p>This is the amazing SCADpro team that made this project possible. That’s me in the pinstriped suit who ran around to get in the photo!</p>
-    <img src="Image 5.png" alt="SCADpro Team" style="width:100%; max-width:1200px; border-radius:8px;">
+  <section class="team-photo">
+    <img src="Image 5.jpeg" alt="SCADPro Team" class="main">
+    <p class="caption">That's me in the pinstriped suit popping into the frame! I’m so grateful for my incredible SCADPro team who made this campaign possible.</p>
+
+    <div class="extras">
+      <div>
+        <img src="IMG_1235.jpeg" alt="Me and an awesome professor">
+        <p class="caption">Me with one of the amazing professors – their mentorship made this experience one of the coolest moments of my creative journey so far.</p>
+      </div>
+      <div>
+        <img src="IMG_1262.jpeg" alt="Creative journey">
+        <p class="caption">Sharing this unforgettable moment with our team and mentors was a highlight I’ll never forget.</p>
+      </div>
+    </div>
   </section>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
-
-  <audio src="soft-piano-christmas.mp3" autoplay loop></audio>
 </body>
 </html>
