@@ -36,15 +36,15 @@
     .hero h1 {
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 4vw; text-align: center;
+      font-size: 3vw; text-align: center;
       z-index: 1; margin: 0; text-transform: uppercase;
-      color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-      animation: meltSnow 3s ease forwards;
+      color: white;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
     }
-    @keyframes meltSnow {
-      0% { opacity: 0; transform: translate(-50%, -60%) scale(1.1); }
-      50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translate(-50%, -40%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
     }
     section {
       padding: 80px 40px;
@@ -160,6 +160,7 @@
         <img src="assets/image 9.png" alt="Carousel 4">
         <img src="assets/image 10.png" alt="Carousel 5">
         <img src="assets/image 11.png" alt="Carousel 6">
+        <!-- Duplicate for seamless scroll -->
         <img src="assets/image 6.png" alt="Carousel 1 duplicate">
         <img src="assets/image 7.png" alt="Carousel 2 duplicate">
         <img src="assets/image 8.png" alt="Carousel 3 duplicate">
