@@ -25,12 +25,27 @@
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
     }
     nav a:hover { color: #aaa; }
+    .hero {
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    }
+    .hero video {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .hero h1 {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4vw; text-align: center;
+      z-index: 1; margin: 0; text-transform: uppercase;
+      color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
     section {
-      padding: 140px 40px 60px;
+      padding: 80px 40px;
       max-width: 1200px;
       margin: 0 auto;
     }
-    h1, h2 {
+    h2 {
       text-transform: uppercase;
       margin-bottom: 20px;
       text-align: center;
@@ -94,12 +109,11 @@
     </nav>
   </header>
 
-  <section>
+  <!-- HERO SECTION WITH OVERLAY TITLE -->
+  <div class="hero">
+    <video src="assets/DYCreateJoy.mp4" autoplay muted loop playsinline poster="assets/Image 1.png"></video>
     <h1>David Yurman Create Joy Campaign</h1>
-    <div class="video-container">
-      <video src="assets/DYCreateJoy.mp4" autoplay muted loop playsinline poster="assets/Image 1.png"></video>
-    </div>
-  </section>
+  </div>
 
   <section>
     <h2>Final Campaign Video</h2>
@@ -134,6 +148,7 @@
         <img src="assets/image 9.png" alt="Carousel 4">
         <img src="assets/image 10.png" alt="Carousel 5">
         <img src="assets/image 11.png" alt="Carousel 6">
+        <!-- Duplicate for seamless scroll -->
         <img src="assets/image 6.png" alt="Carousel 1 duplicate">
         <img src="assets/image 7.png" alt="Carousel 2 duplicate">
         <img src="assets/image 8.png" alt="Carousel 3 duplicate">
