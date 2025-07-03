@@ -27,32 +27,29 @@
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #aaa;
-    }
+    nav a:hover { color: #aaa; }
 
     .section {
-      position: relative; height: 100vh; width: 100%; overflow: hidden;
+      position: relative; height: 90vh; width: 100%; overflow: hidden;
       display: flex; align-items: center;
     }
 
+    .section iframe,
     .section video {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
       min-width: 100%; min-height: 100%; object-fit: cover; z-index: 0;
+      transition: filter 0.5s ease;
     }
 
     .overlay {
       position: relative; z-index: 1; text-align: left;
       padding: 0 60px; max-width: 50%;
-      opacity: 0; transition: opacity 0.5s ease;
-    }
-
-    .section:hover .overlay {
-      opacity: 1;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .overlay h2 {
       font-size: 4vw; margin: 0 0 20px; text-transform: uppercase;
+      transition: color 0.5s ease;
     }
 
     .overlay p {
@@ -66,9 +63,11 @@
       transition: background 0.3s;
     }
 
-    .overlay a:hover {
-      background: #ddd;
-    }
+    .overlay a:hover { background: #ddd; }
+
+    .section:hover iframe,
+    .section:hover video { filter: brightness(0.5) saturate(0.7); }
+    .section:hover .overlay h2 { color: #ffffff; }
 
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
@@ -86,14 +85,14 @@
     </nav>
   </header>
 
+  <!-- David Yurman Section with YouTube Background -->
   <div class="section" id="david-yurman">
-    <video autoplay muted loop playsinline>
-      <source src="assets/videos/DavidYurman.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
+    <iframe src="https://www.youtube.com/embed/SFI0uEe8n88?autoplay=1&loop=1&playlist=SFI0uEe8n88&controls=0&showinfo=0&mute=1&modestbranding=1&iv_load_policy=3&rel=0"
+            frameborder="0" allow="autoplay; fullscreen"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;"></iframe>
     <div class="overlay">
       <h2>David Yurman</h2>
-      <p>A luxury campaign exploring light, texture, and storytelling for an iconic jewelry brand.</p>
+      <p>Create Joy Holiday Film: a luxury campaign celebrating light, emotion, and craftsmanship.</p>
       <a href="#david-yurman-project">See More</a>
     </div>
   </div>
