@@ -15,8 +15,8 @@
       align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    header .logo {
-      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+    header .logo a {
+      color: white; text-decoration: none; font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
     }
     nav a {
       color: white; text-decoration: none; margin-left: 30px;
@@ -55,18 +55,17 @@
       text-align: center; margin-top: 40px;
     }
     .video-section iframe {
-      width: 100%; max-width: 800px; height: 450px; border-radius: 8px; margin-bottom: 20px;
+      width: 100%; max-width: 800px; aspect-ratio: 16/9; border: none; border-radius: 8px; margin-bottom: 40px;
     }
     footer {
-      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
-      background: black;
+      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="logo">Alexandra Hartinger</div>
+    <div class="logo"><a href="index.html">Alexandra Hartinger</a></div>
     <nav>
       <a href="index.html">Home</a>
       <a href="#about">About Me</a>
@@ -85,20 +84,18 @@
   </div>
 
   <div class="section">
+    <h2>Final Holiday Film</h2>
+    <div class="video-section">
+      <iframe src="https://www.youtube.com/embed/T1U8KZrycwo" title="David Yurman Create Joy Holiday Film" allowfullscreen></iframe>
+    </div>
+
+    <h2>Making of the Film</h2>
+    <div class="video-section">
+      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" title="Making of Create Joy Holiday Film" allowfullscreen></iframe>
+    </div>
+
     <h2>About This Project</h2>
     <p>This campaign was a collaboration with the David Yurman creative team, where I contributed as an art director guiding the aesthetic and visual storytelling of the holiday film, “Create Joy.” The project leaned into a luxurious, emotive approach to celebrate moments of giving and light.</p>
-  </div>
-
-  <!-- Final Holiday Film -->
-  <div class="video-section">
-    <h2>Final Holiday Film</h2>
-    <iframe src="https://www.youtube.com/embed/T1U8KZrycwo" frameborder="0" allowfullscreen></iframe>
-  </div>
-
-  <!-- Behind the Scenes Documentary -->
-  <div class="video-section">
-    <h2>Making of the 2023 Holiday Film</h2>
-    <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <footer>
