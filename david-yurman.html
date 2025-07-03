@@ -1,31 +1,130 @@
-<div class="carousel-section">
-  <h2>Stills from the Shoot</h2>
-  <div class="carousel">
-    <img src="assets/Image 1.png" alt="Still 1"/>
-    <img src="assets/Image 2.png" alt="Still 2"/>
-    <img src="assets/Image 3.png" alt="Still 3"/>
-    <img src="assets/image 6.jpeg" alt="Still 4"/>
-    <img src="assets/image 7.jpeg" alt="Still 5"/>
-    <img src="assets/image 8.jpeg" alt="Still 6"/>
-    <img src="assets/image 9.png" alt="Still 7"/>
-    <img src="assets/image 10.jpeg" alt="Still 8"/>
-    <img src="assets/image 11.png" alt="Still 9"/>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>David Yurman – Create Joy Campaign</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif;
+      color: white; background: black; overflow-x: hidden;
+    }
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 10;
+      background: black; display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    header .logo {
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+    }
+    nav a {
+      color: white; text-decoration: none; margin-left: 30px;
+      font-size: 1rem; text-transform: uppercase; font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #aaa; }
+    .hero {
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    }
+    .hero video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .hero-content {
+      position: relative; z-index: 1; text-align: center;
+      top: 50%; transform: translateY(-50%);
+      max-width: 80%; margin: 0 auto;
+    }
+    .hero-content h1 {
+      font-size: 4vw; margin: 0 0 20px; text-transform: uppercase;
+    }
+    .hero-content p {
+      font-size: 1.2rem; max-width: 800px; margin: 0 auto;
+    }
+    .section {
+      padding: 80px 60px; max-width: 1000px; margin: 0 auto;
+    }
+    .section h2 {
+      font-size: 3rem; margin-bottom: 20px; text-transform: uppercase;
+      text-align: center;
+    }
+    .video-section {
+      text-align: center; margin: 40px auto;
+    }
+    .video-section iframe {
+      width: 90%; max-width: 1200px; height: 675px; border: none; border-radius: 8px;
+    }
+    .carousel-section {
+      text-align: center; margin: 80px 0;
+    }
+    .carousel {
+      display: flex; overflow-x: auto; gap: 20px; padding: 20px;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    }
+    .carousel img {
+      width: 400px; flex: 0 0 auto; border-radius: 8px;
+      scroll-snap-align: center; transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    .carousel img:hover {
+      transform: scale(1.05); opacity: 0.8;
+    }
+    footer {
+      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
+      background: black;
+    }
+  </style>
+</head>
 
-<style>
-.carousel-section {
-  text-align: center; margin: 80px 0;
-}
-.carousel {
-  display: flex; overflow-x: auto; gap: 20px; padding: 20px;
-  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-}
-.carousel img {
-  width: 400px; flex: 0 0 auto; border-radius: 8px;
-  scroll-snap-align: center; transition: transform 0.5s ease, opacity 0.5s ease;
-}
-.carousel img:hover {
-  transform: scale(1.05); opacity: 0.8;
-}
-</style>
+<body>
+  <header>
+    <div class="logo">Alexandra Hartinger</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="assets/DYCreateJoy.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h1>Create Joy Holiday Campaign</h1>
+      <p>Celebrating light, emotion, and craftsmanship in David Yurman's iconic holiday film.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Final Holiday Film</h2>
+    <div class="video-section">
+      <iframe src="https://www.youtube.com/embed/T1U8KZrycwo?rel=0&modestbranding=1" title="Create Joy Holiday Film" allowfullscreen></iframe>
+    </div>
+
+    <h2>Making of the Film</h2>
+    <div class="video-section">
+      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM?rel=0&modestbranding=1" title="Making of Create Joy Holiday Film" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="carousel-section">
+    <h2>Stills from the Shoot</h2>
+    <div class="carousel">
+      <img src="assets/Image 1.png" alt="Still 1"/>
+      <img src="assets/Image 2.png" alt="Still 2"/>
+      <img src="assets/Image 3.png" alt="Still 3"/>
+      <img src="assets/image 6.jpeg" alt="Still 4"/>
+      <img src="assets/image 7.jpeg" alt="Still 5"/>
+      <img src="assets/image 8.jpeg" alt="Still 6"/>
+      <img src="assets/image 9.png" alt="Still 7"/>
+      <img src="assets/image 10.jpeg" alt="Still 8"/>
+      <img src="assets/image 11.png" alt="Still 9"/>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+  </footer>
+</body>
+</html>
