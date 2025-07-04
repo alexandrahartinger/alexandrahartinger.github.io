@@ -274,6 +274,28 @@
   </div>
 </section>
 
+<section id="supporting-socials">
+  <h2>Supporting Socials</h2>
+  <div class="socials-container">
+    <video controls>
+      <source src="assets/REEL $.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video controls>
+      <source src="assets/REEL 1.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video controls>
+      <source src="assets/REEL 2.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video controls>
+      <source src="assets/REEL 3.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
 <style>
   #supporting-socials {
     padding: 80px 40px;
@@ -287,15 +309,24 @@
     font-size: 2rem;
   }
   .socials-container {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: space-between; /* Distribute evenly */
-    gap: 10px; /* Small gap between videos */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 20px;
   }
   .socials-container video {
-    flex: 0 0 24%; /* Four videos in one row with slight margin */
+    width: 100%;
     height: auto;
     border-radius: 8px;
+  }
+  @media (max-width: 1000px) {
+    .socials-container {
+      grid-template-columns: repeat(2, 1fr); /* fallback: 2 per row on tablet */
+    }
+  }
+  @media (max-width: 600px) {
+    .socials-container {
+      grid-template-columns: 1fr; /* fallback: 1 per row on mobile */
+    }
   }
 </style>
   
