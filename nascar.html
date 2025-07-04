@@ -12,10 +12,8 @@
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black;
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px;
-      box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: black; display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
       font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
@@ -37,11 +35,9 @@
     .hero h1 {
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 3vw; text-align: center;
-      z-index: 1; margin: 0;
-      color: white; opacity: 0;
-      animation: fadeUp 1.5s ease forwards;
-      line-height: 1.2;
+      font-size: 3vw; text-align: center; z-index: 1;
+      margin: 0; color: white; opacity: 0;
+      animation: fadeUp 1.5s ease forwards; line-height: 1.2;
     }
     @keyframes fadeUp {
       0% { opacity: 0; transform: translate(-50%, -40%); }
@@ -49,50 +45,34 @@
     }
 
     section {
-      padding: 80px 40px; max-width: 600px; margin: 0 auto;
+      padding: 80px 40px; max-width: 1000px; margin: 0 auto;
     }
     section h2 {
       text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem;
     }
 
+    .card-signature-container {
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px;
+    }
     .flip-container {
-      perspective: 1200px;
-      width: 100%; position: relative;
+      perspective: 1200px; width: 300px; flex-shrink: 0;
     }
     .card {
-      position: relative; width: 100%;
-      padding-top: 140%; /* keeps card 2.5:3.5 */
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
+      position: relative; width: 100%; padding-top: 140%;
+      transform-style: preserve-3d; transition: transform 0.8s ease;
     }
-    .card.flipped {
-      transform: rotateY(180deg);
-      box-shadow: 0 20px 40px rgba(255,255,255,0.2);
-    }
+    .card.flipped { transform: rotateY(180deg); box-shadow: 0 20px 40px rgba(255,255,255,0.2); }
     .card .front, .card .back {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px; overflow: hidden;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      backface-visibility: hidden; border-radius: 12px; overflow: hidden;
     }
     .card .front img, .card .back img {
       width: 100%; height: 100%; object-fit: contain;
     }
     .card .back { transform: rotateY(180deg); }
 
-    .signature-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      display: flex; justify-content: center; align-items: center;
-      z-index: 2;
-    }
-    .signature-overlay img {
-      width: 60%; max-width: 400px;
-      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-      animation: revealSignature 3s linear forwards;
-    }
-    @keyframes revealSignature {
-      0% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
-      100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .signature-image {
+      max-width: 350px; width: 90%; height: auto; display: block;
     }
 
     footer {
@@ -118,20 +98,20 @@
 
   <section>
     <h2>Hero Card Design</h2>
-    <div class="flip-container">
-      <div class="card" id="heroCard">
-        <div class="front">
-          <img src="assets/12.png" alt="Hero Card Front">
-          <div class="signature-overlay">
-            <img src="assets/signatureee.png" alt="Animated Signature" id="signature">
+    <div class="card-signature-container">
+      <div class="flip-container">
+        <div class="card" id="heroCard">
+          <div class="front">
+            <img src="assets/12.png" alt="Hero Card Front">
+          </div>
+          <div class="back">
+            <img src="assets/13.png" alt="Hero Card Back">
           </div>
         </div>
-        <div class="back">
-          <img src="assets/13.png" alt="Hero Card Back">
-        </div>
       </div>
+      <img src="assets/signatureee.png" alt="CJ McLaughlin Signature" class="signature-image">
     </div>
-    <p style="text-align:center;">Watch CJ’s signature appear, then the card will flip automatically!</p>
+    <p style="text-align:center;">Flip the hero card by clicking on it to see both sides!</p>
   </section>
 
   <footer>
@@ -139,9 +119,8 @@
   </footer>
 
   <script>
-    // Flip the card after the signature animation completes
-    document.getElementById('signature').addEventListener('animationend', () => {
-      document.getElementById('heroCard').classList.add('flipped');
+    document.getElementById('heroCard').addEventListener('click', function() {
+      this.classList.toggle('flipped');
     });
   </script>
 </body>
