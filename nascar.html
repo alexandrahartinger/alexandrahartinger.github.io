@@ -5,176 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NASCAR x Main Street Auto</title>
   <style>
-    body, html {
-      margin: 0; padding: 0;
+    body {
+      margin: 0;
+      padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background: black; color: white; overflow-x: hidden;
+      background: black;
+      color: white;
+      overflow-x: hidden;
     }
+
     header {
-      position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black; display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 40px; box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
+
     header .logo {
-      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+      font-size: 1.8em;
+      font-weight: bold;
+      text-transform: uppercase;
     }
-    nav a {
-      color: white; text-decoration: none; margin-left: 30px;
-      font-size: 1rem; text-transform: uppercase; font-weight: bold;
-    }
-    nav a:hover { color: #aaa; }
 
     .hero {
-      position: relative; width: 100%; height: 100vh; overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
     }
+
     .hero video {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .hero h1 {
-      position: absolute; top: 50%; left: 50%;
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 3vw; text-align: center; z-index: 1;
-      margin: 0; color: white; opacity: 0;
-      animation: fadeUp 1.5s ease forwards; line-height: 1.2;
-    }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
+      color: white;
+      font-size: 4vw;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 2px;
     }
 
     section {
-      padding: 80px 40px; max-width: 1000px; margin: 0 auto;
+      padding: 60px 20px;
     }
+
     section h2 {
-      text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem;
+      font-size: 2em;
+      margin-bottom: 40px;
+      text-align: center;
+      text-transform: uppercase;
     }
 
-    .flip-container {
-      perspective: 1200px; max-width: 550px; margin: 0 auto;
-    }
-    .card {
-      position: relative; width: 100%; padding-top: 65%;
-      transform-style: preserve-3d; transition: transform 0.8s ease;
-    }
-    .card.flipped { transform: rotateY(180deg); box-shadow: 0 20px 40px rgba(255,255,255,0.2); }
-    .card .front, .card .back {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      backface-visibility: hidden; border-radius: 12px; overflow: hidden;
-    }
-    .card .front img, .card .back img {
-      width: 100%; height: 100%; object-fit: contain;
-    }
-    .card .back { transform: rotateY(180deg); }
-
-    .signing-photos {
-      display: flex; gap: 20px; margin-top: 40px; justify-content: center;
-    }
-    .signing-photos img {
-      height: 250px; width: auto; border-radius: 8px; object-fit: contain;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    .gallery {
+      background-color: black;
+      color: white;
+      text-align: center;
     }
 
-    footer {
-      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
     }
   </style>
 </head>
-
 <body>
   <header>
-    <div class="logo">Alexandra Hartinger</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="logo">NASCAR x Main Street Auto</div>
   </header>
 
-  <div class="hero">
-    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
-    <h1>NASCAR x Main Street Auto</h1>
-  </div>
-
-  <section>
-    <h2>Hero Card Design</h2>
-    <div class="flip-container">
-      <div class="card" id="heroCard">
-        <div class="front">
-          <img src="assets/12.png" alt="Hero Card Front">
-        </div>
-        <div class="back">
-          <img src="assets/13.png" alt="Hero Card Back">
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
-
-    <div class="signing-photos">
-      <img src="assets/14.png" alt="CJ Signing Hero Card 1">
-      <img src="assets/15.png" alt="CJ Signing Hero Card 2">
-    </div>
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="CJM Daytona 1 (Beeps).mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-text">NASCAR x MAIN STREET AUTO</div>
   </section>
 
   <section class="gallery">
-  <h2>NASCAR Gallery</h2>
-  <div class="gallery-grid">
-    <img src="2.jpeg" alt="Gallery Image">
-    <img src="1.jpeg" alt="Gallery Image">
-    <img src="3.jpeg" alt="Gallery Image">
-    <img src="4.jpeg" alt="Gallery Image">
-    <img src="5.jpeg" alt="Gallery Image">
-    <img src="6.png" alt="Gallery Image">
-    <img src="7.jpeg" alt="Gallery Image">
-    <img src="8.jpeg" alt="Gallery Image">
-    <img src="9.jpeg" alt="Gallery Image">
-    <img src="10.jpeg" alt="Gallery Image">
-  </div>
-</section>
-
-<style>
-.gallery {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.gallery h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-</style>
-  
-
-  <footer>
-    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
-  </footer>
-
-  <script>
-    document.getElementById('heroCard').addEventListener('click', function() {
-      this.classList.toggle('flipped');
-    });
-  </script>
+    <h2>Race Gallery</h2>
+    <div class="gallery-grid">
+      <img src="1.png" alt="Gallery Image 1">
+      <img src="2.png" alt="Gallery Image 2">
+      <img src="3.png" alt="Gallery Image 3">
+      <img src="4.png" alt="Gallery Image 4">
+      <img src="5.png" alt="Gallery Image 5">
+      <img src="6.png" alt="Gallery Image 6">
+      <img src="7.png" alt="Gallery Image 7">
+      <img src="8.png" alt="Gallery Image 8">
+      <img src="9.png" alt="Gallery Image 9">
+      <img src="10.png" alt="Gallery Image 10">
+      <img src="11.png" alt="Gallery Image 11">
+      <img src="12.png" alt="Gallery Image 12">
+      <img src="13.png" alt="Gallery Image 13">
+    </div>
+  </section>
 </body>
 </html>
