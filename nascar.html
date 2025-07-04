@@ -55,15 +55,15 @@
       text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem;
     }
 
-    /* Hero card flip */
+    /* Perfect hero card flip */
     .flip-container {
       perspective: 1200px;
-      width: 300px; height: 420px;
+      width: 100%; max-width: 300px;
       margin: 0 auto 40px;
     }
     .card {
-      width: 100%; height: 100%;
-      position: relative;
+      position: relative; width: 100%;
+      padding-top: 140%; /* preserves 2.5:3.5 ratio exactly */
       transform-style: preserve-3d;
       transition: transform 0.8s ease;
       cursor: pointer;
@@ -76,17 +76,15 @@
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
       backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
+      border-radius: 12px; overflow: hidden;
     }
     .card .front img, .card .back img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; object-fit: contain;
     }
     .card .back {
       transform: rotateY(180deg);
     }
 
-    /* Stacked signing photos */
     .stacked-images {
       position: relative; width: 600px; height: 400px; margin: 0 auto;
     }
