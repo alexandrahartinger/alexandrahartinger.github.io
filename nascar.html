@@ -6,14 +6,16 @@
   <title>NASCAR x Main Street Auto</title>
   <style>
     body, html {
-      margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif;
+      margin: 0; padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
       background: black; color: white; overflow-x: hidden;
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black; display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px; box-sizing: border-box;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: black;
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px;
+      box-sizing: border-box; border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
       font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
@@ -23,6 +25,7 @@
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
     }
     nav a:hover { color: #aaa; }
+
     .hero {
       position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
@@ -35,55 +38,67 @@
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       font-size: 3vw; text-align: center;
-      z-index: 1; margin: 0; color: white;
-      opacity: 0; animation: fadeUp 1.5s ease forwards;
+      z-index: 1; margin: 0;
+      color: white; opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
       line-height: 1.2;
     }
     @keyframes fadeUp {
       0% { opacity: 0; transform: translate(-50%, -40%); }
       100% { opacity: 1; transform: translate(-50%, -50%); }
     }
+
     section {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 80px 40px; max-width: 1200px; margin: 0 auto;
     }
     section h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-align: left;
-      font-size: 2rem;
+      text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem;
     }
-    .stacked-container {
-      position: relative; width: 500px; margin: 0 auto;
-      height: 350px;
+
+    /* Hero card flip */
+    .flip-container {
+      perspective: 1200px;
+      width: 300px; height: 420px;
+      margin: 0 auto 40px;
     }
-    .stacked-container img {
-      position: absolute; width: 100%;
-      border-radius: 8px;
+    .card {
+      width: 100%; height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+      cursor: pointer;
     }
-    .hero-cards img:nth-child(1) {
-      transform: rotate(-3deg) translate(-10px, -10px);
-      z-index: 1;
+    .card:hover {
+      transform: rotateY(180deg);
+      box-shadow: 0 20px 40px rgba(255,255,255,0.2);
     }
-    .hero-cards img:nth-child(2) {
-      transform: rotate(3deg) translate(10px, 10px);
-      z-index: 2;
+    .card .front, .card .back {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
     }
-    .signing-photos img:nth-child(1) {
-      width: 60%; transform: rotate(-4deg) translate(-20px, -10px);
-      z-index: 1;
+    .card .front img, .card .back img {
+      width: 100%; height: 100%; object-fit: cover;
     }
-    .signing-photos img:nth-child(2) {
-      width: 60%; left: 40%; transform: rotate(5deg) translate(10px, 10px);
-      z-index: 2;
+    .card .back {
+      transform: rotateY(180deg);
     }
-    .caption {
-      text-align: center; margin-top: 20px; font-size: 1.1rem; color: #ccc;
+
+    /* Stacked signing photos */
+    .stacked-images {
+      position: relative; width: 600px; height: 400px; margin: 0 auto;
     }
+    .stacked-images img {
+      position: absolute; width: 300px; height: auto; border-radius: 8px;
+      object-fit: contain; transition: transform 0.3s ease;
+    }
+    .stacked-images img:first-child { top: 0; left: 0; z-index: 1; transform: rotate(-5deg); }
+    .stacked-images img:last-child { top: 40px; left: 40px; z-index: 2; transform: rotate(5deg); }
+
     footer {
-      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
-      background: black;
+      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
     }
   </style>
 </head>
@@ -104,21 +119,32 @@
   </div>
 
   <section>
-    <h2>Hero Cards</h2>
-    <div class="stacked-container hero-cards">
-      <img src="assets/12.png" alt="Hero Card 1">
-      <img src="assets/13.png" alt="Hero Card 2">
+    <h2>Hero Card Design</h2>
+    <div class="flip-container">
+      <div class="card">
+        <div class="front">
+          <img src="assets/12.png" alt="Hero Card Front">
+        </div>
+        <div class="back">
+          <img src="assets/13.png" alt="Hero Card Back">
+        </div>
+      </div>
     </div>
-    <p class="caption">I designed these official hero cards, which CJ signed for NASCAR fans at events.</p>
+    <p>Hover or tap the hero card to flip and see the back side — just like handing it to a fan.</p>
   </section>
 
   <section>
-    <h2>Signing Moments</h2>
-    <div class="stacked-container signing-photos">
-      <img src="assets/14.png" alt="Signing Photo 1">
-      <img src="assets/15.png" alt="Signing Photo 2">
+    <h2>Signing Photos</h2>
+    <div class="stacked-images">
+      <img src="assets/14.png" alt="Signing 1">
+      <img src="assets/15.png" alt="Signing 2">
     </div>
-    <p class="caption">Capturing CJ signing the hero cards and connecting our designs directly with the fans.</p>
+  </section>
+
+  <section>
+    <h2>Suit Design</h2>
+    <p>This digital suit design features callouts for key elements like sponsor placement and striping details, reflecting the modern look we envisioned for the driver’s uniform.</p>
+    <img src="assets/16.png" alt="Suit Design" style="width:100%; max-width:600px; display:block; margin:40px auto; border-radius:12px;">
   </section>
 
   <footer>
