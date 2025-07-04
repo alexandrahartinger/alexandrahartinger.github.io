@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<h1><span class="title-left">NASCAR</span> <span class="title-x">x</span> <span class="title-right">Main Street Auto</span></h1>  <style>
+  <title>NASCAR x Main Street Auto</title>
+  <style>
     body, html {
       margin: 0; padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
@@ -11,8 +12,8 @@
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black; display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px; box-sizing: border-box;
+      background: black; display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
@@ -27,7 +28,8 @@
       position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
     .hero video {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover; z-index: 0;
     }
     .hero h1 {
@@ -35,14 +37,7 @@
       transform: translate(-50%, -50%);
       font-size: 2.5vw; text-align: center;
       z-index: 1; margin: 0;
-      color: white;
-      opacity: 0;
-      animation: fadeUp 1.5s ease forwards;
-      line-height: 1.2;
-    }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
+      color: white; line-height: 1.2;
     }
     section {
       padding: 80px 40px;
@@ -55,12 +50,20 @@
       text-align: left;
       font-size: 2rem;
     }
-    footer {
+    section p {
+      text-align: center; max-width: 800px; margin: 20px auto; font-size: 1rem; color: #ccc;
+    }
+    .flex-images {
+      display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+    }
+    .flex-images img {
+      width: 45%; border-radius: 8px; height: auto;
+    }
+    .single-image {
       text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      background: black;
+    }
+    .single-image img {
+      width: 100%; max-width: 800px; border-radius: 8px;
     }
   </style>
 </head>
@@ -76,23 +79,40 @@
   </header>
 
   <div class="hero">
-    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
-    <h1>NASCAR &nbsp;&nbsp;&nbsp;&nbsp; x &nbsp;&nbsp;&nbsp;&nbsp; Main Street Auto</h1>
+    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline poster="assets/your-nascar-cover-poster.png"></video>
+    <h1>NASCAR x Main Street Auto</h1>
   </div>
 
   <section>
-    <h2>Suit Design Concepts</h2>
-    <p>Placeholder: Add your NASCAR driver suit designs here, images or explanations of your creative process.</p>
-  </section>
-
-  <section>
     <h2>Hero Cards</h2>
-    <p>Placeholder: Insert hero card designs, details, and final artwork.</p>
+    <div class="flex-images">
+      <img src="assets/12.png" alt="Hero Card Front">
+      <img src="assets/13.png" alt="Hero Card Back">
+    </div>
+    <div class="flex-images" style="margin-top:20px;">
+      <img src="assets/14.png" alt="CJ signing card 1">
+      <img src="assets/15.png" alt="CJ signing card 2">
+    </div>
+    <p>I designed these hero cards for CJ McLaughlin and captured their impact at our fan signing events.</p>
   </section>
 
   <section>
-    <h2>Photography & Additional Materials</h2>
-    <p>Placeholder: Add photos from races, driver portraits, and any other supporting visuals.</p>
+    <h2>Race Suit Design</h2>
+    <div class="single-image">
+      <img src="assets/16.png" alt="Digital Suit Design">
+    </div>
+    <div class="single-image" style="margin-top:20px;">
+      <img src="assets/17.png" alt="CJ wearing the suit">
+    </div>
+    <p>Designed the official Main Street Auto NASCAR suit, blending classic Americana with modern racing aesthetics.</p>
+  </section>
+
+  <section>
+    <h2>Race Car Design</h2>
+    <div class="single-image">
+      <img src="assets/18.png" alt="Digital Race Car Render">
+    </div>
+    <p>Collaborated on refining the car’s livery to match Main Street Auto's brand identity on the track.</p>
   </section>
 
   <footer>
