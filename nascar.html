@@ -12,8 +12,8 @@
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black; display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 40px; box-sizing: border-box;
+      background: black; display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
@@ -37,10 +37,17 @@
       transform: translate(-50%, -50%);
       font-size: 2.5vw; text-align: center;
       z-index: 1; margin: 0;
-      color: white; line-height: 1.2;
+      color: white;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+      line-height: 1.2;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translate(-50%, -40%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
     }
     section {
-      padding: 80px 40px;
+      padding: 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -48,22 +55,34 @@
       text-transform: uppercase;
       margin-bottom: 20px;
       text-align: left;
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
-    section p {
-      text-align: center; max-width: 800px; margin: 20px auto; font-size: 1rem; color: #ccc;
+    .flex-images, .suit-layout {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
-    .flex-images {
-      display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+    .flex-images img, .suit-layout img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
     }
-    .flex-images img {
-      width: 45%; border-radius: 8px; height: auto;
+    p {
+      text-align: left;
+      max-width: 800px;
+      margin: 20px auto 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
-    .single-image {
+    footer {
       text-align: center;
-    }
-    .single-image img {
-      width: 100%; max-width: 800px; border-radius: 8px;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+      background: black;
     }
   </style>
 </head>
@@ -73,38 +92,43 @@
     <div class="logo">Alexandra Hartinger</div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <div class="hero">
-    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline poster="assets/your-nascar-cover-poster.png"></video>
+    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
     <h1>NASCAR x Main Street Auto</h1>
   </div>
 
-<section>
-  <h2>Hero Cards</h2>
-  <div class="flex-images">
-    <img src="assets/12.png" alt="Hero Card Front" class="no-warp">
-    <img src="assets/13.png" alt="Hero Card Back" class="no-warp">
-  </div>
-  <div class="flex-images" style="margin-top:20px;">
-    <img src="assets/14.png" alt="CJ signing card 1" class="no-warp">
-    <img src="assets/15.png" alt="CJ signing card 2" class="no-warp">
-  </div>
-  <p>I designed these hero cards for CJ McLaughlin and captured their impact at our fan signing events.</p>
-</section>
+  <section>
+    <h2>Hero Cards</h2>
+    <div class="flex-images">
+      <img src="assets/12.png" alt="Hero Card Front">
+      <img src="assets/13.png" alt="Hero Card Back">
+    </div>
+    <div class="flex-images">
+      <img src="assets/14.png" alt="CJ signing hero card">
+      <img src="assets/15.png" alt="CJ signing hero card 2">
+    </div>
+    <p>I designed these hero cards for CJ McLaughlin and captured their impact at our fan signing events.</p>
+  </section>
 
-<section>
-  <h2>Race Suit Design</h2>
-  <div class="suit-layout">
-    <img src="assets/16.png" alt="Digital Suit Design" class="no-warp">
-    <img src="assets/17.png" alt="CJ wearing the suit" class="no-warp">
-  </div>
-  <p>Designed the official Main Street Auto NASCAR suit, blending classic Americana with modern racing aesthetics. Left: my digital design. Right: CJ in the suit on race day.</p>
-</section>
+  <section>
+    <h2>Race Suit Design</h2>
+    <div class="suit-layout">
+      <img src="assets/16.png" alt="Digital Suit Design">
+      <img src="assets/17.png" alt="CJ wearing the suit">
+    </div>
+    <p>Designed the official Main Street Auto NASCAR suit, blending classic Americana with modern racing aesthetics. Left: my digital design. Right: CJ in the suit on race day.</p>
+  </section>
 
+  <section>
+    <h2>Car Design</h2>
+    <div class="flex-images">
+      <img src="assets/18.png" alt="Digital Car Design">
+    </div>
+    <p>Provided creative input on the final livery of the #92 Main Street Auto car, ensuring it stood out on track.</p>
+  </section>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
