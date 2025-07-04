@@ -51,14 +51,11 @@
       text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem;
     }
 
-    .card-signature-container {
-      display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px;
-    }
     .flip-container {
-      perspective: 1200px; width: 300px; flex-shrink: 0;
+      perspective: 1200px; max-width: 550px; margin: 0 auto;
     }
     .card {
-      position: relative; width: 100%; padding-top: 140%;
+      position: relative; width: 100%; padding-top: 65%;
       transform-style: preserve-3d; transition: transform 0.8s ease;
     }
     .card.flipped { transform: rotateY(180deg); box-shadow: 0 20px 40px rgba(255,255,255,0.2); }
@@ -70,10 +67,6 @@
       width: 100%; height: 100%; object-fit: contain;
     }
     .card .back { transform: rotateY(180deg); }
-
-    .signature-image {
-      max-width: 350px; width: 90%; height: auto; display: block;
-    }
 
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
@@ -98,20 +91,17 @@
 
   <section>
     <h2>Hero Card Design</h2>
-    <div class="card-signature-container">
-      <div class="flip-container">
-        <div class="card" id="heroCard">
-          <div class="front">
-            <img src="assets/12.png" alt="Hero Card Front">
-          </div>
-          <div class="back">
-            <img src="assets/13.png" alt="Hero Card Back">
-          </div>
+    <div class="flip-container">
+      <div class="card" id="heroCard">
+        <div class="front">
+          <img src="assets/12.png" alt="Hero Card Front">
+        </div>
+        <div class="back">
+          <img src="assets/13.png" alt="Hero Card Back">
         </div>
       </div>
-      <img src="assets/signatureee.png" alt="CJ McLaughlin Signature" class="signature-image">
     </div>
-    <p style="text-align:center;">Flip the hero card by clicking on it to see both sides!</p>
+    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
   </section>
 
   <footer>
