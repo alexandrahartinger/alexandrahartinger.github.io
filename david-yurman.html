@@ -267,6 +267,40 @@
     videos.forEach(video => observer.observe(video));
   });
 </script>
+
+  <section id="supporting-socials">
+  <h2>Supporting Socials</h2>
+  <div class="socials-container">
+    <video controls class="fade-in">
+      <source src="assets/REEL $.mov" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="assets/REEL 1.mov" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="assets/REEL 2.mov" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="assets/REEL 3.mov" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="concept-socials">
+    <div class="concept-video">
+      <video controls class="fade-in">
+        <source src="assets/Chains Lexington.mp4" type="video/mp4">
+      </video>
+      <p>Early in the process, I found a 1960s NYC reference of streets draped with giant ornaments, inspiring the idea of adorning the city in David Yurman’s designs.</p>
+    </div>
+    <div class="concept-video">
+      <video controls class="fade-in">
+        <source src="assets/Drawings.mp4" type="video/mp4">
+      </video>
+      <p>I suggested a concept of drawings leaping from the jeweler’s workbench, floating through the window, and dancing among New York’s skyline.</p>
+    </div>
+  </div>
+</section>
+
 <style>
   #supporting-socials {
     padding: 80px 40px;
@@ -283,25 +317,41 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    margin-bottom: 60px;
   }
-  .socials-container video {
+  .socials-container video, .concept-video video {
     width: 100%;
-    height: auto;
     border-radius: 8px;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 1s ease, transform 1s ease;
   }
-  .socials-container video.visible {
+  .socials-container video.visible, .concept-video video.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+  .concept-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+  }
+  .concept-video {
+    flex: 1 1 48%;
+    text-align: center;
+  }
+  .concept-video p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 15px;
+    font-style: italic;
   }
 </style>
 
 <script>
   // Fade-in on scroll
   document.addEventListener('DOMContentLoaded', () => {
-    const videos = document.querySelectorAll('.socials-container video');
+    const videos = document.querySelectorAll('.socials-container video, .concept-video video');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -313,7 +363,7 @@
     videos.forEach(video => observer.observe(video));
   });
 </script>
-
+  
   <section>
   <h2 style="text-align:center;">David Yurman's Corporate Office</h2>
   <div class="carousel-container">
