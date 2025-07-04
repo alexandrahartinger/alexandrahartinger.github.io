@@ -55,15 +55,14 @@
       text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem;
     }
 
-    /* Perfect hero card flip */
     .flip-container {
       perspective: 1200px;
-      width: 100%; max-width: 300px;
+      width: 100%; max-width: 500px;
       margin: 0 auto 40px;
     }
     .card {
       position: relative; width: 100%;
-      padding-top: 140%; /* preserves 2.5:3.5 ratio exactly */
+      padding-top: 140%; /* preserves 2.5:3.5 aspect */
       transform-style: preserve-3d;
       transition: transform 0.8s ease;
       cursor: pointer;
@@ -81,19 +80,22 @@
     .card .front img, .card .back img {
       width: 100%; height: 100%; object-fit: contain;
     }
-    .card .back {
-      transform: rotateY(180deg);
-    }
+    .card .back { transform: rotateY(180deg); }
 
-    .stacked-images {
-      position: relative; width: 600px; height: 400px; margin: 0 auto;
+    .signature-container {
+      width: 100%; max-width: 400px;
+      margin: 40px auto;
+      position: relative; overflow: hidden;
     }
-    .stacked-images img {
-      position: absolute; width: 300px; height: auto; border-radius: 8px;
-      object-fit: contain; transition: transform 0.3s ease;
+    .signature-container img {
+      width: 100%; display: block;
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      animation: reveal 3s linear forwards;
     }
-    .stacked-images img:first-child { top: 0; left: 0; z-index: 1; transform: rotate(-5deg); }
-    .stacked-images img:last-child { top: 40px; left: 40px; z-index: 2; transform: rotate(5deg); }
+    @keyframes reveal {
+      0% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+      100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    }
 
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
@@ -128,21 +130,10 @@
         </div>
       </div>
     </div>
-    <p>Hover or tap the hero card to flip and see the back side — just like handing it to a fan.</p>
-  </section>
-
-  <section>
-    <h2>Signing Photos</h2>
-    <div class="stacked-images">
-      <img src="assets/14.png" alt="Signing 1">
-      <img src="assets/15.png" alt="Signing 2">
+    <div class="signature-container">
+      <img src="assets/signature.png" alt="CJ McLaughlin Signature">
     </div>
-  </section>
-
-  <section>
-    <h2>Suit Design</h2>
-    <p>This digital suit design features callouts for key elements like sponsor placement and striping details, reflecting the modern look we envisioned for the driver’s uniform.</p>
-    <img src="assets/16.png" alt="Suit Design" style="width:100%; max-width:600px; display:block; margin:40px auto; border-radius:12px;">
+    <p style="text-align:center;">Hover or tap the hero card to flip it — then watch CJ’s signature animate in real time!</p>
   </section>
 
   <footer>
