@@ -171,27 +171,76 @@
     </div>
   </section>
 
-  <section id="supporting-socials">
+<section id="supporting-socials">
   <h2>Supporting Socials</h2>
   <div class="socials-container">
-    <video controls>
+    <video controls class="fade-in">
       <source src="assets/REEL $.mov" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
-    <video controls>
+    <video controls class="fade-in">
       <source src="assets/REEL 1.mov" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
-    <video controls>
+    <video controls class="fade-in">
       <source src="assets/REEL 2.mov" type="video/mp4">
-      Your browser does not support the video tag.
     </video>
-    <video controls>
+    <video controls class="fade-in">
       <source src="assets/REEL 3.mov" type="video/mp4">
-      Your browser does not support the video tag.
+    </video>
+    <video controls class="fade-in">
+      <source src="assets/Chains Lexington.mp4" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="assets/Drawings.mp4" type="video/mp4">
     </video>
   </div>
 </section>
+
+<style>
+  #supporting-socials {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  #supporting-socials h2 {
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: left;
+    font-size: 2rem;
+  }
+  .socials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .socials-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .socials-container video.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Fade-in on scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('.socials-container video');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    videos.forEach(video => observer.observe(video));
+  });
+</script>
 
   <section id="team">
     <h2>The Incredible Team</h2>
