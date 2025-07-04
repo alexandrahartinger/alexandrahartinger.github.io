@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NASCAR x Main Street Auto</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: black; color: white; overflow-x: hidden;
+    }
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 10;
+      background: black; display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    header .logo {
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+    }
+    nav a {
+      color: white; text-decoration: none; margin-left: 30px;
+      font-size: 1rem; text-transform: uppercase; font-weight: bold;
+    }
+    nav a:hover { color: #aaa; }
+    .hero {
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    }
+    .hero video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .hero h1 {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5vw; text-align: center;
+      z-index: 1; margin: 0;
+      color: white;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+      line-height: 1.2;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translate(-50%, -40%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-align: left;
+      font-size: 2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+      background: black;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Alexandra Hartinger</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
+    <h1>NASCAR &nbsp;&nbsp;&nbsp;&nbsp; x &nbsp;&nbsp;&nbsp;&nbsp; Main Street Auto</h1>
+  </div>
+
+  <section>
+    <h2>Suit Design Concepts</h2>
+    <p>Placeholder: Add your NASCAR driver suit designs here, images or explanations of your creative process.</p>
+  </section>
+
+  <section>
+    <h2>Hero Cards</h2>
+    <p>Placeholder: Insert hero card designs, details, and final artwork.</p>
+  </section>
+
+  <section>
+    <h2>Photography & Additional Materials</h2>
+    <p>Placeholder: Add photos from races, driver portraits, and any other supporting visuals.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+  </footer>
+</body>
+</html>
