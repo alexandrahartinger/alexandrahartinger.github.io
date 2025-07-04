@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>David Yurman Holiday 2023 Campaign</title>
+  <title>Alexandra Hartinger Portfolio</title>
   <style>
     body, html {
-      margin: 0; padding: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: black; color: white; overflow-x: hidden;
+      margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif;
+      color: white; background: black; overflow-x: hidden;
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black;
-      display: flex; justify-content: space-between;
+      background: black; display: flex; justify-content: space-between;
       align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
@@ -23,187 +21,84 @@
     nav a {
       color: white; text-decoration: none; margin-left: 30px;
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
+      transition: color 0.3s;
     }
     nav a:hover { color: #aaa; }
-    .hero {
-      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    .section {
+      position: relative; height: 90vh; width: 100%; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
     }
-    .hero video {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; z-index: 0;
+    .section video, .section img {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0; pointer-events: none;
     }
-    .hero h1 {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2.5vw; text-align: center;
-      z-index: 1; margin: 0;
-      color: white;
-      opacity: 0;
-      animation: fadeUp 1.5s ease forwards;
-      line-height: 1.2;
+    .overlay {
+      position: relative; z-index: 1; text-align: left;
+      max-width: 600px; padding: 0 40px;
     }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
+    .overlay h2 {
+      font-size: 3vw; margin-bottom: 20px; text-transform: uppercase;
     }
-    section {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .overlay p {
+      font-size: 1.2rem; margin-bottom: 30px;
     }
-    section:not(#team) h2, section#about h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-align: left;
-      font-size: 2rem;
+    .overlay a {
+      text-decoration: none; padding: 15px 30px; background: white;
+      color: black; font-weight: bold; text-transform: uppercase;
+      border-radius: 4px; transition: background 0.3s;
     }
-    section#team h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: 2rem;
-    }
-    .video-container video, .video-container iframe {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .video-container iframe {
-      height: 675px;
-    }
-    .stills {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .stills img {
-      width: calc(33.333% - 6.66px);
-      height: auto;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-    .carousel-container {
-      margin: 60px auto;
-      overflow: hidden;
-      max-width: 1200px;
-    }
-    .carousel {
-      display: flex;
-      animation: scroll 40s linear infinite;
-    }
-    .carousel img {
-      flex: 0 0 auto;
-      width: 25%;
-      height: auto;
-      margin-right: 10px;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+    .overlay a:hover { background: #ddd; }
     footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
+      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
       background: black;
     }
   </style>
 </head>
-
 <body>
   <header>
     <div class="logo">Alexandra Hartinger</div>
     <nav>
-      <a href="index.html">Home</a>
       <a href="#about">About Me</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <div class="hero">
-    <video src="assets/CJM Daytona 1 (Beeps).mov" autoplay muted loop playsinline poster="assets/your-poster-image.png"></video>
-    <h1>David Yurman&nbsp;&nbsp;&nbsp;&nbsp;Holiday 2023 Campaign</h1>
+  <!-- David Yurman Section -->
+  <div class="section" id="david-yurman">
+    <video autoplay muted loop playsinline>
+      <source src="assets/Cover Video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h2>David Yurman</h2>
+      <p>Create Joy Holiday Campaign: a luxury film celebrating light, emotion, and craftsmanship.</p>
+      <a href="david-yurman.html">See More</a>
+    </div>
   </div>
 
-  <section id="about">
-    <h2>About This Project</h2>
-    <p>I served as a concept lead and one of the art directors on this SCADpro collaboration with David Yurman, helping bring the creative vision of their Holiday 2023 campaign to life. My role included developing campaign concepts, art direction on set, and contributing to the final storytelling seen in the commercial and supporting assets.</p>
-  </section>
-
-  <section>
-    <h2>Final Campaign Video</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/T1U8KZrycwo" frameborder="0" allowfullscreen></iframe>
+  <!-- NASCAR Section -->
+  <div class="section" id="nascar">
+    <video autoplay muted loop playsinline>
+      <source src="assets/CJM Daytona 1 (Beeps).mov" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <h2>NASCAR</h2>
+      <p>Capturing high-speed excitement and behind-the-scenes storytelling on the track.</p>
+      <a href="nascar.html">See More</a>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>Behind the Scenes Video</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/AaIYivrfLOM" frameborder="0" allowfullscreen></iframe>
+  <!-- Main Street Auto Section -->
+  <div class="section" id="main-street-auto">
+    <img src="assets/main-street-placeholder.jpg" alt="Main Street Auto Cover">
+    <div class="overlay">
+      <h2>Main Street Auto</h2>
+      <p>Creative strategies and visual storytelling for a dynamic automotive brand.</p>
+      <a href="main-street-auto.html">See More</a>
     </div>
-  </section>
-
-  <section>
-    <h2>Featured Stills</h2>
-    <div class="stills">
-      <img src="assets/Image 1.png" alt="Still 1">
-      <img src="assets/Image 2.png" alt="Still 2">
-      <img src="assets/Image 3.png" alt="Still 3">
-    </div>
-  </section>
-
-  <section>
-    <h2>Behind the Scenes Carousel</h2>
-    <div class="carousel-container">
-      <div class="carousel">
-        <img src="assets/image 6.png" alt="Carousel 1">
-        <img src="assets/image 7.png" alt="Carousel 2">
-        <img src="assets/image 8.png" alt="Carousel 3">
-        <img src="assets/image 9.png" alt="Carousel 4">
-        <img src="assets/image 10.png" alt="Carousel 5">
-        <img src="assets/image 11.png" alt="Carousel 6">
-        <img src="assets/image-cb045c26-f7a8-44b3-871b-ab231fc0dc58.jpg.webp" alt="Carousel 7">
-        <img src="assets/image 6.png" alt="Carousel 1 duplicate">
-        <img src="assets/image 7.png" alt="Carousel 2 duplicate">
-        <img src="assets/image 8.png" alt="Carousel 3 duplicate">
-        <img src="assets/image 9.png" alt="Carousel 4 duplicate">
-        <img src="assets/image 10.png" alt="Carousel 5 duplicate">
-      </div>
-    </div>
-  </section>
-
-  <section id="vault">
-    <h2 style="text-align:center;">David Yurman's Corporate Office</h2>
-    <div class="carousel-container">
-      <div class="carousel">
-        <img src="assets/vault.png" alt="Vault 1">
-        <img src="assets/vault1.png" alt="Vault 2">
-        <img src="assets/vault2.png" alt="Vault 3">
-        <img src="assets/vault3.png" alt="Vault 4">
-        <img src="assets/vault4.png" alt="Vault 5">
-        <img src="assets/me2.png" alt="Me in Vault">
-        <img src="assets/office.png" alt="Corporate Office">
-        <img src="assets/vault.png" alt="Vault 1 duplicate">
-        <img src="assets/vault1.png" alt="Vault 2 duplicate">
-        <img src="assets/vault2.png" alt="Vault 3 duplicate">
-      </div>
-    </div>
-  </section>
-
-  <section id="team">
-    <h2>The Incredible Team</h2>
-    <p style="text-align:center;">This is the amazing SCADpro team that made this project possible. That’s me in the pinstriped suit who ran around to get in the photo!</p>
-    <img src="assets/Image 5.png" alt="SCADpro Team" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
-  </section>
+  </div>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
-
-  <audio src="assets/soft-piano-christmas.mp3" autoplay loop></audio>
 </body>
 </html>
