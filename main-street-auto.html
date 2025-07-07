@@ -6,18 +6,18 @@
   <title>Main Street Auto</title>
   <style>
     body, html {
-      margin: 0; padding: 0;
-       padding-top: 80px;
-      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif;
       background: black; color: white; overflow-x: hidden;
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
       background: black; display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    header .logo { font-size: 1.8rem; font-weight: bold; text-transform: uppercase; }
+    header .logo {
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+    }
     nav a {
       color: white; text-decoration: none; margin-left: 30px;
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
@@ -33,69 +33,67 @@
       width: 100%; height: 100%; object-fit: cover; z-index: 0;
     }
     .hero h1 {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
       font-size: 3vw; text-align: center; z-index: 1;
       margin: 0; color: white; opacity: 0;
-      animation: fadeUp 1.5s ease forwards;
+      animation: fadeUp 1.5s ease forwards; line-height: 1.2;
     }
     @keyframes fadeUp {
       0% { opacity: 0; transform: translate(-50%, -40%); }
       100% { opacity: 1; transform: translate(-50%, -50%); }
     }
 
-    section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
-    section h2 { text-transform: uppercase; margin-bottom: 20px; font-size: 2rem; }
+    section {
+      padding: 100px 40px 80px; max-width: 1000px; margin: 0 auto;
+    }
+    section h2 {
+      text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem;
+    }
+    section p {
+      font-size: 1rem; line-height: 1.5; max-width: 800px;
+    }
 
-    .social-media-section h3 {
-      font-size: 1.5rem; margin-bottom: 20px; text-align: center;
-    }
-    .social-media-section p {
-      text-align: center; font-size: 1rem; max-width: 700px;
-      margin: 0 auto 40px;
-    }
     .sizzle video {
-      display: block; margin: 0 auto 40px;
-      width: 90%; max-width: 600px;
-      border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-    .social-links {
-      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
-      margin-bottom: 60px;
-    }
-    .social-card {
-      width: 180px; background: #111;
-      border-radius: 8px; overflow: hidden;
-      text-align: center; transition: transform 0.3s;
-    }
-    .social-card:hover { transform: translateY(-5px); }
-    .social-card img {
-      width: 100%; height: auto;
-    }
-    .social-card .info {
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-    .social-card .info a {
-      color: #1DA1F2; text-decoration: none;
+      width: 100%; max-width: 600px; border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: block; margin: 40px auto;
     }
 
-    .footer-link {
-      display: block; max-width: 300px; margin: 0 auto;
+    .social-icons {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+    }
+    .social-icons a {
       text-align: center; text-decoration: none; color: white;
-      transition: opacity 0.3s;
     }
-    .footer-link img {
-      width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    .social-icons img {
+      width: 60px; height: 60px; border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5); transition: transform 0.3s ease;
     }
-    .footer-link:hover { opacity: 0.8; }
-    .footer-link p {
-      margin-top: 10px; font-weight: bold;
+    .social-icons a:hover img {
+      transform: scale(1.1);
+    }
+    .social-icons p {
+      margin-top: 10px; font-size: 0.9rem;
+    }
+
+    .northern-rock-link {
+      text-align: center; margin-top: 60px;
+    }
+    .northern-rock-link a {
+      text-decoration: none; color: white; display: inline-block; transition: transform 0.3s;
+    }
+    .northern-rock-link a:hover {
+      transform: scale(1.05);
+    }
+    .northern-rock-link img {
+      width: 300px; border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .northern-rock-link p {
+      margin-top: 10px; font-weight: bold; font-size: 1rem;
     }
 
     footer {
-      text-align: center; padding: 40px 20px;
-      font-size: 0.9rem; color: #aaa; background: black;
+      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
     }
   </style>
 </head>
@@ -110,56 +108,49 @@
   </header>
 
   <div class="hero">
-    <video src="assets/Brand Story Cover Video Shortened.mp4" autoplay muted loop playsinline></video>
+    <video src="assets/New Brand Story Video Social.mp4" autoplay muted loop playsinline></video>
     <h1>Main Street Auto</h1>
   </div>
 
   <section>
     <h2>Our Story</h2>
-    <p>Main Street Auto is a network of local repair shops across the Southeast. Each shop has its own personality but shares a commitment to transparency, skill, and top-tier service. I led a full rebrand—naming, visual identity, voice—and now create content and grow community across our social channels.</p>
+    <p>Main Street Auto is a network of locally trusted repair shops across the Southeast. Every shop has its own personality — but all share a commitment to transparency, skill, and top-tier service. More coming soon...</p>
   </section>
 
-  <section class="social-media-section">
-    <h3>Main Street Auto — Connect With Us</h3>
-    <p>Leading the rebrand and now managing and growing all four social platforms from scratch.</p>
+  <section>
+    <h2>Rebrand Overview</h2>
+    <p>I led the rebrand of Main Street Auto from the ground up — including the new name, visual identity, brand voice, and brand strategy. I now manage all of our digital platforms and content strategy across four social channels.</p>
 
     <div class="sizzle">
       <video src="assets/Northern Rock - Main Street Auto Sizzle REEL.mp4" autoplay muted loop playsinline></video>
     </div>
 
-<!-- SOCIAL ICONS -->
-<div class="social-links">
-  <div class="social-card">
-    <img src="assets/insta.png" alt="Instagram">
-    <div class="info">
-      <p><strong>Instagram</strong></p>
-      <p><a href="https://www.instagram.com/mainstreetautoshops/" target="_blank">View Profile</a></p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/mainstreetautoshops/" target="_blank">
+        <img src="assets/insta.png" alt="Instagram">
+        <p>Instagram</p>
+      </a>
+      <a href="https://www.linkedin.com/company/mainstreetautoshops/" target="_blank">
+        <img src="assets/linkedin.png" alt="LinkedIn">
+        <p>LinkedIn</p>
+      </a>
+      <a href="https://www.facebook.com/mainstreetautoshops/" target="_blank">
+        <img src="assets/facebook.png" alt="Facebook">
+        <p>Facebook</p>
+      </a>
+      <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">
+        <img src="assets/youtube.png" alt="YouTube">
+        <p>YouTube</p>
+      </a>
     </div>
-  </div>
 
-  <div class="social-card">
-    <img src="assets/facebook.png" alt="Facebook">
-    <div class="info">
-      <p><strong>Facebook</strong></p>
-      <p><a href="https://www.facebook.com/mainstreetautoshops/" target="_blank">View Page</a></p>
+    <div class="northern-rock-link">
+      <h3 style="text-transform: uppercase; font-size: 1.2rem; margin-bottom: 15px;">Our Brand Strategy Partner</h3>
+      <a href="https://northernrockusa.org" target="_blank">
+        <img src="assets/northernrock-preview.png" alt="Northern Rock Preview">
+        <p>northernrockusa.org</p>
+      </a>
     </div>
-  </div>
-
-  <div class="social-card">
-    <img src="assets/linkedin.png" alt="LinkedIn">
-    <div class="info">
-      <p><strong>LinkedIn</strong></p>
-      <p><a href="https://www.linkedin.com/company/mainstreetautoshops/" target="_blank">Visit</a></p>
-    </div>
-  </div>
-
-  <div class="social-card">
-    <img src="assets/youtube.png" alt="YouTube">
-    <div class="info">
-      <p><strong>YouTube</strong></p>
-      <p><a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">Subscribe</a></p>
-    </div>
-  </div>
   </section>
 
   <footer>
