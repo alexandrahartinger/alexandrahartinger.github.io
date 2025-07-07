@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Main Street Auto</title>
   <style>
     body, html {
@@ -13,7 +13,6 @@
       color: white;
       overflow-x: hidden;
     }
-
     header {
       position: fixed;
       top: 0;
@@ -27,13 +26,11 @@
       box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-
     header .logo {
       font-size: 1.8rem;
       font-weight: bold;
       text-transform: uppercase;
     }
-
     nav a {
       color: white;
       text-decoration: none;
@@ -41,19 +38,17 @@
       font-size: 1rem;
       text-transform: uppercase;
       font-weight: bold;
+      transition: color 0.3s;
     }
-
     nav a:hover {
       color: #aaa;
     }
-
     .hero {
       position: relative;
       width: 100%;
       height: 100vh;
       overflow: hidden;
     }
-
     .hero video {
       position: absolute;
       top: 0;
@@ -63,7 +58,6 @@
       object-fit: cover;
       z-index: 0;
     }
-
     .hero h1 {
       position: absolute;
       top: 50%;
@@ -77,32 +71,27 @@
       opacity: 0;
       animation: fadeUp 1.5s ease forwards;
       line-height: 1.2;
-      text-transform: uppercase;
     }
-
     @keyframes fadeUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
     }
-
     section {
       padding: 80px 40px;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
     }
-
     section h2 {
       text-transform: uppercase;
       margin-bottom: 20px;
-      text-align: left;
       font-size: 2rem;
     }
-
-    .video-container video {
-      width: 100%;
-      border-radius: 8px;
-    }
-
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -112,7 +101,6 @@
     }
   </style>
 </head>
-
 <body>
   <header>
     <div class="logo">Alexandra Hartinger</div>
@@ -123,71 +111,51 @@
     </nav>
   </header>
 
+  <!-- Main Street Auto Cover Video -->
   <div class="hero">
     <video src="assets/Brand Story Cover Video Shortened.mp4" autoplay muted loop playsinline></video>
     <h1>Main Street Auto</h1>
   </div>
 
+  <!-- Drone Video Section -->
   <section>
-    <h2>Drone Footage: Shop Locations</h2>
-    <div class="video-container">
-      <video src="assets/Main Street Auto Cover Video.mp4" controls></video>
+    <h2>Our Shops, From Above</h2>
+    <video src="assets/Main Street Auto Cover Video.mp4" controls style="width:100%; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.4);"></video>
+  </section>
+
+  <!-- Social Presence and Rebrand Section -->
+  <section>
+    <h2>Main Street Auto — Connect With Us</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6;">
+      I was brought on to lead the rebrand of Main Street Auto — from developing a refreshed identity to launching a brand voice rooted in trust and transparency. I created, built, and now manage all four of our social platforms to reflect the personality of our people and shops.
+    </p>
+    <div style="margin: 40px 0; text-align: center;">
+      <h3 style="margin-bottom: 10px;">From Old to New</h3>
+      <p style="color: #ccc; font-size: 1rem;">Watch the transformation — from the original look to the modernized Main Street Auto identity I helped build.</p>
+      <video src="assets/Northern Rock - Main Street Auto Sizzle REEL.mp4" controls style="width:100%; max-width:800px; border-radius:10px;"></video>
+      <p style="margin-top: 10px; font-size: 0.95rem; color: #ccc;">
+        Branding created in partnership with
+        <a href="https://northernrockusa.com" target="_blank" style="color: #5ec9f0; text-decoration: none; font-weight: bold;">
+          northernrockusa.com
+        </a>
+      </p>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+      <a href="https://www.instagram.com/mainstreetautoshops" target="_blank">
+        <img src="assets/instagram-icon.png" alt="Instagram" style="width: 60px; height: 60px;">
+      </a>
+      <a href="https://www.facebook.com/MainStreetAutoShops" target="_blank">
+        <img src="assets/facebook-icon.png" alt="Facebook" style="width: 60px; height: 60px;">
+      </a>
+      <a href="https://www.linkedin.com/company/mainstreetautoshops" target="_blank">
+        <img src="assets/linkedin-icon.png" alt="LinkedIn" style="width: 60px; height: 60px;">
+      </a>
+      <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">
+        <img src="assets/youtube-icon.png" alt="YouTube" style="width: 60px; height: 60px;">
+      </a>
     </div>
   </section>
 
- <section id="social" style="background: black; padding: 60px 20px;">
-  <h2 style="color: white; text-align: center; font-size: 2.5rem; margin-bottom: 40px;">
-    MAIN STREET AUTO — CONNECT WITH US
-  </h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
-    
- <section id="social" style="background: black; padding: 60px 20px;">
-  <h2 style="color: white; text-align: center; font-size: 2.5rem; margin-bottom: 40px;">
-    MAIN STREET AUTO — CONNECT WITH US
-  </h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
-    
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/mainstreetautoshops" target="_blank" style="text-decoration: none; color: white;">
-      <div style="background: #111; padding: 20px; border-radius: 12px; width: 220px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.6);">
-        <img src="assets/instagram-logo.png" alt="Instagram" style="width: 40px; margin-bottom: 15px;">
-        <h3 style="margin: 0; font-size: 1.2rem;">Instagram</h3>
-        <p style="margin: 5px 0 0;">@mainstreetautoshops</p>
-      </div>
-    </a>
-
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/company/main-street-auto" target="_blank" style="text-decoration: none; color: white;">
-      <div style="background: #111; padding: 20px; border-radius: 12px; width: 220px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.6);">
-        <img src="assets/linkedin-logo.png" alt="LinkedIn" style="width: 40px; margin-bottom: 15px;">
-        <h3 style="margin: 0; font-size: 1.2rem;">LinkedIn</h3>
-        <p style="margin: 5px 0 0;">Main Street Auto</p>
-      </div>
-    </a>
-
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/mainstreetautoshops" target="_blank" style="text-decoration: none; color: white;">
-      <div style="background: #111; padding: 20px; border-radius: 12px; width: 220px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.6);">
-        <img src="assets/facebook-logo.png" alt="Facebook" style="width: 40px; margin-bottom: 15px;">
-        <h3 style="margin: 0; font-size: 1.2rem;">Facebook</h3>
-        <p style="margin: 5px 0 0;">Main Street Auto Shops</p>
-      </div>
-    </a>
-
-    <!-- YouTube -->
-    <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank" style="text-decoration: none; color: white;">
-      <div style="background: #111; padding: 20px; border-radius: 12px; width: 220px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.6);">
-        <img src="assets/youtube-logo.png" alt="YouTube" style="width: 40px; margin-bottom: 15px;">
-        <h3 style="margin: 0; font-size: 1.2rem;">YouTube</h3>
-        <p style="margin: 5px 0 0;">@mainstreetautoshops</p>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-  </div>
-</section>
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
