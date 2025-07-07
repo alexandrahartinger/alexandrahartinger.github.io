@@ -10,16 +10,13 @@
       font-family: 'Helvetica Neue', sans-serif;
       background: black; color: white; overflow-x: hidden;
     }
-
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
       background: black; display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px; box-sizing: border-box;
+      align-items: center; padding: 20px 40px;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    header .logo {
-      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
-    }
+    header .logo { font-size: 1.8rem; font-weight: bold; text-transform: uppercase; }
     nav a {
       color: white; text-decoration: none; margin-left: 30px;
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
@@ -32,76 +29,76 @@
     }
     .hero video {
       position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; z-index: 0;
+      width: 100%; height: 100%; object-fit: cover; z-index: 0;
     }
     .hero h1 {
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       font-size: 3vw; text-align: center; z-index: 1;
       margin: 0; color: white; opacity: 0;
-      animation: fadeUp 1.5s ease forwards; line-height: 1.2;
+      animation: fadeUp 1.5s ease forwards;
     }
     @keyframes fadeUp {
       0% { opacity: 0; transform: translate(-50%, -40%); }
       100% { opacity: 1; transform: translate(-50%, -50%); }
     }
 
-    section {
-      padding: 80px 40px; max-width: 1000px; margin: 0 auto;
-    }
-    section h2 {
-      text-transform: uppercase; margin-bottom: 20px;
-      text-align: left; font-size: 2rem;
-    }
+    section { padding: 80px 40px; max-width: 1000px; margin: 0 auto; }
+    section h2 { text-transform: uppercase; margin-bottom: 20px; font-size: 2rem; }
 
     .social-media-section h3 {
-      font-size: 1.5rem; text-align: center; margin-bottom: 20px;
+      font-size: 1.5rem; margin-bottom: 20px; text-align: center;
     }
-
     .social-media-section p {
-      text-align: center; font-size: 1rem; max-width: 700px; margin: 0 auto 40px;
-    }
-
-    .sizzle {
-      display: flex; justify-content: center; margin-bottom: 40px;
+      text-align: center; font-size: 1rem; max-width: 700px;
+      margin: 0 auto 40px;
     }
     .sizzle video {
-      width: 80%; max-width: 600px; border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      display: block; margin: 0 auto 40px;
+      width: 90%; max-width: 600px;
+      border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .social-links {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+    .social-card {
+      width: 180px; background: #111;
+      border-radius: 8px; overflow: hidden;
+      text-align: center; transition: transform 0.3s;
+    }
+    .social-card:hover { transform: translateY(-5px); }
+    .social-card img {
+      width: 100%; height: auto;
+    }
+    .social-card .info {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+    .social-card .info a {
+      color: #1DA1F2; text-decoration: none;
     }
 
-    .social-icons {
-      display: flex; justify-content: center; gap: 40px; margin-bottom: 60px;
+    .footer-link {
+      display: block; max-width: 300px; margin: 0 auto;
+      text-align: center; text-decoration: none; color: white;
+      transition: opacity 0.3s;
     }
-    .social-icons a img {
-      width: 50px; height: 50px;
-      filter: brightness(0) invert(1);
-      transition: transform 0.3s ease;
+    .footer-link img {
+      width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
-    .social-icons a img:hover {
-      transform: scale(1.1);
-    }
-
-    .northern-rock {
-      margin-top: 60px; text-align: center;
-    }
-    .northern-rock img {
-      width: 300px; border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    .northern-rock p {
-      margin-top: 10px; font-weight: bold; color: white;
+    .footer-link:hover { opacity: 0.8; }
+    .footer-link p {
+      margin-top: 10px; font-weight: bold;
     }
 
     footer {
-      text-align: center; padding: 40px 20px; font-size: 0.9rem;
-      color: #aaa; background: black;
+      text-align: center; padding: 40px 20px;
+      font-size: 0.9rem; color: #aaa; background: black;
     }
   </style>
 </head>
 <body>
-
   <header>
     <div class="logo">Alexandra Hartinger</div>
     <nav>
@@ -111,54 +108,66 @@
     </nav>
   </header>
 
-  <!-- HERO VIDEO -->
   <div class="hero">
     <video src="assets/Brand Story Cover Video Shortened.mp4" autoplay muted loop playsinline></video>
     <h1>Main Street Auto</h1>
   </div>
 
-  <!-- OUR STORY SECTION -->
   <section>
     <h2>Our Story</h2>
-    <p>Main Street Auto is a network of locally trusted repair shops across the Southeast. Every shop has its own personality — but all share a commitment to transparency, skill, and top-tier service. More coming soon...</p>
+    <p>Main Street Auto is a network of local repair shops across the Southeast. Each shop has its own personality but shares a commitment to transparency, skill, and top-tier service. I led a full rebrand—naming, visual identity, voice—and now create content and grow community across our social channels.</p>
   </section>
 
-  <!-- SOCIAL & REBRAND SECTION -->
   <section class="social-media-section">
     <h3>Main Street Auto — Connect With Us</h3>
-    <p>I led the rebrand of Main Street Auto from the ground up — new name, visual identity, brand voice, and positioning. I now manage and create content for all four of our social channels, building community through storytelling and strategy.</p>
+    <p>Leading the rebrand and now managing and growing all four social platforms from scratch.</p>
 
-    <!-- REBRAND SIZZLE -->
     <div class="sizzle">
       <video src="assets/Northern Rock - Main Street Auto Sizzle REEL.mp4" autoplay muted loop playsinline></video>
     </div>
 
-    <!-- SOCIAL ICONS -->
-    <div class="social-icons">
-      <a href="https://www.instagram.com/mainstreetautoshops/" target="_blank">
+    <div class="social-links">
+      <div class="social-card">
         <img src="assets/instagram-logo.png" alt="Instagram">
-      </a>
-      <a href="https://www.linkedin.com/company/mainstreetautoshops/" target="_blank">
-        <img src="assets/linkedin-logo.png" alt="LinkedIn">
-      </a>
-      <a href="https://www.facebook.com/mainstreetautoshops/" target="_blank">
+        <div class="info">
+          <p><strong>Instagram</strong></p>
+          <p>~1.9K followers</p>
+          <p><a href="https://www.instagram.com/mainstreetautoshops/" target="_blank">View Profile</a></p>
+        </div>
+      </div>
+
+      <div class="social-card">
         <img src="assets/facebook-logo.png" alt="Facebook">
-      </a>
-      <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">
+        <div class="info">
+          <p><strong>Facebook</strong></p>
+          <p>~730 followers</p>
+          <p><a href="https://www.facebook.com/mainstreetautoshops/" target="_blank">View Page</a></p>
+        </div>
+      </div>
+
+      <div class="social-card">
+        <img src="assets/linkedin-logo.png" alt="LinkedIn">
+        <div class="info">
+          <p><strong>LinkedIn</strong></p>
+          <p>Company Page</p>
+          <p><a href="https://www.linkedin.com/company/mainstreetautoshops/" target="_blank">Visit</a></p>
+        </div>
+      </div>
+
+      <div class="social-card">
         <img src="assets/youtube-logo.png" alt="YouTube">
-      </a>
+        <div class="info">
+          <p><strong>YouTube</strong></p>
+          <p><a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">Subscribe</a></p>
+        </div>
+      </div>
     </div>
 
-    <!-- NORTHERN ROCK -->
-    <div class="northern-rock">
-      <h3 style="text-transform: uppercase; font-size: 1.2rem; margin-bottom: 15px;">
-        Learn more about our brand strategy partner
-      </h3>
-      <a href="https://northernrockusa.org" target="_blank">
-        <img src="assets/northernrock-preview.png" alt="Northern Rock USA Website Preview">
-        <p>northernrockusa.org</p>
-      </a>
-    </div>
+    <a href="https://northernrockusa.org" target="_blank" class="footer-link">
+      <img src="assets/northernrock-preview.png" alt="Northern Rock USA">
+      <p>northernrockusa.org</p>
+    </a>
+
   </section>
 
   <footer>
