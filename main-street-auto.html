@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Main Street Auto</title>
   <style>
     body, html {
       margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif;
-      color: white; background: black; overflow-x: hidden;
+      background: black; color: white; overflow-x: hidden;
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
@@ -49,49 +49,35 @@
       padding: 80px 40px; max-width: 1000px; margin: 0 auto;
     }
     section h2 {
-      text-transform: uppercase; margin-bottom: 20px;
-      text-align: left; font-size: 2rem;
+      text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem;
     }
-
-    .video-section {
-      margin-bottom: 80px;
+    .social-media-section h3 {
+      font-size: 1.5rem; text-align: center; margin-bottom: 20px;
     }
-
-    .video-section video {
-      width: 100%; max-width: 1000px; height: auto;
-      display: block; margin: 0 auto 20px;
-      border-radius: 10px;
+    .social-media-section p {
+      text-align: center; font-size: 1rem; max-width: 700px; margin: 0 auto 40px;
     }
-
-    .social-media-section {
-      text-align: center;
+    .sizzle {
+      display: flex; justify-content: center; margin-bottom: 40px;
     }
-    .social-media-icons {
-      display: flex; justify-content: center;
-      gap: 30px; margin-top: 20px; flex-wrap: wrap;
+    .sizzle video {
+      width: 80%; max-width: 600px; border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
-    .social-media-icons a img {
-      width: 40px; height: 40px;
+    .social-icons {
+      display: flex; justify-content: center; gap: 40px; margin-bottom: 60px;
     }
-
-    .sizzle-reel {
-      max-width: 800px;
-      margin: 40px auto;
+    .social-icons a img {
+      width: 50px; height: 50px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
     }
-
-    .sizzle-reel video {
-      width: 100%; border-radius: 10px;
-    }
-
-    footer {
-      text-align: center; padding: 40px 20px;
-      font-size: 0.9rem; color: #aaa;
-      background: black;
+    .social-icons a img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
-
   <header>
     <div class="logo">Alexandra Hartinger</div>
     <nav>
@@ -101,57 +87,56 @@
     </nav>
   </header>
 
-  <!-- Cover Video -->
+  <!-- HERO VIDEO SECTION -->
   <div class="hero">
     <video src="assets/Brand Story Cover Video Shortened.mp4" autoplay muted loop playsinline></video>
     <h1>Main Street Auto</h1>
   </div>
 
-  <!-- Drone Section -->
-  <section class="video-section">
-    <h2>Drone Tour of Our Shops</h2>
-    <video src="assets/Main Street Auto Cover Video.mp4" controls></video>
+  <!-- Placeholder Project Section -->
+  <section>
+    <h2>Our Story</h2>
+    <p>Main Street Auto is a network of locally trusted repair shops across the Southeast. Every shop has its own personality — but all share a commitment to transparency, skill, and top-tier service. More coming soon...</p>
   </section>
 
-  <!-- Social Media + Rebrand Section -->
+  <!-- SOCIAL SECTION -->
   <section class="social-media-section">
-<section style="padding: 80px 40px; background: black; color: white;">
-  <h2 style="font-size: 3vw; text-transform: uppercase; margin-bottom: 20px;">
-    Main Street Auto — Connect With Us
-  </h2>
+    <h3>Main Street Auto — Connect With Us</h3>
+    <p>I led the rebrand of Main Street Auto from the ground up — new name, visual identity, brand voice, and positioning. I now manage and create content for all four of our social channels, building community through storytelling and strategy.</p>
 
-  <p style="font-size: 1.1rem; max-width: 800px; margin-bottom: 40px; line-height: 1.6;">
-    I was brought on to lead the rebrand of Main Street Auto — developing everything from our modern visual identity to the tone and style of our digital presence. I created, built, and now manage all four of our social platforms to reflect the voice of the brand and its real people.
-  </p>
+    <!-- REBRAND SIZZLE -->
+    <div class="sizzle">
+      <video src="assets/Northern Rock - Main Street Auto Sizzle REEL.mp4" autoplay muted loop playsinline></video>
+    </div>
 
-  <!-- Rebrand Transformation Reel -->
-  <div style="max-width: 800px; margin: 0 auto 60px; text-align: center;">
-    <h3 style="color: white; font-size: 1.5rem; margin-bottom: 10px;">From Old to New</h3>
-    <p style="color: #ccc; font-size: 1rem; margin-bottom: 20px;">
-      Watch the transformation — from our original identity to the modernized brand I developed for Main Street Auto.
-    </p>
-    <video src="assets/Northern Rock - Main Street Auto Sizzle REEL.mp4" controls style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.6);"></video>
-    <p style="color: #ccc; font-size: 0.95rem; margin-top: 20px;">
-      Branding design in collaboration with 
-      <a href="https://northernrockusa.com" target="_blank" style="color: #5ec9f0; text-decoration: none; font-weight: bold;">
-        northernrockusa.org
+    <!-- SOCIAL ICONS -->
+    <div class="social-icons">
+      <a href="https://www.instagram.com/mainstreetautoshops/" target="_blank">
+        <img src="assets/instagram-logo.png" alt="Instagram">
       </a>
-    </p>
-  </div>
+      <a href="https://www.linkedin.com/company/mainstreetautoshops/" target="_blank">
+        <img src="assets/linkedin-logo.png" alt="LinkedIn">
+      </a>
+      <a href="https://www.facebook.com/mainstreetautoshops/" target="_blank">
+        <img src="assets/facebook-logo.png" alt="Facebook">
+      </a>
+      <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">
+        <img src="assets/youtube-logo.png" alt="YouTube">
+      </a>
+    </div>
 
-  <!-- Social Media Grid -->
-  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">
-    <a href="https://www.instagram.com/mainstreetautoshops" target="_blank">
-      <img src="assets/instagram-icon.png" alt="Instagram" style="width: 60px; height: 60px;">
-    </a>
-    <a href="https://www.facebook.com/MainStreetAutoShops" target="_blank">
-      <img src="assets/facebook-icon.png" alt="Facebook" style="width: 60px; height: 60px;">
-    </a>
-    <a href="https://www.linkedin.com/company/mainstreetautoshops" target="_blank">
-      <img src="assets/linkedin-icon.png" alt="LinkedIn" style="width: 60px; height: 60px;">
-    </a>
-    <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">
-      <img src="assets/youtube-icon.png" alt="YouTube" style="width: 60px; height: 60px;">
-    </a>
-  </div>
-</section>
+    <!-- NORTHERN ROCK LINK -->
+    <div style="margin-top: 60px; text-align: center;">
+      <h3 style="text-transform: uppercase; font-size: 1.2rem; margin-bottom: 15px;">Learn more about our brand strategy partner</h3>
+      <a href="https://northernrockusa.org" target="_blank" style="display: inline-block; text-decoration: none;">
+        <img src="assets/northernrock-preview.png" alt="Northern Rock USA Website Preview" style="width: 300px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+        <p style="margin-top: 10px; font-weight: bold; color: white;">northernrockusa.org</p>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+  </footer>
+</body>
+</html>
