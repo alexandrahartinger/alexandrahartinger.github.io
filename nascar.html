@@ -126,12 +126,20 @@
 
   <section>
     <h2>Hero Card Design</h2>
-    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-      <img src="assets/12.png" alt="Hero Card Front" style="width:250px;">
-      <img src="assets/13.png" alt="Hero Card Back" style="width:250px;">
-      <img src="assets/14.png" alt="Signing" style="width:180px;">
-      <img src="assets/15.png" alt="Signing" style="width:180px;">
-      <img src="assets/CJ SIG.png" alt="Signature" style="width:150px;">
+    <div class="flip-container">
+      <div class="card" id="heroCard">
+        <div class="front">
+          <img src="assets/12.png" alt="Hero Card Front">
+        </div>
+        <div class="back">
+          <img src="assets/13.png" alt="Hero Card Back">
+        </div>
+      </div>
+    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
+
+    <div class="signing-photos">
+      <img src="assets/14.png" alt="CJ Signing Hero Card 1">
+      <img src="assets/15.png" alt="CJ Signing Hero Card 2">
     </div>
   </section>
 
