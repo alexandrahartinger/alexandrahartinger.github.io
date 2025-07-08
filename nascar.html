@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background: linear-gradient(135deg, #fed000, #e10600, #0066b1);
+      background: linear-gradient(to right, #f9d400, #e10600, #0072ce);
       color: white;
       overflow-x: hidden;
     }
@@ -24,7 +24,7 @@
       align-items: center;
       padding: 20px 40px;
       box-sizing: border-box;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
       font-size: 1.8rem;
@@ -67,18 +67,13 @@
       z-index: 1;
       margin: 0;
       color: white;
+      opacity: 0;
       animation: fadeUp 1.5s ease forwards;
       line-height: 1.2;
     }
     @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-      }
+      0% { opacity: 0; transform: translate(-50%, -40%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
     }
     section {
       padding: 80px 40px;
@@ -105,10 +100,9 @@
     }
     .card.flipped {
       transform: rotateY(180deg);
-      box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(255,255,255,0.2);
     }
-    .card .front,
-    .card .back {
+    .card .front, .card .back {
       position: absolute;
       top: 0;
       left: 0;
@@ -118,8 +112,7 @@
       border-radius: 12px;
       overflow: hidden;
     }
-    .card .front img,
-    .card .back img {
+    .card .front img, .card .back img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -127,25 +120,53 @@
     .card .back {
       transform: rotateY(180deg);
     }
-    .gallery,
-    .car-gallery {
+    .signing-photos {
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .signing-photos img {
+      height: 150px;
+      width: auto;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 15px;
       margin-top: 60px;
     }
-    .gallery img,
-    .car-gallery img {
+    .gallery img {
       width: 100%;
       height: auto;
       border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .car-views {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .car-views .card-view {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    .car-views img {
+      max-width: 100%;
+      border-radius: 8px;
     }
     footer {
       text-align: center;
       padding: 40px 20px;
       font-size: 0.9rem;
-      color: #ccc;
+      color: #aaa;
       background: black;
     }
   </style>
@@ -181,18 +202,19 @@
     <div class="signing-photos">
       <img src="assets/14.png" alt="CJ Signing Hero Card 1">
       <img src="assets/15.png" alt="CJ Signing Hero Card 2">
+      <img src="assets/CJ SIG.png" alt="CJ Signature">
     </div>
   </section>
 
   <section>
     <h2>CJ in the Suit + Full Car Views</h2>
-    <div class="car-gallery">
-      <img src="assets/17.png" alt="CJ in Race Suit">
-      <img src="assets/frontcar.jpeg" alt="Front View">
-      <img src="assets/backcar.jpeg" alt="Back View">
-      <img src="assets/sidecar.jpeg" alt="Side View 1">
-      <img src="assets/sidecar2.jpeg" alt="Side View 2">
-      <img src="assets/topcar.jpeg" alt="Top View">
+    <div class="car-views">
+      <div class="card-view"><h3>CJ in Race Suit</h3><img src="assets/17.png" alt="CJ in Race Suit"></div>
+      <div class="card-view"><h3>Front View</h3><img src="assets/frontcar.jpeg" alt="Front View"></div>
+      <div class="card-view"><h3>Back View</h3><img src="assets/backcar.jpeg" alt="Back View"></div>
+      <div class="card-view"><h3>Side View 1</h3><img src="assets/sidecar.jpeg" alt="Side View 1"></div>
+      <div class="card-view"><h3>Side View 2</h3><img src="assets/sidecar2.jpeg" alt="Side View 2"></div>
+      <div class="card-view"><h3>Top View</h3><img src="assets/topcar.jpeg" alt="Top View"></div>
     </div>
   </section>
 
@@ -213,7 +235,9 @@
     </div>
   </section>
 
-  <footer>&copy; 2025 Alexandra Hartinger. All Rights Reserved.</footer>
+  <footer>
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+  </footer>
 
   <script>
     document.getElementById('heroCard').addEventListener('click', function() {
