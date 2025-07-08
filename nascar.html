@@ -3,111 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CJ McLaughlin x Main Street Auto</title>
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-    }
-    header {
-      padding: 40px;
-      text-align: center;
-      background-color: #0d0d0d;
-    }
-    header img {
-      width: 350px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0;
-    }
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #111;
-      padding: 40px 0;
-    }
-    .hero img {
-      max-width: 90%;
-      height: auto;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-    .grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-    }
-    .logo-row {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-    .logo-row img {
-      width: 100px;
-      height: auto;
-      transition: transform 0.3s;
-    }
-    .logo-row img:hover {
-      transform: scale(1.1);
-    }
-    .bio {
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-      background: #111;
-      border-radius: 12px;
-    }
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
-      color: #888;
-    }
-  </style>
+  <title>Main Street Auto x CJ McLaughlin</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img src="assets/cjmclaughlin name.png" alt="CJ McLaughlin Logo" />
-    <h1>CJ McLaughlin x Main Street Auto</h1>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <h1><a href="index.html">ALEXANDRA HARTINGER</a></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="main-street-auto.html">Main Street Auto</a></li>
+        <li><a href="nascar.html" class="active">CJ McLaughlin</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
+  <!-- Background Video Hero -->
   <section class="hero">
-    <img src="assets/frontcar.jpeg" alt="Front View of CJ's Car" />
+    <video autoplay muted loop class="background-video">
+      <source src="assets/New Brand Story Video Social.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+      <h2>Main Street Auto x CJ McLaughlin</h2>
+      <p>NASCAR. Branding. Storytelling.</p>
+    </div>
   </section>
 
-  <section class="bio">
-    <p>In 2024, Main Street Auto made its NASCAR debut by partnering with CJ McLaughlin and sponsoring the No. 92 Chevrolet Camaro in the Xfinity Series. This page celebrates that milestone partnership, featuring design assets, creative direction, and branding artwork developed to bring our vision to the track.</p>
+  <!-- Signature and Branding -->
+  <section class="branding">
+    <img src="assets/cjmclaughlin name.png" alt="CJ McLaughlin Signature" class="signature" />
+    <div class="logos">
+      <img src="assets/Chevy.png" alt="Chevy Logo" />
+      <img src="assets/goodyear.png" alt="Goodyear Logo" />
+      <img src="assets/number.png" alt="Car Number Logo" />
+    </div>
   </section>
 
-  <section class="grid">
-    <img src="assets/backcar.jpeg" alt="Back of the car" />
-    <img src="assets/sidecar.jpeg" alt="Side view left" />
-    <img src="assets/sidecar2.jpeg" alt="Side view right" />
-    <img src="assets/topcar.jpeg" alt="Top view of the car" />
-    <img src="assets/mclaughlin.jpeg" alt="CJ McLaughlin Portrait" />
+  <!-- Car Visuals -->
+  <section class="car-views">
+    <img src="assets/frontcar.jpeg" alt="Front View" />
+    <img src="assets/backcar.jpeg" alt="Back View" />
+    <img src="assets/sidecar.jpeg" alt="Side View Left" />
+    <img src="assets/sidecar2.jpeg" alt="Side View Right" />
+    <img src="assets/topcar.jpeg" alt="Top View" />
   </section>
 
-  <section class="logo-row">
-    <img src="assets/Chevy.png" alt="Chevy Logo" />
-    <img src="assets/goodyear.png" alt="Goodyear Logo" />
-    <img src="assets/number.png" alt="92 Number Graphic" />
+  <!-- Personal Photo -->
+  <section class="driver">
+    <img src="assets/mclaughlin.jpeg" alt="CJ McLaughlin Portrait" class="driver-photo" />
   </section>
 
-  <div class="footer">
-    © 2025 Designed by Alexandra Hartinger | <a href="https://mainstreetauto.com" target="_blank" style="color:#ccc;">mainstreetauto.com</a>
-  </div>
+  <!-- Project Section -->
+  <section class="project-description">
+    <h2>The Story Behind The Sponsorship</h2>
+    <p>This collaboration brought Main Street Auto onto the national stage, wrapping our visual brand around the #92 car and driver CJ McLaughlin in the 2024 NASCAR Xfinity Series.</p>
+    <a class="view-more" href="https://www.instagram.com/mainstreetautoshop/">View More on Instagram</a>
+  </section>
+
+  <!-- Social Media Icons -->
+  <footer class="social-footer">
+    <a href="https://www.instagram.com/mainstreetautoshop/"><img src="assets/insta.png" alt="Instagram"></a>
+    <a href="https://www.facebook.com/mainstreetautoshop/"><img src="assets/facebook.png" alt="Facebook"></a>
+    <a href="https://www.linkedin.com/company/mainstreetautoshop/"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+    <a href="https://www.youtube.com/@mainstreetautoshop/"><img src="assets/youtube.png" alt="YouTube"></a>
+    <a href="https://northernrockusa.org" class="external-site-link">
+      <img src="assets/placeholder-site-preview.png" alt="Northern Rock Preview" />
+      <span>Visit NorthernRockUSA.org</span>
+    </a>
+  </footer>
 </body>
 </html>
