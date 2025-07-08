@@ -1,95 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NASCAR x Main Street Auto</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CJ McLaughlin x Main Street Auto</title>
   <style>
-    body, html { margin:0; padding:0; font-family:'Helvetica Neue',sans-serif; background:black; color:white; overflow-x:hidden; }
-    header { position:fixed; top:0; width:100%; z-index:10; background:black; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; box-sizing:border-box; border-bottom:1px solid rgba(255,255,255,0.1);}
-    header .logo { font-size:1.8rem; font-weight:bold; text-transform:uppercase;}
-    nav a { color:white; text-decoration:none; margin-left:30px; font-size:1rem; text-transform:uppercase; font-weight:bold;}
-    nav a:hover { color:#aaa; }
-    .hero { position:relative; width:100%; height:100vh; overflow:hidden;}
-    .hero video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;}
-    .hero h1 { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:3vw; text-align:center; z-index:1; margin:0; color:white; opacity:0; animation:fadeUp 1.5s ease forwards; line-height:1.2;}
-    @keyframes fadeUp { 0%{opacity:0;transform:translate(-50%,-40%);} 100%{opacity:1;transform:translate(-50%,-50%);} }
-    section { padding:80px 40px; max-width:1200px; margin:0 auto;}
-    section h2 { text-transform:uppercase; margin-bottom:20px; text-align:left; font-size:2rem;}
-    .flip-container { perspective:1200px; max-width:550px; margin:0 auto;}
-    .card { position:relative; width:100%; padding-top:65%; transform-style:preserve-3d; transition:transform 0.8s ease;}
-    .card.flipped { transform:rotateY(180deg); box-shadow:0 20px 40px rgba(255,255,255,0.2);}
-    .card .front,.card .back { position:absolute; top:0; left:0; width:100%; height:100%; backface-visibility:hidden; border-radius:12px; overflow:hidden;}
-    .card .front img,.card .back img { width:100%; height:100%; object-fit:contain;}
-    .card .back { transform:rotateY(180deg);}
-    .signing-photos { display:flex; gap:20px; margin-top:40px; justify-content:center; flex-wrap:wrap;}
-    .signing-photos img { height:250px; width:auto; border-radius:8px; object-fit:contain; box-shadow:0 4px 15px rgba(0,0,0,0.4);}
-    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:60px;}
-    .gallery img { width:100%; height:auto; border-radius:8px; }
-    footer { text-align:center; padding:40px 20px; font-size:0.9rem; color:#aaa; background:black;}
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 40px;
+      text-align: center;
+      background-color: #0d0d0d;
+    }
+    header img {
+      width: 350px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      padding: 40px 0;
+    }
+    .hero img {
+      max-width: 90%;
+      height: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .logo-row img {
+      width: 100px;
+      height: auto;
+      transition: transform 0.3s;
+    }
+    .logo-row img:hover {
+      transform: scale(1.1);
+    }
+    .bio {
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+      background: #111;
+      border-radius: 12px;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #888;
+    }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="logo">Alexandra Hartinger</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <img src="assets/cjmclaughlin name.png" alt="CJ McLaughlin Logo" />
+    <h1>CJ McLaughlin x Main Street Auto</h1>
   </header>
 
-  <div class="hero">
-    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
-    <h1>NASCAR x Main Street Auto</h1>
+  <section class="hero">
+    <img src="assets/frontcar.jpeg" alt="Front View of CJ's Car" />
+  </section>
+
+  <section class="bio">
+    <p>In 2024, Main Street Auto made its NASCAR debut by partnering with CJ McLaughlin and sponsoring the No. 92 Chevrolet Camaro in the Xfinity Series. This page celebrates that milestone partnership, featuring design assets, creative direction, and branding artwork developed to bring our vision to the track.</p>
+  </section>
+
+  <section class="grid">
+    <img src="assets/backcar.jpeg" alt="Back of the car" />
+    <img src="assets/sidecar.jpeg" alt="Side view left" />
+    <img src="assets/sidecar2.jpeg" alt="Side view right" />
+    <img src="assets/topcar.jpeg" alt="Top view of the car" />
+    <img src="assets/mclaughlin.jpeg" alt="CJ McLaughlin Portrait" />
+  </section>
+
+  <section class="logo-row">
+    <img src="assets/Chevy.png" alt="Chevy Logo" />
+    <img src="assets/goodyear.png" alt="Goodyear Logo" />
+    <img src="assets/number.png" alt="92 Number Graphic" />
+  </section>
+
+  <div class="footer">
+    © 2025 Designed by Alexandra Hartinger | <a href="https://mainstreetauto.com" target="_blank" style="color:#ccc;">mainstreetauto.com</a>
   </div>
-
-  <section>
-    <h2>Hero Card Design</h2>
-    <div class="flip-container">
-      <div class="card" id="heroCard">
-        <div class="front">
-          <img src="assets/12.png" alt="Hero Card Front">
-        </div>
-        <div class="back">
-          <img src="assets/13.png" alt="Hero Card Back">
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
-
-    <div class="signing-photos">
-      <img src="assets/14.png" alt="CJ Signing Hero Card 1">
-      <img src="assets/15.png" alt="CJ Signing Hero Card 2">
-    </div>
-  </section>
-
-  <section>
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="assets/1.png" alt="Gallery image 1">
-      <img src="assets/2.png" alt="Gallery image 2">
-      <img src="assets/3.png" alt="Gallery image 3">
-      <img src="assets/4.png" alt="Gallery image 4">
-      <img src="assets/5.png" alt="Gallery image 5">
-      <img src="assets/6.png" alt="Gallery image 6">
-      <img src="assets/7.png" alt="Gallery image 7">
-      <img src="assets/8.png" alt="Gallery image 8">
-      <img src="assets/9.png" alt="Gallery image 9">
-      <img src="assets/10.png" alt="Gallery image 10">
-      <img src="assets/11.png" alt="Gallery image 11">
-     
-    </div>
-  </section>
-
-  <footer>&copy; 2025 Alexandra Hartinger. All Rights Reserved.</footer>
-
-  <script>
-    document.getElementById('heroCard').addEventListener('click', function() {
-      this.classList.toggle('flipped');
-    });
-  </script>
-
 </body>
 </html>
