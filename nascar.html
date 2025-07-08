@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NASCAR x Main Street Auto</title>
   <style>
     body, html {
@@ -42,13 +42,18 @@
     nav a:hover {
       color: #aaa;
     }
-    .hero {
+    section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero, .hero-second {
       position: relative;
       width: 100%;
       height: 100vh;
       overflow: hidden;
     }
-    .hero video {
+    .hero video, .hero-second video {
       position: absolute;
       top: 0;
       left: 0;
@@ -75,90 +80,6 @@
       0% { opacity: 0; transform: translate(-50%, -40%); }
       100% { opacity: 1; transform: translate(-50%, -50%); }
     }
-    section {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    section h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-align: left;
-      font-size: 2rem;
-    }
-    .flip-container {
-      perspective: 1200px;
-      max-width: 550px;
-      margin: 0 auto;
-    }
-    .card {
-      position: relative;
-      width: 100%;
-      padding-top: 65%;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-    }
-    .card.flipped {
-      transform: rotateY(180deg);
-      box-shadow: 0 20px 40px rgba(255,255,255,0.2);
-    }
-    .card .front, .card .back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .card .front img, .card .back img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    .card .back {
-      transform: rotateY(180deg);
-    }
-    .signing-photos {
-      display: flex;
-      gap: 20px;
-      margin-top: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .signing-photos img {
-      height: 150px;
-      width: auto;
-      border-radius: 8px;
-      object-fit: contain;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      scroll-snap-type: x mandatory;
-      padding: 20px 0;
-    }
-    .carousel img {
-      height: 400px;
-      flex-shrink: 0;
-      scroll-snap-align: center;
-      border-radius: 8px;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 60px;
-    }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
     .bio-section {
       display: flex;
       align-items: center;
@@ -179,6 +100,30 @@
       font-size: 1.8rem;
       margin-bottom: 10px;
       color: #f9d400;
+    }
+    .carousel, .suit-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+      padding: 20px 0;
+    }
+    .carousel img, .suit-carousel img {
+      height: 400px;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      border-radius: 8px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 60px;
+      animation: scrollGallery 60s linear infinite alternate;
+    }
+    @keyframes scrollGallery {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .iphone-row {
       display: flex;
@@ -215,13 +160,19 @@
     <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
     <h1>NASCAR x Main Street Auto</h1>
   </div>
+  <div class="hero-second">
+    <video src="assets/n.mp4" autoplay muted loop playsinline></video>
+  </div>
   <section class="bio-section">
-    <img src="assets/A7407742.jpg" alt="CJ in Suit">
+    <img src="assets/A7407742.jpg" alt="CJ New Headshot" />
     <div class="bio-text">
       <h3>Meet Our Driver: CJ McLaughlin</h3>
       <p>CJ McLaughlin is an American professional stock car racing driver proudly sponsored by Main Street Auto. With a background in engineering and a relentless drive on the track, CJ represents the perfect intersection of speed, strategy, and small-town heart. Together with MSA, he brings a fresh energy to the NASCAR Xfinity Series.</p>
     </div>
   </section>
+  <!-- Additional sections including hero card, car carousel, suit carousel, gallery, etc., to follow -->
+</body>
+</html>
   <section>
     <h2>Hero Card Design</h2>
     <div class="flip-container">
