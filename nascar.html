@@ -135,6 +135,19 @@
       object-fit: contain;
       box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+      padding: 20px 0;
+    }
+    .carousel img {
+      height: 400px;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      border-radius: 8px;
+    }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -144,22 +157,6 @@
     .gallery img {
       width: 100%;
       height: auto;
-      border-radius: 8px;
-    }
-    .car-views {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .car-views .card-view {
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    }
-    .car-views img {
-      max-width: 100%;
       border-radius: 8px;
     }
     .bio-section {
@@ -218,6 +215,13 @@
     <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
     <h1>NASCAR x Main Street Auto</h1>
   </div>
+  <section class="bio-section">
+    <img src="assets/17.png" alt="CJ in Suit">
+    <div class="bio-text">
+      <h3>Meet Our Driver: CJ McLaughlin</h3>
+      <p>CJ McLaughlin is an American professional stock car racing driver proudly sponsored by Main Street Auto. With a background in engineering and a relentless drive on the track, CJ represents the perfect intersection of speed, strategy, and small-town heart. Together with MSA, he brings a fresh energy to the NASCAR Xfinity Series.</p>
+    </div>
+  </section>
   <section>
     <h2>Hero Card Design</h2>
     <div class="flip-container">
@@ -239,13 +243,12 @@
   </section>
   <section>
     <h2>CJ in the Suit + Full Car Views</h2>
-    <div class="car-views">
-      <div class="card-view"><h3>CJ in Race Suit</h3><img src="assets/17.png" alt="CJ in Race Suit"></div>
-      <div class="card-view"><h3>Front View</h3><img src="assets/frontcar.png" alt="Front View"></div>
-      <div class="card-view"><h3>Back View</h3><img src="assets/backcar.png" alt="Back View"></div>
-      <div class="card-view"><h3>Side View 1</h3><img src="assets/sidecar.png" alt="Side View 1"></div>
-      <div class="card-view"><h3>Side View 2</h3><img src="assets/sidecar2.png" alt="Side View 2"></div>
-      <div class="card-view"><h3>Top View</h3><img src="assets/topcar.png" alt="Top View"></div>
+    <div class="carousel">
+      <img src="assets/frontcar.jpeg" alt="Front View">
+      <img src="assets/backcar.jpeg" alt="Back View">
+      <img src="assets/sidecar.jpeg" alt="Side View 1">
+      <img src="assets/sidecar2.jpeg" alt="Side View 2">
+      <img src="assets/topcar.jpeg" alt="Top View">
     </div>
   </section>
   <section>
@@ -268,13 +271,8 @@
       <img src="assets/9.png" alt="Gallery Image 9">
       <img src="assets/10.png" alt="Gallery Image 10">
       <img src="assets/11.png" alt="Gallery Image 11">
-    </div>
-  </section>
-  <section class="bio-section">
-    <img src="assets/17.png" alt="CJ in Suit">
-    <div class="bio-text">
-      <h3>Meet Our Driver: CJ McLaughlin</h3>
-      <p>CJ McLaughlin is an American professional stock car racing driver proudly sponsored by Main Street Auto. With a background in engineering and a relentless drive on the track, CJ represents the perfect intersection of speed, strategy, and small-town heart. Together with MSA, he brings a fresh energy to the NASCAR Xfinity Series.</p>
+      <img src="assets/Screenshot 2025-07-08 at 11.28.44 AM.png" alt="New Image">
+      <img src="assets/Screenshot 2025-07-08 at 11.49.15 AM.png" alt="New Image">
     </div>
   </section>
   <section>
