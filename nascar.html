@@ -6,239 +6,95 @@
   <title>NASCAR x Main Street Auto</title>
   <style>
     body, html {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background: linear-gradient(to right, #f9d400, #e10600, #0072ce);
-      color: white;
-      overflow-x: hidden;
+      background: black; color: white; overflow-x: hidden;
     }
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 10;
+      position: fixed; top: 0; width: 100%; z-index: 10;
       background: black;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      box-sizing: border-box;
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     header .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
     }
     nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 30px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      font-weight: bold;
+      color: white; text-decoration: none; margin-left: 30px;
+      font-size: 1rem; text-transform: uppercase; font-weight: bold;
     }
-    nav a:hover {
-      color: #aaa;
-    }
+    nav a:hover { color: #aaa; }
     .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
     .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; object-fit: cover; z-index: 0;
     }
     .hero h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 3vw;
-      text-align: center;
-      z-index: 1;
-      margin: 0;
-      color: white;
-      opacity: 0;
-      animation: fadeUp 1.5s ease forwards;
+      font-size: 3vw; text-align: center;
+      z-index: 1; margin: 0; color: white;
+      opacity: 0; animation: fadeUp 1.5s ease forwards;
       line-height: 1.2;
     }
     @keyframes fadeUp {
       0% { opacity: 0; transform: translate(-50%, -40%); }
       100% { opacity: 1; transform: translate(-50%, -50%); }
     }
+    .video-container {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .video-container video, .video-container iframe {
+      width: 100%; border-radius: 8px; display: block;
+    }
     section {
       padding: 80px 40px;
       max-width: 1200px;
       margin: 0 auto;
     }
-    .video-full {
-      width: 100%;
-      margin-top: 100px;
+    section h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 2rem;
     }
-    .hero-card-section {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-top: 60px;
-      align-items: center;
-    }
-    .hero-card-section video {
-      width: 45%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-    .flip-container {
-      perspective: 1200px;
-      width: 45%;
-    }
-    .card {
-      position: relative;
-      width: 100%;
-      padding-top: 65%;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-    }
-    .card.flipped {
-      transform: rotateY(180deg);
-      box-shadow: 0 20px 40px rgba(255,255,255,0.2);
-    }
-    .card .front, .card .back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .card .front img, .card .back img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    .card .back {
-      transform: rotateY(180deg);
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">Alexandra Hartinger</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#hero-cards">Hero Cards</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <div class="hero">
-    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
-    <h1>NASCAR x Main Street Auto</h1>
-  </div>
-
-  <section class="video-full">
-    <video src="assets/Meet Our Driver CJ.mp4" autoplay muted loop playsinline></video>
-  </section>
-
-  <section id="hero-cards">
-    <div class="hero-card-section">
-      <video src="assets/Hero Card Singed.mp4" autoplay muted loop playsinline></video>
-      <div class="flip-container">
-        <div class="card" id="heroCard">
-          <div class="front">
-            <img src="assets/12.png" alt="Hero Card Front">
-          </div>
-          <div class="back">
-            <img src="assets/13.png" alt="Hero Card Back">
-          </div>
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center; margin-top: 20px;">Click the hero card to flip and see both sides!</p>
-  </section>
-
-  <script>
-    document.getElementById('heroCard').addEventListener('click', function() {
-      this.classList.toggle('flipped');
-    });
-  </script>
-</body>
-</html>
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      scroll-snap-type: x mandatory;
-      padding: 20px 0;
+      display: flex; gap: 15px;
+      overflow: hidden; animation: scroll 30s linear infinite;
     }
     .carousel img {
-      height: 400px;
-      flex-shrink: 0;
-      scroll-snap-align: center;
+      flex: 0 0 auto;
+      width: 25%; height: auto;
+      object-fit: contain;
       border-radius: 8px;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 60px;
+      display: flex; flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
     }
     .gallery img {
-      width: 100%;
-      height: auto;
+      width: calc(25% - 10px);
       border-radius: 8px;
-    }
-    .bio-section {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      background: #111;
-      padding: 60px 40px;
-      border-radius: 16px;
-      margin-top: 80px;
-    }
-    .bio-section img {
-      max-width: 300px;
-      border-radius: 8px;
-    }
-    .bio-text {
-      max-width: 700px;
-    }
-    .bio-text h3 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      color: #f9d400;
+      object-fit: cover;
     }
     .iphone-row {
       display: flex;
-      justify-content: space-between;
       gap: 20px;
+      justify-content: center;
       flex-wrap: wrap;
-      margin-top: 40px;
     }
     .iphone-row img {
-      width: 180px;
-      height: auto;
-      border-radius: 24px;
+      width: 180px; border-radius: 24px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      background: black;
     }
   </style>
 </head>
@@ -246,91 +102,88 @@
   <header>
     <div class="logo">Alexandra Hartinger</div>
     <nav>
-      <a href="#">Home</a>
+      <a href="index.html">Home</a>
       <a href="#about">About Me</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
+
   <div class="hero">
     <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
     <h1>NASCAR x Main Street Auto</h1>
   </div>
-  <section class="bio-section">
-    <img src="assets/17.png" alt="CJ in Suit">
-    <div class="bio-text">
-      <h3>Meet Our Driver: CJ McLaughlin</h3>
-      <p>CJ McLaughlin is an American professional stock car racing driver proudly sponsored by Main Street Auto. With a background in engineering and a relentless drive on the track, CJ represents the perfect intersection of speed, strategy, and small-town heart. Together with MSA, he brings a fresh energy to the NASCAR Xfinity Series.</p>
+
+  <div class="video-container">
+    <video src="assets/Meet Our Driver CJ.mp4" autoplay muted loop playsinline></video>
+  </div>
+
+  <section>
+    <h2>Hero Card Signing</h2>
+    <div class="video-container">
+      <video src="assets/Hero Card Singed.mp4" autoplay muted loop playsinline></video>
     </div>
   </section>
+
   <section>
     <h2>Hero Card Design</h2>
-    <div class="flip-container">
-      <div class="card" id="heroCard">
-        <div class="front">
-          <img src="assets/12.png" alt="Hero Card Front">
-        </div>
-        <div class="back">
-          <img src="assets/13.png" alt="Hero Card Back">
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
-    <div class="signing-photos">
-      <img src="assets/14.png" alt="CJ Signing 1">
-      <img src="assets/15.png" alt="CJ Signing 2">
-      <img src="assets/CJ SIG.png" alt="CJ Signature">
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <img src="assets/12.png" alt="Hero Card Front" style="width:250px;">
+      <img src="assets/13.png" alt="Hero Card Back" style="width:250px;">
+      <img src="assets/14.png" alt="Signing" style="width:180px;">
+      <img src="assets/15.png" alt="Signing" style="width:180px;">
+      <img src="assets/CJ SIG.png" alt="Signature" style="width:150px;">
     </div>
   </section>
+
   <section>
-    <h2>CJ in the Suit + Full Car Views</h2>
+    <h2>Car Design</h2>
     <div class="carousel">
-      <img src="assets/frontcar.jpeg" alt="Front View">
-      <img src="assets/backcar.jpeg" alt="Back View">
-      <img src="assets/sidecar.jpeg" alt="Side View 1">
-      <img src="assets/sidecar2.jpeg" alt="Side View 2">
-      <img src="assets/topcar.jpeg" alt="Top View">
+      <img src="assets/frontcar.jpeg" alt="Front">
+      <img src="assets/backcar.jpeg" alt="Back">
+      <img src="assets/sidecar.jpeg" alt="Side">
+      <img src="assets/sidecar2.jpeg" alt="Side 2">
+      <img src="assets/topcar.jpeg" alt="Top">
     </div>
   </section>
+
   <section>
-    <h2>Creative Direction</h2>
-    <div class="car-views">
-      <div class="card-view"><img src="assets/16.png" alt="Suit Mockup"></div>
+    <h2>Suits Mockup</h2>
+    <div class="carousel">
+      <img src="assets/Suits!.jpeg" alt="Suits Carousel">
     </div>
+    <img src="assets/17.png" alt="CJ in Suit" style="width:300px; margin-top:20px; display:block; margin-left:auto; margin-right:auto;">
   </section>
+
   <section>
     <h2>Gallery</h2>
     <div class="gallery">
-      <img src="assets/1.png" alt="Gallery Image 1">
-      <img src="assets/2.png" alt="Gallery Image 2">
-      <img src="assets/3.png" alt="Gallery Image 3">
-      <img src="assets/4.png" alt="Gallery Image 4">
-      <img src="assets/5.png" alt="Gallery Image 5">
-      <img src="assets/6.png" alt="Gallery Image 6">
-      <img src="assets/7.png" alt="Gallery Image 7">
-      <img src="assets/8.png" alt="Gallery Image 8">
-      <img src="assets/9.png" alt="Gallery Image 9">
-      <img src="assets/10.png" alt="Gallery Image 10">
-      <img src="assets/11.png" alt="Gallery Image 11">
-      <img src="assets/Screenshot 2025-07-08 at 11.28.44 AM.png" alt="New Image">
-      <img src="assets/Screenshot 2025-07-08 at 11.49.15 AM.png" alt="New Image">
+      <img src="assets/1.png" alt="1">
+      <img src="assets/2.png" alt="2">
+      <img src="assets/3.png" alt="3">
+      <img src="assets/4.png" alt="4">
+      <img src="assets/5.png" alt="5">
+      <img src="assets/6.png" alt="6">
+      <img src="assets/7.png" alt="7">
+      <img src="assets/8.png" alt="8">
+      <img src="assets/9.png" alt="9">
+      <img src="assets/10.png" alt="10">
+      <img src="assets/11.png" alt="11">
+      <img src="assets/Screenshot 2025-07-08 at 11.28.44 AM.png" alt="New">
+      <img src="assets/Screenshot 2025-07-08 at 11.49.15 AM.png" alt="New 2">
     </div>
   </section>
+
   <section>
-    <h2>Instagram Reels Preview</h2>
+    <h2>Reels Preview</h2>
     <div class="iphone-row">
       <img src="assets/iphone-placeholder1.png" alt="Reel 1">
       <img src="assets/iphone-placeholder2.png" alt="Reel 2">
       <img src="assets/iphone-placeholder3.png" alt="Reel 3">
     </div>
   </section>
+
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
-  <script>
-    document.getElementById('heroCard').addEventListener('click', function() {
-      this.classList.toggle('flipped');
-    });
-  </script>
 </body>
 </html>
-
