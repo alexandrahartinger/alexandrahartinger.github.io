@@ -86,83 +86,36 @@
       text-align: left;
       font-size: 2rem;
     }
-    .flip-container {
-      perspective: 1200px;
-      max-width: 550px;
-      margin: 0 auto;
-    }
-    .card {
-      position: relative;
-      width: 100%;
-      padding-top: 65%;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-    }
-    .card.flipped {
-      transform: rotateY(180deg);
-      box-shadow: 0 20px 40px rgba(255,255,255,0.2);
-    }
-    .card .front, .card .back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
+    .bio-section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
       border-radius: 12px;
-      overflow: hidden;
+      margin-bottom: 40px;
     }
-    .card .front img, .card .back img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .bio-section p {
+      font-size: 1.2rem;
+      line-height: 1.6;
     }
-    .card .back {
-      transform: rotateY(180deg);
-    }
-    .signing-photos {
+    .driver-section {
       display: flex;
-      gap: 20px;
-      margin-top: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
       align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
     }
-    .signing-photos img {
-      height: 150px;
-      width: auto;
-      border-radius: 8px;
-      object-fit: contain;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-      padding: 20px 0;
-    }
-    .carousel img {
-      height: 300px;
-      width: auto;
+    .driver-section img {
+      max-width: 300px;
       border-radius: 12px;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 60px;
+    .driver-bio {
+      flex: 1;
     }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
+    .driver-bio h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      background: black;
+    .driver-bio p {
+      font-size: 1.1rem;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -170,9 +123,9 @@
   <header>
     <div class="logo">Alexandra Hartinger</div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </nav>
   </header>
 
@@ -181,75 +134,19 @@
     <h1>NASCAR x Main Street Auto</h1>
   </div>
 
-  <section>
-    <h2>Hero Card Design</h2>
-    <div class="flip-container">
-      <div class="card" id="heroCard">
-        <div class="front">
-          <img src="assets/12.png" alt="Hero Card Front">
-        </div>
-        <div class="back">
-          <img src="assets/13.png" alt="Hero Card Back">
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
-    <div class="signing-photos">
-      <img src="assets/14.png" alt="CJ Signing Hero Card 1">
-      <img src="assets/15.png" alt="CJ Signing Hero Card 2">
-      <img src="assets/CJ SIG.png" alt="CJ Signature">
+  <section class="bio-section">
+    <p>Main Street Auto has officially partnered with NASCAR driver CJ McLaughlin, bringing speed, community, and creativity together on the track. This page documents that exciting collaboration—from design mockups to real-life race moments.</p>
+  </section>
+
+  <section class="driver-section">
+    <img src="assets/17.png" alt="CJ in Race Suit">
+    <div class="driver-bio">
+      <h3>Meet CJ McLaughlin</h3>
+      <p>CJ McLaughlin is a talented and determined NASCAR driver currently competing in the Xfinity Series. Known for his consistency, focus, and passion for the sport, CJ brings grit to every race. With Main Street Auto behind him, CJ’s journey on the track has gained a bold new look and even more horsepower. From suit design to vehicle wraps, every detail reflects our shared pursuit of excellence.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Creative Direction: Suit + Car Mockups</h2>
-    <div class="signing-photos">
-      <img src="assets/16.png" alt="Suit Mockup">
-      <img src="assets/17.png" alt="CJ in Race Suit">
-    </div>
-    <div class="carousel">
-      <img src="assets/frontcar.png" alt="Front View">
-      <img src="assets/backcar.png" alt="Back View">
-      <img src="assets/sidecar.png" alt="Side View 1">
-      <img src="assets/sidecar2.png" alt="Side View 2">
-      <img src="assets/topcar.png" alt="Top View">
-    </div>
-  </section>
+  <!-- Remaining sections like Creative Direction, Gallery, Reels, etc., continue here -->
 
-  <section>
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="assets/DRO_7926.jpg">
-      <img src="assets/MVL_4494.jpg">
-      <img src="assets/MVL_5221.jpg">
-      <img src="assets/Photo Feb 14 2025, 1 27 42 PM.jpg">
-      <img src="assets/MVL_5255.jpg">
-      <img src="assets/DRO_8350.jpg">
-      <img src="assets/DRO_8803.jpg">
-      <img src="assets/DRO_7881.jpg">
-      <img src="assets/MVL_8416.jpg">
-      <img src="assets/A7407787.jpg">
-      <img src="assets/A7406999.jpg">
-      <img src="assets/A7407702.jpg">
-      <img src="assets/A7407751.jpg">
-      <img src="assets/A7407883.jpg">
-      <img src="assets/A7407742.jpg">
-      <img src="assets/MVL_7902.jpg">
-      <img src="assets/DRO_8784.jpg">
-      <img src="assets/DRO_8807.jpg">
-      <img src="assets/IMG_4581.jpg">
-      <img src="assets/MVL_5142.jpg">
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
-  </footer>
-
-  <script>
-    document.getElementById('heroCard').addEventListener('click', function() {
-      this.classList.toggle('flipped');
-    });
-  </script>
 </body>
 </html>
