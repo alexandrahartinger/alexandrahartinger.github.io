@@ -1,79 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main Street Auto x CJ McLaughlin</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NASCAR x Main Street Auto</title>
+  <style>
+    body, html { margin:0; padding:0; font-family:'Helvetica Neue',sans-serif; background:black; color:white; overflow-x:hidden; }
+    header { position:fixed; top:0; width:100%; z-index:10; background:black; display:flex; justify-content:space-between; align-items:center; padding:20px 40px; box-sizing:border-box; border-bottom:1px solid rgba(255,255,255,0.1);}
+    header .logo { font-size:1.8rem; font-weight:bold; text-transform:uppercase;}
+    nav a { color:white; text-decoration:none; margin-left:30px; font-size:1rem; text-transform:uppercase; font-weight:bold;}
+    nav a:hover { color:#aaa; }
+    .hero { position:relative; width:100%; height:100vh; overflow:hidden;}
+    .hero video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;}
+    .hero h1 { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:3vw; text-align:center; z-index:1; margin:0; color:white; opacity:0; animation:fadeUp 1.5s ease forwards; line-height:1.2;}
+    @keyframes fadeUp { 0%{opacity:0;transform:translate(-50%,-40%);} 100%{opacity:1;transform:translate(-50%,-50%);} }
+    section { padding:80px 40px; max-width:1200px; margin:0 auto;}
+    section h2 { text-transform:uppercase; margin-bottom:20px; text-align:left; font-size:2rem;}
+    .flip-container { perspective:1200px; max-width:550px; margin:0 auto;}
+    .card { position:relative; width:100%; padding-top:65%; transform-style:preserve-3d; transition:transform 0.8s ease;}
+    .card.flipped { transform:rotateY(180deg); box-shadow:0 20px 40px rgba(255,255,255,0.2);}
+    .card .front,.card .back { position:absolute; top:0; left:0; width:100%; height:100%; backface-visibility:hidden; border-radius:12px; overflow:hidden;}
+    .card .front img,.card .back img { width:100%; height:100%; object-fit:contain;}
+    .card .back { transform:rotateY(180deg);}
+    .signing-photos { display:flex; gap:20px; margin-top:40px; justify-content:center; flex-wrap:wrap;}
+    .signing-photos img { height:250px; width:auto; border-radius:8px; object-fit:contain; box-shadow:0 4px 15px rgba(0,0,0,0.4);}
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:60px;}
+    .gallery img { width:100%; height:auto; border-radius:8px; }
+    footer { text-align:center; padding:40px 20px; font-size:0.9rem; color:#aaa; background:black;}
+  </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <header class="navbar">
-    <h1><a href="index.html">ALEXANDRA HARTINGER</a></h1>
+
+  <header>
+    <div class="logo">Alexandra Hartinger</div>
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="main-street-auto.html">Main Street Auto</a></li>
-        <li><a href="nascar.html" class="active">CJ McLaughlin</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Background Video Hero -->
-  <section class="hero">
-    <video autoplay muted loop class="background-video">
-      <source src="assets/New Brand Story Video Social.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-overlay">
-      <h2>Main Street Auto x CJ McLaughlin</h2>
-      <p>NASCAR. Branding. Storytelling.</p>
+  <div class="hero">
+    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
+    <h1>NASCAR x Main Street Auto</h1>
+  </div>
+
+  <section>
+    <h2>Hero Card Design</h2>
+    <div class="flip-container">
+      <div class="card" id="heroCard">
+        <div class="front">
+          <img src="assets/12.png" alt="Hero Card Front">
+        </div>
+        <div class="back">
+          <img src="assets/13.png" alt="Hero Card Back">
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
+
+    <div class="signing-photos">
+      <img src="assets/14.png" alt="CJ Signing Hero Card 1">
+      <img src="assets/15.png" alt="CJ Signing Hero Card 2">
     </div>
   </section>
 
-  <!-- Signature and Branding -->
-  <section class="branding">
-    <img src="assets/cjmclaughlin name.png" alt="CJ McLaughlin Signature" class="signature" />
-    <div class="logos">
-      <img src="assets/Chevy.png" alt="Chevy Logo" />
-      <img src="assets/goodyear.png" alt="Goodyear Logo" />
-      <img src="assets/number.png" alt="Car Number Logo" />
+  <section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="assets/1.png" alt="Gallery image 1">
+      <img src="assets/2.png" alt="Gallery image 2">
+      <img src="assets/3.png" alt="Gallery image 3">
+      <img src="assets/4.png" alt="Gallery image 4">
+      <img src="assets/5.png" alt="Gallery image 5">
+      <img src="assets/6.png" alt="Gallery image 6">
+      <img src="assets/7.png" alt="Gallery image 7">
+      <img src="assets/8.png" alt="Gallery image 8">
+      <img src="assets/9.png" alt="Gallery image 9">
+      <img src="assets/10.png" alt="Gallery image 10">
+      <img src="assets/11.png" alt="Gallery image 11">
+     
     </div>
   </section>
 
-  <!-- Car Visuals -->
-  <section class="car-views">
-    <img src="assets/frontcar.jpeg" alt="Front View" />
-    <img src="assets/backcar.jpeg" alt="Back View" />
-    <img src="assets/sidecar.jpeg" alt="Side View Left" />
-    <img src="assets/sidecar2.jpeg" alt="Side View Right" />
-    <img src="assets/topcar.jpeg" alt="Top View" />
-  </section>
+  <footer>&copy; 2025 Alexandra Hartinger. All Rights Reserved.</footer>
 
-  <!-- Personal Photo -->
-  <section class="driver">
-    <img src="assets/mclaughlin.jpeg" alt="CJ McLaughlin Portrait" class="driver-photo" />
-  </section>
+  <script>
+    document.getElementById('heroCard').addEventListener('click', function() {
+      this.classList.toggle('flipped');
+    });
+  </script>
 
-  <!-- Project Section -->
-  <section class="project-description">
-    <h2>The Story Behind The Sponsorship</h2>
-    <p>This collaboration brought Main Street Auto onto the national stage, wrapping our visual brand around the #92 car and driver CJ McLaughlin in the 2024 NASCAR Xfinity Series.</p>
-    <a class="view-more" href="https://www.instagram.com/mainstreetautoshop/">View More on Instagram</a>
-  </section>
-
-  <!-- Social Media Icons -->
-  <footer class="social-footer">
-    <a href="https://www.instagram.com/mainstreetautoshop/"><img src="assets/insta.png" alt="Instagram"></a>
-    <a href="https://www.facebook.com/mainstreetautoshop/"><img src="assets/facebook.png" alt="Facebook"></a>
-    <a href="https://www.linkedin.com/company/mainstreetautoshop/"><img src="assets/linkedin.png" alt="LinkedIn"></a>
-    <a href="https://www.youtube.com/@mainstreetautoshop/"><img src="assets/youtube.png" alt="YouTube"></a>
-    <a href="https://northernrockusa.org" class="external-site-link">
-      <img src="assets/placeholder-site-preview.png" alt="Northern Rock Preview" />
-      <span>Visit NorthernRockUSA.org</span>
-    </a>
-  </footer>
 </body>
 </html>
+
