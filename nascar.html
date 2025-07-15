@@ -1,57 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NASCAR x Main Street Auto</title>
-<style>
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NASCAR x Main Street Auto</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: black; color: white; overflow-x: hidden;
+    }
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 10;
+      background: black;
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    header .logo {
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+    }
+    nav a {
+      color: white; text-decoration: none; margin-left: 30px;
+      font-size: 1rem; text-transform: uppercase; font-weight: bold;
+    }
+    nav a:hover { color: #aaa; }
+
+    /* Header with video background */
+    .hero {
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    }
+    .hero video {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+    }
+    .hero h1 {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5vw; text-align: center;
+      z-index: 1; margin: 0;
+      color: white;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+      line-height: 1.2;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 2px;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translate(-50%, -40%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    /* Style for YouTube embed & sections */
+section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-/* Hero styling similar to Yurman page */
-.hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-}
-.hero iframe {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  object-fit: cover;
-  z-index: -1;
-}
-.hero h1 {
-  position: absolute;
-  top: 50%;
-  width: 100%;
+section h2 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
   text-align: center;
-  font-family: 'Orbitron', sans-serif; /* similar font */
-  font-size: 3vw; /* similar size */
-  transform: translateY(-50%);
-  color: #fff;
-  margin: 0;
-  padding: 0 20px;
-  text-shadow: 0 0 10px #000, 0 0 20px #ff0000;
-  animation: pulse 2s infinite;
+  font-size: 2rem;
 }
-@keyframes pulse {
-  0%, 100% { text-shadow: 0 0 10px #000, 0 0 20px #ff0000; }
-  50% { text-shadow: 0 0 20px #000, 0 0 40px #ff0000; }
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.video-container iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: 8px;
 }
 </style>
 </head>
 <body>
-<div class="hero">
-  <!-- Embed YouTube as background iframe -->
-  <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE?autoplay=1&mute=1&loop=1&playlist=2g8z9Tcm4hE&controls=0&showinfo=0&autohide=1&modestbranding=1" allow="autoplay; loop; fullscreen"></iframe>
+
+<!-- Header -->
+<header>
+  <div class="logo">Alexandra Hartinger</div>
+  <nav>
+    <a href="#header-video">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+</header>
+
+<!-- Hero with background video -->
+<div class="hero" id="header-video">
+  <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
   <h1>NASCAR x Main Street Auto</h1>
 </div>
-</body>
-</html>
+
+<!-- YouTube video section below the hero -->
+<section id="video-section">
+  <h2>Watch Our Featured Video</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE?autoplay=0&mute=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- More sections like gallery can go here -->
+<!-- Example: -->
+<section id="gallery">
+  <h2>Gallery</h2>
+  <!-- Replace with your images -->
+  <div style="display:flex; flex-wrap:wrap; gap:10px; justify
