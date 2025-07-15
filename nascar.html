@@ -1,82 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NASCAR x Main Street Auto</title>
-  <style>
-    body, html {
-      margin: 0; padding: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: black; color: white; overflow-x: hidden;
-    }
-    header {
-      position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black;
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px; box-sizing: border-box;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    header .logo {
-      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
-    }
-    nav a {
-      color: white; text-decoration: none; margin-left: 30px;
-      font-size: 1rem; text-transform: uppercase; font-weight: bold;
-    }
-    nav a:hover { color: #aaa; }
-    .hero {
-      position: relative; width: 100%; height: 100vh; overflow: hidden;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NASCAR x Main Street Auto</title>
+<style>
+body, html {
+  margin: 0; padding: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to right, #f9d400, #e10600, #0072ce);
+  color: white;
+  overflow-x: hidden;
+}
+/* Header */
+header {
+  position: fixed; top: 0; width: 100%; z-index: 10;
+  background: black;
+  display: flex; justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+header .logo {
+  font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+}
+nav a {
+  color: white; text-decoration: none; margin-left: 30px;
+  font-size: 1rem; text-transform: uppercase; font-weight: bold;
+}
+nav a:hover { color: #aaa; }
 
-    /* Header with video background */
-    .hero {
-      position: relative; width: 100%; height: 100vh; overflow: hidden;
-    }
-    .hero video {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; z-index: 0;
-    }
-    .hero h1 {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2.5vw; text-align: center;
-      z-index: 1; margin: 0;
-      color: white;
-      opacity: 0;
-      animation: fadeUp 1.5s ease forwards;
-      line-height: 1.2;
-      font-family: 'Orbitron', sans-serif;
-      letter-spacing: 2px;
-    }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
-    }
+/* Hero Video background */
+.hero {
+  position: relative; width: 100%; height: 100vh; overflow: hidden;
+}
+.hero video {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.hero h1 {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3vw;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  text-shadow: 0 0 10px #000, 0 0 20px #ff0000;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 10px #000, 0 0 20px #ff0000; }
+  50% { text-shadow: 0 0 20px #000, 0 0 40px #ff0000; }
+}
 
-    /* Style for YouTube embed & sections */
+/* Content Sections */
 section {
   padding: 80px 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 section h2 {
-  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#video-section, #gallery, #about, #team {
+  margin-top: 40px;
 }
 .video-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  display: flex; justify-content: center; margin-top: 20px;
 }
 .video-container iframe {
   width: 100%;
   max-width: 800px;
   height: 450px;
   border-radius: 8px;
+}
+/* Gallery styles */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+  border: 3px solid #ff0000;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0000;
+}
+
+/* Carousel Styles */
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.carousel {
+  display: flex;
+  animation: scroll 60s linear infinite; /* speed is 60s */
+  width: 100%;
+}
+.carousel img {
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+  background: black;
 }
 </style>
 </head>
@@ -92,21 +149,37 @@ section h2 {
   </nav>
 </header>
 
-<!-- Hero with background video -->
-<div class="hero" id="header-video">
+<!-- Hero -->
+<div class="hero">
   <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
   <h1>NASCAR x Main Street Auto</h1>
 </div>
 
-<!-- YouTube video section below the hero -->
+<!-- YouTube Video -->
 <section id="video-section">
-  <h2>Daytona 2025</h2>
+  <h2>Watch Our Featured Video</h2>
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE?autoplay=0&mute=0" frameborder="0" allowfullscreen></iframe>
   </div>
 </section>
 
- <div class="carousel-container" style="overflow: hidden; max-width: 1200px; margin: 0 auto; padding: 20px 0;">
+<!-- Meet Our Driver Section -->
+<section id="about" style="background-color: #222; padding: 20px;">
+  <h2 style="text-align: center; color: #fff; margin-bottom: 20px;">Meet Our Driver: CJ McLaughlin</h2>
+  <div style="display: flex; flex-direction: column; align-items: center; padding: 20px; max-width: 80%; margin: 0 auto;">
+    <div style="text-align: left; margin-bottom: 20px; color: #eee;">
+      <h3>CJ McLaughlin</h3>
+      <p>CJ McLaughlin is a professional NASCAR driver and proud partner of Main Street Auto. With a background in engineering and a fierce determination on the track, CJ brings together precision, grit, and heart.</p>
+    </div>
+    <object data="assets/Meet Our Driver.pdf" type="application/pdf" style="width: 100%; height: 500px; border: 1px solid #ccc; object-fit: cover;">
+      <p style="color: #eee;">Your browser does not support PDFs. <a href="assets/Meet Our Driver.pdf" style="color: #bbb;">Download the PDF</a>.</p>
+    </object>
+  </div>
+</section>
+
+<!-- Carousel Section -->
+<section id="carousel-section">
+<div class="carousel-container" style="overflow: hidden; max-width: 1200px; margin: 0 auto; padding: 20px 0;">
   <div class="carousel" style="display: flex; animation: scroll 60s linear infinite;">
     <!-- Repeat images to make the carousel seamless -->
     <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_3845.jpg" alt="DRO_3845" style="width: 200px; margin-right: 10px; border-radius: 8px;">
@@ -124,5 +197,36 @@ section h2 {
     <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_7902.jpg" alt="MVL_7902" style="width: 200px; margin-right: 10px; border-radius: 8px;">
     <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_8416.jpg" alt="MVL_8416" style="width: 200px; margin-right: 10px; border-radius: 8px;">
     <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Photo Feb 14 2025, 1 27 42 PM.jpg" alt="Action Photo 1" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Photo Feb 14 
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Photo Feb 14 2025, 3 39 21 PM.jpg" alt="Action Photo 2" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Screenshot 2025-04-11 at 11.10.39 AM.png" alt="Screenshot 2025-04-11 at 11.10.39 AM" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Untitled-461.jpg" alt="Untitled-461" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <!-- Duplicate the images to make a continuous loop -->
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_3845.jpg" alt="DRO_3845" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_4397.jpg" alt="DRO_4397" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_4493.jpg" alt="DRO_4493" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_4642.jpg" alt="DRO_4642" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_5124.jpg" alt="DRO_5124" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_4494.jpg" alt="MVL_4494" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5142.jpg" alt="MVL_5142" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5221.jpg" alt="MVL_5221" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5255.jpg" alt="MVL_5255" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5419.jpg" alt="MVL_5419" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5676.jpg" alt="MVL_5676" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5828.jpg" alt="MVL_5828" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_7902.jpg" alt="MVL_7902" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_8416.jpg" alt="MVL_8416" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Photo Feb 14 2025, 1 27 42 PM.jpg" alt="Action Photo 1" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Photo Feb 14 2025, 3 39 21 PM.jpg" alt="Action Photo 2" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Screenshot 2025-04-11 at 11.10.39 AM.png" alt="Screenshot 2025-04-11 at 11.10.39 AM" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Untitled-461.jpg" alt="Untitled-461" style="width: 200px; margin-right: 10px; border-radius: 8px;">
+  </div>
+</div>
+</section>
 
+<!-- Footer -->
+<footer>
+  &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+</footer>
+
+</body>
+</html>
