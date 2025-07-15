@@ -24,12 +24,9 @@
       color: white; text-decoration: none; margin-left: 30px;
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
     }
-    nav a:hover { color: #aaa; }
-    .hero {
-      position: relative; width: 100%; height: 100vh; overflow: hidden;
+    nav a:hover {
+      color: #aaa;
     }
-
-    /* Header with video background */
     .hero {
       position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
@@ -47,81 +44,188 @@
       opacity: 0;
       animation: fadeUp 1.5s ease forwards;
       line-height: 1.2;
-      font-family: 'Orbitron', sans-serif;
-      letter-spacing: 2px;
     }
     @keyframes fadeUp {
       0% { opacity: 0; transform: translate(-50%, -40%); }
       100% { opacity: 1; transform: translate(-50%, -50%); }
     }
-
-    /* Style for YouTube embed & sections */
-section {
-  padding: 80px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-section h2 {
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 2rem;
-}
-.video-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.video-container iframe {
-  width: 100%;
-  max-width: 800px;
-  height: 450px;
-  border-radius: 8px;
-}
-</style>
+    section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section:not(#team) h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-align: left;
+      font-size: 2rem;
+    }
+    section#team h2, section#about h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 2rem;
+    }
+    .video-container video, .video-container iframe {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .video-container iframe {
+      height: 675px;
+    }
+    .stills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .stills img {
+      width: calc(33.333% - 6.66px);
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .carousel-container {
+      margin: 60px auto;
+      overflow: hidden;
+      max-width: 1200px;
+    }
+    .carousel {
+      display: flex;
+      animation: scroll 40s linear infinite;
+    }
+    .carousel img {
+      flex: 0 0 auto;
+      width: 25%;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+      background: black;
+    }
+  </style>
 </head>
 <body>
-
-<!-- Header -->
-<header>
-  <div class="logo">Alexandra Hartinger</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-  </nav>
-</header>
-
-<!-- Hero with background video -->
-<div class="hero" id="header-video">
-  <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
-  <h1>NASCAR x Main Street Auto</h1>
-</div>
-
-<!-- YouTube video section below the hero -->
-<section id="video-section">
-  <h2>Daytona 2025</h2>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE?autoplay=0&mute=0" frameborder="0" allowfullscreen></iframe>
+  <header>
+    <div class="logo">Alexandra Hartinger</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div class="hero">
+    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline poster="assets/Image 1.png"></video>
+    <h1>NASCAR x Main Street Auto</h1>
   </div>
-</section>
+  <section>
+    <h2>Watch Our Featured Video</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE?autoplay=0&mute=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
 
- <div class="carousel-container" style="overflow: hidden; max-width: 1200px; margin: 0 auto; padding: 20px 0;">
-  <div class="carousel" style="display: flex; animation: scroll 60s linear infinite;">
-    <!-- Repeat images to make the carousel seamless -->
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_3845.jpg" alt="DRO_3845" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_4397.jpg" alt="DRO_4397" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_4493.jpg" alt="DRO_4493" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_4642.jpg" alt="DRO_4642" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/DRO_5124.jpg" alt="DRO_5124" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_4494.jpg" alt="MVL_4494" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5142.jpg" alt="MVL_5142" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5221.jpg" alt="MVL_5221" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5255.jpg" alt="MVL_5255" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5419.jpg" alt="MVL_5419" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5676.jpg" alt="MVL_5676" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_5828.jpg" alt="MVL_5828" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_7902.jpg" alt="MVL_7902" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/MVL_8416.jpg" alt="MVL_8416" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Photo Feb 14 2025, 1 27 42 PM.jpg" alt="Action Photo 1" style="width: 200px; margin-right: 10px; border-radius: 8px;">
-    <img src="Volumes/MSA ALH/Porfolio/NASCAR/Photos/Professional Photos/Photo Feb 14 
+<style>
+  #supporting-socials {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  #supporting-socials h2 {
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: left;
+    font-size: 2rem;
+  }
+  .socials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .socials-container video, .extra-social video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .socials-container video.visible, .extra-social video.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .extra-socials {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+  .extra-social {
+    max-width: 600px;
+    text-align: center;
+  }
+  .extra-social p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 15px;
+    font-style: italic;
+  }
+</style>
+<script>
+  // Fade-in on scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('.socials-container video, .extra-social video');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    videos.forEach(video => observer.observe(video));
+  });
+</script>
+
+  <section id="supporting-socials">
+  <h2>Supporting Socials</h2>
+  <div class="socials-container">
+    <video controls class="fade-in">
+      <source src="/Volumes/MSA ALH/Porfolio/NASCAR/Videos for Website (Compressed)/ATL Race Day.mp4" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="/Volumes/MSA ALH/Porfolio/NASCAR/Videos for Website (Compressed)/Ellie.mp4" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="/Volumes/MSA ALH/Porfolio/NASCAR/Videos for Website (Compressed)/Jackson Interview.mp4" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="/Volumes/MSA ALH/Porfolio/NASCAR/Videos for Website (Compressed)/Jackson Suite Interview_1.mp4" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="/Volumes/MSA ALH/Porfolio/NASCAR/Videos for Website (Compressed)/NASCAR Sizzle REEL.mp4" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="/Volumes/MSA ALH/Porfolio/NASCAR/Videos for Website (Compressed)/Pit Stop 2.mp4" type="video/mp4">
+    </video>
+    <video controls class="fade-in">
+      <source src="/Volumes/MSA ALH/Porfolio/NASCAR/Videos for Website (Compressed)/Reel 1.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  
+  <footer>
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+  </footer>
+</body>
+</html>
