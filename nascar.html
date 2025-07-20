@@ -1,220 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASCAR x Main Street Auto</title>
-    <style>
-        body, html {
-            margin: 0; padding: 0;
-            font-family: 'Helvetica Neue', sans-serif;
-            background: black; color: white; overflow-x: hidden;
-        }
-        header {
-            position: fixed; top: 0; width: 100%; z-index: 10;
-            background: black;
-            display: flex; justify-content: space-between;
-            align-items: center; padding: 20px 40px; box-sizing: border-box;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        header .logo {
-            font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
-        }
-        nav a {
-            color: white; text-decoration: none; margin-left: 30px;
-            font-size: 1rem; text-transform: uppercase; font-weight: bold;
-        }
-        nav a:hover {
-            color: #aaa;
-        }
-        .hero {
-            position: relative; width: 100%; height: 100vh; overflow: hidden;
-        }
-        .hero video {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover; z-index: 0;
-        }
-        .hero h1 {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2.5vw; text-align: center;
-            z-index: 1; margin: 0;
-            color: white;
-            opacity: 0;
-            animation: fadeUp 1.5s ease forwards;
-            line-height: 1.2;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NASCAR x Main Street Auto</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: black; color: white;
+      overflow-x: hidden;
+    }
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 10;
+      background: black;
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    header .logo {
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+    }
+    nav a {
+      color: white; text-decoration: none; margin-left: 30px;
+      font-size: 1rem; text-transform: uppercase; font-weight: bold;
+    }
+    nav a:hover { color: #aaa; }
+    .hero { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+    .hero video {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; object-fit: cover; z-index: 0;
+    }
+    .hero h1 {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-size: 3vw; text-align: center; z-index: 1; margin: 0; color: white;
+      animation: fadeUp 1.5s ease forwards; line-height: 1.2;
+    }
     @keyframes fadeUp {
       0% { opacity: 0; transform: translate(-50%, -40%); }
       100% { opacity: 1; transform: translate(-50%, -50%); }
     }
     section {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 80px 40px; max-width: 1200px; margin: 0 auto;
     }
-    section:not(#team) h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-align: left;
-      font-size: 2rem;
-    }
-    section#team h2, section#about h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: 2rem;
-    }
-    .video-container video, .video-container iframe {
-      width: 100%;
-      border-radius: 8px;
+    section h2 {
+      text-transform: uppercase; margin-bottom: 20px; font-size: 2rem;
     }
     .video-container iframe {
-      height: 675px;
+      width: 100%; height: 675px; border-radius: 8px;
     }
-    .stills {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    #MSA-collab {
+      text-align: center;
     }
-    .stills img {
-      width: calc(33.333% - 6.66px);
-      height: auto;
-      border-radius: 8px;
-      object-fit: cover;
+    #MSA-collab .logo-box {
+      display: flex; justify-content: center; align-items: center; gap: 20px;
+      background-color: white; padding: 20px; border-radius: 10px;
     }
-    .carousel-container {
-      margin: 60px auto;
-      overflow: hidden;
-      max-width: 1200px;
+    #MSA-collab img {
+      width: 120px; height: auto;
     }
-    .carousel {
-      display: flex;
-      animation: scroll 40s linear infinite;
+    object.pdf-viewer {
+      width: 100%; height: 600px; border: 1px solid #ccc; display: block;
     }
-    .carousel img {
-      flex: 0 0 auto;
-      width: 25%;
-      height: auto;
-      margin-right: 10px;
-      border-radius: 8px;
-      object-fit: contain;
+    .flip-container {
+      perspective: 1200px; max-width: 550px; margin: 0 auto;
     }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .card {
+      position: relative; width: 100%; padding-top: 65%;
+      transform-style: preserve-3d; transition: transform 0.8s ease;
+    }
+    .card.flipped { transform: rotateY(180deg); }
+    .card .front, .card .back {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      backface-visibility: hidden; border-radius: 12px; overflow: hidden;
+    }
+    .card .front img, .card .back img {
+      width: 100%; height: 100%; object-fit: contain;
+    }
+    .card .back { transform: rotateY(180deg); }
+    .gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px; margin-top: 60px;
+    }
+    .gallery img {
+      width: 100%; border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+    .socials-container iframe {
+      width: 100%; max-width: 360px; height: 640px; border: none;
+      border-radius: 8px; margin-bottom: 20px;
+    }
+    .socials-container {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
     }
     footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      background: black;
+      text-align: center; padding: 40px 20px; font-size: 0.9rem;
+      color: #aaa; background: black;
     }
   </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Alexandra Hartinger</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="#about">About Me</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">Alexandra Hartinger</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <div class="hero">
-        <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
-        <h1>NASCAR x Main Street Auto</h1>
-    </div>
-</body>
-
-
-<section>
-  <h2>Watch Our Featured Video</h2>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE?autoplay=0&mute=0" frameborder="0" allowfullscreen></iframe>
+  <div class="hero">
+    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
+    <h1>NASCAR x Main Street Auto</h1>
   </div>
-</section>
 
-<section id="MSA-collab" style="padding: 40px; max-width: 800px; margin: 20px auto; text-align: center;">
-    <h2>Main Street Auto & NASCAR Collaboration</h2>
-    <p style="font-size:1.1rem; color:#ccc; margin-bottom:15px;">Main Street Auto proudly supports CJ McLaughlin in the NASCAR Xfinity Series, blending small-town values with high-speed racing.</p>
-    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; padding: 10px; background-color: rgba(255, 255, 255, 0.1); border-radius: 10px;">
-        <img src="assets/NASCAR_logo_2017.svg.png" alt="NASCAR Logo" style="width: 120px;">
-        <img src="assets/WhiteBorderLogo.png" alt="Main Street Auto Logo" style="width: 120px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  <section>
+    <h2>Watch Our Featured Video</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE?autoplay=0&mute=0" allowfullscreen></iframe>
     </div>
-</section>
+  </section>
 
+  <section id="MSA-collab">
+    <h2>Main Street Auto & NASCAR Collaboration</h2>
+    <p style="font-size:1.1rem; color:#ccc;">Main Street Auto proudly supports CJ McLaughlin in the NASCAR Xfinity Series.</p>
+    <div class="logo-box">
+      <img src="assets/NASCAR_logo_2017.svg.png" alt="NASCAR Logo">
+      <img src="assets/WhiteBorderLogo.png" alt="Main Street Auto Logo">
+    </div>
+  </section>
 
-<section id="about">
-  <h2 style="font-size: 2rem; text-align: center; color: white; margin-bottom: 20px;">
-  <object data="assets/Meet Our Driver.pdf" type="application/pdf" style="width: 100%; height: 600px; border: 1px solid #ccc; object-fit: cover; margin: 0 auto; display: block;"></object>
-</section>
-<!-- Socials Section-->
-<style>
-#supporting-socials {
-  padding: 80px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-#supporting-socials h2 {
-  text-transform: uppercase;
-  margin-bottom: 30px;
-  text-align: left;
-  font-size: 2rem;
-}
-.socials-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-.socials-container video {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-.socials-container video.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
-<script>
-// Fade-in on scroll
-document.addEventListener('DOMContentLoaded', () => {
-  const videos = document.querySelectorAll('.socials-container video');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.2 });
+  <section id="about">
+    <h2>Meet Our Driver</h2>
+    <object data="assets/Meet Our Driver.pdf" type="application/pdf" class="pdf-viewer"></object>
+  </section>
 
-  videos.forEach(video => observer.observe(video));
-});
-</script>
-<section id="supporting-socials">
+  <section>
+    <h2>Hero Card Design</h2>
+    <div class="flip-container">
+      <div class="card" id="heroCard">
+        <div class="front">
+          <img src="assets/12.png" alt="Hero Card Front">
+        </div>
+        <div class="back">
+          <img src="assets/13.png" alt="Hero Card Back">
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
+  </section>
 
-<h2>Supporting Socials</h2>
-<div class="socials-container">
-<iframe width="360" height="640" src="assets/ATL Race Day.mp4" frameborder="0" allowfullscreen></iframe>
-<iframe width="360" height="640" src="assets/Ellie.mp4" frameborder="0" allowfullscreen></iframe>
-<iframe width="360" height="640" src="assets/Jackson Interview.mp4" frameborder="0" allowfullscreen></iframe>
-<iframe width="360" height="640" src="assets/Jackson Suite Interview_1.mp4" frameborder="0" allowfullscreen></iframe>
-<iframe width="360" height="640" src="assets/NASCAR Sizzle REEL.mp4" frameborder="0" allowfullscreen></iframe>
-<iframe width="360" height="640" src="assets/Pit Stop 2.mp4" frameborder="0" allowfullscreen></iframe>
-<iframe width="360" height="640" src="assets/Reel 1.mp4" frameborder="0" allowfullscreen></iframe>
-</div>
-</section>
+  <section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="assets/1.png" alt="Gallery Image 1">
+      <img src="assets/2.png" alt="Gallery Image 2">
+      <img src="assets/3.png" alt="Gallery Image 3">
+      <img src="assets/4.png" alt="Gallery Image 4">
+    </div>
+  </section>
 
-  
+  <section>
+    <h2>Supporting Socials</h2>
+    <div class="socials-container">
+      <iframe src="assets/ATL Race Day.mp4"></iframe>
+      <iframe src="assets/Ellie.mp4"></iframe>
+      <iframe src="assets/Jackson Interview.mp4"></iframe>
+      <iframe src="assets/Pit Stop 2.mp4"></iframe>
+    </div>
+  </section>
+
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
+
+  <script>
+    document.getElementById('heroCard').addEventListener('click', function() {
+      this.classList.toggle('flipped');
+    });
+  </script>
 </body>
 </html>
