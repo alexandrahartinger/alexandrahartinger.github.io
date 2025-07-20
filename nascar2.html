@@ -1,218 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NASCAR x Main Street Auto</title>
   <style>
     body, html {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background: black;
-      color: white;
-      overflow-x: hidden;
+      background: black; color: white; overflow-x: hidden;
     }
-
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 10;
+      position: fixed; top: 0; width: 100%; z-index: 10;
       background: black;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-
     header .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
+      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
     }
-
     nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
+      color: white; text-decoration: none; margin-left: 30px;
+      font-size: 1rem; text-transform: uppercase; font-weight: bold;
     }
-
-    nav a:hover {
-      color: #aaa;
-    }
-
+    nav a:hover { color: #aaa; }
     .hero {
-      margin-top: 100px;
-      text-align: center;
+      position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
-
-    .hero img {
-      max-width: 90%;
-      height: auto;
+    .hero video {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
     }
-
+    .hero h1 {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5vw; text-align: center;
+      z-index: 1; margin: 0;
+      color: white;
+      opacity: 0;
+      animation: fadeUp 1.5s ease forwards;
+      line-height: 1.2;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translate(-50%, -40%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
+    }
     section {
-      padding: 60px 40px;
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    section:not(#team) h2 {
       text-transform: uppercase;
+      margin-bottom: 20px;
+      text-align: left;
+      font-size: 2rem;
+    }
+    section#team h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
       text-align: center;
+      font-size: 2rem;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 60px;
-    }
-
-    .gallery img {
+    .video-container video, .video-container iframe {
       width: 100%;
       border-radius: 8px;
-      transition: transform 0.3s ease;
     }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-      z-index: 2;
+    .video-container iframe {
+      height: 675px;
     }
-
-    .flip-container {
-      perspective: 1200px;
-      max-width: 550px;
-      margin: 0 auto;
-    }
-
-    .card {
-      position: relative;
-      width: 100%;
-      padding-top: 65%;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-    }
-
-    .card.flipped {
-      transform: rotateY(180deg);
-    }
-
-    .card .front, .card .back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .card .front img, .card .back img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .card .back {
-      transform: rotateY(180deg);
-    }
-
-    .full-width-video {
+    .stills {
       display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-
-    .full-width-video video {
-      width: 70%;
-      border-radius: 10px;
-    }
-
-    .text-section {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #ccc;
-      text-align: center;
-    }
-
-    .socials-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      padding: 0 40px;
-    }
-
-    .socials-container video {
-      width: 100%;
+    .stills img {
+      width: calc(33.333% - 6.66px);
       height: auto;
-      aspect-ratio: 9 / 16;
-      border-radius: 12px;
+      border-radius: 8px;
       object-fit: cover;
     }
-
+    .carousel-container {
+      margin: 60px auto;
+      overflow: hidden;
+      max-width: 1200px;
+    }
+    .carousel {
+      display: flex;
+      animation: scroll 40s linear infinite;
+    }
+    .carousel img {
+      flex: 0 0 auto;
+      width: 25%;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      background: black;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="logo">Alexandra Hartinger</div>
+    <div class="logo">Main Street Auto</div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="mailto:alexandrahartinger@gmail.com">Contact</a>
+      <a href="#about">About the Driver</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <img src="assets/hero-card.png" alt="CJ McLaughlin Hero Card" />
-  </section>
-
-  <section class="gallery">
-    <img src="assets/1.png" alt="Gallery Image 1" />
-    <img src="assets/2.png" alt="Gallery Image 2" />
-    <img src="assets/3.png" alt="Gallery Image 3" />
-    <img src="assets/4.png" alt="Gallery Image 4" />
-  </section>
+  <div class="hero">
+    <video src="assets/NASCARxMainStreet.mp4" autoplay muted loop playsinline poster="assets/17.png"></video>
+    <h1>NASCAR x&nbsp;&nbsp;&nbsp;&nbsp;Main Street Auto</h1>
+  </div>
 
   <section>
-    <h2>Suit Design</h2>
-    <div class="full-width-video">
-      <video src="assets/SuitDesign.mp4" controls muted></video>
+    <h2>Highlight Reel</h2>
+    <div class="video-container">
+      <iframe src="https://youtu.be/2g8z9Tcm4hE" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
 
   <section>
-    <h2>Creative Direction</h2>
-    <div class="text-section">
-      <p>As the Creative Director for this NASCAR x Main Street Auto sponsorship, I led the branding across car, suit, and content. We brought CJ McLaughlin to one of our shops to connect with our techs, host interviews, and bring energy to the partnership. This page highlights that story, from hero cards to pit stop footage to suit mockups and social videos I directed.</p>
+    <h2>Behind the Wheel</h2>
+    <div class="video-container">
+      <iframe src="https://youtu.be/NS19pXbrbuI" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
 
-  <section id="supporting-socials">
-    <h2>Supporting Socials</h2>
-    <div class="socials-container">
-      <video controls muted src="assets/ATL Race Day.mp4" preload="none"></video>
-      <video controls muted src="assets/Ellie.mp4" preload="none"></video>
-      <video controls muted src="assets/Jackson Interview.mp4" preload="none"></video>
-      <video controls muted src="assets/Pit Stop 2.mp4" preload="none"></video>
+  <section>
+    <h2>Race Day Stills</h2>
+    <div class="stills">
+      <img src="assets/17.png" alt="Still 1">
+      <img src="assets/18.png" alt="Still 2">
+      <img src="assets/19.png" alt="Still 3">
     </div>
+  </section>
+
+  <section>
+    <h2>Trackside Carousel</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="assets/20.png" alt="Carousel 1">
+        <img src="assets/21.png" alt="Carousel 2">
+        <img src="assets/22.png" alt="Carousel 3">
+        <img src="assets/23.png" alt="Carousel 4">
+        <img src="assets/24.png" alt="Carousel 5">
+        <img src="assets/25.png" alt="Carousel 6">
+        <img src="assets/20.png" alt="Carousel 1 duplicate">
+        <img src="assets/21.png" alt="Carousel 2 duplicate">
+        <img src="assets/22.png" alt="Carousel 3 duplicate">
+        <img src="assets/23.png" alt="Carousel 4 duplicate">
+        <img src="assets/24.png" alt="Carousel 5 duplicate">
+        <img src="assets/25.png" alt="Carousel 6 duplicate">
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Meet Our Driver</h2>
+    <p style="text-align:center;">This is CJ McLaughlin — the face behind the wheel of the #92 Main Street Auto Chevy. Scroll to see more of his story and our journey together.</p>
+    <img src="assets/CJTeamShot.png" alt="CJ McLaughlin and Team" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
   </section>
 
   <footer>
-    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+    &copy; 2025 Main Street Auto x Alexandra Hartinger. All Rights Reserved.
   </footer>
+
+  <audio src="assets/nascar-theme.mp3" autoplay loop></audio>
 </body>
 </html>
