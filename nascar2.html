@@ -35,11 +35,10 @@
 
     nav a {
       color: white;
+      margin-left: 20px;
       text-decoration: none;
-      margin-left: 30px;
-      font-size: 1rem;
-      text-transform: uppercase;
       font-weight: bold;
+      text-transform: uppercase;
     }
 
     nav a:hover {
@@ -47,175 +46,80 @@
     }
 
     .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    .hero h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3vw;
-      text-align: center;
-      z-index: 1;
-      margin: 0;
-      color: white;
-      animation: fadeUp 1.5s ease forwards;
-      line-height: 1.2;
-    }
-
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    section {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    section h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-
-    .video-container iframe {
-      width: 100%;
-      height: 675px;
-      border-radius: 8px;
-    }
-
-    #MSA-collab {
+      margin-top: 100px;
       text-align: center;
     }
 
-    #MSA-collab .logo-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    #MSA-collab img {
-      width: 120px;
+    .hero img {
+      max-width: 90%;
       height: auto;
-    }
-
-    .flip-container {
-      perspective: 1200px;
-      max-width: 550px;
-      margin: 0 auto;
-    }
-
-    .card {
-      position: relative;
-      width: 100%;
-      padding-top: 65%;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-    }
-
-    .card.flipped {
-      transform: rotateY(180deg);
-    }
-
-    .card .front,
-    .card .back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .card .back {
-      transform: rotateY(180deg);
-    }
-
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 60px 20px;
+      gap: 20px;
     }
 
     .gallery img {
-      width: 100%;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-      z-index: 2;
-    }
-
-    .supporting-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    #supporting-socials video {
-      width: 100%;
+      max-width: 100%;
       height: auto;
-      aspect-ratio: 16 / 9;
-      border-radius: 12px;
+      width: 200px;
+      border-radius: 10px;
+    }
+
+    section {
+      padding: 60px 40px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .video-container video {
+      width: 220px;
+      height: 360px;
+      border-radius: 10px;
       object-fit: cover;
+    }
+
+    .full-width-video {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .full-width-video video {
+      width: 70%;
+      border-radius: 10px;
+    }
+
+    .text-section {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ccc;
+      text-align: center;
     }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 20px;
       font-size: 0.9rem;
-      color: #aaa;
-      background: black;
-    }
-
-    .fade-section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-
-    .fade-in {
-      opacity: 1;
-      transform: translateY(0);
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
   </style>
 </head>
@@ -225,88 +129,47 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About Me</a>
-      <a href="#contact">Contact</a>
+      <a href="mailto:alexandrahartinger@gmail.com">Contact</a>
     </nav>
   </header>
 
-  <div class="hero">
-    <video src="assets/CJM Daytona 1 (Beeps).mp4" autoplay muted loop playsinline></video>
-    <h1>NASCAR x Main Street Auto</h1>
-  </div>
+  <section class="hero">
+    <img src="assets/hero-card.png" alt="CJ McLaughlin Hero Card" />
+  </section>
+
+  <section class="gallery">
+    <img src="assets/1.png" alt="Gallery Image 1" />
+    <img src="assets/2.png" alt="Gallery Image 2" />
+    <img src="assets/3.png" alt="Gallery Image 3" />
+    <img src="assets/4.png" alt="Gallery Image 4" />
+  </section>
 
   <section>
-    <h2>Watch Our Featured Video</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE?autoplay=0&mute=0" allowfullscreen></iframe>
+    <h2>Suit Design</h2>
+    <div class="full-width-video">
+      <video src="assets/SuitDesign.mp4" controls muted></video>
     </div>
   </section>
 
-  <section id="MSA-collab">
-    <h2>Main Street Auto & NASCAR Collaboration</h2>
-    <p style="font-size:1.1rem; color:#ccc;">Main Street Auto proudly supports CJ McLaughlin in the NASCAR Xfinity Series.</p>
-    <div class="logo-box">
-      <img src="assets/NASCAR_logo_2017.svg.png" alt="NASCAR Logo">
-      <img src="assets/WhiteBorderLogo.png" alt="Main Street Auto Logo">
+  <section>
+    <h2>Creative Direction</h2>
+    <div class="text-section">
+      <p>As the Creative Director for this NASCAR x Main Street Auto sponsorship, I led the branding across car, suit, and content. We brought CJ McLaughlin to one of our shops to connect with our techs, host interviews, and bring energy to the partnership. This page highlights that story, from hero cards to pit stop footage to suit mockups and social videos I directed.</p>
     </div>
   </section>
 
-  <section class="fade-section">
-    <h2>Hero Card Design</h2>
-    <div class="flip-container">
-      <div class="card" id="heroCard">
-        <div class="front">
-          <img src="assets/12.png" alt="Hero Card Front">
-        </div>
-        <div class="back">
-          <img src="assets/13.png" alt="Hero Card Back">
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
-  </section>
-
-  <section class="fade-section">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="assets/1.png" alt="Gallery Image 1">
-      <img src="assets/2.png" alt="Gallery Image 2">
-      <img src="assets/3.png" alt="Gallery Image 3">
-      <img src="assets/4.png" alt="Gallery Image 4">
-    </div>
-  </section>
-
-  <section id="supporting-socials" class="fade-section">
+  <section>
     <h2>Supporting Socials</h2>
-    <div class="supporting-container">
-      <video controls muted playsinline preload="none" src="assets/ATL Race Day.mp4"></video>
-      <video controls muted playsinline preload="none" src="assets/Ellie.mp4"></video>
-      <video controls muted playsinline preload="none" src="assets/Jackson Interview.mp4"></video>
-      <video controls muted playsinline preload="none" src="assets/Pit Stop 2.mp4"></video>
+    <div class="video-container">
+      <video controls muted src="assets/ATL Race Day.mp4" preload="none"></video>
+      <video controls muted src="assets/Ellie.mp4" preload="none"></video>
+      <video controls muted src="assets/Jackson Interview.mp4" preload="none"></video>
+      <video controls muted src="assets/Pit Stop 2.mp4" preload="none"></video>
     </div>
   </section>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
-
-  <script>
-    // Flip card interaction
-    document.getElementById('heroCard').addEventListener('click', function () {
-      this.classList.toggle('flipped');
-    });
-
-    // Scroll fade-in animation
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-        }
-      });
-    });
-
-    document.querySelectorAll('.fade-section').forEach(section => {
-      observer.observe(section);
-    });
-  </script>
 </body>
 </html>
