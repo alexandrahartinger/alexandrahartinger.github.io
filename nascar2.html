@@ -55,21 +55,6 @@
       height: auto;
     }
 
-    .gallery {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 60px 20px;
-      gap: 20px;
-    }
-
-    .gallery img {
-      max-width: 100%;
-      height: auto;
-      width: 200px;
-      border-radius: 10px;
-    }
-
     section {
       padding: 60px 40px;
     }
@@ -81,18 +66,61 @@
       text-align: center;
     }
 
-    .video-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 60px;
     }
 
-    .video-container video {
-      width: 220px;
-      height: 360px;
-      border-radius: 10px;
-      object-fit: cover;
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+
+    .flip-container {
+      perspective: 1200px;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      padding-top: 65%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card .front, .card .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card .front img, .card .back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .card .back {
+      transform: rotateY(180deg);
     }
 
     .full-width-video {
@@ -113,6 +141,21 @@
       line-height: 1.6;
       color: #ccc;
       text-align: center;
+    }
+
+    .socials-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 0 40px;
+    }
+
+    .socials-container video {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 9 / 16;
+      border-radius: 12px;
+      object-fit: cover;
     }
 
     footer {
@@ -158,9 +201,9 @@
     </div>
   </section>
 
-  <section>
+  <section id="supporting-socials">
     <h2>Supporting Socials</h2>
-    <div class="video-container">
+    <div class="socials-container">
       <video controls muted src="assets/ATL Race Day.mp4" preload="none"></video>
       <video controls muted src="assets/Ellie.mp4" preload="none"></video>
       <video controls muted src="assets/Jackson Interview.mp4" preload="none"></video>
