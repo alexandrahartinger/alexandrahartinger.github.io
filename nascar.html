@@ -210,15 +210,16 @@ body, html {
   </section>
   
 
-  <section>
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="assets/1.png" alt="Gallery Image 1">
-      <img src="assets/2.png" alt="Gallery Image 2">
-      <img src="assets/3.png" alt="Gallery Image 3">
-      <img src="assets/4.png" alt="Gallery Image 4">
-    </div>
 <section class="fade-section">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="assets/1.png" alt="Gallery Image 1">
+    <img src="assets/2.png" alt="Gallery Image 2">
+    <img src="assets/3.png" alt="Gallery Image 3">
+    <img src="assets/4.png" alt="Gallery Image 4">
+  </div>
+</section>
+
 
 <section id="supporting-socials" class="fade-section">
   <h2>Supporting Socials</h2>
@@ -242,10 +243,26 @@ body, html {
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
 
-  <script>
-    document.getElementById('heroCard').addEventListener('click', function() {
-      this.classList.toggle('flipped');
+<script>
+  // Flip card interaction
+  document.getElementById('heroCard').addEventListener('click', function() {
+    this.classList.toggle('flipped');
+  });
+
+  // Scroll fade-in animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+      }
     });
+  });
+
+  document.querySelectorAll('.fade-section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
   </script>
 </body>
 </html>
