@@ -6,64 +6,131 @@
   <title>NASCAR x Main Street Auto</title>
   <style>
     body, html {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background: black; color: white;
+      background: black;
+      color: white;
       overflow-x: hidden;
     }
+
     header {
-      position: fixed; top: 0; width: 100%; z-index: 10;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
       background: black;
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
+
     header .logo {
-      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
     }
+
     nav a {
-      color: white; text-decoration: none; margin-left: 30px;
-      font-size: 1rem; text-transform: uppercase; font-weight: bold;
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
     }
-    nav a:hover { color: #aaa; }
-    .hero { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+
+    nav a:hover {
+      color: #aaa;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
     .hero video {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%; object-fit: cover; z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
+
     .hero h1 {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      font-size: 3vw; text-align: center; z-index: 1; margin: 0; color: white;
-      animation: fadeUp 1.5s ease forwards; line-height: 1.2;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3vw;
+      text-align: center;
+      z-index: 1;
+      margin: 0;
+      color: white;
+      animation: fadeUp 1.5s ease forwards;
+      line-height: 1.2;
     }
+
     @keyframes fadeUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
     }
+
     section {
-      padding: 80px 40px; max-width: 1200px; margin: 0 auto;
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     section h2 {
-      text-transform: uppercase; margin-bottom: 20px; font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 2rem;
     }
+
     .video-container iframe {
-      width: 100%; height: 675px; border-radius: 8px;
+      width: 100%;
+      height: 675px;
+      border-radius: 8px;
     }
+
     #MSA-collab {
       text-align: center;
     }
+
     #MSA-collab .logo-box {
-      display: flex; justify-content: center; align-items: center; gap: 20px;
-      background-color: white; padding: 20px; border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
     }
+
     #MSA-collab img {
-      width: 120px; height: auto;
+      width: 120px;
+      height: auto;
     }
+
     .flip-container {
       perspective: 1200px;
       max-width: 550px;
       margin: 0 auto;
     }
+
     .card {
       position: relative;
       width: 100%;
@@ -71,58 +138,67 @@
       transform-style: preserve-3d;
       transition: transform 0.8s ease;
     }
+
     .card.flipped {
       transform: rotateY(180deg);
     }
-    .card .front, .card .back {
+
+    .card .front,
+    .card .back {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       backface-visibility: hidden;
       border-radius: 12px;
       overflow: hidden;
     }
+
     .card .back {
       transform: rotateY(180deg);
     }
+
     .card img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 15px;
       margin-top: 60px;
     }
+
     .gallery img {
       width: 100%;
       border-radius: 8px;
       transition: transform 0.3s ease;
     }
+
     .gallery img:hover {
       transform: scale(1.05);
       z-index: 2;
     }
-    .socials-container {
-      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+
+    .supporting-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .video-wrapper {
-      position: relative;
+
+    #supporting-socials video {
       width: 100%;
-      max-width: 360px;
-      padding-top: 177.78%;
-      overflow: hidden;
+      height: auto;
+      aspect-ratio: 16 / 9;
       border-radius: 12px;
-    }
-    .video-wrapper video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
       object-fit: cover;
-      border-radius: 12px;
     }
+
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -130,11 +206,13 @@
       color: #aaa;
       background: black;
     }
+
     .fade-section {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1s ease-out, transform 1s ease-out;
     }
+
     .fade-in {
       opacity: 1;
       transform: translateY(0);
@@ -142,7 +220,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <div class="logo">Alexandra Hartinger</div>
     <nav>
@@ -200,19 +277,11 @@
 
   <section id="supporting-socials" class="fade-section">
     <h2>Supporting Socials</h2>
-    <div class="socials-container">
-      <div class="video-wrapper">
-        <video controls muted playsinline preload="none" src="assets/ATL Race Day.mp4"></video>
-      </div>
-      <div class="video-wrapper">
-        <video controls muted playsinline preload="none" src="assets/Ellie.mp4"></video>
-      </div>
-      <div class="video-wrapper">
-        <video controls muted playsinline preload="none" src="assets/Jackson Interview.mp4"></video>
-      </div>
-      <div class="video-wrapper">
-        <video controls muted playsinline preload="none" src="assets/Pit Stop 2.mp4"></video>
-      </div>
+    <div class="supporting-container">
+      <video controls muted playsinline preload="none" src="assets/ATL Race Day.mp4"></video>
+      <video controls muted playsinline preload="none" src="assets/Ellie.mp4"></video>
+      <video controls muted playsinline preload="none" src="assets/Jackson Interview.mp4"></video>
+      <video controls muted playsinline preload="none" src="assets/Pit Stop 2.mp4"></video>
     </div>
   </section>
 
@@ -222,7 +291,7 @@
 
   <script>
     // Flip card interaction
-    document.getElementById('heroCard').addEventListener('click', function() {
+    document.getElementById('heroCard').addEventListener('click', function () {
       this.classList.toggle('flipped');
     });
 
@@ -239,6 +308,5 @@
       observer.observe(section);
     });
   </script>
-
 </body>
 </html>
