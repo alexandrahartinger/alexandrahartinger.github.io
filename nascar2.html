@@ -28,27 +28,6 @@
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
     }
     nav a:hover { color: #aaa; }
-   .flip-container {
-      perspective: 1200px; max-width: 550px; margin: 0 auto;
-    }
-    .card {
-      position: relative; width: 100%; padding-top: 65%;
-      transform-style: preserve-3d; transition: transform 0.8s ease;
-    }
-    .card.flipped { transform: rotateY(180deg); }
-    .card .front, .card .back {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      backface-visibility: hidden; border-radius: 12px; overflow: hidden;
-    }
-    .card .front img, .card .back img {
-      width: 100%; height: 100%; object-fit: contain;
-    }
-    .card .back { transform: rotateY(180deg); }
-    .gallery {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px; margin-top: 60px;
-    }
-
     .hero {
       position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
@@ -185,7 +164,9 @@
       color: #aaa;
       background: black;
     }
+    
   </style>
+
 </head>
 
 <body>
@@ -321,35 +302,29 @@
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
 
-  <script>
-    // Fade-in on scroll
-    document.addEventListener('DOMContentLoaded', () => {
-      const videos = document.querySelectorAll('.socials-container video, .concept-video video, .extra-social video');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.2 });
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Flip card interaction
+    const heroCard = document.getElementById('heroCard');
+    if (heroCard) {
+      heroCard.addEventListener('click', function () {
+        this.classList.toggle('flipped');
+      });
+    }
 
-      videos.forEach(video => observer.observe(video));
-    });
-    <script>
-  // Flip card interaction
-  document.getElementById('heroCard').addEventListener('click', function() {
-    this.classList.toggle('flipped');
+    // Scroll fade-in animation
+    const videos = document.querySelectorAll('.socials-container video, .concept-video video, .extra-social video');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    videos.forEach(video => observer.observe(video));
   });
+</script>
 
-  // Scroll fade-in animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('fade-in');
-      }
-    });
-  });
-
-  </script>
 </body>
 </html>
