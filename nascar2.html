@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NASCAR x Main Street Auto</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body, html {
       margin: 0; padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
@@ -25,6 +28,7 @@
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
     }
     nav a:hover { color: #aaa; }
+
     .hero {
       position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
@@ -47,6 +51,7 @@
       0% { opacity: 0; transform: translate(-50%, -40%); }
       100% { opacity: 1; transform: translate(-50%, -50%); }
     }
+
     section {
       padding: 80px 40px;
       max-width: 1200px;
@@ -58,12 +63,13 @@
       text-align: left;
       font-size: 2rem;
     }
-    section#team h2 {
+    section#team h2, section#about h2 {
       text-transform: uppercase;
       margin-bottom: 20px;
       text-align: center;
       font-size: 2rem;
     }
+
     .video-container video, .video-container iframe {
       width: 100%;
       border-radius: 8px;
@@ -71,6 +77,7 @@
     .video-container iframe {
       height: 675px;
     }
+
     .stills {
       display: flex;
       gap: 10px;
@@ -82,6 +89,7 @@
       border-radius: 8px;
       object-fit: cover;
     }
+
     .carousel-container {
       margin: 60px auto;
       overflow: hidden;
@@ -103,6 +111,53 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+
+    #supporting-socials {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    #supporting-socials h2 {
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      text-align: left;
+      font-size: 2rem;
+    }
+    .socials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .socials-container video, .concept-video video, .extra-social video {
+      width: 100%;
+      border-radius: 8px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .socials-container video.visible, .concept-video video.visible, .extra-social video.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .concept-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+    .concept-video {
+      flex: 1 1 48%;
+      text-align: center;
+    }
+    .concept-video p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-top: 15px;
+      font-style: italic;
+    }
+
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -115,72 +170,124 @@
 
 <body>
   <header>
-    <div class="logo">Main Street Auto</div>
+    <div class="logo">Alexandra Hartinger</div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="#about">About the Driver</a>
+      <a href="#about">About Me</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <div class="hero">
-    <video src="assets/NASCARxMainStreet.mp4" autoplay muted loop playsinline poster="assets/17.png"></video>
-    <h1>NASCAR x&nbsp;&nbsp;&nbsp;&nbsp;Main Street Auto</h1>
+    <video src="assets/NASCAR_Cover_Video.mp4" autoplay muted loop playsinline poster="assets/Image 1.png"></video>
+    <h1>NASCAR</h1>
   </div>
 
   <section>
-    <h2>Highlight Reel</h2>
+    <h2>Daytona 2025</h2>
     <div class="video-container">
       <iframe src="https://youtu.be/2g8z9Tcm4hE" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
 
   <section>
-    <h2>Behind the Wheel</h2>
+    <h2>Pit Stop</h2>
     <div class="video-container">
       <iframe src="https://youtu.be/NS19pXbrbuI" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
 
   <section>
-    <h2>Race Day Stills</h2>
+    <h2>Featured Stills</h2>
     <div class="stills">
-      <img src="assets/17.png" alt="Still 1">
-      <img src="assets/18.png" alt="Still 2">
-      <img src="assets/19.png" alt="Still 3">
+      <img src="assets/A7407702.jpg" alt="Still 1">
+      <img src="assets/A7407699.jpg" alt="Still 2">
+      <img src="assets/A7407688.jpg" alt="Still 3">
     </div>
   </section>
 
   <section>
-    <h2>Trackside Carousel</h2>
+    <h2>Behind the Scenes Carousel</h2>
     <div class="carousel-container">
       <div class="carousel">
-        <img src="assets/20.png" alt="Carousel 1">
-        <img src="assets/21.png" alt="Carousel 2">
-        <img src="assets/22.png" alt="Carousel 3">
-        <img src="assets/23.png" alt="Carousel 4">
-        <img src="assets/24.png" alt="Carousel 5">
-        <img src="assets/25.png" alt="Carousel 6">
-        <img src="assets/20.png" alt="Carousel 1 duplicate">
-        <img src="assets/21.png" alt="Carousel 2 duplicate">
-        <img src="assets/22.png" alt="Carousel 3 duplicate">
-        <img src="assets/23.png" alt="Carousel 4 duplicate">
-        <img src="assets/24.png" alt="Carousel 5 duplicate">
-        <img src="assets/25.png" alt="Carousel 6 duplicate">
+        <img src="assets/A7408089.jpg" alt="Carousel 1">
+        <img src="assets/A7407787.jpg" alt="Carousel 2">
+        <img src="assets/A7407742.jpg" alt="Carousel 3">
+        <img src="assets/DRO_0200.jpg" alt="Carousel 4">
+        <img src="assets/DRO_1306.jpg" alt="Carousel 5">
+        <img src="assets/DRO_2885.jpg" alt="Carousel 6">
+        <img src="assets/DRO_4642.jpg" alt="Carousel 1 duplicate">
+        <img src="assets/DRO_5124.jpg" alt="Carousel 2 duplicate">
+        <img src="assets/DRO_7881.jpg" alt="Carousel 3 duplicate">
+        <img src="assets/DRO_7513-Edit.jpg" alt="Carousel 4 duplicate">
+        <img src="assets/DRO_7905.jpg" alt="Carousel 5 duplicate">
+        <img src="assets/DRO_7926.jpg" alt="Carousel 6 duplicate">
+      </div>
+    </div>
+  </section>
+
+  <section id="supporting-socials">
+    <h2>Supporting Socials</h2>
+    <div class="socials-container">
+      <video controls class="fade-in">
+        <source src="assets/Pit Stop 2.mp4" type="video/mp4">
+      </video>
+      <video controls class="fade-in">
+        <source src="assets/NASCAR Sizzle REEL.mp4" type="video/mp4">
+      </video>
+      <video controls class="fade-in">
+        <source src="assets/Ellie.mp4" type="video/mp4">
+      </video>
+      <video controls class="fade-in">
+        <source src="assets/Jackson Interview.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="text-align:center;">Photo Gallery</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="assets/DRO_8350.jpg" alt="Vault 1">
+        <img src="assets/DRO_8784.jpg" alt="Vault 2">
+        <img src="assets/DRO_5124.jpg" alt="Vault 3">
+        <img src="assets/DRO_8803.jpg" alt="Vault 4">
+        <img src="assets/DRO_8807.jpg" alt="Vault 5">
+        <img src="assets/DRO_9454.jpg" alt="Me in Vault">
+        <img src="assets/DRO_7926.jpg" alt="DY Office">
+        <img src="assets/5.png" alt="Behind the Scenes Makeup">
+        <img src="assets/6.png" alt="Vault 1 duplicate">
+        <img src="assets/7.png" alt="Vault 2 duplicate">
+        <img src="assets/9.png" alt="Vault 3 duplicate">
+        <img src="assets/8.png" alt="Vault 4 duplicate">
       </div>
     </div>
   </section>
 
   <section id="team">
-    <h2>Meet Our Driver</h2>
-    <p style="text-align:center;">This is CJ McLaughlin — the face behind the wheel of the #92 Main Street Auto Chevy. Scroll to see more of his story and our journey together.</p>
-    <img src="assets/CJTeamShot.png" alt="CJ McLaughlin and Team" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
+    <h2>The Incredible Crew</h2>
+    <p style="text-align:center;">Part of the incredible team that made this sponsorship possible!</p>
+    <img src="assets/DRO_7905.jpg" alt="The Crew" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
   </section>
 
   <footer>
-    &copy; 2025 Main Street Auto x Alexandra Hartinger. All Rights Reserved.
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
 
-  <audio src="assets/nascar-theme.mp3" autoplay loop></audio>
+  <script>
+    // Fade-in on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const videos = document.querySelectorAll('.socials-container video, .concept-video video, .extra-social video');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      videos.forEach(video => observer.observe(video));
+    });
+  </script>
 </body>
 </html>
