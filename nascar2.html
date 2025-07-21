@@ -332,41 +332,47 @@
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const heroCard = document.getElementById('heroCard');
-      if (heroCard) {
-        heroCard.addEventListener('click', function () {
-          this.classList.toggle('flipped');
-        });
-      }
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Flip Hero Card
+    const heroCard = document.getElementById('heroCard');
+    if (heroCard) {
+      heroCard.addEventListener('click', function () {
+        this.classList.toggle('flipped');
+      });
+    }
 
-      const videos = document.querySelectorAll('.socials-container video, .concept-video video, .extra-social video');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.2 });
+    // Scroll-triggered fade-ins
+    const videos = document.querySelectorAll('.socials-container video, .concept-video video, .extra-social video');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
 
-      videos.forEach(video => observer.observe(video));
-  document.addEventListener("DOMContentLoaded", () => {
+    videos.forEach(video => observer.observe(video));
+
+    // Car Tour Video plays after Suit Video ends
     const suitVideo = document.getElementById("suitVideo");
     const carTourVideo = document.getElementById("carTourVideo");
-
     let hasPlayedOnce = false;
 
-    suitVideo.addEventListener("timeupdate", () => {
-      if (!hasPlayedOnce && suitVideo.currentTime > 0 && suitVideo.currentTime >= suitVideo.duration - 0.5) {
-        hasPlayedOnce = true;
-        carTourVideo.play();
-      }
-  
+    if (suitVideo && carTourVideo) {
+      suitVideo.addEventListener("timeupdate", () => {
+        if (
+          !hasPlayedOnce &&
+          suitVideo.currentTime > 0 &&
+          suitVideo.currentTime >= suitVideo.duration - 0.5
+        ) {
+          hasPlayedOnce = true;
+          carTourVideo.play();
+        }
+      });
+    }
+  });
+</script>
 
-    });
-}); // 
-
-</script> 
 </body>
 </html>
