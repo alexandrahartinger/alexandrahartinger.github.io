@@ -234,11 +234,22 @@
     <img src="assets/CJ BIO.pdf" alt="Meet Our Driver" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
   </section>
 
-  <section>
-    <h2>Branding</h2>
-    <video src="assets/Suit Video.mp4" autoplay muted loop playsinline style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;"></video>
-    <video src="assets/CarTour.mp4" autoplay muted loop playsinline style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;"></video>
-  </section>
+ <section>
+  <h2>Branding</h2>
+
+  <video id="suitVideo" 
+         src="assets/Suit Video.mp4" 
+         autoplay muted loop playsinline 
+         style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
+  </video>
+
+  <video id="carTourVideo" 
+         src="assets/CarTour.mp4" 
+         muted playsinline 
+         style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
+  </video>
+</section>
+
 
 <section>
   <h2>Pit Stop</h2>
@@ -309,6 +320,18 @@
       }, { threshold: 0.2 });
 
       videos.forEach(video => observer.observe(video));
+  document.addEventListener("DOMContentLoaded", () => {
+    const suitVideo = document.getElementById("suitVideo");
+    const carTourVideo = document.getElementById("carTourVideo");
+
+    let hasPlayedOnce = false;
+
+    suitVideo.addEventListener("timeupdate", () => {
+      if (!hasPlayedOnce && suitVideo.currentTime > 0 && suitVideo.currentTime >= suitVideo.duration - 0.5) {
+        hasPlayedOnce = true;
+        carTourVideo.play();
+      }
+
     });
   </script>
 </body>
