@@ -176,18 +176,17 @@
     .card .back {
       transform: rotateY(180deg);
     }
-    .signature-overlay {
-      position: absolute;
-      bottom: 30px;
-      right: 40px;
-      font-family: 'Brush Script MT', cursive;
-      font-size: 2rem;
-      color: white;
-      opacity: 0;
-      animation: signFade 2s ease-in-out 1.5s forwards;
-      pointer-events: none;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-    }
+  .signature-overlay {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  opacity: 0;
+  animation: signFade 2s ease-in-out 1.5s forwards;
+  pointer-events: none;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+
     @keyframes signFade {
       from {
         opacity: 0;
@@ -271,7 +270,7 @@
       <div class="card" id="heroCard">
         <div class="front">
           <img src="assets/12.png" alt="Hero Card Front">
-          <div class="signature-overlay">CJ McLaughlin</div>
+          <img src="assets/signature.png" alt="CJ Signature" class="signature-overlay" style="width: 200px;">
         </div>
         <div class="back">
           <img src="assets/13.png" alt="Hero Card Back">
