@@ -58,36 +58,30 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: block; margin: 40px auto;
     }
 
-    .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-top: 40px;
+    .section-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
 }
 
-.social-icons a {
-  text-align: center;
-  text-decoration: none;
-  color: white;
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .social-icons img {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
 }
 
-.social-icons a:hover img {
-  transform: scale(1.1);
-}
-
 .social-icons p {
   margin-top: 8px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 
@@ -141,34 +135,38 @@
       <video src="assets/Northern Rock - Main Street Auto Sizzle REEL.mp4" autoplay muted loop playsinline></video>
     </div>
 
-    <div class="social-icons">
-      <a href="https://www.instagram.com/mainstreetautoshops/" target="_blank">
-        <img src="assets/insta.png" alt="Instagram">
-        <p>Instagram</p>
-      </a>
-      <a href="https://www.linkedin.com/company/main-street-auto/?viewAsMember=true" target="_blank">
-        <img src="assets/linkedin.png" alt="LinkedIn">
-        <p>LinkedIn</p>
-      </a>
-      <a href="https://www.facebook.com/mainstreetautoshops/" target="_blank">
-        <img src="assets/facebook.png" alt="Facebook">
-        <p>Facebook</p>
-      </a>
-      <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">
-        <img src="assets/youtube.png" alt="YouTube">
-        <p>YouTube</p>
-      </a>
-    </div>
+    <div class="section-wrapper">
+  <div class="social-icons">
+    <a href="https://www.instagram.com/mainstreetautoshops/" target="_blank">
+      <img src="assets/insta.png" alt="Instagram">
+      <p>Instagram</p>
+    </a>
+    <a href="https://www.linkedin.com/company/main-street-auto/?viewAsMember=true" target="_blank">
+      <img src="assets/linkedin.png" alt="LinkedIn">
+      <p>LinkedIn</p>
+    </a>
+    <a href="https://www.facebook.com/mainstreetautoshops/" target="_blank">
+      <img src="assets/facebook.png" alt="Facebook">
+      <p>Facebook</p>
+    </a>
+    <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">
+      <img src="assets/youtube.png" alt="YouTube">
+      <p>YouTube</p>
+    </a>
+  </div>
+</div>
 
-    <div class="northern-rock-link">
-  <h3 style="text-transform: uppercase; font-size: 1.2rem; margin-bottom: 15px;">Our Brand Strategy Partner</h3>
-  <a href="https://www.northernrockusa.org" target="_blank" rel="noopener noreferrer" class="northern-rock-preview">
-    <img src="assets/northernrock-preview.png" alt="Northern Rock Preview">
-    <div class="northern-rock-text">
-      <p class="northern-title">northernrockusa.org</p>
-      <p class="northern-description">A brand strategy and creative development partner helping purpose-driven organizations thrive.</p>
-    </div>
-  </a>
+    <div class="section-wrapper">
+  <div class="northern-rock-link">
+    <h3 style="text-transform: uppercase; font-size: 1.2rem; margin-bottom: 15px;">Our Brand Strategy Partner</h3>
+    <a href="https://www.northernrockusa.org" target="_blank" rel="noopener noreferrer" class="northern-rock-preview">
+      <img src="assets/northernrock-preview.png" alt="Northern Rock Preview">
+      <div class="northern-rock-text">
+        <p class="northern-title">northernrockusa.org</p>
+        <p class="northern-description">A brand strategy and creative development partner helping purpose-driven organizations thrive.</p>
+      </div>
+    </a>
+  </div>
 </div>
 
 
