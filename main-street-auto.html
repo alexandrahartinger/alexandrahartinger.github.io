@@ -163,6 +163,34 @@
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
     }
+    .carousel-container {
+      margin: 60px auto;
+      overflow: hidden;
+      max-width: 1200px;
+    }
+    .carousel {
+      display: flex;
+      animation: scroll 40s linear infinite;
+    }
+    .carousel img {
+      flex: 0 0 auto;
+      width: 25%;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+      background: black;
+    }
     
   </style>
 </head>
