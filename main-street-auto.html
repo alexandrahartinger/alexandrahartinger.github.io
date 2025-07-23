@@ -40,6 +40,27 @@
   margin: 0 auto;
   padding: 140px 40px;
 }
+    .video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 177.78%; /* 9:16 aspect ratio for vertical videos */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
 
 
 .story-logo {
