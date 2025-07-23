@@ -163,34 +163,47 @@
     footer {
       text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
     }
-    .carousel-container {
-      margin: 60px auto;
-      overflow: hidden;
-      max-width: 1200px;
-    }
-    .carousel {
-      display: flex;
-      animation: scroll 40s linear infinite;
-    }
-    .carousel img {
-      flex: 0 0 auto;
-      width: 25%;
-      height: auto;
-      margin-right: 10px;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      background: black;
-    }
+   .carousel-container {
+  margin: 0;                 /* No side margins */
+  overflow: hidden;          /* Hide overflow for smooth scroll */
+  width: 100vw;              /* Full screen width */
+  max-width: 100%;           /* Prevent constraining */
+}
+
+.carousel {
+  display: flex;
+  animation: scroll 40s linear infinite; /* Continuous scroll */
+}
+
+.carousel img {
+  flex: 0 0 auto;
+  width: 25vw;               /* 4 images across (adjust as needed) */
+  height: 400px;             /* Set consistent height */
+  object-fit: cover;         /* Crops images without distortion */
+  margin: 0;                 /* Remove gaps between images */
+  border-radius: 0;          /* Optional: remove rounded corners */
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+  background: black;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .carousel img {
+    width: 50vw;            /* Show 2 images across on tablets/phones */
+    height: 250px;          /* Reduce height for smaller screens */
+  }
+
     
   </style>
 </head>
