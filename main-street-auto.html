@@ -207,9 +207,10 @@
   flex: 0 0 auto;
   width: 25%;                 /* 4 images across */
   height: 300px;              /* Uniform height */
-  margin-right: 10px;         /* Tiny space between images */
+  margin-right: 10px;
   border-radius: 8px;
-  object-fit: cover;          /* Crop nicely without stretching */
+  object-fit: contain;        /* Show full image without cropping */
+  background: #000;           /* Fill gaps with black background */
 }
 
 @keyframes scroll {
