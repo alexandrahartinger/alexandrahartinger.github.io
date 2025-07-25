@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
   <title>NASCAR x Main Street Auto</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body, html {
       margin: 0; padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
@@ -15,277 +13,50 @@
     }
     header {
       position: fixed; top: 0; width: 100%; z-index: 10;
-      background: black;
-      display: flex; justify-content: space-between;
+      background: black; display: flex; justify-content: space-between;
       align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    header .logo {
-      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
-    }
-    nav a {
-      color: white; text-decoration: none; margin-left: 30px;
-      font-size: 1rem; text-transform: uppercase; font-weight: bold;
-    }
+    header .logo { font-size: 1.8rem; font-weight: bold; text-transform: uppercase; }
+    nav a { color: white; text-decoration: none; margin-left: 30px; font-size: 1rem; text-transform: uppercase; font-weight: bold; }
     nav a:hover { color: #aaa; }
-    .hero {
-      position: relative; width: 100%; height: 100vh; overflow: hidden;
-    }
-    .hero video {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; z-index: 0;
-    }
-    .hero h1 {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2.5vw; text-align: center;
-      z-index: 1; margin: 0;
-      color: white;
-      opacity: 0;
-      animation: fadeUp 1.5s ease forwards;
-      line-height: 1.2;
-    }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
-    }
 
-    section {
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    section:not(#team) h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-align: left;
-      font-size: 2rem;
-    }
-    section#team h2, section#about h2 {
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: 2rem;
-    }
- /* GALLERY CAROUSEL */
-.gallery-carousel {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  overflow: hidden;
-  background: black;
-  padding: 20px;
-  border-radius: 10px;
-}
+    .hero { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+    .hero video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero h1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5vw; text-align: center; z-index: 1; color: white; opacity: 0; animation: fadeUp 1.5s ease forwards; }
+    @keyframes fadeUp { 0% { opacity: 0; transform: translate(-50%, -40%); } 100% { opacity: 1; transform: translate(-50%, -50%); } }
 
-.carousel-row {
-  overflow: hidden;
-  white-space: nowrap;
-}
+    section { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+    section:not(#team) h2 { text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem; }
+    section#team h2, section#about h2 { text-transform: uppercase; margin-bottom: 20px; text-align: center; font-size: 2rem; }
 
-.carousel-track {
-  display: inline-flex;
-  animation: scroll-left 60s linear infinite;
-}
+    /* GALLERY CAROUSEL */
+    .gallery-carousel { display: flex; flex-direction: column; gap: 20px; overflow: hidden; background: black; padding: 20px; border-radius: 10px; }
+    .carousel-row { overflow: hidden; white-space: nowrap; }
+    .carousel-track { display: inline-flex; animation: scroll-left 60s linear infinite; }
+    .carousel-row.reverse .carousel-track { animation: scroll-right 60s linear infinite; }
+    .carousel-track img { height: 200px; width: auto; margin-right: 10px; border-radius: 8px; object-fit: cover; }
+    @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    .carousel-row:hover .carousel-track { animation-play-state: paused; }
 
-.carousel-row.reverse .carousel-track {
-  animation: scroll-right 60s linear infinite;
-}
+    /* SUPPORTING SOCIALS */
+    #supporting-socials { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+    #supporting-socials h2 { text-transform: uppercase; margin-bottom: 30px; text-align: left; font-size: 2rem; }
+    .socials-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .video-wrapper { position: relative; width: 100%; padding-top: 177.78%; overflow: hidden; border-radius: 12px; }
+    .video-wrapper video, .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; object-fit: cover; }
+    .video-wrapper iframe { aspect-ratio: 16 / 9; height: auto; padding-top: 0; }
 
-.carousel-track img {
-  height: 200px;
-  width: auto;
-  margin-right: 10px;
-  border-radius: 8px;
-  object-fit: cover;
-}
+    /* HERO CARD FLIP */
+    .flip-container { perspective: 1000px; width: 100%; max-width: 700px; aspect-ratio: 11 / 8.5; margin: 0 auto; position: relative; cursor: pointer; }
+    .card { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.8s ease; cursor: pointer; }
+    .card.flipped { transform: rotateY(180deg); }
+    .card .front, .card .back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; overflow: hidden; }
+    .card .back { transform: rotateY(180deg); }
+    .card img { width: 100%; height: 100%; object-fit: cover; }
 
-@keyframes scroll-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@keyframes scroll-right {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
-}
-
-/* Optional: Pause on hover */
-.carousel-row:hover .carousel-track {
-  animation-play-state: paused;
-}
-
-   
-.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-    .video-container video, .video-container iframe {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .video-container iframe {
-      height: 675px;
-    }
-
-    .stills {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .stills img {
-      width: calc(33.333% - 6.66px);
-      height: auto;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    .carousel-container {
-      margin: 60px auto;
-      overflow: hidden;
-      max-width: 1200px;
-    }
-    .carousel {
-      display: flex;
-      animation: scroll 40s linear infinite;
-    }
-    .carousel img {
-      flex: 0 0 auto;
-      width: 25%;
-      height: auto;
-      margin-right: 10px;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-#supporting-socials {
-  padding: 80px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#supporting-socials h2 {
-  text-transform: uppercase;
-  margin-bottom: 30px;
-  text-align: left;
-  font-size: 2rem;
-}
-
-.socials-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 177.78%; /* 9:16 ratio */
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-
-    .flip-container {
-  perspective: 1000px;
-  width: 100%;
-  max-width: 700px;
-  aspect-ratio: 11 / 8.5;
-  margin: 0 auto;
-  position: relative;
-  cursor: pointer;
-    }
-    .card {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-      cursor: pointer;
-    }
-    .card.flipped {
-      transform: rotateY(180deg);
-    }
-    .card .front, .card .back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      top: 0; left: 0;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .card .front img, .card .back img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .card .back {
-      transform: rotateY(180deg);
-    }
-  .signature-overlay {
-  position: absolute;
-  bottom: 30px;
-  right: 40px;
-  opacity: 0;
-  animation: signFade 2s ease-in-out 1.5s forwards;
-  pointer-events: none;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-}
-
-
-    @keyframes signFade {
-      from {
-        opacity: 0;
-        transform: translateY(10px) scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      background: black;
-    }
-    <!-- YouTube Videos -->
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/-nccgTgFj1M"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/u06DzPjI3Z8"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-
-  </div> <!-- closes .socials-container -->
-</section>
-
-
+    footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black; }
   </style>
 </head>
 <body>
@@ -307,57 +78,31 @@
     <h2>Meet Our Driver</h2>
     <img src="assets/CJ BIO.pdf" alt="Meet Our Driver" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
   </section>
+
   <section>
     <h2>Hero Card Design</h2>
     <div class="flip-container">
       <div class="card" id="heroCard">
-        <div class="front">
-          <img src="assets/12.png" alt="Hero Card Front">
-        </div>
-        <div class="back">
-          <img src="assets/13.png" alt="Hero Card Back">
-        </div>
+        <div class="front"><img src="assets/12.png" alt="Hero Card Front"></div>
+        <div class="back"><img src="assets/13.png" alt="Hero Card Back"></div>
       </div>
     </div>
     <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
   </section>
 
-  
-<section>
-  <h2>Branding</h2>
+  <section>
+    <h2>Branding</h2>
+    <video id="suitVideo" src="assets/Suit Video.mp4" autoplay muted loop playsinline style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;"></video>
+    <video id="carTourVideo" src="assets/CarTour.mp4" muted playsinline preload="metadata" poster="assets/CarTourThumbnail.jpg" controlslist="nodownload nofullscreen noremoteplay" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;"></video>
+  </section>
 
-  <video 
-    id="suitVideo"
-    src="assets/Suit Video.mp4"
-    autoplay 
-    muted 
-    loop 
-    playsinline
-    style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
-  </video>
-
-  <video 
-    id="carTourVideo"
-    src="assets/CarTour.mp4"
-    muted 
-    playsinline 
-    preload="metadata"
-    poster="assets/CarTourThumbnail.jpg"
-    controlslist="nodownload nofullscreen noremoteplay"
-    style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
-  </video>
-</section>
-
-
-<section>
-  <h2>Pit Stop</h2>
-  <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center;">
-    <video src="assets/Pit Stop.mp4" controls 
-      style="width: 100%; max-width: 500px; height: 280px; object-fit: cover; border-radius: 8px;">
-    </video>
-   <img src="assets/Video-ezgif.com-resize.gif" alt="Pit Stop Gif" style="width: 100%; max-width: 500px; height: 280px; object-fit: cover; border-radius: 8px;">
-  </div>
-</section>
+  <section>
+    <h2>Pit Stop</h2>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center;">
+      <video src="assets/Pit Stop.mp4" controls style="width: 100%; max-width: 500px; height: 280px; object-fit: cover; border-radius: 8px;"></video>
+      <img src="assets/Video-ezgif.com-resize.gif" alt="Pit Stop Gif" style="width: 100%; max-width: 500px; height: 280px; object-fit: cover; border-radius: 8px;">
+    </div>
+  </section>
 
   <section>
     <h2>Daytona 2025</h2>
@@ -365,186 +110,96 @@
       <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
-  
-<div class="gallery-carousel">
-  <!-- Row 1 -->
-  <div class="carousel-row">
-    <div class="carousel-track">
-      <img src="assets/501A0696.jpeg" alt="">
-      <img src="assets/501A1141.jpeg" alt="">
-      <img src="assets/A7407688.jpeg" alt="">
-      <img src="assets/A7407699.jpeg" alt="">
-      <img src="assets/A7407702.jpeg" alt="">
-      <img src="assets/A7407742.jpeg" alt="">
-      <img src="assets/A7407748.jpeg" alt="">
-      <img src="assets/A7407751.jpeg" alt="">
-      <img src="assets/A7407752.jpeg" alt="">
-      <img src="assets/A7407787.jpeg" alt="">
-      <img src="assets/A7407883.jpeg" alt="">
-      <img src="assets/A7407898.jpeg" alt="">
-      <img src="assets/A7407915.jpeg" alt="">
-      <img src="assets/A7408089.jpeg" alt="">
-      <img src="assets/boyz.jpeg" alt="">
-      <img src="assets/DRO_0200.jpeg" alt="">
-      <img src="assets/DRO_1306.jpeg" alt="">
-      <img src="assets/DRO_2885.jpeg" alt="">
-      <img src="assets/DRO_2937.jpeg" alt="">
-      <img src="assets/DRO_2967.jpeg" alt="">
+
+  <!-- NEW GALLERY CAROUSEL -->
+  <div class="gallery-carousel">
+    <div class="carousel-row">
+      <div class="carousel-track">
+        <img src="assets/501A0696.jpeg" alt="">
+        <img src="assets/501A1141.jpeg" alt="">
+        <img src="assets/A7407688.jpeg" alt="">
+        <img src="assets/A7407699.jpeg" alt="">
+        <img src="assets/A7407702.jpeg" alt="">
+        <img src="assets/A7407742.jpeg" alt="">
+        <img src="assets/A7407748.jpeg" alt="">
+        <img src="assets/A7407751.jpeg" alt="">
+        <img src="assets/A7407752.jpeg" alt="">
+        <img src="assets/A7407787.jpeg" alt="">
+      </div>
+    </div>
+    <div class="carousel-row reverse">
+      <div class="carousel-track">
+        <img src="assets/A7407883.jpeg" alt="">
+        <img src="assets/A7407898.jpeg" alt="">
+        <img src="assets/A7407915.jpeg" alt="">
+        <img src="assets/A7408089.jpeg" alt="">
+        <img src="assets/DRO_0200.jpeg" alt="">
+        <img src="assets/DRO_1306.jpeg" alt="">
+        <img src="assets/DRO_2885.jpeg" alt="">
+        <img src="assets/DRO_2937.jpeg" alt="">
+        <img src="assets/DRO_2967.jpeg" alt="">
+      </div>
+    </div>
+    <div class="carousel-row">
+      <div class="carousel-track">
+        <img src="assets/DRO_3836.jpeg" alt="">
+        <img src="assets/DRO_3845.jpeg" alt="">
+        <img src="assets/DRO_4397.jpeg" alt="">
+        <img src="assets/DRO_4493.jpeg" alt="">
+        <img src="assets/DRO_4642.jpeg" alt="">
+        <img src="assets/DRO_5124.jpeg" alt="">
+        <img src="assets/DRO_7347.jpeg" alt="">
+        <img src="assets/DRO_7349.jpeg" alt="">
+        <img src="assets/DRO_7513-Edit.jpeg" alt="">
+      </div>
     </div>
   </div>
 
-  <!-- Row 2 -->
-  <div class="carousel-row reverse">
-    <div class="carousel-track">
-      <img src="assets/DRO_3836.jpeg" alt="">
-      <img src="assets/DRO_3845.jpeg" alt="">
-      <img src="assets/DRO_4397.jpeg" alt="">
-      <img src="assets/DRO_4493.jpeg" alt="">
-      <img src="assets/DRO_4642.jpeg" alt="">
-      <img src="assets/DRO_5124.jpeg" alt="">
-      <img src="assets/DRO_7347.jpeg" alt="">
-      <img src="assets/DRO_7349.jpeg" alt="">
-      <img src="assets/DRO_7513-Edit.jpeg" alt="">
-      <img src="assets/DRO_7881.jpeg" alt="">
-      <img src="assets/DRO_7905.jpeg" alt="">
-      <img src="assets/DRO_7926.jpeg" alt="">
-      <img src="assets/DRO_8350.jpeg" alt="">
-      <img src="assets/DRO_8784.jpeg" alt="">
-      <img src="assets/DRO_8803.jpeg" alt="">
-      <img src="assets/DRO_8807.jpeg" alt="">
-      <img src="assets/DRO_9454.jpeg" alt="">
-      <img src="assets/DRO_9558.jpeg" alt="">
-      <img src="assets/image00049.jpeg" alt="">
-      <img src="assets/IMG_4581.jpeg" alt="">
-    </div>
-  </div>
-
-  <!-- Row 3 -->
-  <div class="carousel-row">
-    <div class="carousel-track">
-      <img src="assets/MVL_4494.jpeg" alt="">
-      <img src="assets/MVL_5142.jpeg" alt="">
-      <img src="assets/MVL_5221.jpeg" alt="">
-      <img src="assets/MVL_5255.jpeg" alt="">
-      <img src="assets/MVL_5419.jpeg" alt="">
-      <img src="assets/MVL_5654.jpeg" alt="">
-      <img src="assets/MVL_5664.jpeg" alt="">
-      <img src="assets/MVL_5676.jpeg" alt="">
-      <img src="assets/MVL_5828.jpeg" alt="">
-      <img src="assets/MVL_7902.jpeg" alt="">
-      <img src="assets/MVL_8416.jpeg" alt="">
-      <img src="assets/push.jpeg" alt="">
-    </div>
-  </div>
-</div>
-
-
-
+  <!-- SUPPORTING SOCIALS -->
   <section id="supporting-socials">
-  <h2>Supporting Socials</h2>
-  <div class="socials-container">
-
-    <!-- Local Vertical Videos -->
-    <div class="video-wrapper">
-      <video controls class="fade-in">
-        <source src="assets/Pit Stop 2.mp4" type="video/mp4">
-      </video>
+    <h2>Supporting Socials</h2>
+    <div class="socials-container">
+      <div class="video-wrapper"><video controls><source src="assets/Pit Stop 2.mp4" type="video/mp4"></video></div>
+      <div class="video-wrapper"><video controls poster="assets/nascar-sizzle-thumb.jpg"><source src="assets/newsizzle.mp4" type="video/mp4"></video></div>
+      <div class="video-wrapper"><video controls><source src="assets/Ellie.mp4" type="video/mp4"></video></div>
+      <div class="video-wrapper"><video controls><source src="assets/Reel1.mp4" type="video/mp4"></video></div>
+      <div class="video-wrapper"><video controls><source src="assets/Jackson Interview.mp4" type="video/mp4"></video></div>
+      <div class="video-wrapper"><video controls><source src="assets/Jackson Suite Interview_1.mp4" type="video/mp4"></video></div>
+      <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/-nccgTgFj1M" frameborder="0" allowfullscreen></iframe></div>
+      <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/u06DzPjI3Z8" frameborder="0" allowfullscreen></iframe></div>
     </div>
+  </section>
 
-    <div class="video-wrapper">
-      <video controls class="fade-in" poster="assets/nascar-sizzle-thumb.jpg">
-        <source src="assets/newsizzle.mp4" type="video/mp4">
-      </video>
-    </div>
+  <footer>&copy; 2025 Alexandra Hartinger. All Rights Reserved.</footer>
 
-    <div class="video-wrapper">
-      <video controls class="fade-in">
-        <source src="assets/Ellie.mp4" type="video/mp4">
-      </video>
-    </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Flip Hero Card
+      const heroCard = document.getElementById('heroCard');
+      if (heroCard) {
+        heroCard.addEventListener('click', () => heroCard.classList.toggle('flipped'));
+      }
 
-    <!-- New Videos -->
-    <div class="video-wrapper">
-      <video controls class="fade-in">
-        <source src="assets/Reel 1.mov" type="video/mp4">
-      </video>
-    </div>
+      // Scroll-triggered fade-ins
+      const videos = document.querySelectorAll('.socials-container video, .socials-container iframe');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      }, { threshold: 0.2 });
+      videos.forEach(video => observer.observe(video));
 
-    <div class="video-wrapper">
-      <video controls class="fade-in">
-        <source src="assets/Jackson Interview.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div class="video-wrapper">
-      <video controls class="fade-in">
-        <source src="assets/Jackson Suite Interview_1.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <!-- YouTube Videos -->
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/-nccgTgFj1M"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/u06DzPjI3Z8"
-
-
-
-  </div>
-</section>
-
-
-
-  <footer>
-    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
-  </footer>
-
- <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Flip Hero Card
-    const heroCard = document.getElementById('heroCard');
-    if (heroCard) {
-      heroCard.addEventListener('click', function () {
-        this.classList.toggle('flipped');
-      });
-    }
-
-    // Scroll-triggered fade-ins
-    const videos = document.querySelectorAll('.socials-container video, .concept-video video, .extra-social video');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    videos.forEach(video => observer.observe(video));
-
-    // Car Tour Video plays after Suit Video ends
-    const suitVideo = document.getElementById("suitVideo");
-    const carTourVideo = document.getElementById("carTourVideo");
-    let hasPlayedOnce = false;
-
-    if (suitVideo && carTourVideo) {
-      suitVideo.addEventListener("timeupdate", () => {
-        if (
-          !hasPlayedOnce &&
-          suitVideo.currentTime > 0 &&
-          suitVideo.currentTime >= suitVideo.duration - 0.5
-        ) {
-          hasPlayedOnce = true;
-          carTourVideo.play();
-        }
-      });
-    }
-  });
-</script>
-
+      // Car Tour Video plays after Suit Video ends
+      const suitVideo = document.getElementById("suitVideo");
+      const carTourVideo = document.getElementById("carTourVideo");
+      let hasPlayedOnce = false;
+      if (suitVideo && carTourVideo) {
+        suitVideo.addEventListener("timeupdate", () => {
+          if (!hasPlayedOnce && suitVideo.currentTime >= suitVideo.duration - 0.5) {
+            hasPlayedOnce = true;
+            carTourVideo.play();
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
