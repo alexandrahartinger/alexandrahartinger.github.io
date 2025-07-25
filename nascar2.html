@@ -45,8 +45,18 @@
     #supporting-socials h2 { text-transform: uppercase; margin-bottom: 30px; text-align: left; font-size: 2rem; }
     .socials-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .video-wrapper { position: relative; width: 100%; padding-top: 177.78%; overflow: hidden; border-radius: 12px; }
-    .video-wrapper video, .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; object-fit: cover; }
-    .video-wrapper iframe { aspect-ratio: 16 / 9; height: auto; padding-top: 0; }
+
+    .video-wrapper video,
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 
     /* HERO CARD FLIP */
     .flip-container { perspective: 1000px; width: 100%; max-width: 700px; aspect-ratio: 11 / 8.5; margin: 0 auto; position: relative; cursor: pointer; }
@@ -105,11 +115,31 @@
   </section>
 
   <section>
-    <h2>Daytona 2025</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE" frameborder="0" allowfullscreen></iframe>
+  <h2>Race Highlights</h2>
+  <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center;">
+    <div class="video-wrapper" style="max-width: 500px; flex: 1;">
+      <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
     </div>
-  </section>
+    <div class="video-wrapper" style="max-width: 500px; flex: 1;">
+      <iframe src="https://www.youtube.com/embed/nowEX0ZjTEM" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-wrapper" style="max-width: 500px; flex: 1;">
+      <iframe src="https://www.youtube.com/embed/QsDmoG9R-1A" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
 
   <!-- NEW GALLERY CAROUSEL -->
   <div class="gallery-carousel">
