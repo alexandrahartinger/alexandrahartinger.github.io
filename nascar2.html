@@ -68,14 +68,25 @@
       text-align: center;
       font-size: 2rem;
     }
-     .gallery img {
-      width: 100%; border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-      z-index: 2;
-    }
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
    
 .fade-in {
   opacity: 1;
@@ -318,15 +329,66 @@
     </div>
   </section>
   
-  <section class="fade-section">
-  <h2>Gallery</h2>
   <div class="gallery">
-    <img src="assets/1.png" alt="Gallery Image 1">
-    <img src="assets/2.png" alt="Gallery Image 2">
-    <img src="assets/3.png" alt="Gallery Image 3">
-    <img src="assets/4.png" alt="Gallery Image 4">
-  </div>
-</section>
+  <!-- Add all your images here -->
+  <img src="assets/501A0696.png" alt="">
+  <img src="assets/501A1141.png" alt="">
+  <img src="assets/A7407688.jpg" alt="">
+  <img src="assets/A7407699.jpg" alt="">
+  <img src="assets/A7407702.jpg" alt="">
+  <img src="assets/A7407742.jpg" alt="">
+  <img src="assets/A7407748.jpg" alt="">
+  <img src="assets/A7407751.jpg" alt="">
+  <img src="assets/A7407752.jpg" alt="">
+  <img src="assets/A7407787.jpg" alt="">
+  <img src="assets/A7407883.jpg" alt="">
+  <img src="assets/A7407898.jpg" alt="">
+  <img src="assets/A7407915.jpg" alt="">
+  <img src="assets/A7408089.jpg" alt="">
+  <img src="assets/boyz.png" alt="">
+  <img src="assets/DRO_0200.jpg" alt="">
+  <img src="assets/DRO_1306.jpg" alt="">
+  <img src="assets/DRO_2885.jpg" alt="">
+  <img src="assets/DRO_2937.jpg" alt="">
+  <img src="assets/DRO_2967.jpg" alt="">
+  <img src="assets/DRO_3836.jpg" alt="">
+  <img src="assets/DRO_3845.jpg" alt="">
+  <img src="assets/DRO_4397.jpg" alt="">
+  <img src="assets/DRO_4493.jpg" alt="">
+  <img src="assets/DRO_4642.jpg" alt="">
+  <img src="assets/DRO_5124.jpg" alt="">
+  <img src="assets/DRO_7347.jpg" alt="">
+  <img src="assets/DRO_7349.jpg" alt="">
+  <img src="assets/DRO_7513-Edit.jpg" alt="">
+  <img src="assets/DRO_7881.jpg" alt="">
+  <img src="assets/DRO_7905.jpg" alt="">
+  <img src="assets/DRO_7926.jpg" alt="">
+  <img src="assets/DRO_8350.jpg" alt="">
+  <img src="assets/DRO_8784.jpg" alt="">
+  <img src="assets/DRO_8803.jpg" alt="">
+  <img src="assets/DRO_8807.jpg" alt="">
+  <img src="assets/DRO_9454.jpg" alt="">
+  <img src="assets/DRO_9558.jpg" alt="">
+  <img src="assets/image00049.jpg" alt="">
+  <img src="assets/IMG_4581.jpg" alt="">
+  <img src="assets/MVL_4494.jpg" alt="">
+  <img src="assets/MVL_5142.jpg" alt="">
+  <img src="assets/MVL_5221.jpg" alt="">
+  <img src="assets/MVL_5255.jpg" alt="">
+  <img src="assets/MVL_5419.jpg" alt="">
+  <img src="assets/MVL_5654.jpg" alt="">
+  <img src="assets/MVL_5664.jpg" alt="">
+  <img src="assets/MVL_5676.jpg" alt="">
+  <img src="assets/MVL_5828.jpg" alt="">
+  <img src="assets/MVL_7902.jpg" alt="">
+  <img src="assets/MVL_8416.jpg" alt="">
+  <img src="assets/Photo_Feb14_1PM.jpg" alt="">
+  <img src="assets/Photo_Feb14_3PM.jpg" alt="">
+  <img src="assets/push.jpg" alt="">
+  <img src="assets/Screenshot_AM.png" alt="">
+  <img src="assets/Screenshot_PM.png" alt="">
+</div>
+
 
   <section id="supporting-socials">
   <h2>Supporting Socials</h2>
