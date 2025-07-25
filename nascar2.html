@@ -68,28 +68,53 @@
       text-align: center;
       font-size: 2rem;
     }
-   .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px; /* Spacing between images */
-  padding: 20px; /* Breathing room around the whole gallery */
+ /* GALLERY CAROUSEL */
+.gallery-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
   background: black;
+  padding: 20px;
   border-radius: 10px;
 }
 
-.gallery img {
-  width: 100%;
+.carousel-row {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.carousel-track {
+  display: inline-flex;
+  animation: scroll-left 60s linear infinite;
+}
+
+.carousel-row.reverse .carousel-track {
+  animation: scroll-right 60s linear infinite;
+}
+
+.carousel-track img {
   height: 200px;
-  object-fit: cover;
+  width: auto;
+  margin-right: 10px;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  object-fit: cover;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
-  z-index: 2;
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+/* Optional: Pause on hover */
+.carousel-row:hover .carousel-track {
+  animation-play-state: paused;
+}
 
    
 .fade-in {
@@ -341,63 +366,76 @@
     </div>
   </section>
   
- <div class="gallery">
-  <img src="assets/501A0696.jpeg" alt="">
-  <img src="assets/501A1141.jpeg" alt="">
-  <img src="assets/A7407688.jpeg" alt="">
-  <img src="assets/A7407699.jpeg" alt="">
-  <img src="assets/A7407702.jpeg" alt="">
-  <img src="assets/A7407742.jpeg" alt="">
-  <img src="assets/A7407748.jpeg" alt="">
-  <img src="assets/A7407751.jpeg" alt="">
-  <img src="assets/A7407752.jpeg" alt="">
-  <img src="assets/A7407787.jpeg" alt="">
-  <img src="assets/A7407883.jpeg" alt="">
-  <img src="assets/A7407898.jpeg" alt="">
-  <img src="assets/A7407915.jpeg" alt="">
-  <img src="assets/A7408089.jpeg" alt="">
-  <img src="assets/boyz.jpeg" alt="">
-  <img src="assets/DRO_0200.jpeg" alt="">
-  <img src="assets/DRO_1306.jpeg" alt="">
-  <img src="assets/DRO_2885.jpeg" alt="">
-  <img src="assets/DRO_2937.jpeg" alt="">
-  <img src="assets/DRO_2967.jpeg" alt="">
-  <img src="assets/DRO_3836.jpeg" alt="">
-  <img src="assets/DRO_3845.jpeg" alt="">
-  <img src="assets/DRO_4397.jpeg" alt="">
-  <img src="assets/DRO_4493.jpeg" alt="">
-  <img src="assets/DRO_4642.jpeg" alt="">
-  <img src="assets/DRO_5124.jpeg" alt="">
-  <img src="assets/DRO_7347.jpeg" alt="">
-  <img src="assets/DRO_7349.jpeg" alt="">
-  <img src="assets/DRO_7513-Edit.jpeg" alt="">
-  <img src="assets/DRO_7881.jpeg" alt="">
-  <img src="assets/DRO_7905.jpeg" alt="">
-  <img src="assets/DRO_7926.jpeg" alt="">
-  <img src="assets/DRO_8350.jpeg" alt="">
-  <img src="assets/DRO_8784.jpeg" alt="">
-  <img src="assets/DRO_8803.jpeg" alt="">
-  <img src="assets/DRO_8807.jpeg" alt="">
-  <img src="assets/DRO_9454.jpeg" alt="">
-  <img src="assets/DRO_9558.jpeg" alt="">
-  <img src="assets/image00049.jpeg" alt="">
-  <img src="assets/IMG_4581.jpeg" alt="">
-  <img src="assets/MVL_4494.jpeg" alt="">
-  <img src="assets/MVL_5142.jpeg" alt="">
-  <img src="assets/MVL_5221.jpeg" alt="">
-  <img src="assets/MVL_5255.jpeg" alt="">
-  <img src="assets/MVL_5419.jpeg" alt="">
-  <img src="assets/MVL_5654.jpeg" alt="">
-  <img src="assets/MVL_5664.jpeg" alt="">
-  <img src="assets/MVL_5676.jpeg" alt="">
-  <img src="assets/MVL_5828.jpeg" alt="">
-  <img src="assets/MVL_7902.jpeg" alt="">
-  <img src="assets/MVL_8416.jpeg" alt="">
-  <img src="assets/Photo_Feb14_1PM.jpeg" alt="">
-  <img src="assets/Photo_Feb14_3PM.jpeg" alt="">
-  <img src="assets/push.jpeg" alt="">
-  <img src="assets/Screenshot_AM.jpeg" alt="">
-  <img src="assets/Screenshot_PM.jpeg" alt="">
+<div class="gallery-carousel">
+  <!-- Row 1 -->
+  <div class="carousel-row">
+    <div class="carousel-track">
+      <img src="assets/501A0696.jpeg" alt="">
+      <img src="assets/501A1141.jpeg" alt="">
+      <img src="assets/A7407688.jpeg" alt="">
+      <img src="assets/A7407699.jpeg" alt="">
+      <img src="assets/A7407702.jpeg" alt="">
+      <img src="assets/A7407742.jpeg" alt="">
+      <img src="assets/A7407748.jpeg" alt="">
+      <img src="assets/A7407751.jpeg" alt="">
+      <img src="assets/A7407752.jpeg" alt="">
+      <img src="assets/A7407787.jpeg" alt="">
+      <img src="assets/A7407883.jpeg" alt="">
+      <img src="assets/A7407898.jpeg" alt="">
+      <img src="assets/A7407915.jpeg" alt="">
+      <img src="assets/A7408089.jpeg" alt="">
+      <img src="assets/boyz.jpeg" alt="">
+      <img src="assets/DRO_0200.jpeg" alt="">
+      <img src="assets/DRO_1306.jpeg" alt="">
+      <img src="assets/DRO_2885.jpeg" alt="">
+      <img src="assets/DRO_2937.jpeg" alt="">
+      <img src="assets/DRO_2967.jpeg" alt="">
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="carousel-row reverse">
+    <div class="carousel-track">
+      <img src="assets/DRO_3836.jpeg" alt="">
+      <img src="assets/DRO_3845.jpeg" alt="">
+      <img src="assets/DRO_4397.jpeg" alt="">
+      <img src="assets/DRO_4493.jpeg" alt="">
+      <img src="assets/DRO_4642.jpeg" alt="">
+      <img src="assets/DRO_5124.jpeg" alt="">
+      <img src="assets/DRO_7347.jpeg" alt="">
+      <img src="assets/DRO_7349.jpeg" alt="">
+      <img src="assets/DRO_7513-Edit.jpeg" alt="">
+      <img src="assets/DRO_7881.jpeg" alt="">
+      <img src="assets/DRO_7905.jpeg" alt="">
+      <img src="assets/DRO_7926.jpeg" alt="">
+      <img src="assets/DRO_8350.jpeg" alt="">
+      <img src="assets/DRO_8784.jpeg" alt="">
+      <img src="assets/DRO_8803.jpeg" alt="">
+      <img src="assets/DRO_8807.jpeg" alt="">
+      <img src="assets/DRO_9454.jpeg" alt="">
+      <img src="assets/DRO_9558.jpeg" alt="">
+      <img src="assets/image00049.jpeg" alt="">
+      <img src="assets/IMG_4581.jpeg" alt="">
+    </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="carousel-row">
+    <div class="carousel-track">
+      <img src="assets/MVL_4494.jpeg" alt="">
+      <img src="assets/MVL_5142.jpeg" alt="">
+      <img src="assets/MVL_5221.jpeg" alt="">
+      <img src="assets/MVL_5255.jpeg" alt="">
+      <img src="assets/MVL_5419.jpeg" alt="">
+      <img src="assets/MVL_5654.jpeg" alt="">
+      <img src="assets/MVL_5664.jpeg" alt="">
+      <img src="assets/MVL_5676.jpeg" alt="">
+      <img src="assets/MVL_5828.jpeg" alt="">
+      <img src="assets/MVL_7902.jpeg" alt="">
+      <img src="assets/MVL_8416.jpeg" alt="">
+      <img src="assets/push.jpeg" alt="">
+    </div>
+  </div>
 </div>
 
 
