@@ -214,14 +214,17 @@
       color: #aaa;
       background: black;
     }
-   .video-wrapper iframe {
+   .video-wrapper iframe,
+.video-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border-radius: 12px;
+  object-fit: cover;
 }
+
 
   </style>
 </head>
@@ -308,8 +311,13 @@
   <h2>Supporting Socials</h2>
   <div class="socials-container">
 
-    <!-- Existing Local Videos -->
-   
+    <!-- Local Vertical Videos -->
+    <div class="video-wrapper">
+      <video controls class="fade-in">
+        <source src="assets/Pit Stop 2.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <div class="video-wrapper">
       <video controls class="fade-in" poster="assets/nascar-sizzle-thumb.jpg">
         <source src="assets/newsizzle.mp4" type="video/mp4">
@@ -322,19 +330,36 @@
       </video>
     </div>
 
- <div class="video-wrapper">
-  <iframe src="https://www.youtube.com/embed/-nccgTgFj1M"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
-</div>
+    <!-- New Videos -->
+    <div class="video-wrapper">
+      <video controls class="fade-in">
+        <source src="assets/Reel 1.mov" type="video/mp4">
+      </video>
+    </div>
 
-<div class="video-wrapper">
-  <iframe src="https://www.youtube.com/embed/u06DzPjI3Z8"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
-</div>
+    <div class="video-wrapper">
+      <video controls class="fade-in">
+        <source src="assets/Jackson Interview.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="video-wrapper">
+      <video controls class="fade-in">
+        <source src="assets/Jackson Suite Interview_1.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- YouTube Videos -->
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/-nccgTgFj1M"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/u06DzPjI3Z8"
+
 
 
   </div>
