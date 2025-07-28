@@ -30,6 +30,38 @@
     section:not(#team) h2 { text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem; }
     section#team h2, section#about h2 { text-transform: uppercase; margin-bottom: 20px; text-align: center; font-size: 2rem; }
 
+    /* Car Carousel */
+.car-carousel {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.car-carousel img {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 8px;
+  display: block;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+.carousel-arrow.left { left: 10px; }
+.carousel-arrow.right { right: 10px; }
+.carousel-arrow:hover { background-color: rgba(0,0,0,0.8); }
+
     /* GALLERY CAROUSEL */
     .gallery-carousel { display: flex; flex-direction: column; gap: 20px; overflow: hidden; background: black; padding: 20px; border-radius: 10px; }
     .carousel-row { overflow: hidden; white-space: nowrap; }
@@ -108,10 +140,14 @@
   </section>
 
   <section>
-    <h2>Branding</h2>
-    <video id="suitVideo" src="assets/Suit Video.mp4" autoplay muted loop playsinline style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;"></video>
-    <video id="carTourVideo" src="assets/CarTour.mp4" muted playsinline preload="metadata" poster="assets/CarTourThumbnail.jpg" controlslist="nodownload nofullscreen noremoteplay" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;"></video>
-  </section>
+  <h2>Branding</h2>
+  <div class="car-carousel">
+    <button class="carousel-arrow left" onclick="changeCarImage(-1)">&#10094;</button>
+    <img id="carImage" src="assets/CarTourThumbnail.jpg" alt="Car View" />
+    <button class="carousel-arrow right" onclick="changeCarImage(1)">&#10095;</button>
+  </div>
+</section>
+
 
   <section>
     <h2>Pit Stop</h2>
@@ -233,37 +269,41 @@
   </div>
 </section>
 
+<footer>&copy; 2025 Alexandra Hartinger. All Rights Reserved.</footer>
 
-  <footer>&copy; 2025 Alexandra Hartinger. All Rights Reserved.</footer>
+<script>
+  // Car Images for Branding Section
+  const carImages = [
+    "assets/CarTourThumbnail.jpg",
+    "assets/frontcar.png",
+    "assets/sidecar.png",
+    "assets/backcar.png",
+    "assets/topcar.png"
+  ];
+  let currentCarIndex = 0;
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Flip Hero Card
-      const heroCard = document.getElementById('heroCard');
-      if (heroCard) {
-        heroCard.addEventListener('click', () => heroCard.classList.toggle('flipped'));
-      }
+  function changeCarImage(direction) {
+    currentCarIndex += direction;
+    if (currentCarIndex < 0) currentCarIndex = carImages.length - 1;
+    if (currentCarIndex >= carImages.length) currentCarIndex = 0;
+    document.getElementById("carImage").src = carImages[currentCarIndex];
+  }
 
-      // Scroll-triggered fade-ins
-      const videos = document.querySelectorAll('.socials-container video, .socials-container iframe');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-      }, { threshold: 0.2 });
-      videos.forEach(video => observer.observe(video));
+  document.addEventListener('DOMContentLoaded', () => {
+    // Flip Hero Card
+    const heroCard = document.getElementById('heroCard');
+    if (heroCard) {
+      heroCard.addEventListener('click', () => heroCard.classList.toggle('flipped'));
+    }
 
-      // Car Tour Video plays after Suit Video ends
-      const suitVideo = document.getElementById("suitVideo");
-      const carTourVideo = document.getElementById("carTourVideo");
-      let hasPlayedOnce = false;
-      if (suitVideo && carTourVideo) {
-        suitVideo.addEventListener("timeupdate", () => {
-          if (!hasPlayedOnce && suitVideo.currentTime >= suitVideo.duration - 0.5) {
-            hasPlayedOnce = true;
-            carTourVideo.play();
-          }
-        });
-      }
-    });
-  </script>
+    // Scroll-triggered fade-ins
+    const videos = document.querySelectorAll('.socials-container video, .socials-container iframe');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.2 });
+    videos.forEach(video => observer.observe(video));
+  });
+</script>
+
 </body>
 </html>
