@@ -56,6 +56,13 @@
   border-radius: 12px;
   object-fit: cover;
 }
+    .video-container video, .video-container iframe {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .video-container iframe {
+      height: 675px;
+    }
 
 
     /* HERO CARD FLIP */
@@ -114,32 +121,13 @@
     </div>
   </section>
 
-  <section>
-  <h2>Race Highlights</h2>
-  <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center;">
-    <div class="video-wrapper" style="max-width: 500px; flex: 1;">
-      <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
+ <section>
+    <h2>Race Highlights</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/2g8z9Tcm4hE" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div class="video-wrapper" style="max-width: 500px; flex: 1;">
-      <iframe src="https://www.youtube.com/embed/nowEX0ZjTEM" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div class="video-wrapper" style="max-width: 500px; flex: 1;">
-      <iframe src="https://www.youtube.com/embed/QsDmoG9R-1A" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-</section>
+  </section>
+
 
   <!-- NEW GALLERY CAROUSEL -->
   <div class="gallery-carousel">
