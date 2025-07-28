@@ -204,13 +204,19 @@
       animation: scroll 40s linear infinite;
     }
     .carousel img {
-      flex: 0 0 auto;
-      width: 25%;
-      height: auto;
-      margin-right: 10px;
-      border-radius: 8px;
-      object-fit: contain;
-    }
+  flex: 0 0 auto;
+  width: 300px;             /* Consistent fixed width */
+  height: 200px;            /* Consistent fixed height */
+  margin-right: 15px;
+  border-radius: 8px;
+  object-fit: cover;        /* Fills frame without distortion */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.carousel img:hover {
+  transform: scale(1.05);   /* Subtle zoom effect on hover */
+}
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
