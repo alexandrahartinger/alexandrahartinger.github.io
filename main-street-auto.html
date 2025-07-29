@@ -32,62 +32,6 @@
       position: absolute; top: 0; left: 0;
       width: 100%; height: 100%; object-fit: cover; z-index: 0;
     }
-  .our-story .story-wrapper {
-  display: flex;
-  align-items: flex-start; /* Aligns items to the top */
-  justify-content: flex-start; /* Ensures left alignment horizontally */
-  gap: 60px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 140px 40px;
-}
- .video-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1400px;         /* allow it to expand more */
-  margin: 0 auto;            /* keep it centered */
-  padding-top: 56.25%;       /* 16:9 aspect ratio (wider) */
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-
-
-
-.story-logo {
-  width: 300px;
-  height: auto;
-}
-
-
-.story-text h2 {
-  text-transform: uppercase;
-  font-size: 3rem;   /* Bigger text */
-  font-weight: 700;  /* Bold */
-  text-align: left; /* Centered */
-  margin-bottom: 20px;
-}
-
-
-.story-text p {
-  font-size: 1rem;
-  line-height: 1.5;
-  max-width: 600px;
-}
-
     .hero h1 {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
       font-size: 3vw; text-align: center; z-index: 1;
@@ -109,176 +53,133 @@
       font-size: 1rem; line-height: 1.5; max-width: 800px;
     }
 
+    .our-story .story-wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 140px 40px;
+    }
+    .story-logo {
+      width: 300px;
+      height: auto;
+    }
+    .story-text h2 {
+      text-transform: uppercase;
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .story-text p {
+      font-size: 1rem;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 56.25%;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .video-wrapper video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
     .sizzle video {
       width: 100%; max-width: 600px; border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: block; margin: 40px auto;
     }
 
     .section-wrapper {
-  max-width: 600px;
-  margin: 40px auto;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.social-icons img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
-}
-
-.social-icons p {
-  margin-top: 8px;
-  font-size: 0.9rem;
-}
-.northern-rock-preview {
-  max-width: 1400px; /* increased from 1000px */
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 60px; /* more breathing room between image & text */
-  padding: 60px; /* more padding for larger feel */
-  background: black;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-}
-
-.northern-rock-preview img {
-  width: 100%;
-  max-width: 900px; /* increased from 700px */
-  height: auto;
-  border-radius: 16px;
-}
-
-.northern-rock-title {
-  font-size: 2rem; /* bigger headline */
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.northern-rock-description {
-  font-size: 1.25rem; /* bigger description */
-  line-height: 1.8;
-  color: #ddd;
-}
-
-.northern-rock-link {
-  text-align: center;
-  margin-top: 120px;
-}
-
-.northern-rock-link a {
-  text-decoration: none; 
-  color: white; 
-  display: inline-block; 
-  transition: transform 0.3s;
-}
-
-.northern-rock-link a:hover {
-  transform: scale(1.05);
-}
-
-.northern-rock-link p {
-  margin-top: 10px; 
-  font-weight: bold; 
-  font-size: 1rem;
-}
-
-footer {
-  text-align: center; 
-  padding: 40px 20px; 
-  font-size: 0.9rem; 
-  color: #aaa; 
-  background: black;
-}
-
-   .carousel-container {
-  margin: 0;                 /* No side margins */
-  overflow: hidden;          /* Hide overflow for smooth scroll */
-  width: 100vw;              /* Full screen width */
-  max-width: 100%;           /* Prevent constraining */
-}
-
-    .carousel-container {
-      margin: 60px auto;
-      overflow: hidden;
-      max-width: 1200px;
+      max-width: 600px;
+      margin: 40px auto;
     }
-    .carousel {
+
+    .social-icons {
       display: flex;
-      animation: scroll 40s linear infinite;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
     }
+    .social-icons img {
+      width: 80px; height: 80px; object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .social-icons p { margin-top: 8px; font-size: 0.9rem; }
+
+    .northern-rock-preview {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 40px;
+      background: black;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .northern-rock-preview img {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      border-radius: 16px;
+    }
+    .northern-rock-title { font-size: 2rem; font-weight: bold; margin-bottom: 12px; }
+    .northern-rock-description { font-size: 1.25rem; line-height: 1.8; color: #ddd; }
+    .northern-rock-link { text-align: center; margin-top: 80px; }
+    .northern-rock-link a { text-decoration: none; color: white; display: inline-block; transition: transform 0.3s; }
+    .northern-rock-link a:hover { transform: scale(1.05); }
+    .northern-rock-link p { margin-top: 10px; font-weight: bold; font-size: 1rem; }
+
+    .carousel-container { margin: 60px auto; overflow: hidden; max-width: 1200px; }
+    .carousel { display: flex; animation: scroll 40s linear infinite; }
     .carousel img {
-  flex: 0 0 auto;
-  width: 300px;             /* Consistent fixed width */
-  height: 200px;            /* Consistent fixed height */
-  margin-right: 15px;
-  border-radius: 8px;
-  object-fit: cover;        /* Fills frame without distortion */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
-}
-
-.carousel img:hover {
-  transform: scale(1.05);   /* Subtle zoom effect on hover */
-}
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      flex: 0 0 auto;
+      width: 300px; height: 200px;
+      margin-right: 15px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
     }
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 0.9rem;
-  color: #aaa;
-  background: black;
-}
+    .carousel img:hover { transform: scale(1.05); }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* PDF Section – applies to all screen sizes */
-.pdf-section {
-  max-width: 95vw;  /* take up almost the whole screen width */
-  margin: 40px auto;
-  text-align: center;
-}
+    footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black; }
 
-.pdf-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: white; /* adjust if needed */
-}
+    /* PDF Section Full-Width */
+    .pdf-section { width: 100%; margin: 0; padding: 0; text-align: center; }
+    .pdf-section h2 { font-size: 2rem; margin: 40px 0 20px; color: white; }
+    .pdf-viewer {
+      width: 100%;
+      height: 95vh;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+      margin: 0;
+    }
 
-.pdf-viewer {
-  width: 100%;
-  height: 90vh; /* take up most of the viewport height */
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  display: block;
-  margin: 0 auto;
-}
-
-/* Responsive adjustments for mobile */
-@media (max-width: 768px) {
-  .carousel img {
-    width: 50vw;           
-    height: 250px;         
-  }
-  .pdf-viewer {
-    height: 70vh; /* smaller height for mobile */
-  }
-}
-
-
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      .carousel img { width: 50vw; height: 250px; }
+      .pdf-viewer { height: 70vh; }
+    }
   </style>
 </head>
 <body>
@@ -301,128 +202,82 @@ footer {
     <img src="assets/WhiteBorderLogo.png" alt="Main Street Auto Logo" class="story-logo">
     <div class="story-text">
       <h2>Our Story</h2>
-      <p>
-        Main Street Auto is a 100+ location auto repair network built on small-town values, delivering honest, reliable car care across the Southeast. It combines the trust of locally owned shops with the strength and resources of a larger brand to better serve its communities.
-      </p>
+      <p>Main Street Auto is a 100+ location auto repair network built on small-town values, delivering honest, reliable car care across the Southeast. It combines the trust of locally owned shops with the strength and resources of a larger brand to better serve its communities.</p>
     </div>
   </div>
 
-  <video 
-  controls 
-  autoplay 
-  muted 
-  loop 
-  playsinline 
-  style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
-  <source src="assets/Crisp_brand_story.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+  <!-- First Video -->
+  <video controls autoplay muted loop playsinline style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
+    <source src="assets/Crisp_brand_story.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-<h2>Selling Your Shop</h2>
-<video
-  controls
-  muted
-  loop
-  playsinline
-  style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
+  <!-- Second Video -->
+  <h2 style="margin-top:40px;">Selling Your Shop</h2>
+  <video controls muted loop playsinline style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
     <source src="assets/Acquisition_Video.mp4" type="video/mp4">
     Your browser does not support the video tag.
-</video>
-
-
-
+  </video>
 </section>
-   <div class="carousel-container">
-    <div class="carousel">
-      <img src="assets/GM-SA-011.jpg" alt="Vault 1">
-      <img src="assets/grace.jpg" alt="Vault 1">
-      <img src="assets/IMG_4183.jpg" alt="Vault 1">
-      <img src="assets/Avery_2771.jpg" alt="Vault 1">
-      <img src="assets/batteriers.jpg" alt="Vault 2">
-      <img src="assets/DSC00424.jpg" alt="Vault 2">
-      <img src="assets/DSC00451.jpg" alt="Vault 2">
-      <img src="assets/CarverTire-0461.jpg" alt="Vault 2">
-      <img src="assets/Avery_2771.jpg" alt="Vault 1">
-      <img src="assets/Untitled-394.jpg" alt="Vault 3">
-      <img src="assets/carinbay.jpg" alt="Vault 5">
-      <img src="assets/sign2.jpg" alt="Me in Vault">
-      <img src="assets/office.png" alt="DY Office">
-      <img src="assets/Avery_2652.jpg" alt="DY Office">
-      <img src="assets/AshleyHyder-069.jpg" alt="DY Office">
-      <img src="assets/DSC00463.jpg" alt="DY Office">
-      <img src="assets/IMG_5999.jpg" alt="DY Office">
 
+<div class="carousel-container">
+  <div class="carousel">
+    <img src="assets/GM-SA-011.jpg" alt="">
+    <img src="assets/grace.jpg" alt="">
+    <img src="assets/IMG_4183.jpg" alt="">
+    <img src="assets/Avery_2771.jpg" alt="">
+    <img src="assets/batteriers.jpg" alt="">
+    <img src="assets/DSC00424.jpg" alt="">
+    <img src="assets/DSC00451.jpg" alt="">
+    <img src="assets/CarverTire-0461.jpg" alt="">
+    <img src="assets/Avery_2771.jpg" alt="">
+    <img src="assets/Untitled-394.jpg" alt="">
+    <img src="assets/carinbay.jpg" alt="">
+    <img src="assets/sign2.jpg" alt="">
+    <img src="assets/office.png" alt="">
+    <img src="assets/Avery_2652.jpg" alt="">
+    <img src="assets/AshleyHyder-069.jpg" alt="">
+    <img src="assets/DSC00463.jpg" alt="">
+    <img src="assets/IMG_5999.jpg" alt="">
+  </div>
+</div>
+
+<div class="northern-rock-link">
+  <h3 style="text-transform: uppercase; font-size: 1.2rem; margin-bottom: 15px;">Our Parent Company</h3>
+  <a href="https://www.nrockusa.com" target="_blank" rel="noopener noreferrer" class="northern-rock-preview">
+    <img src="assets/northernrock-preview.png" alt="Northern Rock Preview">
+    <div class="northern-rock-text">
+      <p class="northern-rock-title">Northern Rock</p>
+      <p class="northern-rock-description">A parent brand focused on purpose-driven strategy and design — built to support brands like Main Street Auto from the ground up.</p>
+    </div>
+  </a>
+</div>
+
+<section>
+  <h2>Rebrand Overview</h2>
+  <p>Northern Rock is the parent company of Main Street Auto and leads with a clean, purpose-driven design approach. The brand is all about intention — muted colors, and simplicity. When I developed Main Street Auto’s look, I went the opposite direction on purpose. It’s loud and local — bold reds, rough textures, and straightforward type that speak the language of small towns, shop talk, and real people.</p>
+
+  <div class="sizzle">
+    <video src="assets/Northern Rock - Main Street Auto Sizzle REEL.mp4" autoplay muted loop playsinline></video>
+  </div>
+
+  <div class="section-wrapper">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/mainstreetautoshops/" target="_blank"><img src="assets/insta.png" alt="Instagram"></a>
+      <a href="https://www.linkedin.com/company/main-street-auto/?viewAsMember=true" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+      <a href="https://www.facebook.com/mainstreetautoshops/" target="_blank"><img src="assets/facebook.png" alt="Facebook"></a>
+      <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank"><img src="assets/youtube.png" alt="YouTube"></a>
     </div>
   </div>
 </section>
-
-
-     <div class="section-wrapper">
-  <div class="northern-rock-link">
-    <h3 style="text-transform: uppercase; font-size: 1.2rem; margin-bottom: 15px;">Our Parent Company</h3>
-    <a href="https://www.nrockusa.com" target="_blank" rel="noopener noreferrer" class="northern-rock-preview">
-      <img src="assets/northernrock-preview.png" alt="Northern Rock Preview">
-      <div class="northern-rock-text">
-  <p class="northern-rock-title">Northern Rock</p>
-  <p class="northern-rock-description">
-    A parent brand focused on purpose-driven strategy and design — built to support brands like Main Street Auto from the ground up.
-  </p>
-</div>
-
-
-      </div>
-    </a>
-  </div>
-</div>
-
-  <section>
-    <h2>Rebrand Overview</h2>
-    <p>Northern Rock is the parent company of Main Street Auto and leads with a clean, purpose-driven design approach. The brand is all about intention — muted colors, and simplicity. When I developed Main Street Auto’s look, I went the opposite direction on purpose. It’s loud and local — bold reds, rough textures, and straightforward type that speak the language of small towns, shop talk, and real people. </p>
-
-    <div class="sizzle">
-      <video src="assets/Northern Rock - Main Street Auto Sizzle REEL.mp4" autoplay muted loop playsinline></video>
-    </div>
-
-    <div class="section-wrapper">
-  <div class="social-icons">
-    <a href="https://www.instagram.com/mainstreetautoshops/" target="_blank">
-      <img src="assets/insta.png" alt="Instagram">
-    </a>
-    <a href="https://www.linkedin.com/company/main-street-auto/?viewAsMember=true" target="_blank">
-      <img src="assets/linkedin.png" alt="LinkedIn">
-    </a>
-    <a href="https://www.facebook.com/mainstreetautoshops/" target="_blank">
-      <img src="assets/facebook.png" alt="Facebook">
-    </a>
-    <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank">
-      <img src="assets/youtube.png" alt="YouTube">
-    </a>
-  </div>
-</div>
-    <section>
-  <h2>Branding</h2>
-
-  <video 
-  id="coverVideo"
-  src="assets/Cover Video Website Launch Instagram Post copy.mp4"
-  autoplay
-  muted
-  loop
-  playsinline
-  style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
-</video>
 
 <section class="pdf-section">
   <h2>WHO WE ARE</h2>
-  <iframe 
-    src="assets/WHO WE ARE.pdf"
-    class="pdf-viewer"
-    title="Who We Are PDF">
-  </iframe>
+  <iframe src="assets/WHO WE ARE.pdf" class="pdf-viewer" title="Who We Are PDF"></iframe>
 </section>
 
-
-  <footer>
-    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
-  </footer>
+<footer>
+  &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+</footer>
 </body>
 </html>
