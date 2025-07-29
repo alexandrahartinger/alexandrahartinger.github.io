@@ -140,12 +140,13 @@
   font-size: 0.9rem;
 }
 .northern-rock-preview {
-  max-width: 1000px; /* Was 700px */
+  max-width: 1400px; /* increased from 1000px */
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 40px; /* More breathing room */
-  padding: 40px;
+  gap: 60px; /* more breathing room between image & text */
+  padding: 60px; /* more padding for larger feel */
   background: black;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.5);
@@ -154,43 +155,53 @@
 
 .northern-rock-preview img {
   width: 100%;
-  max-width: 700px;
+  max-width: 900px; /* increased from 700px */
   height: auto;
   border-radius: 16px;
 }
 
 .northern-rock-title {
-  font-size: 1.6rem; /* Bigger headline */
+  font-size: 2rem; /* bigger headline */
   font-weight: bold;
   margin-bottom: 12px;
 }
 
 .northern-rock-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.25rem; /* bigger description */
+  line-height: 1.8;
   color: #ddd;
 }
 
-
-    .northern-rock-link {
+.northern-rock-link {
   text-align: center;
   margin-top: 120px;
 }
 
-    .northern-rock-link a {
-      text-decoration: none; color: white; display: inline-block; transition: transform 0.3s;
-    }
-    .northern-rock-link a:hover {
-      transform: scale(1.05);
-    }
-    
-    .northern-rock-link p {
-      margin-top: 10px; font-weight: bold; font-size: 1rem;
-    }
+.northern-rock-link a {
+  text-decoration: none; 
+  color: white; 
+  display: inline-block; 
+  transition: transform 0.3s;
+}
 
-    footer {
-      text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black;
-    }
+.northern-rock-link a:hover {
+  transform: scale(1.05);
+}
+
+.northern-rock-link p {
+  margin-top: 10px; 
+  font-weight: bold; 
+  font-size: 1rem;
+}
+
+footer {
+  text-align: center; 
+  padding: 40px 20px; 
+  font-size: 0.9rem; 
+  color: #aaa; 
+  background: black;
+}
+
    .carousel-container {
   margin: 0;                 /* No side margins */
   overflow: hidden;          /* Hide overflow for smooth scroll */
@@ -381,11 +392,6 @@
   playsinline
   style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
 </video>
-
-<iframe 
-  class="pdf-viewer"
-  src="assets/WHO WE ARE.pdf">
-</iframe>
 
   <footer>
     &copy; 2025 Alexandra Hartinger. All Rights Reserved.
