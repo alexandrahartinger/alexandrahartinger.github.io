@@ -120,31 +120,41 @@
     }
     .social-icons p { margin-top: 8px; font-size: 0.9rem; }
 
-    .northern-rock-preview {
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      padding: 40px;
-      background: black;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-    }
-    .northern-rock-preview img {
-      width: 100%;
-      max-width: 900px;
-      height: auto;
-      border-radius: 16px;
-    }
-    .northern-rock-title { font-size: 2rem; font-weight: bold; margin-bottom: 12px; }
-    .northern-rock-description { font-size: 1.25rem; line-height: 1.8; color: #ddd; }
-    .northern-rock-link { text-align: center; margin-top: 80px; }
-    .northern-rock-link a { text-decoration: none; color: white; display: inline-block; transition: transform 0.3s; }
-    .northern-rock-link a:hover { transform: scale(1.05); }
-    .northern-rock-link p { margin-top: 10px; font-weight: bold; font-size: 1rem; }
+   .northern-rock-section {
+  text-align: center;
+  margin: 80px auto;
+  max-width: 1200px;
+}
+
+.northern-rock-section h3 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.northern-rock-preview img {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.northern-rock-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.northern-rock-description {
+  font-size: 1.2rem;
+  color: #ddd;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
 
     .carousel-container { margin: 60px auto; overflow: hidden; max-width: 1200px; }
     .carousel { display: flex; animation: scroll 40s linear infinite; }
