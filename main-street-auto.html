@@ -182,31 +182,20 @@
     footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black; }
 
 
-/* WHO WE ARE Image – Full Width */
-    .pdf-section {
+.long-image-section {
   width: 100%;
-  max-width: none;    /* removes the global max-width */
-  padding: 0;
   margin: 0;
+  padding: 0 20px; /* adds slight breathing room */
+  box-sizing: border-box; /* ensures padding doesn't break layout */
 }
 
-.pdf-section img {
+.long-image-section img {
   display: block;
-  width: 100%;        /* takes up full width */
-  max-width: none;    /* removes cap */
-  margin: 0 auto;
-  border-radius: 0;   /* removes rounded corners for a bold look */
-  box-shadow: none;   /* removes shadow for clean full-bleed */
-}
-/* Make WHO WE ARE section full-bleed */
-.pdf-section {
   width: 100%;
-  max-width: 100%;      /* override the global max-width */
-  padding: 0;           /* remove side padding */
-  margin: 0;            /* remove centering margin */
+  max-width: 1400px; /* optional: cap them if needed */
+  margin: 0 auto; /* keeps them centered */
+  border: none;
 }
-
-
 
     /* Mobile Adjustments */
     @media (max-width: 768px) {
@@ -310,11 +299,15 @@
   </div>
 </section>
 
-<section>
-  <h2>WHO WE ARE</h2>
-  <img src="assets/WHO WE ARE.pdf" 
-       alt="Who We Are" 
-       style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
+<section class="long-image-section">
+  <img src="assets/one.jpg" alt="Page 1">
+  <img src="assets/two.jpg" alt="Page 2">
+  <img src="assets/three.jpg" alt="Page 3">
+  <img src="assets/four.jpg" alt="Page 4">
+  <img src="assets/five.jpg" alt="Page 5">
+  <img src="assets/six.jpg" alt="Page 6">
+  <img src="assets/seven.jpg" alt="Page 7">
+  <img src="assets/eight.jpg" alt="Page 8">
 </section>
 
 
