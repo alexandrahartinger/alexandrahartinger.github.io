@@ -182,20 +182,16 @@
     footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black; }
 
 
-.long-image-section {
-  width: 100%;
-  margin: 0;
-  padding: 0 20px; /* adds slight breathing room */
-  box-sizing: border-box; /* ensures padding doesn't break layout */
-}
-
 .long-image-section img {
   display: block;
-  width: 100%;
-  max-width: 1400px; /* optional: cap them if needed */
-  margin: 0 auto; /* keeps them centered */
-  border: none;
+  width: 99%;          /* slightly larger */
+  max-width: 1800px;   /* allows for bigger, sharper images */
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: none;
 }
+
+
 
     /* Mobile Adjustments */
     @media (max-width: 768px) {
