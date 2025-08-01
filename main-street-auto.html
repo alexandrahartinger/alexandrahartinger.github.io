@@ -33,6 +33,33 @@
       animation: fadeUp 1.5s ease forwards; line-height: 1.2;
     }
     @keyframes fadeUp { 0% { opacity: 0; transform: translate(-50%, -40%); } 100% { opacity: 1; transform: translate(-50%, -50%); } }
+/* Compact layout for all sections */
+.content-row.compact { 
+  display: flex; 
+  align-items: flex-start; 
+  justify-content: space-between; 
+  gap: 40px; 
+  padding: 40px 0; 
+}
+.content-row.compact .content-text { 
+  flex: 0 0 40%; 
+}
+.content-row.compact .content-images { 
+  flex: 0 0 55%; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 15px; 
+}
+.content-row.compact .image-grid { 
+  display: flex; 
+  gap: 10px; 
+  flex-wrap: wrap; 
+}
+.content-row.compact img { 
+  width: 100%; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4); 
+}
 
     section { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
     section h2 { text-transform: uppercase; font-size: 2rem; margin-bottom: 15px; }
@@ -157,76 +184,142 @@
   </div>
 </div>
 
-<!-- Alternating Content Sections -->
+<!-- WHO WE ARE -->
 <section class="fade-in">
-  <div class="content-row">
-    <div class="content-text"><h2>Who We Are</h2><p>Main Street Auto’s brand voice is personal, trustworthy, and deeply rooted in community.</p></div>
-    <img src="assets/ReeceMockUp.png" alt="Reece Mockup">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Who We Are</h2>
+      <p>When developing Main Street Auto’s identity, my goal was to craft a brand voice that felt personal, trustworthy, and deeply rooted in community. The brand needed to balance a professional, multi-location network with the character of a local shop that customers know by name.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/ReeceMockUp.png" alt="Reece Mockup">
+    </div>
   </div>
 </section>
 
-<section class="fade-in reverse">
-  <div class="content-row">
-    <div class="content-text"><h2>Tone of Voice</h2><p>Friendly, trustworthy, and approachable while maintaining professionalism.</p></div>
-    <img src="assets/TypeMockUp.png" alt="Tone of Voice">
-  </div>
-</section>
-
+<!-- TONE OF VOICE -->
 <section class="fade-in">
-  <div class="content-row">
-    <div class="content-text"><h2>Typography</h2><p>Clear and readable in high-traffic environments while maintaining strong presence.</p></div>
-    <img src="assets/TypeMockUp.png" alt="Typography">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Tone of Voice</h2>
+      <p>Main Street Auto’s tone of voice is friendly, trustworthy, and approachable while maintaining the professionalism of a multi-location network. Crafted to feel personal and easy to understand, breaking down intimidating auto repair talk into something welcoming and clear.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/TypeMockUp.png" alt="Tone of Voice Mockup">
+    </div>
   </div>
 </section>
 
-<section class="fade-in reverse">
-  <div class="content-row">
-    <div class="content-text"><h2>Color Palette</h2><p>Energetic reds paired with clean neutrals for impact and flexibility.</p></div>
-    <img src="assets/ColorPaletteMockUp.png" alt="Color Palette">
-  </div>
-</section>
-
+<!-- TYPOGRAPHY -->
 <section class="fade-in">
-  <div class="content-row">
-    <div class="content-text"><h2>Photography Guidelines</h2><p>Authentic imagery capturing the real people and places behind our brand.</p></div>
-    <img src="assets/PhotographyMockUp.png" alt="Photography">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Typography</h2>
+      <p>Typography plays a crucial role in expressing the brand’s bold and accessible personality. The type system was built to be clear and readable in high-traffic environments, while maintaining a strong, recognizable presence across print and digital media.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/TypeMockUp.png" alt="Typography Mockup">
+    </div>
   </div>
 </section>
 
-<section class="fade-in reverse">
-  <div class="content-row">
-    <div class="content-text"><h2>Logo Usage</h2><p>Represents the network while preserving local shop identities.</p></div>
-    <img src="assets/LogoMockUp.png" alt="Logo">
-  </div>
-</section>
-
+<!-- COLOR PALETTE -->
 <section class="fade-in">
-  <div class="content-row">
-    <div class="content-text"><h2>Shop Rebranding</h2><p>Unified storefronts while maintaining each shop’s unique identity.</p></div>
-    <img src="assets/CarverMockUp.png" alt="Shop Rebranding">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Color Palette 🎨</h2>
+      <p>The color palette was designed to embody Main Street Auto’s approachable yet confident identity. Strong, energetic reds paired with clean neutrals create visual impact, while supporting tones add depth and flexibility across various applications.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/ColorPaletteMockUp.png" alt="Color Palette Mockup">
+    </div>
   </div>
 </section>
 
-<section class="fade-in reverse">
-  <div class="content-row">
-    <div class="content-text"><h2>Print Collateral</h2><p>Approachable, clear design for menus, mailers, and more.</p></div>
-    <img src="assets/DirectMailerMockUp.png" alt="Print Collateral">
-  </div>
-</section>
-
+<!-- PHOTOGRAPHY -->
 <section class="fade-in">
-  <div class="content-row">
-    <div class="content-text"><h2>Social Channels</h2><p>Grew audience by 5,000+ followers and boosted engagement by 300% in under a year.</p></div>
-    <img src="assets/SocialMediaMockUp.png" alt="Social Media">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Photography Guidelines 📷</h2>
+      <p>I identified photography as a major gap in the automotive space—an industry often reliant on generic stock imagery. My goal was to showcase the real people behind the work, capturing authentic moments in our shops to bring the brand’s story to life.</p>
+      <p>Every photo used in the brand’s materials is ours — ensuring that people and places always feel genuine and true to their community. I learned how to use a professional camera within my first few weeks at Main Street Auto and was constantly on the road after that to visit our shops, capturing 99% of the photos and videos you see.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/PhotographyMockUp.png" alt="Photography Mockup">
+    </div>
   </div>
 </section>
 
-<section class="fade-in reverse">
-  <div class="content-row">
-    <div class="content-text"><h2>Website Launch</h2><p>Launched website, taking online appointment revenue from zero to several million.</p></div>
-    <img src="assets/WebSiteMockUp.png" alt="Website">
+<!-- LOGO USAGE -->
+<section class="fade-in">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Logo Usage</h2>
+      <p>The Main Street Auto logo is used across all marketing materials to represent the brand as a whole, while each shop retains its individual name to preserve its unique identity and maintain the trust built within its community.</p>
+      <p style="margin-top:20px; font-weight:bold;">Rockwell Std Extra / Damion</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/LogoMockUp.png" alt="Main Street Auto Logo">
+      <div class="image-grid">
+        <img src="assets/AbsoluteMockUp.png" alt="Absolute Automotive Logo">
+        <img src="assets/RooseveltMockUp.png" alt="Roosevelt Tire Logo">
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- SHOP REBRANDING -->
+<section class="fade-in">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Shop Rebranding</h2>
+      <p>I led the creative rebrand of Main Street Auto’s 100+ locations, directing an outside design team to unify storefronts while preserving local shop identities. This included selecting new paint palettes, overseeing storefront and above-bay signage design, and creating an extended logo for cost-effective, versatile application.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/CarverMockUp.png" alt="Shop Rebranding Mockup">
+    </div>
+  </div>
+</section>
+
+<!-- PRINT COLLATERAL -->
+<section class="fade-in">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Print Collateral</h2>
+      <p>Designing everything from oil change menus to billboards and direct mailers meant translating a complex industry into something approachable. My goal was to remove the intimidation often tied to auto repair, creating simple, clear collateral that empowers customers to make confident decisions.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/DirectMailerMockUp.png" alt="Print Collateral Mockup">
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="fade-in">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Social Channels</h2>
+      <p>I created and curated all four of Main Street Auto’s social media channels, building them from the ground up. In under a year, I grew the audience by over 5,000 followers, boosted engagement rates by 300%, and established Instagram as the brand’s leading platform for community connection and marketing reach.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/SocialMediaMockUp.png" alt="Social Media Mockup">
+    </div>
+  </div>
+</section>
+
+<!-- WEBSITE -->
+<section class="fade-in">
+  <div class="content-row compact">
+    <div class="content-text">
+      <h2>Website Launch</h2>
+      <p>Drove online growth by helping launch the Main Street Auto website—taking online appointment revenue from zero to several million dollars.</p>
+    </div>
+    <div class="content-images">
+      <img src="assets/WebSiteMockUp.png" alt="Website Launch Mockup">
+    </div>
+  </div>
+</section>
+
 
 <footer>
   &copy; 2025 Alexandra Hartinger. All Rights Reserved.
