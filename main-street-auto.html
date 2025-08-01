@@ -15,9 +15,7 @@
       align-items: center; padding: 20px 40px; box-sizing: border-box;
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    header .logo {
-      font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
-    }
+    header .logo { font-size: 1.8rem; font-weight: bold; text-transform: uppercase; }
     nav a {
       color: white; text-decoration: none; margin-left: 30px;
       font-size: 1rem; text-transform: uppercase; font-weight: bold;
@@ -28,220 +26,213 @@
     .hero {
       position: relative; width: 100%; height: 100vh; overflow: hidden;
     }
-    .hero video {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%; object-fit: cover; z-index: 0;
-    }
+    .hero video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .hero h1 {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      font-size: 3vw; text-align: center; z-index: 1;
-      margin: 0; color: white; opacity: 0;
+      font-size: 3vw; text-align: center; color: white; opacity: 0;
       animation: fadeUp 1.5s ease forwards; line-height: 1.2;
     }
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translate(-50%, -40%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
-    }
+    @keyframes fadeUp { 0% { opacity: 0; transform: translate(-50%, -40%); } 100% { opacity: 1; transform: translate(-50%, -50%); } }
 
-    section {
-      padding: 100px 40px 80px; max-width: 1000px; margin: 0 auto;
-    }
-    section h2 {
-      text-transform: uppercase; margin-bottom: 20px; font-size: 2rem;
-    }
-    section p {
-      font-size: 1rem; line-height: 1.5; max-width: 800px;
-    }
+    section { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
+    section h2 { text-transform: uppercase; font-size: 2rem; margin-bottom: 15px; }
+    section p { font-size: 1rem; line-height: 1.5; max-width: 800px; }
 
+    /* Story section */
     .our-story .story-wrapper {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      gap: 60px;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 140px 40px;
+      display: flex; align-items: flex-start; gap: 60px; max-width: 1000px; margin: 0 auto; padding: 140px 40px;
     }
-    .story-logo {
-      width: 300px;
-      height: auto;
-    }
-    .story-text h2 {
-      text-transform: uppercase;
-      font-size: 3rem;
-      font-weight: 700;
-      text-align: left;
-      margin-bottom: 20px;
-    }
+    .story-logo { width: 300px; height: auto; }
+    .story-text h2 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; }
 
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding-top: 56.25%;
-      overflow: hidden;
-      border-radius: 12px;
-    }
-    .video-wrapper video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .sizzle video {
-      width: 100%; max-width: 600px; border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: block; margin: 40px auto;
-    }
-
-    .section-wrapper {
-      max-width: 600px;
-      margin: 40px auto;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-    .social-icons img {
-      width: 80px; height: 80px; object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .northern-rock-preview img {
-      width: 100%;
-      max-width: 1200px;
-      border-radius: 16px;
-      display: block;
-      margin: 20px auto;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    }
-
+    /* Carousel */
     .carousel-container { margin: 60px auto; overflow: hidden; max-width: 1200px; }
     .carousel { display: flex; animation: scroll 40s linear infinite; }
     .carousel img {
-      flex: 0 0 auto;
-      width: 300px; height: 200px;
-      margin-right: 15px;
-      border-radius: 8px;
-      object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
+      flex: 0 0 auto; width: 300px; height: 200px; margin-right: 15px;
+      border-radius: 8px; object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.3s ease;
     }
     .carousel img:hover { transform: scale(1.05); }
     @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black; }
+    /* Parent company preview */
+    .northern-rock-link { text-align: center; margin: 80px auto; max-width: 1200px; }
+    .northern-rock-preview img { width: 100%; max-width: 1200px; border-radius: 16px; margin: 0 auto 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); display: block; }
+    .northern-rock-title { font-size: 1.8rem; font-weight: bold; margin: 10px 0; }
+    .northern-rock-description { font-size: 1.2rem; color: white; max-width: 900px; margin: 0 auto; line-height: 1.8; }
+
+    /* Social icons */
+    .section-wrapper { max-width: 600px; margin: 40px auto; }
+    .social-icons { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; }
+    .social-icons img { width: 80px; height: 80px; object-fit: contain; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.5); transition: transform 0.3s ease; }
+
+    /* Two-column sections */
+    .content-row { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .content-row img { width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+    .content-text { flex: 1; }
+    .reverse { flex-direction: row-reverse; }
 
     /* Fade-in animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* Slide variations */
-    .from-left { transform: translateX(-40px); }
-    .from-right { transform: translateX(40px); }
-    .fade-in.visible.from-left,
-    .fade-in.visible.from-right {
-      transform: translateX(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* Mobile Adjustments */
-    @media (max-width: 768px) {
-      .carousel img { width: 50vw; height: 250px; }
-    }
+    /* Footer */
+    footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; background: black; }
+
+    /* Mobile */
+    @media (max-width: 768px) { .content-row { flex-direction: column !important; } }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Alexandra Hartinger</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">Alexandra Hartinger</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <div class="hero">
-    <video src="assets/Main Street Auto Cover Video.mp4" autoplay muted loop playsinline></video>
-    <h1>Main Street Auto</h1>
-  </div>
+<div class="hero">
+  <video src="assets/Main Street Auto Cover Video.mp4" autoplay muted loop playsinline></video>
+  <h1>Main Street Auto</h1>
+</div>
 
+<!-- Our Story -->
 <section class="our-story">
   <div class="story-wrapper">
     <img src="assets/WhiteBorderLogo.png" alt="Main Street Auto Logo" class="story-logo">
     <div class="story-text">
       <h2>Our Story</h2>
-      <p>Main Street Auto is a 100+ location auto repair network built on small-town values, delivering honest, reliable car care across the Southeast. It combines the trust of locally owned shops with the strength and resources of a larger brand to better serve its communities.</p>
+      <p>Main Street Auto is a 100+ location auto repair network built on small-town values, delivering honest, reliable car care across the Southeast.</p>
     </div>
   </div>
   <video controls autoplay muted loop playsinline style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
     <source src="assets/Crisp_brand_story.mp4" type="video/mp4">
   </video>
-
   <h2 style="margin-top:40px;">Selling Your Shop</h2>
   <video controls muted loop playsinline poster="assets/selling_your_shop_thumbnail.png" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
     <source src="assets/Acquisition_Video.mp4" type="video/mp4">
   </video>
-
-  <div class="carousel-container">
-    <div class="carousel">
-      <img src="assets/GM-SA-011.jpg" alt="">
-      <img src="assets/grace.jpg" alt="">
-      <img src="assets/IMG_4183.jpg" alt="">
-      <img src="assets/Avery_2771.jpg" alt="">
-      <img src="assets/batteriers.jpg" alt="">
-      <img src="assets/DSC00424.jpg" alt="">
-      <img src="assets/DSC00451.jpg" alt="">
-      <img src="assets/CarverTire-0461.jpg" alt="">
-      <img src="assets/Avery_2771.jpg" alt="">
-      <img src="assets/Untitled-394.jpg" alt="">
-      <img src="assets/carinbay.jpg" alt="">
-      <img src="assets/sign2.jpg" alt="">
-      <img src="assets/office.png" alt="">
-      <img src="assets/Avery_2652.jpg" alt="">
-      <img src="assets/AshleyHyder-069.jpg" alt="">
-      <img src="assets/DSC00463.jpg" alt="">
-      <img src="assets/IMG_5999.jpg" alt="">
-    </div>
-  </div>
 </section>
 
-<section class="fade-in from-left">
-  <h2>Who We Are</h2>
-  <p>When developing Main Street Auto’s identity, my goal was to craft a brand voice that felt personal, trustworthy, and deeply rooted in community.</p>
-  <div class="northern-rock-preview">
+<!-- Carousel -->
+<div class="carousel-container">
+  <div class="carousel">
+    <img src="assets/GM-SA-011.jpg" alt="">
+    <img src="assets/grace.jpg" alt="">
+    <img src="assets/IMG_4183.jpg" alt="">
+    <img src="assets/Avery_2771.jpg" alt="">
+    <img src="assets/batteriers.jpg" alt="">
+    <img src="assets/DSC00424.jpg" alt="">
+    <img src="assets/DSC00451.jpg" alt="">
+    <img src="assets/CarverTire-0461.jpg" alt="">
+    <img src="assets/Untitled-394.jpg" alt="">
+    <img src="assets/carinbay.jpg" alt="">
+    <img src="assets/sign2.jpg" alt="">
+    <img src="assets/office.png" alt="">
+  </div>
+</div>
+
+<!-- Parent Company -->
+<div class="northern-rock-link">
+  <h3>Our Parent Company</h3>
+  <a href="https://www.nrockusa.com" target="_blank" rel="noopener noreferrer" class="northern-rock-preview">
+    <img src="assets/northernrock-preview.png" alt="Northern Rock Preview">
+    <div class="northern-rock-text">
+      <p class="northern-rock-title">Northern Rock</p>
+      <p class="northern-rock-description">A parent brand focused on purpose-driven strategy and design — built to support brands like Main Street Auto from the ground up.</p>
+    </div>
+  </a>
+</div>
+
+<!-- Social Icons -->
+<div class="section-wrapper">
+  <div class="social-icons">
+    <a href="https://www.instagram.com/mainstreetautoshops/" target="_blank"><img src="assets/insta.png" alt="Instagram"></a>
+    <a href="https://www.linkedin.com/company/main-street-auto/?viewAsMember=true" target="_blank"><img src="assets/linkedin.png" alt="LinkedIn"></a>
+    <a href="https://www.facebook.com/mainstreetautoshops/" target="_blank"><img src="assets/facebook.png" alt="Facebook"></a>
+    <a href="https://www.youtube.com/@mainstreetautoshops" target="_blank"><img src="assets/youtube.png" alt="YouTube"></a>
+  </div>
+</div>
+
+<!-- Alternating Content Sections -->
+<section class="fade-in">
+  <div class="content-row">
+    <div class="content-text"><h2>Who We Are</h2><p>Main Street Auto’s brand voice is personal, trustworthy, and deeply rooted in community.</p></div>
     <img src="assets/ReeceMockUp.png" alt="Reece Mockup">
   </div>
 </section>
 
-<section class="fade-in from-right">
-  <h2>Tone of Voice</h2>
-  <p>Main Street Auto’s tone of voice is friendly, trustworthy, and approachable while maintaining the professionalism of a multi-location network.</p>
-  <div class="northern-rock-preview">
-    <img src="assets/TypeMockUp.png" alt="Tone of Voice Mockup">
+<section class="fade-in reverse">
+  <div class="content-row">
+    <div class="content-text"><h2>Tone of Voice</h2><p>Friendly, trustworthy, and approachable while maintaining professionalism.</p></div>
+    <img src="assets/TypeMockUp.png" alt="Tone of Voice">
   </div>
 </section>
 
-<!-- Continue your other fade-in sections (Typography, Color Palette, etc.) similarly -->
+<section class="fade-in">
+  <div class="content-row">
+    <div class="content-text"><h2>Typography</h2><p>Clear and readable in high-traffic environments while maintaining strong presence.</p></div>
+    <img src="assets/TypeMockUp.png" alt="Typography">
+  </div>
+</section>
+
+<section class="fade-in reverse">
+  <div class="content-row">
+    <div class="content-text"><h2>Color Palette</h2><p>Energetic reds paired with clean neutrals for impact and flexibility.</p></div>
+    <img src="assets/ColorPaletteMockUp.png" alt="Color Palette">
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="content-row">
+    <div class="content-text"><h2>Photography Guidelines</h2><p>Authentic imagery capturing the real people and places behind our brand.</p></div>
+    <img src="assets/PhotographyMockUp.png" alt="Photography">
+  </div>
+</section>
+
+<section class="fade-in reverse">
+  <div class="content-row">
+    <div class="content-text"><h2>Logo Usage</h2><p>Represents the network while preserving local shop identities.</p></div>
+    <img src="assets/LogoMockUp.png" alt="Logo">
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="content-row">
+    <div class="content-text"><h2>Shop Rebranding</h2><p>Unified storefronts while maintaining each shop’s unique identity.</p></div>
+    <img src="assets/CarverMockUp.png" alt="Shop Rebranding">
+  </div>
+</section>
+
+<section class="fade-in reverse">
+  <div class="content-row">
+    <div class="content-text"><h2>Print Collateral</h2><p>Approachable, clear design for menus, mailers, and more.</p></div>
+    <img src="assets/DirectMailerMockUp.png" alt="Print Collateral">
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="content-row">
+    <div class="content-text"><h2>Social Channels</h2><p>Grew audience by 5,000+ followers and boosted engagement by 300% in under a year.</p></div>
+    <img src="assets/SocialMediaMockUp.png" alt="Social Media">
+  </div>
+</section>
+
+<section class="fade-in reverse">
+  <div class="content-row">
+    <div class="content-text"><h2>Website Launch</h2><p>Launched website, taking online appointment revenue from zero to several million.</p></div>
+    <img src="assets/WebSiteMockUp.png" alt="Website">
+  </div>
+</section>
 
 <footer>
   &copy; 2025 Alexandra Hartinger. All Rights Reserved.
 </footer>
 
 <script>
-  // Intersection Observer for fade-in
   document.addEventListener("DOMContentLoaded", function () {
     const faders = document.querySelectorAll('.fade-in');
     const options = { threshold: 0.2 };
