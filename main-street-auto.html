@@ -33,7 +33,21 @@
       animation: fadeUp 1.5s ease forwards; line-height: 1.2;
     }
      object.pdf-viewer {
-      width: 100%; height: 600px; border: 1px solid #ccc; display: block;}
+  width: 100%;
+  height: 100vh; /* makes them fill the screen height */
+  border: none; /* removes the white-lined rectangle */
+  display: block;
+  margin: 40px 0; /* optional spacing between PDFs */
+}
+
+    .northern-rock-link a,
+    .northern-rock-link a:visited,
+    .northern-rock-link a:hover,
+    .northern-rock-link a:active {
+    color: white;
+    text-decoration: none;
+}
+
     
     @keyframes fadeUp { 0% { opacity: 0; transform: translate(-50%, -40%); } 100% { opacity: 1; transform: translate(-50%, -50%); } }
 /* Compact layout for all sections */
@@ -188,27 +202,18 @@
 </div>
 
  <section id="about">
-    <h2>Branding</h2>
     <object data="assets/Bio_Page1.pdf" type="application/pdf" class="pdf-viewer"></object>
   </section>
-
  <section id="about">
-    <h2>Branding</h2>
     <object data="assets/PhotoPage_2.pdf" type="application/pdf" class="pdf-viewer"></object>
   </section>
-
  <section id="about">
-    <h2>Branding</h2>
     <object data="assets/Branding_PAge3.pdf" type="application/pdf" class="pdf-viewer"></object>
   </section>
-
  <section id="about">
-    <h2>Branding</h2>
     <object data="assets/PrintPage_4.pdf" type="application/pdf" class="pdf-viewer"></object>
   </section>
-
  <section id="about">
-    <h2>Branding</h2>
     <object data="assets/PrintPage_5.pdf" type="application/pdf" class="pdf-viewer"></object>
   </section>
 
