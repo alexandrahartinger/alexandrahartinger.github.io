@@ -41,7 +41,15 @@
   margin: 0 auto;
 }
       /* HERO CARD FLIP */
-    .flip-container { perspective: 1000px; width: 100%; max-width: 700px; aspect-ratio: 11 / 8.5; margin: 0 auto; position: relative; cursor: pointer; }
+    .flip-container { 
+  perspective: 1000px; 
+  width: 100%; 
+  max-width: 850px; /* Slightly wider for direct mailers */
+  aspect-ratio: 16 / 9; /* Matches mailer shape */
+  margin: 0 auto; 
+  position: relative; 
+  cursor: pointer; 
+}
     .card { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.8s ease; cursor: pointer; }
     .card.flipped { transform: rotateY(180deg); }
     .card .front, .card .back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 12px; overflow: hidden; }
@@ -227,12 +235,12 @@
   
  <section>
     <h2>Hero Card Design</h2>
-    <div class="flip-container">
-      <div class="card" id="heroCard">
-        <div class="front"><img src="assets/12.png" alt="Hero Card Front"></div>
-        <div class="back"><img src="assets/13.png" alt="Hero Card Back"></div>
-      </div>
-    </div>
+   <div class="flip-container">
+  <div class="card" id="heroCard">
+    <div class="front"><img src="assets/Direct Mailer.png" alt="Arlington Mailer Front"></div>
+    <div class="back"><img src="assets/DirectMailer2.png" alt="Arlington Mailer Back"></div>
+  </div>
+</div>
     <p style="text-align:center;">Click the hero card to flip and see both sides!</p>
   </section>
   
