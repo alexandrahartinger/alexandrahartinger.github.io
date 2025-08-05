@@ -270,6 +270,17 @@
   });
 </script>
 
+  <script>
+  // Hero card flip on click
+  document.addEventListener("DOMContentLoaded", function () {
+    const heroCard = document.getElementById("heroCard");
+    heroCard.addEventListener("click", function () {
+      heroCard.classList.toggle("flipped");
+    });
+  });
+</script>
+
+
 <script>
   // Fade-in for supporting-socials videos
   document.addEventListener('DOMContentLoaded', () => {
