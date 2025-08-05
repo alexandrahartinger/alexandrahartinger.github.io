@@ -233,27 +233,28 @@
   <img src="assets/PrintPage_5.pdf" alt="Print Page 5" style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:0 auto;">
 </section>
   
- <section>
-<h2 style="text-align:center;">Direct Mailer Design</h2>
-   <div class="flip-container">
-  <div class="card" id="heroCard">
-    <div class="front"><img src="assets/Direct Mailer.png" alt="Arlington Mailer Front"></div>
-    <div class="back"><img src="assets/DirectMailer2.png" alt="Arlington Mailer Back"></div>
+<section>
+  <h2 style="text-align:center;">Direct Mailer Design</h2>
+  <div class="flip-container">
+    <div class="card" id="directMailerCard">
+      <div class="front"><img src="assets/Direct Mailer.png" alt="Arlington Mailer Front"></div>
+      <div class="back"><img src="assets/DirectMailer2.png" alt="Arlington Mailer Back"></div>
+    </div>
   </div>
-</div>
-    <p style="text-align:center;">Click the mailer to flip and see both sides!</p>
-  </section>
+  <p style="text-align:center;">Click the mailer to flip and see both sides!</p>
+</section>
 
-   <section>
-<h2 style="text-align:center;">Oil Change Menu Design</h2>
-   <div class="flip-container">
-  <div class="card" id="heroCard">
-    <div class="front"><img src="assets/OilChangeMenu.png" alt="Arlington Mailer Front"></div>
-    <div class="back"><img src="assets/OilChangeMenu2.png" alt="Arlington Mailer Back"></div>
+<section>
+  <h2 style="text-align:center;">Oil Change Menu Design</h2>
+  <div class="flip-container">
+    <div class="card" id="oilMenuCard">
+      <div class="front"><img src="assets/OilChangeMenu.png" alt="Oil Change Menu Front"></div>
+      <div class="back"><img src="assets/OilChangeMenu2.png" alt="Oil Change Menu Back"></div>
+    </div>
   </div>
-</div>
-    <p style="text-align:center;">Click the menu to flip and see both sides!</p>
-  </section>
+  <p style="text-align:center;">Click the menu to flip and see both sides!</p>
+</section>
+
 
   
 <section id="supporting-socials">
@@ -290,12 +291,14 @@
   });
 </script>
 
-  <script>
-  // Hero card flip on click
+<script>
+  // Flip any card when clicked
   document.addEventListener("DOMContentLoaded", function () {
-    const heroCard = document.getElementById("heroCard");
-    heroCard.addEventListener("click", function () {
-      heroCard.classList.toggle("flipped");
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+      card.addEventListener("click", function () {
+        card.classList.toggle("flipped");
+      });
     });
   });
 </script>
