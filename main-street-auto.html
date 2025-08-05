@@ -292,16 +292,16 @@
 </script>
 
 <script>
-  // Flip any card when clicked
+  // Flip cards on click
   document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".card");
-    cards.forEach(card => {
+    document.querySelectorAll(".flip-container .card").forEach(card => {
       card.addEventListener("click", function () {
-        card.classList.toggle("flipped");
+        this.classList.toggle("flipped");
       });
     });
   });
 </script>
+
 
 
 <script>
