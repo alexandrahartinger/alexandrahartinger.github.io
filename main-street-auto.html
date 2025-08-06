@@ -253,7 +253,6 @@
  <video 
     id="suitVideo"
     src="assets/ColorVideo.mp4"
-    autoplay
     muted
     loop
     playsinline
@@ -263,7 +262,6 @@
    <video 
     id="suitVideo"
     src="assets/TypeVideo.mp4"
-    autoplay
     muted
     loop
     playsinline
@@ -337,6 +335,22 @@
   });
 </script>
 
+<script>
+  // Play Type & Color videos only when in view
+  document.addEventListener('DOMContentLoaded', () => {
+    const specialVideos = document.querySelectorAll('video[src*="ColorVideo"], video[src*="TypeVideo"]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.play();
+        } else {
+          entry.target.pause();
+        }
+      });
+    }, { threshold: 0.5 }); // plays when 50% visible
+    specialVideos.forEach(video => observer.observe(video));
+  });
+</script>
 
 
 <script>
