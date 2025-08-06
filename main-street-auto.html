@@ -140,22 +140,24 @@
   opacity: 1;
   transform: translateY(0);
 }
-    .menu-container {
+ .menu-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 40px; /* space between the two */
   margin: 40px auto;
   max-width: 1200px;
+  flex-wrap: wrap; /* allows stacking on smaller screens */
 }
 
 .menu-image {
   width: 100%;
-  max-width: 550px; /* keep them slightly smaller so both fit nicely */
+  max-width: 500px; /* slightly smaller so they fit side by side */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
+
 
 
 </style>
