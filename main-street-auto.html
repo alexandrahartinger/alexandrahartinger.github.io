@@ -140,19 +140,27 @@
   opacity: 1;
   transform: translateY(0);
 }
-.menu-image, 
+.menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px; /* spacing between the two */
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.menu-image,
 .flip-container {
   max-width: 550px;
   width: 100%;
-  transition: transform 0.3s ease; /* smooth hover effect */
+  transition: transform 0.3s ease;
 }
 
 .menu-image:hover,
 .flip-container:hover {
-  transform: scale(1.3); /* 30% increase */
-  z-index: 10; /* ensure it pops above other content */
+  transform: scale(1.3);
+  z-index: 10;
 }
-
 </style>
 </head>
 <body>
@@ -279,19 +287,19 @@
 <section>
   <h2 style="text-align:center;">Menus</h2>
   <div class="menu-container">
-    <!-- Flippable Oil Change Menu -->
+    <!-- Keep the flip card for the oil change menu -->
     <div class="flip-container">
-      <div class="card" id="oilMenuCard">
-        <div class="front"><img src="assets/OilChangeMenu.png" alt="Oil Change Menu Front"></div>
-        <div class="back"><img src="assets/OilChangeMenu2.png" alt="Oil Change Menu Back"></div>
+      <div class="card">
+        <div class="front"><img src="assets/OilChangeMenu.png" alt="Oil Change Menu" class="menu-image"></div>
+        <div class="back"><img src="assets/OilChangeMenu2.png" alt="Oil Change Menu Back" class="menu-image"></div>
       </div>
-      <p style="text-align:center;">Click the menu to flip and see both sides!</p>
     </div>
-
     <!-- Static Menu of Services -->
     <img src="assets/MenuofServices.png" alt="Menu of Services" class="menu-image">
   </div>
+  <p style="text-align:center;">Click the menu to flip and see both sides!</p>
 </section>
+
 
 
 
