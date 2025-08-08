@@ -40,6 +40,34 @@
   display: block;
   margin: 0 auto;
 }
+    .branding-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;            /* stacks on narrow screens */
+}
+.branding-section .branding-video,
+.branding-section .branding-still {
+  flex: 1 1 520px;            /* side-by-side until ~1100px */
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.branding-section .branding-video {
+  width: 100%;
+  max-width: 720px;           /* match your sizzle reel */
+}
+.branding-section .branding-still {
+  width: 100%;
+  max-width: 720px;
+  object-fit: cover;
+}
+@media (max-width: 900px) {
+  .branding-section { gap: 24px; }
+}
+
       /* HERO CARD FLIP */
     .flip-container { 
   perspective: 1000px; 
@@ -258,6 +286,24 @@
     Your browser does not support the video tag.
   </video>
 </section>
+
+  <section class="branding-section">
+  <video
+    class="branding-video"
+    src="assets/RebrandShop.mp4"         <!-- your 720p clip -->
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="assets/ShopRebrandType.png"> <!-- shows instantly -->
+  </video>
+
+  <img
+    class="branding-still"
+    src="assets/ShopRebrandType.png"
+    alt="Shop rebranding – before and after">
+</section>
+
 
 <h2 style="text-align:center;">Direct Mailer Design</h2>
   <div class="flip-container">
