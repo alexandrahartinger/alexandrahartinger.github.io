@@ -1,35 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Alexandra Hartinger</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio Landing — Color-blocked Scroll Page</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: #000;
-      color: white;
-      padding: 80px 40px;
+    body { margin: 0; font-family: sans-serif; background: black; color: white; }
+    .panel { padding: 0; }
+    /* Chaptered story section */
+    #story { background: #000; }
+    .chapters { max-width: 1200px; margin: 0 auto; }
+
+    .chapter {
+      min-height: 90svh;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+      padding: 80px 24px;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+    .chapter.reverse { grid-template-columns: 0.95fr 1.05fr; }
+
+    .chapter .copy { position: sticky; top: 88px; align-self: start; }
+    .chapter .eyebrow { color: #aaa; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+    .chapter h3 { font-size: clamp(28px,4vw,44px); margin: 8px 0 10px; }
+    .chapter p { color: #cfcfcf; max-width: 52ch; }
+
+    .chapter .media {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
     }
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      max-width: 800px;
+    .chapter .media img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+    /* subtle color glow behind media */
+    .chapter .media::before {
+      content: "";
+      position: absolute;
+      inset: -24px -24px auto auto;
+      width: 180px; height: 120px;
+      background: #ff6600;
+      filter: blur(40px);
+      opacity: .3;
+      border-radius: 24px;
     }
-    a {
-      color: #f44336;
+
+    @media (max-width: 1024px) {
+      .chapter, .chapter.reverse { grid-template-columns: 1fr; }
+      .chapter .copy { position: static; }
     }
   </style>
 </head>
 <body>
-  <h1>About Me</h1>
-  <p>Hey, I’m Alexandra — a creative director, designer, and storyteller based in Denver. This portfolio brings together my passion for branding, motion, and strategy, featuring projects like Main Street Auto’s NASCAR sponsorship, custom campaign design, and more.</p>
 
-  <p>Check out my <a href="index.html">homepage</a> or explore my latest <a href="nascar.html">NASCAR project</a>.</p>
+<!-- Panel: Chaptered personal story -->
+<section id="story" class="panel">
+  <div class="chapters">
+    <!-- Chapter 1 -->
+    <div class="chapter reveal">
+      <div class="media">
+        <img src="assets/_H6A7253.JPG" alt="Alex with Green Day vinyl" loading="lazy">
+      </div>
+      <div class="copy">
+        <div class="eyebrow">Roots</div>
+        <h3>Design meets music.</h3>
+        <p class="lead">I grew up on album art and liner notes. Storytelling started with sleeves, tracklists, and the question: how do you make people feel something before they hit play?</p>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter reverse reveal">
+      <div class="copy">
+        <div class="eyebrow">Craft</div>
+        <h3>Trained at SCAD, sharpened in the field.</h3>
+        <p class="lead">From foundations in art direction to real-world brand systems, I learned to move fast without losing taste. Strategy first, then polish.</p>
+      </div>
+      <div class="media">
+        <img src="assets/BDAD9A9F-EC76-4447-9A99-E91C38CB15A0.jpg" alt="SCAD graduation" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter reveal">
+      <div class="media">
+        <img src="assets/Facetune_17-01-2023-13-57-15.JPG" alt="Alex playing with vinyl" loading="lazy">
+      </div>
+      <div class="copy">
+        <div class="eyebrow">Now</div>
+        <h3>Creative direction you can feel.</h3>
+        <p class="lead">Today I build scroll-worthy campaigns that are smart under the hood and fun on the surface. Let’s make work that people actually watch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </body>
 </html>
