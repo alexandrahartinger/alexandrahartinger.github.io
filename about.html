@@ -1,99 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bio Landing — Color-blocked Scroll Page</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Alexandra Hartinger</title>
+  
+  <!--
+    🔧 HOW TO USE
+    1) Replace the font imports below with your final choices (examples included).
+    2) Set your brand colors in the :root CSS variables.
+    3) Swap the images (portrait, signature, gallery) with your assets.
+    4) Keep or remove the optional Projects section at the bottom.
+  -->
+
+  <!-- Example font pairing: Editorial serif + modern grotesk -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { margin: 0; font-family: sans-serif; background: black; color: white; }
-    .panel { padding: 0; }
-    /* Chaptered story section */
-    #story { background: #000; }
-    .chapters { max-width: 1200px; margin: 0 auto; }
+    :root {
+      /* ✏️ COLOR TOKENS — tweak freely */
+      --bg: #0a0a0a;
+      --text: #f5f5f5;
+      --muted: #b5b5b5;
+      --accent: #7be0b8;  /* soft mint */
+      --accent-2: #ffd166; /* warm sand */
+      --stroke: rgba(255,255,255,.12);
 
-    .chapter {
-      min-height: 90svh;
+      /* ✏️ TYPE TOKENS */
+      --display: "Playfair Display", ui-serif, Georgia, serif; /* Headlines */
+      --sans: "General Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+
+      /* Layout */
+      --maxw: 1300px;
+      --pad: clamp(16px, 2.4vw, 32px);
+      --col-gap: clamp(20px, 3vw, 40px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(100%, var(--maxw));
+      margin: 0 auto;
+      padding: var(--pad);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: saturate(140%) blur(8px);
+      background: linear-gradient(to bottom, rgba(10,10,10,.9), rgba(10,10,10,.2));
+      border-bottom: 1px solid var(--stroke);
+      z-index: 40;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .pill {
+      border: 1px solid var(--stroke);
+      padding: 8px 12px; border-radius: 999px; font-size: 14px; color: var(--muted);
+    }
+
+    /*
+      LAYOUT: two columns. Left column is the About content; right column is scroll content.
+      On mobile it stacks.
+    */
+    .grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
-      align-items: center;
-      padding: 80px 24px;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: var(--col-gap);
     }
-    .chapter.reverse { grid-template-columns: 0.95fr 1.05fr; }
-
-    .chapter .copy { position: sticky; top: 88px; align-self: start; }
-    .chapter .eyebrow { color: #aaa; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
-    .chapter h3 { font-size: clamp(28px,4vw,44px); margin: 8px 0 10px; }
-    .chapter p { color: #cfcfcf; max-width: 52ch; }
-
-    .chapter .media {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,.35);
-    }
-    .chapter .media img { width: 100%; height: 100%; display: block; object-fit: cover; }
-
-    /* subtle color glow behind media */
-    .chapter .media::before {
-      content: "";
-      position: absolute;
-      inset: -24px -24px auto auto;
-      width: 180px; height: 120px;
-      background: #ff6600;
-      filter: blur(40px);
-      opacity: .3;
-      border-radius: 24px;
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 1024px) {
-      .chapter, .chapter.reverse { grid-template-columns: 1fr; }
-      .chapter .copy { position: static; }
+    .about-col {
+      position: sticky;
+      top: calc(64px + var(--pad));
+      align-self: start;
+      height: fit-content;
     }
+
+    .hero-kicker { color: var(--accent); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(40px, 7.5vw, 84px);
+      line-height: 0.96;
+      margin: 10px 0 16px;
+    }
+    .hero-sub { color: var(--muted); font-size: clamp(16px, 1.4vw, 18px); max-width: 46ch; }
+
+    .meta {
+      display: grid; gap: 14px; margin: 26px 0 16px;
+    }
+    .meta-row { display: grid; grid-template-columns: 120px 1fr; gap: 12px; }
+    .meta-label { color: var(--muted); }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+      border: 1px solid var(--stroke); border-radius: 999px; padding: 10px 14px; font-weight: 600;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.04); }
+    .btn--accent { border-color: rgba(123,224,184,.35); background: rgba(123,224,184,.12); }
+
+    .portrait {
+      width: 100%; border-radius: 16px; border: 1px solid var(--stroke);
+      overflow: hidden; margin: 20px 0 6px; display: block;
+    }
+
+    /* RIGHT COLUMN */
+    .content-col { display: grid; gap: 48px; }
+
+    .section-head {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      border-top: 1px solid var(--stroke); padding-top: 18px; margin-top: 8px;
+    }
+    .section-head h2 { font-family: var(--display); font-size: clamp(24px, 3.2vw, 40px); margin: 0; }
+    .section-kicker { color: var(--accent-2); letter-spacing: .08em; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+
+    .bio-copy { font-size: clamp(16px, 1.3vw, 18px); color: var(--text); max-width: 75ch; }
+    .bio-copy p { margin: 0 0 14px; }
+
+    /* RECENT / TIMELINE GRID */
+    .recent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 900px) { .recent-grid { grid-template-columns: 1fr; } }
+
+    .card {
+      border: 1px solid var(--stroke); border-radius: 14px; overflow: hidden; display: grid; gap: 0; transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.22); }
+    .card img { width: 100%; height: 260px; object-fit: cover; display: block; }
+    .card-body { padding: 14px; display: grid; gap: 6px; }
+    .eyebrow { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .card h3 { margin: 0; font-size: 18px; }
+
+    /* OPTIONAL PROJECT STRIP */
+    .projects-strip { display: grid; gap: 18px; }
+    .proj { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: start; border-bottom: 1px solid var(--stroke); padding-bottom: 18px; }
+    .proj:last-child { border-bottom: none; }
+    .proj-num { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .proj h4 { margin: 4px 0; font-size: 20px; }
+    .tags { color: var(--muted); font-size: 14px; }
+
+    footer { margin-top: 60px; border-top: 1px solid var(--stroke); padding-top: 18px; color: var(--muted); font-size: 14px; }
   </style>
 </head>
+
 <body>
-
-<!-- Panel: Chaptered personal story -->
-<section id="story" class="panel">
-  <div class="chapters">
-    <!-- Chapter 1 -->
-    <div class="chapter reveal">
-      <div class="media">
-        <img src="assets/_H6A7253.JPG" alt="Alex with Green Day vinyl" loading="lazy">
-      </div>
-      <div class="copy">
-        <div class="eyebrow">Roots</div>
-        <h3>Design meets music.</h3>
-        <p class="lead">I grew up on album art and liner notes. Storytelling started with sleeves, tracklists, and the question: how do you make people feel something before they hit play?</p>
-      </div>
+  <header>
+    <div class="wrap nav">
+      <div class="logo">Alexandra Hartinger</div>
+      <nav style="display:flex; gap:10px; align-items:center;">
+        <a class="pill" href="index.html">Work</a>
+        <a class="pill" href="#contact">Contact</a>
+        <a class="pill" href="assets/Alexandra_Hartinger_Resume.pdf" target="_blank">Resume</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Chapter 2 -->
-    <div class="chapter reverse reveal">
-      <div class="copy">
-        <div class="eyebrow">Craft</div>
-        <h3>Trained at SCAD, sharpened in the field.</h3>
-        <p class="lead">From foundations in art direction to real-world brand systems, I learned to move fast without losing taste. Strategy first, then polish.</p>
-      </div>
-      <div class="media">
-        <img src="assets/BDAD9A9F-EC76-4447-9A99-E91C38CB15A0.jpg" alt="SCAD graduation" loading="lazy">
-      </div>
+  <main class="wrap" style="margin-top: 22px;">
+    <div class="grid">
+      <!-- LEFT: ABOUT (sticky) -->
+      <aside class="about-col">
+        <div class="hero-kicker">Art Direction · Brand · Digital</div>
+        <h1 class="hero-title">Designer & creative lead turning messy briefs into sharp, human work.</h1>
+        <p class="hero-sub">Currently moving to Denver. Previously led the Main Street Auto rebrand and NASCAR sponsorship creative. I build brand systems, interactive portfolios, and content that actually moves.</p>
+
+        <img class="portrait" src="assets/portrait-alex.jpg" alt="Portrait of Alexandra Hartinger" />
+
+        <div class="meta">
+          <div class="meta-row">
+            <div class="meta-label">Based</div>
+            <div>Denver, CO (from Atlanta)</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Focus</div>
+            <div>Brand systems, web design, content strategy, art direction</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Select</div>
+            <div>Main Street Auto, CJ McLaughlin, Northern Rock → Main Street Auto rebrand</div>
+          </div>
+        </div>
+
+        <div class="cta-row" id="contact">
+          <a class="btn btn--accent" href="mailto:alexandrahartinger@icloud.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/alexandrahartinger/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://alexandrahartinger.github.io/" target="_blank" rel="noopener">Portfolio</a>
+        </div>
+      </aside>
+
+      <!-- RIGHT: CONTENT (scroll) -->
+      <section class="content-col">
+        <div class="section-head">
+          <h2>About</h2>
+          <span class="section-kicker">The short version</span>
+        </div>
+        <div class="bio-copy">
+          <p>Hi, I’m Alex — an art director and designer with a brand-first brain and a digital toolkit. I led the rebrand from Northern Rock to Main Street Auto across storefronts, uniforms, signage, and content. I also creative-direct social and sponsorship work, including a NASCAR partnership with CJ McLaughlin.</p>
+          <p>I like bold, practical systems that scale: color rules that tell a story, layouts that make information easy, motion that feels intentional. I build clean, performant pages by hand (like this one) and ship fast without sacrificing craft.</p>
+          <p>Right now I’m finishing my portfolio and looking for a Denver-based creative team where I can plug into brand, content, and product moments — and make the work unmistakably ours.</p>
+        </div>
+
+        <div class="section-head">
+          <h2>Highlights</h2>
+          <span class="section-kicker">Selected snapshots</span>
+        </div>
+        <div class="recent-grid">
+          <!-- Card 1 -->
+          <article class="card">
+            <img src="assets/nascar-highlight.jpg" alt="NASCAR sponsorship creative mockups" />
+            <div class="card-body">
+              <div class="eyebrow">Art Direction · Branding</div>
+              <h3>#92 Main Street Auto × NASCAR — creative direction</h3>
+              <p class="muted">Race suit mockups, track-day content, hero assets, and a web section built to feel premium and fast.</p>
+            </div>
+          </article>
+          <!-- Card 2 -->
+          <article class="card">
+            <img src="assets/rebrand-storefront.jpg" alt="Storefront rebrand across multiple locations" />
+            <div class="card-body">
+              <div class="eyebrow">Brand Systems</div>
+              <h3>Main Street Auto rebrand</h3>
+              <p class="muted">Unifying paint palettes, signage, and in-store comms across locations with an approachable voice.</p>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="card">
+            <img src="assets/portfolio-build.jpg" alt="Portfolio website build preview" />
+            <div class="card-body">
+              <div class="eyebrow">Web · Interaction</div>
+              <h3>Hand-coded portfolio</h3>
+              <p class="muted">Custom HTML/CSS/JS with motion, carousels, and clean PDF handling. Lightweight, fast, and flexible.</p>
+            </div>
+          </article>
+          <!-- Card 4 -->
+          <article class="card">
+            <img src="assets/community.jpg" alt="Community activation content" />
+            <div class="card-body">
+              <div class="eyebrow">Content · Strategy</div>
+              <h3>Community & content</h3>
+              <p class="muted">Video, reels, and local partnerships to make an auto brand feel helpful, human, and present.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- OPTIONAL: Projects list styled like a numbered strip. Keep if you want work below About. -->
+        <div class="section-head">
+          <h2>Projects</h2>
+          <span class="section-kicker">Optional strip</span>
+        </div>
+        <div class="projects-strip">
+          <div class="proj">
+            <div class="proj-num">01</div>
+            <div>
+              <h4><a href="main-street-auto.html">Main Street Auto — Rebrand</a></h4>
+              <div class="tags">Art Direction, Brand System, Signage, Storefronts</div>
+            </div>
+          </div>
+          <div class="proj">
+            <div class="proj-num">02</div>
+            <div>
+              <h4><a href="nascar.html">NASCAR × Main Street Auto — Sponsorship</a></h4>
+              <div class="tags">Creative Direction, Content, Web Section</div>
+            </div>
+          </div>
+          <div class="proj">
+            <div class="proj-num">03</div>
+            <div>
+              <h4><a href="index.html#work">Portfolio — Selected</a></h4>
+              <div class="tags">Web, Interaction, Case Studies</div>
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          © <span id="y"></span> Alexandra Hartinger. Typeset in <em>Playfair Display</em> & <em>General Sans</em>. Built by hand.
+        </footer>
+      </section>
     </div>
+  </main>
 
-    <!-- Chapter 3 -->
-    <div class="chapter reveal">
-      <div class="media">
-        <img src="assets/Facetune_17-01-2023-13-57-15.JPG" alt="Alex playing with vinyl" loading="lazy">
-      </div>
-      <div class="copy">
-        <div class="eyebrow">Now</div>
-        <h3>Creative direction you can feel.</h3>
-        <p class="lead">Today I build scroll-worthy campaigns that are smart under the hood and fun on the surface. Let’s make work that people actually watch.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+  <script>
+    // Set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
