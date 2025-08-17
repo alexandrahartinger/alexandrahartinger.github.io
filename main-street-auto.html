@@ -168,6 +168,24 @@
   opacity: 1;
   transform: translateY(0);
 }
+  /* Consistent video sizing */
+.video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;   /* matches your branding video cap */
+  aspect-ratio: 16 / 9;/* keeps identical dimensions */
+  margin: 40px auto 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* crops if aspect ratios differ */
+  display: block;
+}
+
 .menu-container {
   display: flex;
   justify-content: center;
@@ -272,41 +290,40 @@
   
 </video>
 
+<!-- Branding video -->
 <section>
-  <video
-    id="suitVideo"
-    controls
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    poster="assets/branding_video_thumbnail.png"
-    style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:40px auto 0;">
-    <source src="assets/BrandingVideo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <div class="video-frame">
+    <video
+      class="case-video"
+      controls
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="assets/branding_video_thumbnail.png">
+      <source src="assets/BrandingVideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </section>
 
+<!-- Shop rebrand video (now identical dimensions) -->
 <section>
-  <video
-    id="suitVideo"
-    controls
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    poster="assets/sellingyourshopthumbnail.png"
-    style="width:100%; max-width:1200px; border-radius:8px; display:block; margin:40px auto 0;">
-    <source src="assets/RebrandShop.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <div class="video-frame">
+    <video
+      class="case-video"
+      controls
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="assets/sellingyourshopthumbnail.png">
+      <source src="assets/RebrandShop.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </section>
-    
-  <img
-    class="branding-still"
-    src="assets/ShopRebrandType.png"
-    alt="Shop rebranding – before and after">
-</section>
+
 
 
 <h2 style="text-align:center;">Direct Mailer Design</h2>
