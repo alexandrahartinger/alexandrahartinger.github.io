@@ -25,39 +25,6 @@
   /* Centering container shared across pages */
   .wrap{width:min(100%,var(--maxw)); margin:0 auto; padding:0 var(--pad)}
 
-  /* ===== Header / Nav (copied feel from Home) ===== */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:10;
-    background:#000; border-bottom:1px solid var(--stroke);
-  
-}
-
-.logo {
-  font-weight:700;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  font-size:1rem;             /* smaller logo text */
-}
-
-nav a {
-  margin-left:28px;
-  text-transform:uppercase;
-  font-weight:700;
-  font-size:.9rem;             /* align with Home nav link size */
-  opacity:.95;
-  transition:opacity .2s ease, transform .2s ease;
-}
-
-nav a:hover {
-  opacity:1;
-  transform:translateY(-1px);
-}
-
-nav a.active {
-  opacity:1;
-  text-decoration:underline;   /* underline active link */
-}
-
 
   /* ===== Page layout (simple + consistent) ===== */
   main{padding-top:88px}
