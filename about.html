@@ -1,131 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>About — Alexandra Hartinger</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>About — Alexandra Hartinger</title>
+<style>
+  /* ===== Site baseline (match Home) ===== */
+  :root{
+    --bg:#000; --text:#fff; --muted:rgba(255,255,255,.72); --stroke:rgba(255,255,255,.12);
+    --maxw:980px;                /* <- matches the tighter homepage feel */
+    --pad:24px;
+  }
 
-  <style>
-    /* ===== Core tokens to match site ===== */
-    :root{
-      --bg:#000;
-      --text:#fff;
-      --muted:rgba(255,255,255,.72);
-      --stroke:rgba(255,255,255,.12);
-      --maxw:1200px;
-      --pad:clamp(16px,3vw,40px);
-      --gap:clamp(20px,3vw,40px);
-    }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
+    line-height:1.5; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none} a:hover{text-decoration:underline}
 
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
-      line-height:1.5;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-    }
+  /* Centering container shared across pages */
+  .wrap{width:min(100%,var(--maxw)); margin:0 auto; padding:0 var(--pad)}
 
-    a{color:inherit;text-decoration:none}
-    a:hover{text-decoration:underline}
+  /* ===== Header / Nav (copied feel from Home) ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:10;
+    background:#000; border-bottom:1px solid var(--stroke);
+  }
+  .nav{display:flex; justify-content:space-between; align-items:center; padding:20px 0}
+  .logo{font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:1.1rem}
+  nav a{
+    margin-left:28px; text-transform:uppercase; font-weight:700; font-size:.95rem;
+    opacity:.95; transition:opacity .2s ease, transform .2s ease;
+  }
+  nav a:hover{opacity:1; transform:translateY(-1px)}
+  nav a.active{opacity:1; text-decoration:underline}
 
-    .wrap{width:min(100%,var(--maxw));margin:0 auto;padding:0 var(--pad)}
+  /* ===== Page layout (simple + consistent) ===== */
+  main{padding-top:88px}
+  .grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:32px; padding:32px 0;
+  }
+  @media (max-width:960px){ .grid{grid-template-columns:1fr} }
 
-    /* ===== Header / Nav (matches rest of site) ===== */
-    header{
-      position:fixed; top:0; left:0; right:0; z-index:10;
-      background:#000; border-bottom:1px solid var(--stroke);
-    }
-    .nav{
-      display:flex; justify-content:space-between; align-items:center;
-      padding:18px var(--pad);
-    }
-    .logo{font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:1.2rem}
+  /* Left column (sticky on desktop for the classic feel) */
+  .about-col{position:sticky; top:calc(88px + 16px); align-self:start}
+  .kicker{font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  h1{margin:.4rem 0 1rem; font-size:clamp(30px,4.6vw,46px); line-height:1.1; letter-spacing:.01em; font-weight:800}
+  .sub{color:var(--muted); max-width:52ch; font-size:1rem}
+  .portrait{display:block; width:100%; margin:18px 0 8px; border:1px solid var(--stroke); border-radius:14px; overflow:hidden}
 
-    nav a{
-      margin-left:28px; text-transform:uppercase; font-weight:700; font-size:.95rem;
-      opacity:.9; transition:opacity .2s ease, transform .2s ease;
-    }
-    nav a:hover{opacity:1; transform:translateY(-1px)}
-    nav a.active{opacity:.55}
+  .meta{display:grid; gap:10px; margin:16px 0}
+  .meta-row{display:grid; grid-template-columns:110px 1fr; gap:10px}
+  .label{color:var(--muted)}
 
-    /* ===== Page layout ===== */
-    main{padding-top:84px}
-    .grid{
-      display:grid; gap:var(--gap);
-      grid-template-columns: 1.05fr 1.35fr;
-      align-items:start;
-      padding:var(--pad) 0;
-    }
-    @media (max-width: 980px){
-      .grid{grid-template-columns:1fr}
-    }
+  .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+    border:1px solid var(--stroke); border-radius:999px; padding:10px 14px; font-weight:700;
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.05)}
 
-    /* Left (sticky) */
-    .about-col{position:sticky; top:calc(84px + var(--pad)); align-self:start}
-    .kicker{font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
-    h1{
-      margin:.4rem 0 1rem; font-size:clamp(32px,6vw,56px); line-height:1.05;
-      letter-spacing:.01em; font-weight:800;
-    }
-    .sub{color:var(--muted); max-width:52ch; font-size:1.05rem}
+  /* Right column */
+  .section{border-top:1px solid var(--stroke); padding-top:18px; margin-top:6px}
+  .eyebrow{color:var(--muted); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase}
+  .section h2{margin:.1rem 0 .7rem; font-size:clamp(20px,2.6vw,28px)}
+  .copy{max-width:75ch; font-size:1rem}
+  .copy p{margin:0 0 14px}
 
-    .portrait{
-      display:block; width:100%; margin:18px 0 8px;
-      border:1px solid var(--stroke); border-radius:14px; overflow:hidden;
-    }
+  .projects{display:grid; gap:16px}
+  .proj{display:grid; grid-template-columns:90px 1fr; gap:14px; align-items:start; border-bottom:1px solid var(--stroke); padding-bottom:16px}
+  .proj:last-child{border-bottom:none}
+  .num{color:var(--muted); font-variant-numeric:tabular-nums}
 
-    .meta{display:grid; gap:10px; margin:16px 0}
-    .meta-row{display:grid; grid-template-columns:110px 1fr; gap:10px}
-    .meta .label{color:var(--muted)}
-
-    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .btn{
-      display:inline-flex; align-items:center; gap:8px; cursor:pointer;
-      border:1px solid var(--stroke); border-radius:999px; padding:10px 14px; font-weight:700;
-      transition:transform .2s ease, border-color .2s ease, background .2s ease;
-    }
-    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.05)}
-
-    /* Right (scrolling content) */
-    .section{border-top:1px solid var(--stroke); padding-top:18px; margin-top:6px}
-    .section h2{margin:0 0 .5rem; font-size:clamp(22px,3vw,32px)}
-    .eyebrow{color:var(--muted); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase}
-
-    .copy{max-width:75ch; font-size:1.05rem}
-    .copy p{margin:0 0 14px}
-
-    .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
-    @media (max-width:900px){.cards{grid-template-columns:1fr}}
-
-    .card{
-      border:1px solid var(--stroke); border-radius:14px; overflow:hidden;
-      transition:transform .2s ease, border-color .2s ease;
-      background:#0a0a0a;
-    }
-    .card:hover{transform:translateY(-3px); border-color:rgba(255,255,255,.22)}
-    .card img{width:100%; height:260px; object-fit:cover; display:block}
-    .card-body{padding:14px}
-    .card h3{margin:.2rem 0 .4rem; font-size:1.05rem}
-    .muted{color:var(--muted)}
-
-    .projects{display:grid; gap:16px}
-    .proj{display:grid; grid-template-columns:90px 1fr; gap:14px; align-items:start; border-bottom:1px solid var(--stroke); padding-bottom:16px}
-    .proj:last-child{border-bottom:none}
-    .num{color:var(--muted); font-variant-numeric:tabular-nums}
-
-    footer{margin:56px 0 20px; border-top:1px solid var(--stroke); padding-top:16px; color:var(--muted); font-size:.9rem}
-  </style>
+  footer{margin:56px 0 20px; border-top:1px solid var(--stroke); padding-top:16px; color:var(--muted); font-size:.9rem}
+</style>
 </head>
 
 <body>
   <!-- ===== Header ===== -->
   <header>
-    <div class="nav wrap">
+    <div class="wrap nav">
       <div class="logo">ALEXANDRA HARTINGER</div>
       <nav>
         <a href="index.html">Home</a>
@@ -138,40 +97,29 @@
   <!-- ===== Main ===== -->
   <main class="wrap">
     <div class="grid">
-      <!-- Left column (sticky) -->
+      <!-- Left column -->
       <aside class="about-col">
         <div class="kicker">Art Direction · Brand · Digital</div>
         <h1>Strategy meets heart. Design meets purpose.</h1>
-        <p class="sub">
-          Currently moving to Denver. Previously led the Main Street Auto rebrand and NASCAR sponsorship creative.
-          I build brand systems, interactive portfolios, and content that actually moves.
-        </p>
+        <p class="sub">Currently moving to Denver. Previously led the Main Street Auto rebrand and NASCAR sponsorship creative. I build brand systems, interactive portfolios, and content that actually moves.</p>
 
-        <img class="portrait" src="assets/recordphoto.jpg" alt="Alexandra Hartinger holding a vinyl record above her head" />
+        <img class="portrait" src="assets/recordphoto.jpg" alt="Alexandra Hartinger holding a vinyl record above her head"/>
 
         <div class="meta">
-          <div class="meta-row">
-            <div class="label">Based</div>
-            <div>Denver, CO (from Atlanta)</div>
-          </div>
-          <div class="meta-row">
-            <div class="label">Focus</div>
-            <div>Brand systems, web design, content strategy, art direction</div>
-          </div>
-          <div class="meta-row">
-            <div class="label">Select</div>
-            <div>Main Street Auto, CJ McLaughlin, Northern Rock → Main Street Auto rebrand</div>
-          </div>
+          <div class="meta-row"><div class="label">Based</div><div>Denver, CO (from Atlanta)</div></div>
+          <div class="meta-row"><div class="label">Focus</div><div>Brand systems, web design, content strategy, art direction</div></div>
+          <div class="meta-row"><div class="label">Select</div><div>Main Street Auto, CJ McLaughlin, Northern Rock → Main Street Auto rebrand</div></div>
         </div>
 
         <div id="contact" class="cta">
-          <a class="btn" href="mailto:alexandrahartinger@icloud.com">Email me</a>
-          <a class="btn" href="https://www.linkedin.com/in/alexandrahartinger/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://alexandrahartinger.github.io/" target="_blank" rel="noopener">Portfolio</a>
+          <a class="btn" href="mailto:lexhartinger@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/alexhartinger/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="assets/AlexandraHartinger_Resume.png" target="_blank" rel="noopener">View résumé</a>
+          <a class="btn" href="assets/AlexandraHartinger_Resume.png" download="AlexandraHartinger_Resume.png">Download résumé</a>
         </div>
       </aside>
 
-      <!-- Right column (scroll content) -->
+      <!-- Right column -->
       <section>
         <div class="section">
           <div class="eyebrow">The short version</div>
@@ -184,28 +132,35 @@
         </div>
 
         <div class="section">
-          <div class="eyebrow">Optional strip</div>
+          <div class="eyebrow">Selected work</div>
           <h2>Projects</h2>
           <div class="projects">
             <div class="proj">
               <div class="num">01</div>
               <div>
-                <h3><a href="main-street-auto.html">Main Street Auto — Rebrand</a></h3>
-                <div class="muted">Art Direction, Brand System, Signage, Storefronts</div>
+                <h3><a href="david-yurman-holiday-2023.html">David Yurman — Holiday 2023 Campaign</a></h3>
+                <div class="muted">SCADpro | Head of Concept → Co-Head of Marketing. Campaign strategy, art direction, and cross-team leadership.</div>
               </div>
             </div>
             <div class="proj">
               <div class="num">02</div>
               <div>
-                <h3><a href="nascar.html">NASCAR × Main Street Auto — Sponsorship</a></h3>
-                <div class="muted">Creative Direction, Content, Web Section</div>
+                <h3><a href="main-street-auto.html">Main Street Auto — Rebrand</a></h3>
+                <div class="muted">System design across storefronts, signage, uniforms, and content. Scalable color, layout, and tone rules.</div>
               </div>
             </div>
             <div class="proj">
               <div class="num">03</div>
               <div>
-                <h3><a href="index.html#work">Portfolio — Selected</a></h3>
-                <div class="muted">Web, Interaction, Case Studies</div>
+                <h3><a href="nascar.html">#92 NASCAR × Main Street Auto — Sponsorship</a></h3>
+                <div class="muted">Creative direction for suit mockups, track-day content, hero assets, and a fast, premium web section.</div>
+              </div>
+            </div>
+            <div class="proj">
+              <div class="num">04</div>
+              <div>
+                <h3><a href="index.html#work">Hand-coded Portfolio — GitHub + ChatGPT</a></h3>
+                <div class="muted">Built from scratch with HTML/CSS/JS for full creative control. No templates—Squarespace couldn’t keep up with the ideas.</div>
               </div>
             </div>
           </div>
