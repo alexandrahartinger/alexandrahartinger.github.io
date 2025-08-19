@@ -5,108 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>About — Alexandra Hartinger</title>
 <style>
-  /* ===== Site baseline (match Home) ===== */
-  :root{
-    --bg:#000; --text:#fff; --muted:rgba(255,255,255,.72); --stroke:rgba(255,255,255,.12);
-    --maxw:980px;                /* <- matches the tighter homepage feel */
-    --pad:24px;
+  body, html {
+    margin: 0; padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background: black; color: white; overflow-x: hidden;
   }
 
-  *,*::before,*::after{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; background:var(--bg); color:var(--text);
-    font-family:"Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
-    line-height:1.5; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    overflow-x:hidden;
+  /* ===== Header (match David Yurman) ===== */
+  header {
+    position: fixed; top: 0; width: 100%; z-index: 10;
+    background: black;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px; box-sizing: border-box;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-  a{color:inherit;text-decoration:none} a:hover{text-decoration:underline}
-
-  /* Centering container shared across pages */
-  .wrap{width:min(100%,var(--maxw)); margin:0 auto; padding:0 var(--pad)}
-
-
-  /* ===== Page layout (simple + consistent) ===== */
- main{padding-top:var(--headerH)}
-.about-col{position:sticky; top:calc(var(--headerH) + 16px)}
+  header .logo {
+    font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
   }
+  nav a {
+    color: white; text-decoration: none; margin-left: 30px;
+    font-size: 1rem; text-transform: uppercase; font-weight: bold;
+  }
+  nav a:hover { color: #aaa; }
+  nav a.active { color: #aaa; }
+
+  /* ===== Page layout ===== */
+  main { padding-top: 100px; max-width: 980px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 32px 0; }
   @media (max-width:960px){ .grid{grid-template-columns:1fr} }
 
-  /* Left column (sticky on desktop for the classic feel) */
-  .about-col{position:sticky; top:calc(88px + 16px); align-self:start}
-  .kicker{font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
-  h1{margin:.4rem 0 1rem; font-size:clamp(30px,4.6vw,46px); line-height:1.1; letter-spacing:.01em; font-weight:800}
-  .sub{color:var(--muted); max-width:52ch; font-size:1rem}
-  .portrait{display:block; width:100%; margin:18px 0 8px; border:1px solid var(--stroke); border-radius:14px; overflow:hidden}
+  .about-col { position: sticky; top: 140px; align-self: start; }
+  .kicker { font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); }
+  h1 { margin:.4rem 0 1rem; font-size:clamp(30px,4.6vw,46px); line-height:1.1; font-weight:800; }
+  .sub { color:rgba(255,255,255,.72); max-width:52ch; font-size:1rem; }
+  .portrait { display:block; width:100%; margin:18px 0 8px; border:1px solid rgba(255,255,255,.12); border-radius:14px; overflow:hidden; }
 
-  .meta{display:grid; gap:10px; margin:16px 0}
-  .meta-row{display:grid; grid-template-columns:110px 1fr; gap:10px}
-  .label{color:var(--muted)}
+  .meta { display:grid; gap:10px; margin:16px 0; }
+  .meta-row { display:grid; grid-template-columns:110px 1fr; gap:10px; }
+  .label { color:rgba(255,255,255,.72); }
 
-  .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-  .btn{
+  .cta { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+  .btn {
     display:inline-flex; align-items:center; gap:8px; cursor:pointer;
-    border:1px solid var(--stroke); border-radius:999px; padding:10px 14px; font-weight:700;
-    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:10px 14px; font-weight:700;
+    background:transparent; color:white;
+    transition:background .2s ease, color .2s ease;
   }
-  .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.05)}
+  .btn:hover { background:rgba(255,255,255,.1); color:#fff; }
 
-  /* Right column */
-  .section{border-top:1px solid var(--stroke); padding-top:18px; margin-top:6px}
-  .eyebrow{color:var(--muted); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase}
-  .section h2{margin:.1rem 0 .7rem; font-size:clamp(20px,2.6vw,28px)}
-  .copy{max-width:75ch; font-size:1rem}
-  .copy p{margin:0 0 14px}
+  .section { border-top:1px solid rgba(255,255,255,.12); padding-top:18px; margin-top:6px; }
+  .eyebrow { color:rgba(255,255,255,.72); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; }
+  .section h2 { margin:.1rem 0 .7rem; font-size:clamp(20px,2.6vw,28px); }
+  .copy { max-width:75ch; font-size:1rem; }
+  .copy p { margin:0 0 14px; }
 
-  .projects{display:grid; gap:16px}
-  .proj{display:grid; grid-template-columns:90px 1fr; gap:14px; align-items:start; border-bottom:1px solid var(--stroke); padding-bottom:16px}
-  .proj:last-child{border-bottom:none}
-  .num{color:var(--muted); font-variant-numeric:tabular-nums}
+  .projects { display:grid; gap:16px; }
+  .proj { display:grid; grid-template-columns:90px 1fr; gap:14px; align-items:start; border-bottom:1px solid rgba(255,255,255,.12); padding-bottom:16px; }
+  .proj:last-child { border-bottom:none; }
+  .num { color:rgba(255,255,255,.72); font-variant-numeric:tabular-nums; }
 
-  footer{margin:56px 0 20px; border-top:1px solid var(--stroke); padding-top:16px; color:var(--muted); font-size:.9rem}
-  
-  /* Shared header styles (match Home) */
-:root{ --headerH:72px; } /* set to your real header height */
-
-header{
-  position:fixed; top:0; left:0; right:0; z-index:10;
-  background:#000; border-bottom:1px solid var(--stroke);
-}
-
-header .wrap{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px var(--pad);
-}
-
-.logo{
-  font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  font-size:1rem;
-}
-
-nav a{
-  margin-left:28px; text-transform:uppercase; font-weight:700; font-size:.9rem;
-  opacity:.95; transition:opacity .2s ease, transform .2s ease;
-}
-nav a:hover{opacity:1; transform:translateY(-1px)}
-nav a.active{text-decoration:underline}
+  footer { margin:56px 0 20px; border-top:1px solid rgba(255,255,255,.12); padding-top:16px; color:rgba(255,255,255,.72); font-size:.9rem; text-align:center; }
 </style>
 </head>
 
 <body>
   <!-- ===== Header ===== -->
   <header>
-    <div class="wrap nav">
-      <div class="logo">ALEXANDRA HARTINGER</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About Me</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <div class="logo">Alexandra Hartinger</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <!-- ===== Main ===== -->
-  <main class="wrap">
+  <main>
     <div class="grid">
       <!-- Left column -->
       <aside class="about-col">
