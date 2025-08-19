@@ -27,9 +27,8 @@
 
 
   /* ===== Page layout (simple + consistent) ===== */
-  main{padding-top:88px}
-  .grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:32px; padding:32px 0;
+ main{padding-top:var(--headerH)}
+.about-col{position:sticky; top:calc(var(--headerH) + 16px)}
   }
   @media (max-width:960px){ .grid{grid-template-columns:1fr} }
 
@@ -65,6 +64,31 @@
   .num{color:var(--muted); font-variant-numeric:tabular-nums}
 
   footer{margin:56px 0 20px; border-top:1px solid var(--stroke); padding-top:16px; color:var(--muted); font-size:.9rem}
+  
+  /* Shared header styles (match Home) */
+:root{ --headerH:72px; } /* set to your real header height */
+
+header{
+  position:fixed; top:0; left:0; right:0; z-index:10;
+  background:#000; border-bottom:1px solid var(--stroke);
+}
+
+header .wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px var(--pad);
+}
+
+.logo{
+  font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  font-size:1rem;
+}
+
+nav a{
+  margin-left:28px; text-transform:uppercase; font-weight:700; font-size:.9rem;
+  opacity:.95; transition:opacity .2s ease, transform .2s ease;
+}
+nav a:hover{opacity:1; transform:translateY(-1px)}
+nav a.active{text-decoration:underline}
 </style>
 </head>
 
