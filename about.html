@@ -1,150 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>About — Alexandra Hartinger</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>About — Alexandra Hartinger</title>
+<style>
+  /* ===== Core tokens (match site) ===== */
+  :root{
+    --bg:#000; --text:#fff; --muted:rgba(255,255,255,.72); --stroke:rgba(255,255,255,.12);
+    --maxw:1200px; --pad:clamp(16px,3vw,40px); --gap:clamp(20px,3vw,40px);
+  }
+  /* Containment & rendering sanity */
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
+    line-height:1.5; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none} a:hover{text-decoration:underline}
 
-  <style>
-    /* ===== Core tokens to match site ===== */https://github.com/alexandrahartinger/alexandrahartinger.github.io/edit/main/about.html
-    :root{
-      --bg:#000;
-      --text:#fff;
-      --muted:rgba(255,255,255,.72);
-      --stroke:rgba(255,255,255,.12);
-      --maxw:1200px;
-      --pad:clamp(16px,3vw,40px);
-      --gap:clamp(20px,3vw,40px);
-    }
+  /* Centering container used everywhere */
+  .wrap{
+    width:min(100%, var(--maxw)); margin-left:auto; margin-right:auto;
+    padding-left:var(--pad); padding-right:var(--pad);
+  }
 
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", sans-serif;
-      line-height:1.5;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-    }
+  /* ===== Header (consistent with site) ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:10;
+    background:#000; border-bottom:1px solid var(--stroke);
+  }
+  .nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 0;
+  }
+  .logo{font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:1.1rem}
+  nav a{margin-left:28px; text-transform:uppercase; font-weight:700; font-size:.95rem; opacity:.9; transition:opacity .2s ease, transform .2s ease}
+  nav a:hover{opacity:1; transform:translateY(-1px)}
+  nav a.active{opacity:1; text-decoration:underline}
 
-    a{color:inherit;text-decoration:none}
-    a:hover{text-decoration:underline}
+  /* ===== Page layout ===== */
+  main{padding-top:88px}
+  .grid{
+    display:grid; gap:var(--gap);
+    grid-template-columns:1.05fr 1.35fr; align-items:start; padding:32px 0;
+  }
+  @media (max-width:980px){ .grid{grid-template-columns:1fr} }
 
-    .wrap{width:min(100%,var(--maxw));margin:0 auto;padding:0 var(--pad)}
+  /* Left (sticky) */
+  .about-col{position:sticky; top:calc(88px + var(--pad)); align-self:start}
+  .kicker{font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  h1{margin:.4rem 0 1rem; font-size:clamp(32px,6vw,56px); line-height:1.05; letter-spacing:.01em; font-weight:800}
+  .sub{color:var(--muted); max-width:52ch; font-size:1.05rem}
+  .portrait{display:block; width:100%; margin:18px 0 8px; border:1px solid var(--stroke); border-radius:14px; overflow:hidden}
 
-    /* ===== Header / Nav (matches rest of site) ===== */
-    header{
-      position:fixed; top:0; left:0; right:0; z-index:10;
-      background:#000; border-bottom:1px solid var(--stroke);
-    }
-    .nav{
-      display:flex; justify-content:space-between; align-items:center;
-      padding:18px var(--pad);
-    }
-    .logo{font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:1.2rem}
+  .meta{display:grid; gap:10px; margin:16px 0}
+  .meta-row{display:grid; grid-template-columns:110px 1fr; gap:10px}
+  .label{color:var(--muted)}
 
-    nav a{
-      margin-left:28px; text-transform:uppercase; font-weight:700; font-size:.95rem;
-      opacity:.9; transition:opacity .2s ease, transform .2s ease;
-    }
-    nav a:hover{opacity:1; transform:translateY(-1px)}
-    nav a.active{opacity:.55}
+  .education{
+    display:flex; align-items:center; gap:12px; margin-top:18px;
+    border-top:1px solid var(--stroke); padding-top:14px;
+  }
+  .edu-logo{width:50px; height:50px; object-fit:contain; border-radius:50%; border:1px solid var(--stroke); background:#fff}
+  .edu-text{font-size:.9rem; line-height:1.4; color:var(--muted)}
+  .edu-text strong{display:block; color:var(--text); margin-bottom:2px}
 
-    /* ===== Page layout ===== */
-    main{padding-top:84px}
-    .grid{
-      display:grid; gap:var(--gap);
-      grid-template-columns: 1.05fr 1.35fr;
-      align-items:start;
-      padding:var(--pad) 0;
-    }
-    @media (max-width: 980px){
-      .grid{grid-template-columns:1fr}
-    }
+  .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+    border:1px solid var(--stroke); border-radius:999px; padding:10px 14px; font-weight:700;
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.05)}
 
-    /* Left (sticky) */
-    .about-col{position:sticky; top:calc(84px + var(--pad)); align-self:start}
-    .kicker{font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
-    h1{
-      margin:.4rem 0 1rem; font-size:clamp(32px,6vw,56px); line-height:1.05;
-      letter-spacing:.01em; font-weight:800;
-    }
-    .sub{color:var(--muted); max-width:52ch; font-size:1.05rem}
+  /* Right (content) */
+  .section{border-top:1px solid var(--stroke); padding-top:18px; margin-top:6px}
+  .eyebrow{color:var(--muted); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase}
+  .section h2{margin:.1rem 0 .7rem; font-size:clamp(22px,3vw,32px)}
 
-    .portrait{
-      display:block; width:100%; margin:18px 0 8px;
-      border:1px solid var(--stroke); border-radius:14px; overflow:hidden;
-    }
+  .projects{display:grid; gap:16px}
+  .proj{display:grid; grid-template-columns:90px 1fr; gap:14px; align-items:start; border-bottom:1px solid var(--stroke); padding-bottom:16px}
+  .proj:last-child{border-bottom:none}
+  .num{color:var(--muted); font-variant-numeric:tabular-nums}
 
-    .meta{display:grid; gap:10px; margin:16px 0}
-    .meta-row{display:grid; grid-template-columns:110px 1fr; gap:10px}
-    .meta .label{color:var(--muted)}
-
-    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .btn{
-      display:inline-flex; align-items:center; gap:8px; cursor:pointer;
-      border:1px solid var(--stroke); border-radius:999px; padding:10px 14px; font-weight:700;
-      transition:transform .2s ease, border-color .2s ease, background .2s ease;
-    }
-    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.05)}
-
-    /* Right (scrolling content) */
-    .section{border-top:1px solid var(--stroke); padding-top:18px; margin-top:6px}
-    .section h2{margin:0 0 .5rem; font-size:clamp(22px,3vw,32px)}
-    .eyebrow{color:var(--muted); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase}
-
-    .copy{max-width:75ch; font-size:1.05rem}
-    .copy p{margin:0 0 14px}
-
-    .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
-    @media (max-width:900px){.cards{grid-template-columns:1fr}}
-
-    .card{
-      border:1px solid var(--stroke); border-radius:14px; overflow:hidden;
-      transition:transform .2s ease, border-color .2s ease;
-      background:#0a0a0a;
-    }
-    .card:hover{transform:translateY(-3px); border-color:rgba(255,255,255,.22)}
-    .card img{width:100%; height:260px; object-fit:cover; display:block}
-    .card-body{padding:14px}
-    .card h3{margin:.2rem 0 .4rem; font-size:1.05rem}
-    .muted{color:var(--muted)}
-
-    .projects{display:grid; gap:16px}
-    .proj{display:grid; grid-template-columns:90px 1fr; gap:14px; align-items:start; border-bottom:1px solid var(--stroke); padding-bottom:16px}
-    .proj:last-child{border-bottom:none}
-    .num{color:var(--muted); font-variant-numeric:tabular-nums}
-
-    footer{margin:56px 0 20px; border-top:1px solid var(--stroke); padding-top:16px; color:var(--muted); font-size:.9rem}
- /* Make nav bar consistent across all pages */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  background: #000;
-  border-bottom: 1px solid var(--stroke);
-}
-
-header .nav {
-  width: min(100%, var(--maxw));
-  margin: 0 auto;
-  padding: 20px var(--pad);   /* match other pages */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
- </style>
+  footer{margin:56px 0 20px; border-top:1px solid var(--stroke); padding-top:16px; color:var(--muted); font-size:.9rem}
+</style>
 </head>
 
 <body>
   <!-- ===== Header ===== -->
   <header>
-    <div class="nav wrap">
+    <div class="wrap nav">
       <div class="logo">ALEXANDRA HARTINGER</div>
       <nav>
         <a href="index.html">Home</a>
@@ -156,105 +104,83 @@ header .nav {
 
   <!-- ===== Main ===== -->
   <main class="wrap">
-  <div class="grid"> ... </div>
-</main>
+    <div class="grid">
+      <!-- Left column (sticky) -->
       <aside class="about-col">
         <div class="kicker">Art Direction · Brand · Digital</div>
         <h1>Strategy meets heart. Design meets purpose.</h1>
-        <p class="sub">
-          Currently moving to Denver. Previously led the Main Street Auto rebrand and NASCAR sponsorship creative.
-          I build brand systems, interactive portfolios, and content that actually moves.
-        </p>
+        <p class="sub">Currently moving to Denver. Previously led the Main Street Auto rebrand and NASCAR sponsorship creative. I build brand systems, interactive portfolios, and content that actually moves.</p>
 
-        <img class="portrait" src="assets/recordphoto.jpg" alt="Alexandra Hartinger holding a vinyl record above her head" />
+        <img class="portrait" src="assets/recordphoto.jpg" alt="Alexandra Hartinger holding a vinyl record above her head"/>
 
         <div class="meta">
-          <div class="meta-row">
-            <div class="label">Based</div>
-            <div>Denver, CO (from Atlanta)</div>
-          </div>
-          <div class="meta-row">
-            <div class="label">Focus</div>
-            <div>Brand systems, web design, content strategy, art direction</div>
-          </div>
-          <div class="meta-row">
-            <div class="label">Select</div>
-            <div>Main Street Auto, CJ McLaughlin, Northern Rock → Main Street Auto rebrand</div>
+          <div class="meta-row"><div class="label">Based</div><div>Denver, CO (from Atlanta)</div></div>
+          <div class="meta-row"><div class="label">Focus</div><div>Brand systems, web design, content strategy, art direction</div></div>
+          <div class="meta-row"><div class="label">Select</div><div>Main Street Auto, CJ McLaughlin, Northern Rock → Main Street Auto rebrand</div></div>
+        </div>
+
+        <!-- SCAD block -->
+        <div class="education">
+          <img class="edu-logo" src="assets/scadlogo.png" alt="Savannah College of Art and Design logo"/>
+          <div class="edu-text">
+            <strong>Savannah College of Art and Design</strong>
+            BFA in Advertising (Art Direction)<br/>Graduated with Honors
           </div>
         </div>
 
-     <div id="contact" class="cta">
-  <a class="btn" href="mailto:lexhartinger@gmail.com">Email me</a>
-  <a class="btn" href="https://www.linkedin.com/in/alexhartinger/" target="_blank" rel="noopener">LinkedIn</a>
+        <!-- CTAs -->
+        <div id="contact" class="cta">
+          <a class="btn" href="mailto:lexhartinger@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/alexhartinger/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="assets/AlexandraHartinger_Resume.png" target="_blank" rel="noopener">View résumé</a>
+          <a class="btn" href="assets/AlexandraHartinger_Resume.png" download="AlexandraHartinger_Resume.png">Download résumé</a>
+        </div>
+      </aside>
 
-  <!-- Resume: view in a new tab -->
-  <a class="btn" href="assets/AlexandraHartinger_Resume.png" target="_blank" rel="noopener">
-    View Resume
-  </a>
-
-  <!-- Resume: force download -->
-  <a class="btn" href="assets/AlexandraHartinger_Resume.png" download="AlexandraHartinger_Resume.png">
-    Download Resume
-  </a>
-</div>
-    
-
-
-      <!-- Right column (scroll content) -->
+      <!-- Right column (no Highlights, Projects only) -->
       <section>
         <div class="section">
-          <div class="eyebrow">The short version</div>
-          <h2>About</h2>
-          <div class="copy">
-            <p>Hi, I’m Alex — an art director and designer with a brand-first brain and a digital toolkit. I led the rebrand from Northern Rock to Main Street Auto across storefronts, uniforms, signage, and content. I also creative-direct social and sponsorship work, including a NASCAR partnership with CJ McLaughlin.</p>
-            <p>I like bold, practical systems that scale: color rules that tell a story, layouts that make information easy, motion that feels intentional. I build clean, performant pages by hand (like this one) and ship fast without sacrificing craft.</p>
-            <p>Right now I’m finishing my portfolio and looking for a Denver-based creative team where I can plug into brand, content, and product moments — and make the work unmistakably ours.</p>
+          <div class="eyebrow">Selected work</div>
+          <h2>Projects</h2>
+
+          <div class="projects">
+            <!-- 01 — David Yurman Holiday 2023 -->
+            <div class="proj">
+              <div class="num">01</div>
+              <div>
+                <h3><a href="david-yurman-holiday-2023.html">David Yurman — Holiday 2023 Campaign</a></h3>
+                <div class="muted">SCADpro | Head of Concept → Co-Head of Marketing. Campaign strategy, art direction, and cross-team leadership.</div>
+              </div>
+            </div>
+
+            <!-- 02 — Main Street Auto Rebrand -->
+            <div class="proj">
+              <div class="num">02</div>
+              <div>
+                <h3><a href="main-street-auto.html">Main Street Auto — Rebrand</a></h3>
+                <div class="muted">System design across storefronts, signage, uniforms, and content. Scalable color, layout, and tone rules.</div>
+              </div>
+            </div>
+
+            <!-- 03 — NASCAR x Main Street Auto -->
+            <div class="proj">
+              <div class="num">03</div>
+              <div>
+                <h3><a href="nascar.html">#92 NASCAR × Main Street Auto — Sponsorship</a></h3>
+                <div class="muted">Creative direction for suit mockups, track-day content, hero assets, and a fast, premium web section.</div>
+              </div>
+            </div>
+
+            <!-- 04 — Hand-Coded Portfolio -->
+            <div class="proj">
+              <div class="num">04</div>
+              <div>
+                <h3><a href="index.html#work">Hand-coded Portfolio — GitHub + ChatGPT</a></h3>
+                <div class="muted">Built from scratch with HTML/CSS/JS for full creative control. No templates—Squarespace couldn’t keep up with the ideas.</div>
+              </div>
+            </div>
           </div>
         </div>
-
-<div class="section">
-  <div class="eyebrow">Selected work</div>
-  <h2>Projects</h2>
-
-  <div class="projects">
-    <!-- 01 — David Yurman Holiday 2023 -->
-    <div class="proj">
-      <div class="num">01</div>
-      <div>
-        <h3><a href="david-yurman-holiday-2023.html">David Yurman — Holiday 2023 Campaign</a></h3>
-        <div class="muted">SCADpro | Head of Concept → Co-Head of Marketing. Campaign strategy, art direction, and cross-team leadership.</div>
-      </div>
-    </div>
-
-    <!-- 02 — Main Street Auto Rebrand -->
-    <div class="proj">
-      <div class="num">02</div>
-      <div>
-        <h3><a href="main-street-auto.html">Main Street Auto — Rebrand</a></h3>
-        <div class="muted">System design across storefronts, signage, uniforms, and content. Scalable color, layout, and tone rules.</div>
-      </div>
-    </div>
-
-    <!-- 03 — NASCAR x Main Street Auto -->
-    <div class="proj">
-      <div class="num">03</div>
-      <div>
-        <h3><a href="nascar.html">#92 NASCAR × Main Street Auto — Sponsorship</a></h3>
-        <div class="muted">Creative direction for suit mockups, track-day content, hero assets, and a fast, premium web section.</div>
-      </div>
-    </div>
-
-    <!-- 04 — Hand-Coded Portfolio -->
-    <div class="proj">
-      <div class="num">04</div>
-      <div>
-        <h3><a href="index.html#work">Hand-coded Portfolio — GitHub + ChatGPT</a></h3>
-        <div class="muted">Built from scratch with HTML/CSS/JS for full creative control. No templates—Squarespace couldn’t keep up with the ideas.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
         <footer>© <span id="y"></span> Alexandra Hartinger. Built by hand.</footer>
       </section>
