@@ -30,37 +30,53 @@
     section:not(#team) h2 { text-transform: uppercase; margin-bottom: 20px; text-align: left; font-size: 2rem; }
     section#team h2, section#about h2 { text-transform: uppercase; margin-bottom: 20px; text-align: center; font-size: 2rem; }
 
-    /* Car Carousel */
-.car-carousel {
+/* Car Carousel */
+.car-carousel{
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
+  align-items: center;           /* centers arrows vertically */
   justify-content: center;
 }
-.car-carousel img {
+
+.car-frame{
+  position: relative;
   width: 100%;
-  max-width: 1200px;
+  aspect-ratio: 16 / 9;          /* lock height; tweak if you want taller/shorter */
+  background: #000;              /* keeps a clean letterbox behind images */
   border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Make the image fill the frame without changing the frame’s size */
+.car-frame img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;           /* preserve artwork; add letterboxing if needed */
   display: block;
 }
-.carousel-arrow {
+
+.carousel-arrow{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
+  background: rgba(0,0,0,.5);
+  color: #fff;
   font-size: 2rem;
   padding: 10px;
-  border: none;
+  border: 0;
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
+  line-height: 1;
+  user-select: none;
 }
-.carousel-arrow.left { left: 10px; }
-.carousel-arrow.right { right: 10px; }
-.carousel-arrow:hover { background-color: rgba(0,0,0,0.8); }
+.carousel-arrow.left{ left: 10px; }
+.carousel-arrow.right{ right: 10px; }
+.carousel-arrow:hover{ background: rgba(0,0,0,.8); }
 
     /* GALLERY CAROUSEL */
     .gallery-carousel { display: flex; flex-direction: column; gap: 20px; overflow: hidden; background: black; padding: 20px; border-radius: 10px; }
@@ -141,12 +157,15 @@
   <section>
   <h2>Branding</h2>
   
-  <!-- Car Carousel -->
-  <div class="car-carousel">
-    <button class="carousel-arrow left" onclick="changeCarImage(-1)">&#10094;</button>
-    <img id="carImage" src="assets/CarTourThumbnail.jpg" alt="Car View" />
-    <button class="carousel-arrow right" onclick="changeCarImage(1)">&#10095;</button>
+ <div class="car-carousel">
+  <button class="carousel-arrow left" onclick="changeCarImage(-1)">&#10094;</button>
+
+  <div class="car-frame">
+    <img id="carImage" src="assets/CarTourThumbnail.jpg" alt="Car View">
   </div>
+
+  <button class="carousel-arrow right" onclick="changeCarImage(1)">&#10095;</button>
+</div>
 
   <!-- Suit Design Video -->
   <video 
