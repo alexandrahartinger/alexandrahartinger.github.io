@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alex Hartinger — Color-Blocked Portfolio (Cobalt)</title>
+
+<style>
+  /* ================= Base & Theme ================= */
+  :root{
+    --bg:#0b0b0b; --text:#fff; --muted:rgba(255,255,255,.72);
+    /* Color-block palette (cobalt-first) */
+    --c1:#111;            /* ink */
+    --c2:#0047AB;         /* cobalt */
+    --c3:#d92b2b;         /* msa red */
+    --c4:#101316;         /* night */
+    --c5:#e9eef2;         /* porcelain */
+    --c6:#1b1b1b;         /* graphite */
+    --cardRadius:24px;
+    --maxw:1200px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+       font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;line-height:1.45}
+  a{color:inherit;text-decoration:none}
+  img,video{max-width:100%;display:block}
+
+  /* ================= Nav ================= */
+  header{
+    position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(6px);
+    background:color-mix(in oklab, var(--bg) 88%, transparent);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav{
+    max-width:var(--maxw); margin:0 auto; padding:18px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{font-weight:800; letter-spacing:.02em; font-size:clamp(18px,2.2vw,24px); opacity:1; transition:opacity .4s ease}
+  .nav a{opacity:.9; margin-left:24px; text-transform:uppercase; font-size:.92rem}
+  .nav a:hover{opacity:1}
+
+  /* ================= Blocks ================= */
+  .block{min-height:88vh; display:grid; place-items:center; position:relative; padding:60px 20px}
+  .container{width:100%; max-width:var(--maxw); margin:0 auto}
+
+  /* Split hero (text / media) */
+  .hero{display:grid; grid-template-columns: 1fr; gap:28px}
+  @media (min-width:900px){ .hero{grid-template-columns: 1.1fr .9fr; align-items:center} }
+
+  .eyebrow{letter-spacing:.18em; text-transform:uppercase; font-size:.8rem; opacity:.7}
+  h1{font-size:clamp(36px,5.8vw,84px); line-height:1.02; margin:10px 0 16px}
+  .lead{font-size:clamp(16px,1.5vw,20px); color:var(--muted); max-width:52ch}
+
+  .cta{display:inline-flex; gap:10px; align-items:center; border:1px solid rgba(255,255,255,.18);
+       padding:12px 18px; border-radius:999px; margin-top:22px; transition:transform .2s ease, background .2s}
+  .cta:hover{transform:translateY(-2px); background:rgba(255,255,255,.06)}
+
+  /* Color wrappers for blocks */
+  .ink{background:var(--c1)}
+  .blue{background:var(--c2)}
+  .red{background:var(--c3)}
+  .porcelain{background:var(--c5); color:#0b0b0b}
+  .graphite{background:var(--c6)}
+
+  /* ================= Work Grid ================= */
+  .workgrid{display:grid; gap:20px; grid-template-columns: 1fr}
+  @media (min-width:820px){ .workgrid{grid-template-columns: 1.2fr .8fr} }
+  @media (min-width:1120px){ .workgrid{grid-template-columns: repeat(12, 1fr)} }
+
+  .tile{ position:relative; border-radius:var(--cardRadius); overflow:hidden; isolation:isolate;
+         min-height:360px; display:flex; align-items:flex-end; box-shadow:0 10px 30px rgba(0,0,0,.28); transform:translateZ(0) }
+  @media (min-width:1120px){ .tile.xl{grid-column: span 7} .tile.md{grid-column: span 5} }
+  .tile .media{ position:absolute; inset:0; display:grid; place-items:center; background:#000 }
+  .tile .media img, .tile .media video{ width:100%; height:100%; object-fit:cover; filter:saturate(1.04) contrast(1.02);
+                                        transform:scale(1.01); transition:transform .35s ease }
+  .tile:hover .media img, .tile:hover .media video{ transform:scale(1.05) }
+  .tile .label{ position:relative; padding:16px 18px; margin:16px; border-radius:14px; background:rgba(0,0,0,.45);
+                backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.16) }
+  .tile .label b{display:block; font-size:1rem; letter-spacing:.04em}
+  .tile .label span{font-size:.9rem; opacity:.8}
+
+  /* ================= Split Color Section ================= */
+  .split{ display:grid; gap:24px; grid-template-columns: 1fr }
+  @media (min-width:900px){ .split{grid-template-columns: 1fr 1fr} }
+  .card{ border-radius:var(--cardRadius); padding:28px; position:relative; border:1px solid rgba(255,255,255,.08) }
+
+  /* ================= Footer ================= */
+  footer{padding:60px 20px; border-top:1px solid rgba(255,255,255,.08); text-align:center; color:var(--muted)}
+
+  /* ================= Reveal Animations ================= */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  /* ================= Intro Name Animation ================= */
+  #name-intro{ position:fixed; inset:0; z-index:100; display:grid; place-items:center; background:var(--c2); color:#fff }
+  #name-intro span{ font-weight:800; letter-spacing:.02em; font-size:clamp(24px, 6vw, 28px) }
+  #name-intro.hide{ opacity:0; transition:opacity .6s ease }
+
+  /* Reduce motion accessibility */
+  @media (prefers-reduced-motion: reduce){
+    #name-intro{ display:none }
+    .reveal{opacity:1; transform:none}
+    .tile .media img, .tile .media video{ transition:none }
+  }
+</style>
+</head>
+<body>
+
+<!-- Intro overlay that animates your name into the nav logo -->
+<div id="name-intro" aria-hidden="true">
+  <span>Alexandra Hartinger</span>
+</div>
+
+<header>
+  <div class="nav">
+    <div class="logo">Alexandra Hartinger</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="block blue">
+  <div class="container hero">
+    <div class="reveal">
+      <div class="eyebrow">Strategy meets heart</div>
+      <h1>Design that makes people stop — and feel something.</h1>
+      <p class="lead">Art direction, branding, and content that moves. Built with bold color, clear strategy, and craft.</p>
+      <a class="cta" href="#work">See the work →</a>
+    </div>
+
+    <!-- Swap this image or use a looping video -->
+    <div class="reveal">
+      <div class="tile" style="min-height:420px;border-radius:20px;">
+        <div class="media">
+          <video src="assets/NASCAR_Cover_Video.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK GRID ================= -->
+<section id="work" class="block ink">
+  <div class="container workgrid">
+    <!-- XL NASCAR tile -->
+    <a class="tile xl reveal" href="nascar2.html" style="background:linear-gradient(180deg, rgba(16,19,22,.0), rgba(16,19,22,.65))">
+      <div class="media">
+        <img src="assets/CarTourThumbnail.jpg" alt="NASCAR — Main Street Auto">
+      </div>
+      <div class="label"><b>NASCAR x Main Street Auto</b><span>Car design, hero cards, content</span></div>
+    </a>
+
+    <!-- Smaller tiles (examples) -->
+    <a class="tile md reveal porcelain" href="#" style="color:#0b0b0b">
+      <div class="media" style="background:#f3f6f8">
+        <img src="assets/17.png" alt="Race Suit Mockups" style="object-fit:contain">
+      </div>
+      <div class="label" style="background:rgba(255,255,255,.7); border-color:rgba(0,0,0,.08)">
+        <b>Creative Direction</b><span>Race suit system & branding</span>
+      </div>
+    </a>
+
+    <a class="tile md reveal red" href="#">
+      <div class="media"><img src="assets/A7407883.jpeg" alt="Track Content"></div>
+      <div class="label"><b>Content Systems</b><span>Short-form video & reels</span></div>
+    </a>
+
+    <a class="tile md reveal blue" href="#">
+      <div class="media"><img src="assets/501A1141.jpeg" alt="Photography"></div>
+      <div class="label"><b>Photography</b><span>Event capture & gallery</span></div>
+    </a>
+
+    <a class="tile md reveal graphite" href="#">
+      <div class="media"><img src="assets/DRO_5124.jpeg" alt="Brand Campaign"></div>
+      <div class="label"><b>Brand Campaign</b><span>OOH + social + site</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- ================= SPLIT ABOUT ================= -->
+<section id="about" class="block porcelain">
+  <div class="container split">
+    <div class="card" style="background:#fff">
+      <h2 style="margin:0 0 6px">About</h2>
+      <p style="color:#1a1a1a">I’m a designer and art director building brand systems and campaigns that actually connect. SCAD-trained, NASCAR-tested, Denver-bound. I like bold color, clean structure, and work that moves people.</p>
+      <p style="color:#3a3a3a">Tools: Figma, Adobe CC, HTML/CSS/JS. Comfortable directing freelancers and partnering with copy.</p>
+      <a class="cta" href="about.html" style="border-color:#e1e1e1">More about me →</a>
+    </div>
+    <div class="card" style="background:#0047AB; border-color:rgba(255,255,255,.18); color:white">
+      <h2 style="margin:0 0 6px">Selected Clients & Highlights</h2>
+      <ul style="margin:0; padding-left:18px; line-height:1.8; color:rgba(255,255,255,.92)">
+        <li>Main Street Auto — 90+ location rebrand</li>
+        <li>NASCAR Xfinity — #92 CJ McLaughlin creative</li>
+        <li>Website & content systems that drive revenue</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="block red">
+  <div class="container reveal" style="text-align:center">
+    <h2 style="font-size:clamp(28px,4.6vw,60px); margin:0 0 10px">Let’s build something bold.</h2>
+    <p class="lead" style="margin:0 auto 18px">Email <a href="mailto:lexhartinger@gmail.com">lexhartinger@gmail.com</a> · (770) 722-1238</p>
+    <a class="cta" href="mailto:lexhartinger@gmail.com">Start a project →</a>
+  </div>
+</section>
+
+<footer>© 2025 Alexandra Hartinger</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.2});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ================= Intro Name -> Logo animation (FLIP) =================
+  (function(){
+    const intro = document.getElementById('name-intro');
+    const logo = document.querySelector('.logo');
+
+    // Only run once per browser unless you clear storage
+    const seenKey = 'introSeen_v1';
+    const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!intro || !logo || prefersReduce || localStorage.getItem(seenKey)){
+      intro && intro.remove();
+      return;
+    }
+
+    // Ensure logo is visible after animation; temporarily hide to avoid double text
+    const originalLogoOpacity = getComputedStyle(logo).opacity;
+    logo.style.opacity = '0';
+
+    // Wait a tick so layout is stable
+    requestAnimationFrame(()=>{
+      const nameEl = intro.querySelector('span');
+      // Match header font size/weight for perfect morph
+      nameEl.style.fontSize = getComputedStyle(logo).fontSize;
+
+      const start = nameEl.getBoundingClientRect();
+      const end = logo.getBoundingClientRect();
+
+      const dx = end.left - start.left;
+      const dy = end.top - start.top;
+      const sx = end.width / start.width;
+      const sy = end.height / start.height;
+
+      nameEl.style.transformOrigin = 'left top';
+
+      const anim = nameEl.animate([
+        { transform: 'translate(0px,0px) scale(1,1)' },
+        { transform: `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})` }
+      ], {
+        duration: 1200,
+        easing: 'cubic-bezier(.2,.8,.2,1)'
+      });
+
+      anim.onfinish = () => {
+        intro.classList.add('hide');
+        logo.style.opacity = originalLogoOpacity || '1';
+        setTimeout(()=> intro.remove(), 650);
+        localStorage.setItem(seenKey, '1');
+      };
+    });
+  })();
+</script>
+
+</body>
+</html>
