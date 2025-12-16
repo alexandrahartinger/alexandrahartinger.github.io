@@ -4,7 +4,73 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alexandra Hartinger Portfolio</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+
   <style>
+    /* Global Basics */
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif; /* Default font */
+    }
+
+    /* --- New Intro Section Styles --- */
+    .intro-header {
+        background-color: #ffffff;
+        color: #000000;
+        padding: 15vh 5% 10vh;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .intro-headline {
+        font-family: 'Fraunces', serif; /* This needs the link above to work */
+        font-size: clamp(3.5rem, 7vw, 6.5rem);
+        font-weight: 300;
+        line-height: 1.15;
+        letter-spacing: -1.5px;
+        margin-bottom: 2.5rem;
+    }
+
+    .intro-headline em {
+        font-family: 'Fraunces', serif;
+        font-weight: 300;
+        font-style: italic;
+    }
+
+    .intro-subtext {
+        font-size: 1.1rem;
+        color: #555555;
+        max-width: 500px;
+        line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+    <header class="intro-header">
+        <h1 class="intro-headline">
+            Strategist,<br>
+            Storyteller, & <br>
+            <em>Visual Director.</em>
+        </h1>
+        <p class="intro-subtext">
+            Creating emotive campaigns for luxury and lifestyle brands. Currently based in the Southeast.
+        </p>
+    </header>
+
+    </body>
+</html>
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .intro-header { padding: 10vh 5%; }
+    .intro-headline { font-size: 3rem; }
+}
     :root {
       --header-h: 72px;
       --fade-dur: 900ms;
@@ -13,10 +79,21 @@
 
     * { box-sizing: border-box; }
     html, body {
+      <header class="intro-header">
+    <h1 class="intro-headline">
+        Strategist,<br>
+        Storyteller, & <br>
+        <em>Visual Director.</em>
+    </h1>
+    <p class="intro-subtext">
+        Creating emotive campaigns for luxury and lifestyle brands. Currently based in the Southeast.
+    </p>
+</header>
       margin: 0; padding: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
       color: #fff; background: #000;
       overflow-x: hidden;
+      
     }
 
     /* ===== Intro Splash ===== */
@@ -106,6 +183,7 @@
       #intro { transition: none !important; }
     }
   </style>
+
 </head>
 <body>
 
