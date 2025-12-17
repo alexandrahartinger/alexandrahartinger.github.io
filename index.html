@@ -18,8 +18,9 @@
 
     body {
         margin: 0; padding: 0;
+        /* Using system fonts (Helvetica/Arial) to match your "Name" style */
         font-family: "Helvetica Neue", Arial, sans-serif;
-        background: #000; /* Dark background for the video parts */
+        background: #000; 
         color: #fff;
         overflow-x: hidden;
     }
@@ -35,11 +36,17 @@
       z-index: 100;
       backdrop-filter: blur(4px);
     }
+    
     header.fixed-nav .logo {
-      font-size: 1.2rem; font-weight: 800; text-transform: uppercase;
+      font-size: 1.2rem; 
+      font-weight: 800; 
+      text-transform: uppercase;
       letter-spacing: .12em;
       color: #fff;
+      /* Ensuring logo uses the simple font */
+      font-family: "Helvetica Neue", Arial, sans-serif;
     }
+    
     nav a {
       color: #fff; text-decoration: none; margin-left: 28px;
       font-size: .95rem; font-weight: 700; text-transform: uppercase;
@@ -47,37 +54,41 @@
     }
     nav a:hover { color: #bdbdbd; }
 
-    /* ===== New White Intro Section ===== */
+    /* ===== Intro Section (Updated) ===== */
     .intro-block {
-        background-color: #ffffff; /* White background */
-        color: #000000; /* Black text */
-        padding: 15vh 5% 10vh;
+        background-color: #000000; /* Black Background */
+        color: #ffffff; /* White Text */
+        padding: 18vh 5% 12vh;
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: var(--header-h); /* Push down so nav doesn't cover it */
+        margin-top: var(--header-h);
     }
 
     .intro-headline {
-        font-family: 'Fraunces', serif;
-        font-size: clamp(3.5rem, 7vw, 6.5rem);
-        font-weight: 300;
-        line-height: 1.15;
-        letter-spacing: -1.5px;
+        /* Matches your name/logo font */
+        font-family: "Helvetica Neue", Arial, sans-serif; 
+        font-size: clamp(3rem, 6.5vw, 6rem);
+        font-weight: 700; /* Bold like the logo */
+        line-height: 1.1;
+        letter-spacing: -0.02em;
         margin-bottom: 2.5rem;
         margin-top: 0;
     }
 
+    /* The "Keyword" styling */
     .intro-headline em {
-        font-family: 'Fraunces', serif;
+        font-family: 'Fraunces', serif; /* The decorative font */
         font-weight: 300;
         font-style: italic;
+        color: #e0e0e0; /* Slightly softer white for elegance */
     }
 
     .intro-subtext {
+        font-family: "Helvetica Neue", Arial, sans-serif;
         font-size: 1.1rem;
-        color: #555555;
+        color: #888; /* Grey text */
         max-width: 500px;
         line-height: 1.6;
     }
@@ -95,8 +106,9 @@
     .section video, .section img.bg {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; z-index: 0; pointer-events: none;
-      filter: brightness(.78);
+      filter: brightness(.65); /* Darkened slightly so text pops */
     }
+    
     .overlay {
       position: relative; z-index: 1; text-align: left;
       max-width: 640px; padding: 0 40px;
@@ -120,14 +132,13 @@
 
     footer {
       text-align: center; padding: 40px 20px;
-      font-size: .9rem; color: #aaa; background: #000;
-      border-top: 1px solid rgba(255,255,255,.08);
+      font-size: .9rem; color: #444; background: #000;
+      border-top: 1px solid #222;
     }
 
-    /* Mobile Adjustment */
     @media (max-width: 768px) {
-        .intro-block { padding: 10vh 5%; }
-        .intro-headline { font-size: 3rem; }
+        .intro-block { padding: 12vh 5%; }
+        .intro-headline { font-size: 2.8rem; }
     }
   </style>
 </head>
@@ -194,7 +205,7 @@
   </footer>
 
   <script>
-    // Section reveal on scroll
+    // Fade in sections on scroll
     const sections = document.querySelectorAll(".section");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
