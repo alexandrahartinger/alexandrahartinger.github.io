@@ -1,189 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>About — Alexandra Hartinger</title>
-<style>
-  body, html {
-    margin: 0; padding: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-    background: black; color: white; overflow-x: hidden;
-  }
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Alexandra Hartinger</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+
   <style>
-  /* ================= Base & Theme ================= */
-  :root{
-    --bg:#0b0b0b; --text:#fff; --muted:rgba(255,255,255,.72);
-    /* Color-block palette (cobalt-first) */
-    --c1:#111;            /* ink */
-    --c2:#0047AB;         /* cobalt */
-    --c3:#d92b2b;         /* msa red */
-    --c4:#101316;         /* night */
-    --c5:#e9eef2;         /* porcelain */
-    --c6:#1b1b1b;         /* graphite */
-    --cardRadius:24px;
-    --maxw:1200px;
-  }
+    :root {
+      --header-h: 72px;
+    }
 
-  /* ===== Header (match David Yurman) ===== */
-  header {
-    position: fixed; top: 0; width: 100%; z-index: 10;
-    background: black;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 40px; box-sizing: border-box;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  header .logo {
-    font-size: 1.8rem; font-weight: bold; text-transform: uppercase;
-  }
-  nav a {
-    color: white; text-decoration: none; margin-left: 30px;
-    font-size: 1rem; text-transform: uppercase; font-weight: bold;
-  }
-  nav a:hover { color: #aaa; }
-  nav a.active { color: #aaa; }
+    * { box-sizing: border-box; }
 
-  /* ===== Page layout ===== */
-  main { padding-top: 100px; max-width: 980px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 32px 0; }
-  @media (max-width:960px){ .grid{grid-template-columns:1fr} }
+    body {
+        margin: 0; padding: 0;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: #000; 
+        color: #fff;
+        overflow-x: hidden;
+        line-height: 1.6;
+    }
 
-  .about-col { position: sticky; top: 140px; align-self: start; }
-  .kicker { font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); }
-  h1 { margin:.4rem 0 1rem; font-size:clamp(30px,4.6vw,46px); line-height:1.1; font-weight:800; }
-  .sub { color:rgba(255,255,255,.72); max-width:52ch; font-size:1rem; }
-  .portrait { display:block; width:100%; margin:18px 0 8px; border:1px solid rgba(255,255,255,.12); border-radius:14px; overflow:hidden; }
+    /* ===== Navigation (Matches Index) ===== */
+    header.fixed-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(0,0,0,.9);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      z-index: 100;
+      backdrop-filter: blur(4px);
+    }
+    
+    header.fixed-nav .logo {
+      font-size: 1.2rem; 
+      font-weight: 800; 
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    nav a {
+      color: #fff; text-decoration: none; margin-left: 28px;
+      font-size: .95rem; font-weight: 700; text-transform: uppercase;
+      transition: color .25s;
+    }
+    nav a:hover { color: #bdbdbd; }
 
-  .meta { display:grid; gap:10px; margin:16px 0; }
-  .meta-row { display:grid; grid-template-columns:110px 1fr; gap:10px; }
-  .label { color:rgba(255,255,255,.72); }
+    /* ===== Hero Profile Section ===== */
+    .profile-section {
+        margin-top: var(--header-h);
+        padding: 6rem 5%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
 
-  .cta { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
-  .btn {
-    display:inline-flex; align-items:center; gap:8px; cursor:pointer;
-    border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:10px 14px; font-weight:700;
-    background:transparent; color:white;
-    transition:background .2s ease, color .2s ease;
-  }
-  .btn:hover { background:rgba(255,255,255,.1); color:#fff; }
+    .profile-img-container {
+        width: 100%;
+        /* Adjusted aspect ratio slightly for the new photo */
+        aspect-ratio: 4/5;
+        overflow: hidden;
+        border: 1px solid #333; 
+    }
 
-  .section { border-top:1px solid rgba(255,255,255,.12); padding-top:18px; margin-top:6px; }
-  .eyebrow { color:rgba(255,255,255,.72); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; }
-  .section h2 { margin:.1rem 0 .7rem; font-size:clamp(20px,2.6vw,28px); }
-  .copy { max-width:75ch; font-size:1rem; }
-  .copy p { margin:0 0 14px; }
+    .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Removed grayscale so the orange pops! */
+        filter: contrast(1.05); 
+    }
 
-  .projects { display:grid; gap:16px; }
-  .proj { display:grid; grid-template-columns:90px 1fr; gap:14px; align-items:start; border-bottom:1px solid rgba(255,255,255,.12); padding-bottom:16px; }
-  .proj:last-child { border-bottom:none; }
-  .num { color:rgba(255,255,255,.72); font-variant-numeric:tabular-nums; }
+    .bio-content h1 {
+        font-family: 'Fraunces', serif;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+    }
 
-  footer { margin:56px 0 20px; border-top:1px solid rgba(255,255,255,.12); padding-top:16px; color:rgba(255,255,255,.72); font-size:.9rem; text-align:center; }
+    .bio-content p {
+        font-size: 1.1rem;
+        color: #ccc;
+        margin-bottom: 1.5rem;
+        max-width: 500px;
+    }
 
-  a, a:visited {
-  color: white;
-  text-decoration: none;
-}
-a:hover {
-  color: #aaa; /* subtle hover effect */
-}</style>
+    /* ===== Experience / Metrics Section ===== */
+    .experience-section {
+        padding: 4rem 5%;
+        border-top: 1px solid #222;
+        border-bottom: 1px solid #222;
+        background-color: #050505;
+    }
+
+    .exp-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+    }
+
+    .section-label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #666;
+        font-weight: 700;
+    }
+
+    .resume-item {
+        margin-bottom: 3rem;
+    }
+
+    .resume-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+    }
+
+    .role-meta {
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 1rem;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .resume-item ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .resume-item li {
+        margin-bottom: 0.8rem;
+        color: #ddd;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .resume-item li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: #666;
+    }
+
+    /* ===== Gallery Grid ===== */
+    .gallery-section {
+        padding: 6rem 5%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .gallery-title {
+        font-family: 'Fraunces', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-weight: 300;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 1/1; 
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .caption {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 1rem;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .caption { opacity: 1; }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 4rem 2rem;
+        font-size: 0.9rem;
+        color: #444;
+        border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+        .profile-section { grid-template-columns: 1fr; }
+        .exp-container { grid-template-columns: 1fr; }
+        .bio-content h1 { font-size: 2.5rem; }
+    }
+  </style>
 </head>
-
 <body>
-  <!-- ===== Header ===== -->
-  <header>
-    <div class="logo">Alexandra Hartinger</div>
+
+  <header class="fixed-nav">
+    <a href="index.html" class="logo">Alexandra Hartinger</a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="about.html" class="active">About Me</a>
+      <a href="about.html">About Me</a>
     </nav>
   </header>
 
-  <!-- ===== Main ===== -->
-  <main>
-    <div class="grid">
-      <!-- Left column -->
-      <aside class="about-col">
-        <div class="kicker">Art Direction · Brand · Digital</div>
-        <h1>Strategy meets heart. Design meets purpose.</h1>
-
-        <img class="portrait" src="assets/recordphoto.jpg" alt="Alexandra Hartinger holding a vinyl record above her head"/>
-
-        <div class="meta">
-          <div class="meta-row"><div class="label">Based</div><div>Denver, CO (from Atlanta)</div></div>
-          <div class="meta-row"><div class="label">Focus</div><div>Brand systems, web design, content strategy, art direction</div></div>
-        </div>
-
-        <div id="contact" class="cta">
-          <a class="btn" href="mailto:lexhartinger@gmail.com">Email me</a>
-          <a class="btn" href="https://www.linkedin.com/in/alexhartinger/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="assets/Resume.pdf" target="_blank" rel="noopener">View Resume</a>
-          <a class="btn" href="assets/Resume.pdf" download="Resume.pdf">Download Resume</a>
-        </div>
-      </aside>
-
-      <!-- Right column -->
-      <section>
-        <div class="section">
-          <div class="eyebrow"></div>
-          <h2>About</h2>
-          <div class="copy">
-            <p>I’m a designer and art director always looking for ways to push past what’s expected. My work is about creating ideas that make people stop and think. Whether that’s through design, branding, or campaigns. Bringing those ideas into the real world and seeing their impact is what fuels my passion. Being around people with big passions and bold ideas pushes me (and my work) to grow. I thrive on collaboration and want to build alongside those who see the world through a creative lens and aren’t afraid to challenge the standards. My goal is to create work that feels alive, connects with people, and keeps raising the bar for what’s possible in advertising and design.</p>
-            <p>Right now I’m finishing coding my portfolio and looking for a Denver-based creative team to join.</p>
-          </div>
-        </div>
-
-        <div class="section">
-          <div class="eyebrow">Selected work</div>
-          <h2>Projects</h2>
-          <div class="projects">
-            <div class="proj">
-              <div class="num">01</div>
-              <div>
-                <h3><a href="david-yurman.html">David Yurman — Holiday 2023 Campaign</a></h3>
-                <div class="muted">SCADpro | Head of Concept → Co-Head of Marketing. Campaign strategy, art direction, and cross-team leadership.</div>
-              </div>
-            </div>
-            <div class="proj">
-              <div class="num">02</div>
-              <div>
-                <h3><a href="main-street-auto.html">Main Street Auto — Rebrand</a></h3>
-                <div class="muted">System design across storefronts, signage, uniforms, and content. Scalable color, layout, and tone rules.</div>
-              </div>
-            </div>
-            <div class="proj">
-              <div class="num">03</div>
-              <div>
-                <h3><a href="nascar.html">#92 NASCAR × Main Street Auto — Sponsorship</a></h3>
-                <div class="muted">Creative direction for suit mockups, track-day content, hero assets, and a fast, premium web section.</div>
-              </div>
-            </div>
-            <div class="proj">
-              <div class="num">04</div>
-              <div>
-                <h3><a href="index.html#work">Hand-coded Portfolio — GitHub + ChatGPT</a></h3>
-                <div class="muted">Built from scratch with HTML/CSS/JS for full creative control. No templates—Squarespace couldn’t keep up with the ideas.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <footer>© <span id="y"></span> Alexandra Hartinger. Built by hand.</footer>
-      </section>
+  <section class="profile-section">
+    <div class="bio-content">
+        <h1>Strategy meets <br><em>Artistry.</em></h1>
+        <p>
+            I am an Atlanta-based Marketing Manager and Creative Strategist with a background in Art Direction. I specialize in bridging the gap between executive vision and operational reality.
+        </p>
+        <p>
+            From scaling startup revenues to $150M+ to directing luxury holiday campaigns, my work is defined by a data-driven approach to storytelling.
+        </p>
+        <p>
+            <strong>Education:</strong> B.F.A. in Advertising & Branding, SCAD (Cum Laude).
+        </p>
     </div>
-  </main>
+    
+    <div class="profile-img-container">
+        <img src="assets/RECORD.jpg" alt="Alexandra Hartinger" class="profile-img">
+    </div>
+  </section>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-  
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="block red">
-  <div class="container reveal" style="text-align:center">
-    <h2 style="font-size:clamp(28px,4.6vw,60px); margin:0 0 10px">Let’s build something bold.</h2>
-    <p class="lead" style="margin:0 auto 18px">Email <a href="mailto:lexhartinger@gmail.com">lexhartinger@gmail.com</a> · (770) 722-1238</p>
-    <a class="cta" href="mailto:lexhartinger@gmail.com">Start a project →</a>
-  </div>
-</section>
+  <section class="experience-section">
+      <div class="exp-container">
+          <div class="section-label">Selected Experience</div>
+          
+          <div class="experience-list">
+              <div class="resume-item">
+                  <h3>Main Street Auto</h3>
+                  <span class="role-meta">Marketing Manager | 2024 - Present</span>
+                  <ul>
+                      <li>Scaled marketing infrastructure to support growth from 20 to 95+ locations, driving $150M+ in revenue.</li>
+                      <li>Designed direct mail campaigns generating $6.50 gross profit for every $1 spent.</li>
+                      <li>Served as the central "translator" between executive leadership and creative execution teams.</li>
+                  </ul>
+              </div>
 
-<footer>© 2025 Alexandra Hartinger</footer>
+              <div class="resume-item">
+                  <h3>David Yurman</h3>
+                  <span class="role-meta">Head of Concept (SCADpro) | 2023</span>
+                  <ul>
+                      <li>Led cross-functional team for the 2023 Holiday Campaign.</li>
+                      <li>Directed production of a 60-second luxury film, ensuring alignment across digital and in-store touchpoints.</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="gallery-section">
+      <h2 class="gallery-title">Perspective & Palette</h2>
+      
+      <div class="gallery-grid">
+          
+          <div class="gallery-item">
+              <img src="assets/FACES.jpg" alt="Abstract Painting">
+              <div class="caption">Original Work: Acrylic on Canvas</div>
+          </div>
+
+          <div class="gallery-item">
+              <img src="assets/MOUNTAINME.jpg" alt="Hiking">
+              <div class="caption">Exploration & Travel</div>
+          </div>
+
+          <div class="gallery-item">
+              <img src="assets/ASAP.jpg" alt="Pixel Portrait">
+              <div class="caption">Pixel Study</div>
+          </div>
+
+          <div class="gallery-item">
+              <img src="assets/CHANCE.jpg" alt="Color Portrait">
+              <div class="caption">Color Theory</div>
+          </div>
+          
+          <div class="gallery-item">
+              <img src="assets/INDIA.jpg" alt="Henna Art">
+              <div class="caption">Global Inspiration</div>
+          </div>
+
+           <div class="gallery-item">
+            <img src="assets/LUNA.jpg" alt="My Dog">
+            <div class="caption">Studio Assistant</div>
+        </div>
+
+      </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+  </footer>
+
 </body>
 </html>
