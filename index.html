@@ -18,7 +18,7 @@
 
     body {
         margin: 0; padding: 0;
-        /* Using system fonts (Helvetica/Arial) to match your "Name" style */
+        /* Matches your Resume/Name style (Clean Sans-Serif) */
         font-family: "Helvetica Neue", Arial, sans-serif;
         background: #000; 
         color: #fff;
@@ -43,7 +43,6 @@
       text-transform: uppercase;
       letter-spacing: .12em;
       color: #fff;
-      /* Ensuring logo uses the simple font */
       font-family: "Helvetica Neue", Arial, sans-serif;
     }
     
@@ -54,10 +53,10 @@
     }
     nav a:hover { color: #bdbdbd; }
 
-    /* ===== Intro Section (Updated) ===== */
+    /* ===== Intro Section ===== */
     .intro-block {
-        background-color: #000000; /* Black Background */
-        color: #ffffff; /* White Text */
+        background-color: #000000;
+        color: #ffffff;
         padding: 18vh 5% 12vh;
         width: 100%;
         display: flex;
@@ -67,10 +66,9 @@
     }
 
     .intro-headline {
-        /* Matches your name/logo font */
         font-family: "Helvetica Neue", Arial, sans-serif; 
         font-size: clamp(3rem, 6.5vw, 6rem);
-        font-weight: 700; /* Bold like the logo */
+        font-weight: 700; 
         line-height: 1.1;
         letter-spacing: -0.02em;
         margin-bottom: 2.5rem;
@@ -82,13 +80,13 @@
         font-family: 'Fraunces', serif; /* The decorative font */
         font-weight: 300;
         font-style: italic;
-        color: #e0e0e0; /* Slightly softer white for elegance */
+        color: #e0e0e0;
     }
 
     .intro-subtext {
         font-family: "Helvetica Neue", Arial, sans-serif;
         font-size: 1.1rem;
-        color: #888; /* Grey text */
+        color: #888;
         max-width: 500px;
         line-height: 1.6;
     }
@@ -106,7 +104,7 @@
     .section video, .section img.bg {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; z-index: 0; pointer-events: none;
-      filter: brightness(.65); /* Darkened slightly so text pops */
+      filter: brightness(.65);
     }
     
     .overlay {
@@ -155,7 +153,7 @@
   <main>
     
     <section class="intro-block">
-       <h1 class="intro-headline">
+        <h1 class="intro-headline">
             Creative Direction,<br>
             Brand Strategy, & <br>
             <em>Visual Narrative.</em>
@@ -205,7 +203,6 @@
   </footer>
 
   <script>
-    // Fade in sections on scroll
     const sections = document.querySelectorAll(".section");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
