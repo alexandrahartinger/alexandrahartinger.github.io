@@ -93,6 +93,30 @@
         max-width: 500px;
     }
 
+    /* ===== NEW: Stills Layout CSS ===== */
+    .stills-section {
+      padding: 40px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .stills-section h2 {
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      font-size: 2rem;
+      font-family: 'Fraunces', serif;
+    }
+    .stills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .stills img {
+      width: calc(33.333% - 6.66px);
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
     /* ===== Experience Section ===== */
     .experience-section {
         padding: 4rem 5%;
@@ -117,46 +141,7 @@
         font-weight: 700;
     }
 
-    .resume-item {
-        margin-bottom: 3rem;
-    }
-
-    .resume-item h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        font-family: 'Fraunces', serif;
-        font-style: italic;
-    }
-
-    .role-meta {
-        font-size: 0.9rem;
-        color: #888;
-        margin-bottom: 1rem;
-        display: block;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .resume-item ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .resume-item li {
-        margin-bottom: 0.8rem;
-        color: #ddd;
-        padding-left: 1.5rem;
-        position: relative;
-    }
-
-    .resume-item li::before {
-        content: "—";
-        position: absolute;
-        left: 0;
-        color: #666;
-    }
-
-    /* ===== Gallery Grid ===== */
+    /* ===== Gallery Grid (Lower Section) ===== */
     .gallery-section {
         padding: 6rem 5%;
         max-width: 1400px;
@@ -219,6 +204,7 @@
         .profile-section { grid-template-columns: 1fr; }
         .exp-container { grid-template-columns: 1fr; }
         .bio-content h1 { font-size: 2.5rem; }
+        .stills img { width: 100%; }
     }
   </style>
 </head>
@@ -234,17 +220,9 @@
 
   <section class="profile-section">
     <div class="bio-content">
-        <h1>FIX <br><em>About Me</em></h1>
+        <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
         <p>
-           Storyteller | Translator | Strategist
-
-I’ve always been the person who translates what others can’t quite put into words. I dig into the "why" behind what we love, what we hate, and what we need. I turn those messy human truths into a clear strategy.
-
-My time at SCAD is where this started. Art school taught me how to take someone’s abstract, high-level dream and figure out the actual creative steps to make it real. Instead of just making things look pretty, I build the engine that makes an idea work.
-
-I’m at my best when I’m the link between a big idea and the people who need to understand it. I take what’s in a client's head and put it into the world in a way that actually makes sense.
-
-After building brands and scaling startups in Atlanta, I’ve relocated to the mountains of Colorado. I’m ready for the next chapter and the next story that needs telling.
+           I’ve always been the person who translates what others can’t quite put into words. I dig into the "why" behind what we love and what we need—then I turn those messy human truths into a clear strategy.
         </p>
         <p>
             From scaling startup revenues to $150M+ to directing luxury holiday campaigns, my work is defined by a data-driven approach to storytelling.
@@ -259,24 +237,25 @@ After building brands and scaling startups in Atlanta, I’ve relocated to the m
     </div>
   </section>
 
-  <section>
-  <h2>Your New Section Title</h2>
-  <div class="stills">
-    <img src="assets/YOUR-IMAGE-1.png" alt="Description 1">
-    <img src="assets/YOUR-IMAGE-2.png" alt="Description 2">
-    <img src="assets/YOUR-IMAGE-3.png" alt="Description 3">
-  </div>
-</section>
+  <section class="stills-section">
+    <h2>Featured Process</h2>
+    <div class="stills">
+      <img src="assets/FACES.png" alt="FACES Study">
+      <img src="assets/MOUNTAINME.png" alt="Travel">
+      <img src="assets/ASAP.png" alt="Pixel Study">
+    </div>
+  </section>
 
   <section class="experience-section">
       <div class="exp-container">
-          <div class="section-label">Who Am I</div>
-        <p>
-   <h1>Strategy meets <br><em>Artistry.</em></h1>
-        <p>
-            I am a Denver-based Marketing Manager and Creative Strategist with a background in Art Direction. I specialize in bridging the gap between executive vision and operational reality.
-        </p>
-        </p>
+          <div class="section-label">Identity</div>
+          <div>
+            <h1 style="font-family: 'Fraunces', serif; font-weight: 300; margin-top: 0;">Strategy meets <br><em>Artistry.</em></h1>
+            <p style="color: #ccc;">
+                I am a Denver-based Marketing Manager and Creative Strategist with a background in Art Direction. I specialize in bridging the gap between executive vision and operational reality.
+            </p>
+          </div>
+      </div>
   </section>
 
   <section class="gallery-section">
@@ -318,7 +297,7 @@ After building brands and scaling startups in Atlanta, I’ve relocated to the m
   </section>
 
   <footer>
-    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+    &copy; 2026 Alexandra Hartinger. All Rights Reserved.
   </footer>
 
 </body>
