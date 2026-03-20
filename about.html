@@ -93,28 +93,32 @@
         max-width: 500px;
     }
 
-    /* ===== NEW: Stills Layout CSS ===== */
-    .stills-section {
-      padding: 40px 5%;
+    /* ===== Featured Stills CSS ===== */
+    .stills-container {
+      padding: 60px 5%;
       max-width: 1200px;
       margin: 0 auto;
     }
-    .stills-section h2 {
+
+    .stills-container h2 {
       text-transform: uppercase;
       margin-bottom: 25px;
       font-size: 2rem;
+      font-weight: bold;
       font-family: 'Fraunces', serif;
     }
+
     .stills {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 15px;
     }
+
     .stills img {
-      width: calc(33.333% - 6.66px);
+      width: calc(33.333% - 10px); 
       height: auto;
-      border-radius: 8px;
+      border-radius: 12px;
       object-fit: cover;
+      border: 1px solid #222;
     }
 
     /* ===== Experience Section ===== */
@@ -141,56 +145,6 @@
         font-weight: 700;
     }
 
-    /* ===== Gallery Grid (Lower Section) ===== */
-    .gallery-section {
-        padding: 6rem 5%;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .gallery-title {
-        font-family: 'Fraunces', serif;
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 3rem;
-        font-weight: 300;
-    }
-
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        aspect-ratio: 1/1; 
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img {
-        transform: scale(1.05);
-    }
-
-    .caption {
-        position: absolute;
-        bottom: 0; left: 0; right: 0;
-        padding: 1rem;
-        background: linear-gradient(transparent, rgba(0,0,0,0.8));
-        font-size: 0.8rem;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .gallery-item:hover .caption { opacity: 1; }
-
     /* Footer */
     footer {
         text-align: center;
@@ -202,9 +156,9 @@
 
     @media (max-width: 768px) {
         .profile-section { grid-template-columns: 1fr; }
-        .exp-container { grid-template-columns: 1fr; }
-        .bio-content h1 { font-size: 2.5rem; }
+        .stills { flex-direction: column; }
         .stills img { width: 100%; }
+        .bio-content h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -222,7 +176,7 @@
     <div class="bio-content">
         <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
         <p>
-           I’ve always been the person who translates what others can’t quite put into words. I dig into the "why" behind what we love and what we need—then I turn those messy human truths into a clear strategy.
+            I’ve always been the person who translates what others can’t quite put into words. I dig into the "why" behind what we love and what we need—then I turn those messy human truths into a clear strategy.
         </p>
         <p>
             From scaling startup revenues to $150M+ to directing luxury holiday campaigns, my work is defined by a data-driven approach to storytelling.
@@ -237,12 +191,12 @@
     </div>
   </section>
 
-  <section class="stills-section">
-    <h2>Featured Process</h2>
+  <section class="stills-container">
+    <h2>Featured Stills</h2>
     <div class="stills">
-      <img src="assets/FACES.png" alt="FACES Study">
-      <img src="assets/MOUNTAINME.png" alt="Travel">
-      <img src="assets/ASAP.png" alt="Pixel Study">
+      <img src="assets/FACES.png" alt="Painting Process">
+      <img src="assets/MOUNTAINME.png" alt="Colorado Views">
+      <img src="assets/ASAP.png" alt="Pixel Design">
     </div>
   </section>
 
@@ -250,49 +204,11 @@
       <div class="exp-container">
           <div class="section-label">Identity</div>
           <div>
-            <h1 style="font-family: 'Fraunces', serif; font-weight: 300; margin-top: 0;">Strategy meets <br><em>Artistry.</em></h1>
-            <p style="color: #ccc;">
-                I am a Denver-based Marketing Manager and Creative Strategist with a background in Art Direction. I specialize in bridging the gap between executive vision and operational reality.
+            <h2 style="font-family: 'Fraunces', serif; font-weight: 300; margin-top: 0;">Strategy meets <br><em>Artistry.</em></h2>
+            <p style="color: #ccc; max-width: 600px;">
+                I am a Denver-based Marketing Manager and Creative Strategist. I specialize in bridging the gap between executive vision and operational reality.
             </p>
           </div>
-      </div>
-  </section>
-
-  <section class="gallery-section">
-      <h2 class="gallery-title">Gallery</h2>
-      
-      <div class="gallery-grid">
-          
-          <div class="gallery-item">
-              <img src="assets/FACES.png" alt="Abstract Painting">
-              <div class="caption">Original Work: Acrylic on Canvas</div>
-          </div>
-
-          <div class="gallery-item">
-              <img src="assets/MOUNTAINME.png" alt="Hiking">
-              <div class="caption">Exploration & Travel</div>
-          </div>
-
-          <div class="gallery-item">
-              <img src="assets/ASAP.png" alt="Pixel Study">
-              <div class="caption">Pixel Study</div>
-          </div>
-
-          <div class="gallery-item">
-              <img src="assets/CHANCE2.png" alt="Color Portrait">
-              <div class="caption">Color Theory</div>
-          </div>
-          
-          <div class="gallery-item">
-              <img src="assets/INDIA.png" alt="Henna Art">
-              <div class="caption">Global Inspiration</div>
-          </div>
-
-           <div class="gallery-item">
-            <img src="assets/LUNA.png" alt="My Dog">
-            <div class="caption">Studio Assistant</div>
-        </div>
-
       </div>
   </section>
 
