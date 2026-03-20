@@ -51,121 +51,160 @@
     }
     nav a:hover { color: #bdbdbd; }
 
-    /* ===== Hero Bio Section (Top) ===== */
+    /* ===== Hero Profile Section ===== */
     .profile-section {
         margin-top: var(--header-h);
-        padding: 8rem 5% 4rem;
-        max-width: 900px; /* Narrower for better reading flow */
+        padding: 6rem 5%;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .profile-img-container {
+        width: 100%;
+        aspect-ratio: 4/5;
+        overflow: hidden;
+        border: 1px solid #333; 
+    }
+
+    .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: contrast(1.05); 
     }
 
     .bio-content h1 {
         font-family: 'Fraunces', serif;
-        font-size: 4rem;
+        font-size: 3.5rem;
         line-height: 1.1;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         font-weight: 300;
-        text-align: center;
     }
 
     .bio-content p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: #ccc;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        max-width: 500px;
     }
 
-    .bio-content strong { color: #fff; }
-
-    /* ===== Photo Book Section (Bottom) ===== */
-    .gallery-section {
-        padding: 4rem 5% 10rem;
-        background: #050505;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    /* ===== Experience Section ===== */
+    .experience-section {
+        padding: 4rem 5%;
         border-top: 1px solid #222;
+        border-bottom: 1px solid #222;
+        background-color: #050505;
     }
 
-    .gallery-section h2 {
-        font-family: 'Fraunces', serif;
-        font-weight: 300;
+    .exp-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+    }
+
+    .section-label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #666;
+        font-weight: 700;
+    }
+
+    .resume-item {
         margin-bottom: 3rem;
-        letter-spacing: 1px;
+    }
+
+    .resume-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+    }
+
+    .role-meta {
+        font-size: 0.9rem;
         color: #888;
+        margin-bottom: 1rem;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
-    .book-container {
-      perspective: 1500px;
+    .resume-item ul {
+        list-style: none;
+        padding: 0;
     }
 
-    .book {
-      position: relative;
-      width: 350px;
-      height: 450px;
-      transform-style: preserve-3d;
+    .resume-item li {
+        margin-bottom: 0.8rem;
+        color: #ddd;
+        padding-left: 1.5rem;
+        position: relative;
     }
 
-    .page {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      padding: 12px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-      display: none;
-      backface-visibility: hidden;
-      border: 1px solid #ddd;
+    .resume-item li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: #666;
     }
 
-    .page.active {
-      display: block;
-      animation: flipIn 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    /* ===== Gallery Grid ===== */
+    .gallery-section {
+        padding: 6rem 5%;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
-    @keyframes flipIn {
-      from { transform: rotateY(-30deg) translateX(50px); opacity: 0; }
-      to { transform: rotateY(0deg) translateX(0); opacity: 1; }
+    .gallery-title {
+        font-family: 'Fraunces', serif;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-weight: 300;
     }
 
-    .page img {
-      width: 100%;
-      height: 85%;
-      object-fit: cover;
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
     }
 
-    .page .page-caption {
-      color: #111;
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 15px;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 500;
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 1/1; 
     }
 
-    .controls {
-      margin-top: 50px;
-      display: flex;
-      gap: 30px;
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
     }
 
-    .controls button {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #fff;
-      padding: 12px 28px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      transition: 0.4s;
+    .gallery-item:hover img {
+        transform: scale(1.05);
     }
 
-    .controls button:hover {
-      background: #fff;
-      color: #000;
-      border-color: #fff;
+    .caption {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 1rem;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: opacity 0.3s;
     }
+
+    .gallery-item:hover .caption { opacity: 1; }
 
     /* Footer */
     footer {
@@ -173,12 +212,13 @@
         padding: 4rem 2rem;
         font-size: 0.9rem;
         color: #444;
-        background: #000;
+        border-top: 1px solid #222;
     }
 
     @media (max-width: 768px) {
-        .bio-content h1 { font-size: 2.8rem; }
-        .book { width: 300px; height: 400px; }
+        .profile-section { grid-template-columns: 1fr; }
+        .exp-container { grid-template-columns: 1fr; }
+        .bio-content h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -194,78 +234,83 @@
 
   <section class="profile-section">
     <div class="bio-content">
-        <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
-        
-        <p>I’ve always been the person who translates what others can’t quite put into words. I dig into the "why" behind what we love, what we hate, and what we need—then I turn those messy human truths into a clear strategy.</p>
+        <h1>FIX <br><em>About Me</em></h1>
+        <p>
+           Storyteller | Translator | Strategist
 
-        <p>My first real-world shift into creative strategy was leading the <strong>SCADpro David Yurman Holiday 2023 campaign</strong>. Being at the center of a production that massive was a unique experience that taught me how to take a client’s high-level dream and turn it into a tangible reality.</p>
+I’ve always been the person who translates what others can’t quite put into words. I dig into the "why" behind what we love, what we hate, and what we need. I turn those messy human truths into a clear strategy.
 
-        <p>After SCAD, I moved back to Atlanta and joined <strong>Main Street Auto</strong>. I jumped in as their only designer to build the brand from the ground up, translating their potential into a professional image that aligned with the multi-million dollar company they were becoming.</p>
+My time at SCAD is where this started. Art school taught me how to take someone’s abstract, high-level dream and figure out the actual creative steps to make it real. Instead of just making things look pretty, I build the engine that makes an idea work.
 
-        <p>Right now, I’m a partner at <strong>Sole 1</strong>, building a device for people who suffer from foot drop—something I live with every day. I bridge the gap between engineers and the community, translating technical specs into real-life solutions. Connecting with others and giving them a voice has been the most rewarding work of my career.</p>
-        
-        <p>Since then, I’ve relocated to the beautiful state of <strong>Colorado</strong>. I'm ready for the next chapter and the next story that needs telling.</p>
+I’m at my best when I’m the link between a big idea and the people who need to understand it. I take what’s in a client's head and put it into the world in a way that actually makes sense.
+
+After building brands and scaling startups in Atlanta, I’ve relocated to the mountains of Colorado. I’m ready for the next chapter and the next story that needs telling.
+        </p>
+        <p>
+            From scaling startup revenues to $150M+ to directing luxury holiday campaigns, my work is defined by a data-driven approach to storytelling.
+        </p>
+        <p>
+            <strong>Education:</strong> B.F.A. in Advertising & Branding, SCAD (Cum Laude).
+        </p>
+    </div>
+    
+    <div class="profile-img-container">
+        <img src="assets/Headshot.png" alt="Alexandra Hartinger" class="profile-img">
     </div>
   </section>
 
-  <section class="gallery-section">
-      <h2>A Look Inside</h2>
-      
-      <div class="book-container">
-          <div class="book" id="myBook">
-            <div class="page active">
-              <img src="assets/FACES.png" alt="Abstract Painting">
-              <div class="page-caption">Original Work: Acrylic on Canvas</div>
-            </div>
-            <div class="page">
-              <img src="assets/MOUNTAINME.png" alt="Hiking">
-              <div class="page-caption">Exploration & Travel</div>
-            </div>
-            <div class="page">
-              <img src="assets/ASAP.png" alt="Pixel Study">
-              <div class="page-caption">Pixel Study</div>
-            </div>
-            <div class="page">
-              <img src="assets/CHANCE2.png" alt="Color Portrait">
-              <div class="page-caption">Color Theory</div>
-            </div>
-            <div class="page">
-              <img src="assets/INDIA.png" alt="Henna Art">
-              <div class="page-caption">Global Inspiration</div>
-            </div>
-            <div class="page">
-              <img src="assets/LUNA.png" alt="My Dog">
-              <div class="page-caption">Studio Assistant</div>
-            </div>
-          </div>
-      </div>
+  <section class="experience-section">
+      <div class="exp-container">
+          <div class="section-label">Who Am I</div>
+        <p>
+   <h1>Strategy meets <br><em>Artistry.</em></h1>
+        <p>
+            I am a Denver-based Marketing Manager and Creative Strategist with a background in Art Direction. I specialize in bridging the gap between executive vision and operational reality.
+        </p>
+        </p>
+  </section>
 
-      <div class="controls">
-        <button onclick="prevPage()">← Back</button>
-        <button onclick="nextPage()">Next →</button>
+  <section class="gallery-section">
+      <h2 class="gallery-title">Gallery</h2>
+      
+      <div class="gallery-grid">
+          
+          <div class="gallery-item">
+              <img src="assets/FACES.png" alt="Abstract Painting">
+              <div class="caption">Original Work: Acrylic on Canvas</div>
+          </div>
+
+          <div class="gallery-item">
+              <img src="assets/MOUNTAINME.png" alt="Hiking">
+              <div class="caption">Exploration & Travel</div>
+          </div>
+
+          <div class="gallery-item">
+              <img src="assets/ASAP.png" alt="Pixel Study">
+              <div class="caption">Pixel Study</div>
+          </div>
+
+          <div class="gallery-item">
+              <img src="assets/CHANCE2.png" alt="Color Portrait">
+              <div class="caption">Color Theory</div>
+          </div>
+          
+          <div class="gallery-item">
+              <img src="assets/INDIA.png" alt="Henna Art">
+              <div class="caption">Global Inspiration</div>
+          </div>
+
+           <div class="gallery-item">
+            <img src="assets/LUNA.png" alt="My Dog">
+            <div class="caption">Studio Assistant</div>
+        </div>
+
       </div>
   </section>
 
   <footer>
-    &copy; 2026 Alexandra Hartinger. All Rights Reserved.
+    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
   </footer>
-
-  <script>
-    let currentPage = 0;
-    const pages = document.querySelectorAll('.page');
-
-    function nextPage() {
-      pages[currentPage].classList.remove('active');
-      currentPage = (currentPage + 1) % pages.length;
-      pages[currentPage].classList.add('active');
-    }
-
-    function prevPage() {
-      pages[currentPage].classList.remove('active');
-      currentPage = (currentPage - 1 + pages.length) % pages.length;
-      pages[currentPage].classList.add('active');
-    }
-  </script>
 
 </body>
 </html>
