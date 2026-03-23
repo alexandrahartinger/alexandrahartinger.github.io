@@ -1,99 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | Alexandra Hartinger</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+    /* ... (Keep your existing CSS above) ... */
 
-  <style>
-    :root {
-      --header-h: 72px;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-        margin: 0; padding: 0;
-        font-family: "Helvetica Neue", Arial, sans-serif;
-        background: #000; 
-        color: #fff;
-        overflow-x: hidden;
-        line-height: 1.6;
-    }
-
-    /* ===== Navigation ===== */
-    header.fixed-nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--header-h);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 40px;
-      background: rgba(0,0,0,.9);
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      z-index: 100;
-      backdrop-filter: blur(4px);
-    }
-    
-    header.fixed-nav .logo {
-      font-size: 1.2rem; 
-      font-weight: 800; 
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: #fff;
-      text-decoration: none;
-    }
-    
-    nav a {
-      color: #fff; text-decoration: none; margin-left: 28px;
-      font-size: .95rem; font-weight: 700; text-transform: uppercase;
-      transition: color .25s;
-    }
-    nav a:hover { color: #bdbdbd; }
-
-    /* ===== Hero Profile Section ===== */
-    .profile-section {
-        margin-top: var(--header-h);
-        padding: 6rem 5%;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
-    }
-
-    .profile-img-container {
-        width: 100%;
-        aspect-ratio: 4/5;
-        overflow: hidden;
-        border: 1px solid #333; 
-    }
-
-    .profile-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: contrast(1.05); 
-    }
-
-    .bio-content h1 {
-        font-family: 'Fraunces', serif;
-        font-size: 3.5rem;
-        line-height: 1.1;
-        margin-bottom: 1.5rem;
-        font-weight: 300;
-    }
-
-    .bio-content p {
-        font-size: 1.1rem;
-        color: #ccc;
-        margin-bottom: 1.5rem;
-        max-width: 500px;
-    }
-
-    /* ===== Featured Stills CSS ===== */
+    /* ===== Updated Stills / Resume Box CSS ===== */
     .stills-container {
       padding: 60px 5%;
       max-width: 1200px;
@@ -113,7 +21,27 @@
       gap: 15px;
     }
 
-    .stills img {
+    /* The Resume Box Container */
+    .resume-box {
+      position: relative;
+      width: calc(33.333% - 10px); 
+      aspect-ratio: 3/2; /* Keeps it consistent with other images */
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #222;
+      cursor: pointer;
+      background: #111;
+    }
+
+    .resume-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    /* The Standard Images in the row */
+    .stills > img {
       width: calc(33.333% - 10px); 
       height: auto;
       border-radius: 12px;
@@ -121,100 +49,92 @@
       border: 1px solid #222;
     }
 
-    /* ===== Experience Section ===== */
-    .experience-section {
-        padding: 4rem 5%;
-        border-top: 1px solid #222;
-        border-bottom: 1px solid #222;
-        background-color: #050505;
+    /* Hover Overlay */
+    .resume-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(5px);
     }
 
-    .exp-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 3rem;
+    .resume-box:hover .resume-overlay {
+      opacity: 1;
     }
 
-    .section-label {
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #666;
-        font-weight: 700;
+    .resume-box:hover img {
+      transform: scale(1.05);
     }
 
-    /* Footer */
-    footer {
-        text-align: center;
-        padding: 4rem 2rem;
-        font-size: 0.9rem;
-        color: #444;
-        border-top: 1px solid #222;
+    .overlay-title {
+        font-family: 'Fraunces', serif;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+
+    .btn-group {
+        display: flex;
+        gap: 10px;
+    }
+
+    .res-btn {
+      padding: 8px 15px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .view-btn {
+      background: #fff;
+      color: #000;
+    }
+
+    .download-btn {
+      border: 1px solid #fff;
+      color: #fff;
+    }
+
+    .res-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(0.9);
     }
 
     @media (max-width: 768px) {
         .profile-section { grid-template-columns: 1fr; }
         .stills { flex-direction: column; }
-        .stills img { width: 100%; }
-        .bio-content h1 { font-size: 2.5rem; }
+        .stills img, .resume-box { width: 100%; height: 250px; }
     }
   </style>
 </head>
 <body>
 
-  <header class="fixed-nav">
-    <a href="index.html" class="logo">Alexandra Hartinger</a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Me</a>
-    </nav>
-  </header>
-
-  <section class="profile-section">
-    <div class="bio-content">
-        <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
-        <p>
-            I’ve always been the person who translates what others can’t quite put into words. I dig into the "why" behind what we love and what we need—then I turn those messy human truths into a clear strategy.
-        </p>
-        <p>
-            From scaling startup revenues to $150M+ to directing luxury holiday campaigns, my work is defined by a data-driven approach to storytelling.
-        </p>
-        <p>
-            <strong>Education:</strong> B.F.A. in Advertising & Branding, SCAD (Cum Laude).
-        </p>
-    </div>
-    
-    <div class="profile-img-container">
-        <img src="assets/Headshot.png" alt="Alexandra Hartinger" class="profile-img">
-    </div>
-  </section>
-
   <section class="stills-container">
-    <h2>Featured Stills</h2>
+    <h2>Connect & Review</h2>
     <div class="stills">
-      <img src="assets/Resume2026.pdf" alt="Painting Process">
+      
+      <div class="resume-box">
+        <img src="assets/MOUNTAINME.png" alt="Resume Background"> 
+        <div class="resume-overlay">
+          <div class="overlay-title">Curriculum Vitae</div>
+          <div class="btn-group">
+            <a href="Resume2026.pdf" target="_blank" class="res-btn view-btn">View</a>
+            <a href="Resume2026.pdf" download class="res-btn download-btn">Download</a>
+          </div>
+        </div>
+      </div>
+
       <img src="assets/MOUNTAINME.png" alt="Colorado Views">
       <img src="assets/ASAP.png" alt="Pixel Design">
     </div>
   </section>
-
-  <section class="experience-section">
-      <div class="exp-container">
-          <div class="section-label">Identity</div>
-          <div>
-            <h2 style="font-family: 'Fraunces', serif; font-weight: 300; margin-top: 0;">Strategy meets <br><em>Artistry.</em></h2>
-            <p style="color: #ccc; max-width: 600px;">
-                I am a Denver-based Marketing Manager and Creative Strategist. I specialize in bridging the gap between executive vision and operational reality.
-            </p>
-          </div>
-      </div>
-  </section>
-
-  <footer>
-    &copy; 2026 Alexandra Hartinger. All Rights Reserved.
-  </footer>
-
-</body>
-</html>
