@@ -58,39 +58,43 @@
     }
     .bio-content p { font-size: 1.1rem; color: #ccc; margin-bottom: 1.5rem; max-width: 500px; }
 
-    /* ===== Resume & Stills Section ===== */
-    .stills-container { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-    .stills-container h2 {
-      text-transform: uppercase; margin-bottom: 25px;
-      font-size: 2rem; font-family: 'Fraunces', serif;
-    }
-    .stills { display: flex; gap: 15px; }
+   <section class="stills-container">
+    <h2>Connect & Review</h2>
+    <div class="stills">
+      
+      <div class="resume-box">
+        <img src="assets/MeButton.png" alt="Alexandra Hartinger">
+        <div class="resume-overlay">
+          <div style="margin-bottom:10px; font-family:'Fraunces';">About Me</div>
+          <div class="btn-group">
+            <a href="about.html" class="res-btn view-btn">Read Bio</a>
+          </div>
+        </div>
+      </div>
 
-    /* The Resume Box */
-    .resume-box {
-      position: relative; width: calc(33.333% - 10px); 
-      aspect-ratio: 3/2; border-radius: 12px; overflow: hidden;
-      border: 1px solid #222; background: #111;
-    }
-    .resume-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-    .resume-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8); display: flex; flex-direction: column;
-      align-items: center; justify-content: center; opacity: 0;
-      transition: 0.3s; backdrop-filter: blur(5px);
-    }
-    .resume-box:hover .resume-overlay { opacity: 1; }
-    .res-btn {
-      padding: 8px 15px; margin: 5px; font-size: 0.75rem;
-      text-transform: uppercase; font-weight: 700;
-      text-decoration: none; border-radius: 4px; color: #fff;
-      border: 1px solid #fff; transition: 0.2s;
-    }
-    .view-btn { background: #fff; color: #000; }
+      <div class="resume-box">
+        <img src="assets/ResumeButton.png" alt="Resume Cover"> 
+        <div class="resume-overlay">
+          <div style="margin-bottom:10px; font-family:'Fraunces';">Curriculum Vitae</div>
+          <div class="btn-group">
+            <a href="Resume2026.pdf" target="_blank" class="res-btn view-btn">View</a>
+            <a href="Resume2026.pdf" download class="res-btn">Download</a>
+          </div>
+        </div>
+      </div>
 
-    /* Other Stills Images */
-    .stills > img { width: calc(33.333% - 10px); border-radius: 12px; object-fit: cover; }
+      <div class="resume-box">
+        <img src="assets/LinkInButton.png" alt="LinkedIn Profile">
+        <div class="resume-overlay">
+          <div style="margin-bottom:10px; font-family:'Fraunces';">Networking</div>
+          <div class="btn-group">
+            <a href="https://www.linkedin.com/in/alexhartinger/" target="_blank" class="res-btn view-btn">LinkedIn</a>
+          </div>
+        </div>
+      </div>
 
+    </div>
+  </section>
     /* Footer */
     footer { text-align: center; padding: 4rem 2rem; color: #444; border-top: 1px solid #222; }
 
