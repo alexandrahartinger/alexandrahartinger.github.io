@@ -58,50 +58,66 @@
     }
     .bio-content p { font-size: 1.1rem; color: #ccc; margin-bottom: 1.5rem; max-width: 500px; }
 
-   <section class="stills-container">
-    <h2>Connect & Review</h2>
-    <div class="stills">
-      
-      <div class="resume-box">
-        <img src="assets/MeButton.png" alt="Alexandra Hartinger">
-        <div class="resume-overlay">
-          <div style="margin-bottom:10px; font-family:'Fraunces';">About Me</div>
-          <div class="btn-group">
-            <a href="about.html" class="res-btn view-btn">Read Bio</a>
-          </div>
-        </div>
-      </div>
+    /* ===== NEW BUTTONS SECTION ===== */
+    .stills-container { 
+        padding: 60px 5%; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+    }
+    .stills-container h2 {
+      text-transform: uppercase; margin-bottom: 25px;
+      font-size: 2rem; font-family: 'Fraunces', serif;
+    }
+    .stills { 
+        display: flex; 
+        gap: 20px; 
+    }
 
-      <div class="resume-box">
-        <img src="assets/ResumeButton.png" alt="Resume Cover"> 
-        <div class="resume-overlay">
-          <div style="margin-bottom:10px; font-family:'Fraunces';">Curriculum Vitae</div>
-          <div class="btn-group">
-            <a href="Resume2026.pdf" target="_blank" class="res-btn view-btn">View</a>
-            <a href="Resume2026.pdf" download class="res-btn">Download</a>
-          </div>
-        </div>
-      </div>
+    .resume-box {
+      position: relative; 
+      width: calc(33.333% - 14px); 
+      aspect-ratio: 1/1; /* Makes them perfect squares */
+      border-radius: 15px; 
+      overflow: hidden;
+      border: 1px solid #222; 
+      background: #111;
+      cursor: pointer;
+    }
+    
+    .resume-box img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        transition: transform 0.5s ease; 
+    }
 
-      <div class="resume-box">
-        <img src="assets/LinkInButton.png" alt="LinkedIn Profile">
-        <div class="resume-overlay">
-          <div style="margin-bottom:10px; font-family:'Fraunces';">Networking</div>
-          <div class="btn-group">
-            <a href="https://www.linkedin.com/in/alexhartinger/" target="_blank" class="res-btn view-btn">LinkedIn</a>
-          </div>
-        </div>
-      </div>
+    .resume-box:hover img {
+        transform: scale(1.05);
+    }
 
-    </div>
-  </section>
+    .resume-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; opacity: 0;
+      transition: 0.3s; backdrop-filter: blur(5px);
+    }
+    .resume-box:hover .resume-overlay { opacity: 1; }
+
+    .res-btn {
+      padding: 10px 20px; margin: 5px; font-size: 0.8rem;
+      text-transform: uppercase; font-weight: 700;
+      text-decoration: none; border-radius: 5px; color: #000;
+      background: #fff; transition: 0.2s;
+    }
+
     /* Footer */
     footer { text-align: center; padding: 4rem 2rem; color: #444; border-top: 1px solid #222; }
 
     @media (max-width: 768px) {
         .profile-section { grid-template-columns: 1fr; }
         .stills { flex-direction: column; }
-        .stills img, .resume-box { width: 100%; height: 250px; }
+        .resume-box { width: 100%; }
+        .bio-content h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -119,7 +135,7 @@
     <div class="bio-content">
         <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
         <p>I dig into the "why" behind what we love and turn those messy human truths into a clear strategy.</p>
-        <p><strong>Education:</strong> B.F.A. in Advertising & Branding, SCAD.</p>
+        <p><strong>Education:</strong> B.F.A. in Advertising & Branding, SCAD (Cum Laude).</p>
     </div>
     <div class="profile-img-container">
         <img src="assets/Headshot.png" alt="Alexandra Hartinger" class="profile-img">
@@ -127,20 +143,36 @@
   </section>
 
   <section class="stills-container">
-    <h2>Featured Stills & Resume</h2>
+    <h2>Connect & Review</h2>
     <div class="stills">
+      
       <div class="resume-box">
-        <img src="assets/MOUNTAINME.png" alt="Resume Cover"> 
+        <img src="assets/MeButton.png" alt="About Alexandra">
         <div class="resume-overlay">
-          <div style="margin-bottom:10px; font-family:'Fraunces';">Curriculum Vitae</div>
-          <div class="btn-group">
-            <a href="Resume2026.pdf" target="_blank" class="res-btn view-btn">View</a>
-            <a href="Resume2026.pdf" download class="res-btn">Download</a>
+          <div style="margin-bottom:15px; font-family:'Fraunces'; font-size: 1.2rem;">Identity</div>
+          <a href="#" class="res-btn">Read Bio</a>
+        </div>
+      </div>
+
+      <div class="resume-box">
+        <img src="assets/ResumeButton.png" alt="Resume"> 
+        <div class="resume-overlay">
+          <div style="margin-bottom:15px; font-family:'Fraunces'; font-size: 1.2rem;">Resume</div>
+          <div style="display: flex; gap: 5px;">
+            <a href="Resume2026.pdf" target="_blank" class="res-btn">View</a>
+            <a href="Resume2026.pdf" download class="res-btn" style="background:none; border: 1px solid #fff; color: #fff;">Save</a>
           </div>
         </div>
       </div>
-      <img src="assets/MOUNTAINME.png" alt="Colorado Views">
-      <img src="assets/ASAP.png" alt="Pixel Design">
+
+      <div class="resume-box">
+        <img src="assets/LinkInButton.png" alt="LinkedIn">
+        <div class="resume-overlay">
+          <div style="margin-bottom:15px; font-family:'Fraunces'; font-size: 1.2rem;">Network</div>
+          <a href="https://www.linkedin.com/in/alexhartinger/" target="_blank" class="res-btn">LinkedIn</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
