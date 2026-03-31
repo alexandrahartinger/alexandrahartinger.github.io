@@ -8,7 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
 
   <style>
-    :root { --header-h: 72px; }
+    :root { 
+        --header-h: 72px; 
+        --easing: cubic-bezier(0.9, 0, 0.1, 1);
+    }
     * { box-sizing: border-box; }
     body {
         margin: 0; padding: 0;
@@ -17,105 +20,126 @@
         overflow-x: hidden; line-height: 1.6;
     }
 
+    /* ===== A-ROCK Inspired Preloader ===== */
+    #preloader {
+        position: fixed; inset: 0;
+        background: #000; z-index: 2000;
+        display: flex; align-items: center; justify-content: center;
+        transition: transform 1.2s var(--easing);
+    }
+    #preloader.hidden { transform: translateY(-100%); }
+    
+    .preloader-text {
+        font-size: 1.2rem; font-weight: 800; text-transform: uppercase;
+        letter-spacing: 0.4em; overflow: hidden;
+    }
+    .preloader-text span {
+        display: block; transform: translateY(100%);
+        animation: slideUp 0.8s var(--easing) forwards;
+    }
+    @keyframes slideUp { to { transform: translateY(0); } }
+
     /* ===== Navigation ===== */
     header.fixed-nav {
       position: fixed; top: 0; left: 0; right: 0;
       height: var(--header-h);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 40px; background: rgba(0,0,0,.9);
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      z-index: 100; backdrop-filter: blur(4px);
+      padding: 0 40px; background: rgba(0,0,0,0.2);
+      z-index: 100; backdrop-filter: blur(10px);
     }
     header.fixed-nav .logo {
-      font-size: 1.2rem; font-weight: 800; text-transform: uppercase;
-      letter-spacing: .12em; color: #fff; text-decoration: none;
+      font-size: 1.1rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .15em; color: #fff; text-decoration: none;
     }
     nav a {
       color: #fff; text-decoration: none; margin-left: 28px;
-      font-size: .95rem; font-weight: 700; text-transform: uppercase;
+      font-size: .85rem; font-weight: 700; text-transform: uppercase;
       transition: color .25s;
     }
     nav a:hover { color: #bdbdbd; }
 
-    /* ===== Hero Profile Section ===== */
+    /* ===== Sleeker Profile Section ===== */
     .profile-section {
         margin-top: var(--header-h);
-        padding: 8rem 5% 4rem;
-        max-width: 1200px;
+        padding: 6vh 7% 4vh;
+        max-width: 1300px;
         margin-left: auto; margin-right: auto;
-        display: grid; grid-template-columns: 1.2fr 0.8fr;
-        gap: 4rem; align-items: center;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 4rem;
     }
     .profile-img-container {
-        width: 100%; aspect-ratio: 4/5;
-        overflow: hidden; border: 1px solid #222; 
+        width: 380px; aspect-ratio: 1/1.2;
+        overflow: hidden; border: 1px solid #1a1a1a;
+        filter: grayscale(100%);
+        transition: filter 0.6s ease;
     }
-    .profile-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
+    .profile-img-container:hover { filter: grayscale(0%); }
+    .profile-img { width: 100%; height: 100%; object-fit: cover; }
     
+    .bio-content { max-width: 500px; padding-bottom: 20px; }
     .bio-content h1 {
         font-family: 'Fraunces', serif;
-        font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1;
+        font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1;
         margin-bottom: 1.5rem; font-weight: 300;
     }
     .bio-content em { font-style: italic; }
-    .bio-content p { font-size: 1.1rem; color: #aaa; margin-bottom: 1.5rem; max-width: 550px; }
+    .bio-content p { font-size: 0.95rem; color: #888; margin-bottom: 1.2rem; }
 
-    /* ===== Buttons/Stills Section ===== */
+    /* ===== Stills Grid ===== */
     .stills-container { 
-        padding: 60px 5%; 
-        max-width: 1200px; 
+        padding: 40px 7%; 
+        max-width: 1300px; 
         margin: 0 auto; 
     }
     .stills-container h2 {
-      text-transform: uppercase; margin-bottom: 30px;
-      font-size: 1rem; letter-spacing: 0.2em; color: #666;
+      text-transform: uppercase; margin-bottom: 25px;
+      font-size: 0.7rem; letter-spacing: 0.3em; color: #444;
     }
     .stills { 
-        display: flex; 
-        gap: 20px; 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px; 
     }
     .resume-box {
       position: relative; 
-      width: calc(33.333% - 14px); 
-      aspect-ratio: 1/1;
-      border-radius: 4px; 
       overflow: hidden;
-      border: 1px solid #222; 
-      background: #111;
-      transition: transform 0.4s ease;
+      border: 1px solid #111; 
+      background: #000;
+      transition: transform 0.4s var(--easing);
     }
     .resume-box img { 
         width: 100%; height: 100%; 
-        object-fit: cover; opacity: 0.8;
-        transition: 0.5s ease; 
+        object-fit: cover; opacity: 0.7;
+        transition: 0.6s var(--easing); 
     }
-    .resume-box:hover img { transform: scale(1.05); opacity: 1; }
+    .resume-box:hover img { transform: scale(1.03); opacity: 1; }
 
-    /* ===== Atmospheric Contact Section (The Valentin Cheval Vibe) ===== */
+    /* ===== Atmospheric Contact Section ===== */
     .contact-section {
         position: relative;
-        padding: 15vh 5% 15vh;
-        margin-top: 5vh;
+        padding: 15vh 5% 10vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         overflow: hidden;
         background: #000;
+        text-align: center;
     }
 
     .contact-glow {
         position: absolute;
-        bottom: -30%; 
+        bottom: -40%; 
         left: 50%;
         transform: translateX(-50%);
         width: 140vw;
         height: 100vh;
-        /* Sunset/Atmospheric Ombre Gradient */
         background: radial-gradient(
             circle at center, 
-            rgba(255, 87, 34, 0.18) 0%,   
-            rgba(255, 193, 7, 0.05) 40%,    
+            rgba(255, 87, 34, 0.15) 0%,   
+            rgba(255, 193, 7, 0.04) 40%,    
             transparent 70%
         );
         filter: blur(100px); 
@@ -126,54 +150,72 @@
     .contact-content {
         position: relative;
         z-index: 1;
-        text-align: center;
         max-width: 900px;
     }
 
     .contact-headline {
         font-family: 'Fraunces', serif;
-        font-size: clamp(3rem, 10vw, 7rem);
+        font-size: clamp(3.5rem, 12vw, 8rem);
         font-weight: 300;
         letter-spacing: -0.04em;
-        line-height: 0.85;
-        margin-bottom: 2.5rem;
+        line-height: 0.8;
+        margin-bottom: 3rem;
     }
     .contact-headline em { font-style: italic; }
 
-    .contact-btn {
-        display: inline-block;
-        padding: 20px 45px;
-        background: #fff;
-        color: #000;
-        text-decoration: none;
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        letter-spacing: 0.1em;
-        border-radius: 2px;
-        transition: 0.3s ease;
+    .contact-details {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
     }
-    .contact-btn:hover { background: #bdbdbd; transform: translateY(-3px); }
+
+    .contact-link {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        transition: 0.3s;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-bottom: 4px;
+    }
+
+    .contact-link:hover {
+        color: #ff5722;
+        border-color: #ff5722;
+        transform: translateY(-2px);
+    }
+
+    .contact-divider { color: #333; font-size: 1.2rem; }
 
     /* Footer */
-    footer { text-align: center; padding: 4rem 2rem; color: #333; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    footer { text-align: center; padding: 5vh; color: #222; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
 
     @media (max-width: 768px) {
-        .profile-section { grid-template-columns: 1fr; padding-top: 4rem; }
-        .stills { flex-direction: column; }
-        .resume-box { width: 100%; }
-        .bio-content h1 { font-size: 2.8rem; }
-        .contact-headline { font-size: 4rem; }
+        .profile-section { flex-direction: column-reverse; align-items: flex-start; padding-top: 4rem; }
+        .profile-img-container { width: 100%; }
+        .stills { grid-template-columns: 1fr; }
+        .contact-headline { font-size: 4.5rem; }
+        .contact-details { flex-direction: column; gap: 15px; }
+        .contact-divider { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <div id="preloader">
+      <div class="preloader-text">
+          <span>Alexandra Hartinger</span>
+      </div>
+  </div>
+
   <header class="fixed-nav">
-    <a href="index.html" class="logo">Alexandra Hartinger</a>
+    <a href="index.html" class="logo">AH.</a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="about.html">About Me</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
@@ -181,8 +223,8 @@
     <section class="profile-section">
       <div class="bio-content">
           <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
-          <p>I build brands that feel like people. Based in Denver, I dig into the "why" behind what we love and turn messy human truths into clear, soulful brand identities.</p>
-          <p><strong>Education:</strong> B.F.A. in Advertising & Branding, SCAD (Cum Laude).</p>
+          <p>I build brands that feel like people. Based in Denver, I translate human truths into clear, soulful brand identities.</p>
+          <p style="font-size: 0.7rem; letter-spacing: 0.15em; color: #444; text-transform: uppercase;">B.F.A. Advertising & Branding, SCAD</p>
       </div>
       <div class="profile-img-container">
           <img src="assets/Headshot.png" alt="Alexandra Hartinger" class="profile-img">
@@ -190,7 +232,7 @@
     </section>
 
     <section class="stills-container">
-        <h2>Connect & Review</h2>
+        <h2>CONNECT & REVIEW</h2>
         <div class="stills">
           <div class="resume-box">
             <img src="assets/MeButton.png" alt="Alexandra Hartinger">
@@ -207,14 +249,27 @@
     <section class="contact-section">
         <div class="contact-glow"></div>
         <div class="contact-content">
-            <h2 class="contact-headline">Let's build.<br> <em></em></h2>
-            <p class="bio-content p" style="margin: 0 auto 3rem; text-align: center;">Currently creating in Denver. </p>
-            <a href="lexhartinger@gmail.com" class="contact-btn">Get in Touch</a>
+            <h2 class="contact-headline">Let's build <br>something <em>soulful.</em></h2>
+            
+            <div class="contact-details">
+                <a href="mailto:lexhartinger@gmail.com" class="contact-link">lexhartinger@gmail.com</a>
+                <span class="contact-divider">/</span>
+                <a href="tel:4049834241" class="contact-link">404.983.4241</a>
+            </div>
         </div>
     </section>
   </main>
 
-  <footer>&copy; 2026 Alexandra Hartinger. All Rights Reserved.</footer>
+  <footer>&copy; 2026 Alexandra Hartinger</footer>
+
+  <script>
+    // Preloader Trigger
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('preloader').classList.add('hidden');
+        }, 1500);
+    });
+  </script>
 
 </body>
 </html>
