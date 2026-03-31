@@ -40,84 +40,130 @@
     /* ===== Hero Profile Section ===== */
     .profile-section {
         margin-top: var(--header-h);
-        padding: 6rem 5%;
+        padding: 8rem 5% 4rem;
         max-width: 1200px;
         margin-left: auto; margin-right: auto;
-        display: grid; grid-template-columns: 1fr 1fr;
+        display: grid; grid-template-columns: 1.2fr 0.8fr;
         gap: 4rem; align-items: center;
     }
     .profile-img-container {
         width: 100%; aspect-ratio: 4/5;
-        overflow: hidden; border: 1px solid #333; 
+        overflow: hidden; border: 1px solid #222; 
     }
-    .profile-img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
+    
     .bio-content h1 {
         font-family: 'Fraunces', serif;
-        font-size: 3.5rem; line-height: 1.1;
+        font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1;
         margin-bottom: 1.5rem; font-weight: 300;
     }
-    .bio-content p { font-size: 1.1rem; color: #ccc; margin-bottom: 1.5rem; max-width: 500px; }
+    .bio-content em { font-style: italic; }
+    .bio-content p { font-size: 1.1rem; color: #aaa; margin-bottom: 1.5rem; max-width: 550px; }
 
-    /* ===== NEW BUTTONS SECTION ===== */
+    /* ===== Buttons/Stills Section ===== */
     .stills-container { 
         padding: 60px 5%; 
         max-width: 1200px; 
         margin: 0 auto; 
     }
     .stills-container h2 {
-      text-transform: uppercase; margin-bottom: 25px;
-      font-size: 2rem; font-family: 'Fraunces', serif;
+      text-transform: uppercase; margin-bottom: 30px;
+      font-size: 1rem; letter-spacing: 0.2em; color: #666;
     }
     .stills { 
         display: flex; 
         gap: 20px; 
     }
-
     .resume-box {
       position: relative; 
       width: calc(33.333% - 14px); 
-      aspect-ratio: 1/1; /* Makes them perfect squares */
-      border-radius: 15px; 
+      aspect-ratio: 1/1;
+      border-radius: 4px; 
       overflow: hidden;
       border: 1px solid #222; 
       background: #111;
-      cursor: pointer;
+      transition: transform 0.4s ease;
     }
-    
     .resume-box img { 
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; 
-        transition: transform 0.5s ease; 
+        width: 100%; height: 100%; 
+        object-fit: cover; opacity: 0.8;
+        transition: 0.5s ease; 
+    }
+    .resume-box:hover img { transform: scale(1.05); opacity: 1; }
+
+    /* ===== Atmospheric Contact Section (The Valentin Cheval Vibe) ===== */
+    .contact-section {
+        position: relative;
+        padding: 15vh 5% 15vh;
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: #000;
     }
 
-    .resume-box:hover img {
-        transform: scale(1.05);
+    .contact-glow {
+        position: absolute;
+        bottom: -30%; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: 140vw;
+        height: 100vh;
+        /* Sunset/Atmospheric Ombre Gradient */
+        background: radial-gradient(
+            circle at center, 
+            rgba(255, 87, 34, 0.18) 0%,   
+            rgba(255, 193, 7, 0.05) 40%,    
+            transparent 70%
+        );
+        filter: blur(100px); 
+        z-index: 0;
+        pointer-events: none;
     }
 
-    .resume-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7); display: flex; flex-direction: column;
-      align-items: center; justify-content: center; opacity: 0;
-      transition: 0.3s; backdrop-filter: blur(5px);
+    .contact-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 900px;
     }
-    .resume-box:hover .resume-overlay { opacity: 1; }
 
-    .res-btn {
-      padding: 10px 20px; margin: 5px; font-size: 0.8rem;
-      text-transform: uppercase; font-weight: 700;
-      text-decoration: none; border-radius: 5px; color: #000;
-      background: #fff; transition: 0.2s;
+    .contact-headline {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(3rem, 10vw, 7rem);
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        line-height: 0.85;
+        margin-bottom: 2.5rem;
     }
+    .contact-headline em { font-style: italic; }
+
+    .contact-btn {
+        display: inline-block;
+        padding: 20px 45px;
+        background: #fff;
+        color: #000;
+        text-decoration: none;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        border-radius: 2px;
+        transition: 0.3s ease;
+    }
+    .contact-btn:hover { background: #bdbdbd; transform: translateY(-3px); }
 
     /* Footer */
-    footer { text-align: center; padding: 4rem 2rem; color: #444; border-top: 1px solid #222; }
+    footer { text-align: center; padding: 4rem 2rem; color: #333; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
     @media (max-width: 768px) {
-        .profile-section { grid-template-columns: 1fr; }
+        .profile-section { grid-template-columns: 1fr; padding-top: 4rem; }
         .stills { flex-direction: column; }
         .resume-box { width: 100%; }
-        .bio-content h1 { font-size: 2.5rem; }
+        .bio-content h1 { font-size: 2.8rem; }
+        .contact-headline { font-size: 4rem; }
     }
   </style>
 </head>
@@ -131,38 +177,42 @@
     </nav>
   </header>
 
-  <section class="profile-section">
-    <div class="bio-content">
-        <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
-        <p>I dig into the "why" behind what we love and turn those messy human truths into a clear strategy.</p>
-        <p><strong>Education:</strong> B.F.A. in Advertising & Branding, SCAD (Cum Laude).</p>
-    </div>
-    <div class="profile-img-container">
-        <img src="assets/Headshot.png" alt="Alexandra Hartinger" class="profile-img">
-    </div>
-  </section>
-
-<section class="stills-container">
-    <h2>Connect & Review</h2>
-    <div class="stills">
-      
-      <div class="resume-box" style="cursor: default;">
-        <img src="assets/MeButton.png" alt="Alexandra Hartinger">
-        <div class="resume-overlay" style="background: transparent; backdrop-filter: none;"></div>
+  <main>
+    <section class="profile-section">
+      <div class="bio-content">
+          <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
+          <p>I build brands that feel like people. Based in Denver, I dig into the "why" behind what we love and turn messy human truths into clear, soulful brand identities.</p>
+          <p><strong>Education:</strong> B.F.A. in Advertising & Branding, SCAD (Cum Laude).</p>
       </div>
+      <div class="profile-img-container">
+          <img src="assets/Headshot.png" alt="Alexandra Hartinger" class="profile-img">
+      </div>
+    </section>
 
-      <a href="assets/AlexandraHartinger_Resume.pdf" target="_blank" class="resume-box" style="text-decoration: none;">
-        <img src="assets/ResumeButton.png" alt="View Resume"> 
-        <div class="resume-overlay" style="background: transparent; backdrop-filter: none;"></div>
-      </a>
+    <section class="stills-container">
+        <h2>Connect & Review</h2>
+        <div class="stills">
+          <div class="resume-box">
+            <img src="assets/MeButton.png" alt="Alexandra Hartinger">
+          </div>
+          <a href="assets/AlexandraHartinger_Resume.pdf" target="_blank" class="resume-box">
+            <img src="assets/ResumeButton.png" alt="View Resume"> 
+          </a>
+          <a href="https://www.linkedin.com/in/alexhartinger/" target="_blank" class="resume-box">
+            <img src="assets/LinkInButton.png" alt="LinkedIn Profile">
+          </a>
+        </div>
+    </section>
 
-      <a href="https://www.linkedin.com/in/alexhartinger/" target="_blank" class="resume-box" style="text-decoration: none;">
-        <img src="assets/LinkInButton.png" alt="LinkedIn Profile">
-        <div class="resume-overlay" style="background: transparent; backdrop-filter: none;"></div>
-      </a>
-
-    </div>
-</section>
+    <section class="contact-section">
+        <div class="contact-glow"></div>
+        <div class="contact-content">
+            <h2 class="contact-headline">Let's build <br>something <em>soulful.</em></h2>
+            <p class="bio-content p" style="margin: 0 auto 3rem; text-align: center;">Currently creating in Denver. Whether you're launching a new venture or refining an existing identity, I'm here to help you find the human connection.</p>
+            <a href="mailto:alexandra.hartinger@example.com" class="contact-btn">Get in Touch</a>
+        </div>
+    </section>
+  </main>
 
   <footer>&copy; 2026 Alexandra Hartinger. All Rights Reserved.</footer>
 
