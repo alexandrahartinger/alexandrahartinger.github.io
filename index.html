@@ -9,7 +9,7 @@
 
   <style>
     :root {
-      --header-h: 72px;
+      --header-h: 80px;
       --fade-dur: 900ms;
       --easing: cubic-bezier(.2,.7,.2,1);
     }
@@ -30,13 +30,14 @@
       height: var(--header-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px;
-      background: rgba(0,0,0,.4);
+      background: rgba(0,0,0,0.8);
       z-index: 100;
       backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     
     header.fixed-nav .logo {
-      font-size: 1.2rem; 
+      font-size: 1.1rem; 
       font-weight: 800; 
       text-transform: uppercase;
       letter-spacing: .12em;
@@ -45,48 +46,53 @@
     
     nav a {
       color: #fff; text-decoration: none; margin-left: 28px;
-      font-size: .95rem; font-weight: 700; text-transform: uppercase;
+      font-size: .9rem; font-weight: 700; text-transform: uppercase;
       transition: color .25s;
     }
     nav a:hover { color: #bdbdbd; }
 
-    /* ===== Immersive Headline Overlay ===== */
-    .hero-text-overlay {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 10;
-        text-align: center;
-        width: 90%;
-        pointer-events: none;
+    /* ===== Clean Intro Section (No Block) ===== */
+    .intro-header-section {
+        padding: 15vh 40px 10vh;
+        margin-top: var(--header-h);
+        text-align: left;
+        max-width: 1200px;
     }
 
-    .hero-text-overlay h1 {
-        font-size: clamp(2.5rem, 7vw, 5rem);
+    .intro-headline {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
         font-weight: 700;
         line-height: 1.1;
         letter-spacing: -0.02em;
-        margin-bottom: 1rem;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        margin: 0 0 1.5rem 0;
     }
 
-    .hero-text-overlay h1 em {
+    .intro-headline em {
         font-family: 'Fraunces', serif;
         font-weight: 300;
         font-style: italic;
+        color: #ddd;
     }
 
-    /* ===== Video Sections ===== */
+    .intro-subtext {
+        font-size: 1.1rem;
+        color: #888;
+        max-width: 550px;
+        line-height: 1.6;
+    }
+
+    /* ===== Consistent Project Sections ===== */
     .section {
       position: relative; 
-      min-height: 100vh; 
+      min-height: 90vh; /* Consistent height for all */
       width: 100%;
       display: flex; 
       align-items: center; 
       justify-content: flex-start;
       overflow: clip;
-      opacity: 0; transform: translateY(40px);
+      margin-bottom: 2px; /* Subtle separation */
+      opacity: 0; 
+      transform: translateY(30px);
       transition: opacity var(--fade-dur) var(--easing), transform var(--fade-dur) var(--easing);
     }
     .section.is-visible { opacity: 1; transform: translateY(0); }
@@ -94,40 +100,42 @@
     .section video {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; z-index: 0; pointer-events: none;
-      filter: brightness(.5);
+      filter: brightness(.6);
     }
     
     .overlay {
-      position: relative; z-index: 1; text-align: left;
-      max-width: 640px; padding: 0 40px;
-      margin-top: 30vh; /* Pushes project info down to not clash with hero text */
+      position: relative; 
+      z-index: 1; 
+      text-align: left;
+      max-width: 640px; 
+      padding: 0 40px;
     }
 
     .overlay h2 {
-      margin: 0 0 12px; font-size: clamp(1.5rem, 4vw, 3rem);
+      margin: 0 0 10px; font-size: clamp(1.5rem, 4vw, 2.5rem);
       text-transform: uppercase; letter-spacing: .06em;
       color: #fff;
     }
     .overlay p {
-      margin: 0 0 20px; font-size: 1.05rem; line-height: 1.5;
+      margin: 0 0 20px; font-size: 1rem; line-height: 1.5;
       color: #e6e6e6;
     }
     .overlay a {
       display: inline-block; text-decoration: none;
-      padding: 14px 24px; background: #fff; color: #000;
-      font-weight: 800; text-transform: uppercase; border-radius: 4px;
-      transition: transform .15s, background .25s;
+      padding: 12px 28px; background: #fff; color: #000;
+      font-weight: 800; text-transform: uppercase; border-radius: 2px;
+      transition: all 0.3s ease;
     }
-    .overlay a:hover { background: #eaeaea; transform: translateY(-1px); }
+    .overlay a:hover { background: #bdbdbd; transform: translateY(-2px); }
 
     footer {
-      text-align: center; padding: 40px 20px;
-      font-size: .9rem; color: #444; background: #000;
-      border-top: 1px solid #222;
+      text-align: center; padding: 60px 20px;
+      font-size: .85rem; color: #444; background: #000;
     }
 
     @media (max-width: 768px) {
-        .hero-text-overlay h1 { font-size: 2.8rem; }
+        .intro-header-section { padding: 10vh 20px 5vh; }
+        .overlay { padding: 0 20px; }
     }
   </style>
 </head>
@@ -143,16 +151,20 @@
 
   <main>
     
+    <section class="intro-header-section">
+        <h1 class="intro-headline">Building Brands with <em>Soul:</em><br>Identity, Direction & <em>Strategy.</em></h1>
+        <p class="intro-subtext">
+            I build brands that feel like people. With a natural instinct for identity and a focus on human connection, I bridge the gap between a business and its soul. Based in Denver.
+        </p>
+    </section>
+
     <section class="section" id="sole1">
-      <div class="hero-text-overlay">
-        <h1>Building Brands with <em>Soul:</em><br>Identity, Direction & <em>Strategy.</em></h1>
-      </div>
       <video autoplay muted loop playsinline preload="metadata">
         <source src="assets/sole1-hero.mp4" type="video/mp4"/>
       </video>
       <div class="overlay">
         <h2>Sole 1</h2>
-        <p>Founder & Creative Director: Redefining holistic movement through intentional brand DNA.</p>
+        <p>Founder & Creative Director: Crafting a new standard for holistic movement and foot health.</p>
         <a href="sole-1.html">View Case Study</a>
       </div>
     </section>
@@ -185,7 +197,7 @@
       </video>
       <div class="overlay">
         <h2>Main Street Auto</h2>
-        <p>A lifestyle-forward rebrand grounded in trust and strong community roots.</p>
+        <p>A lifestyle-forward rebrand grounded in trust, transparency, and community roots.</p>
         <a href="main-street-auto.html">See More</a>
       </div>
     </section>
@@ -202,7 +214,7 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add("is-visible");
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     sections.forEach(s => io.observe(s));
   </script>
 
