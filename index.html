@@ -18,7 +18,6 @@
 
     body {
         margin: 0; padding: 0;
-        /* Matches your Resume/Name style (Clean Sans-Serif) */
         font-family: "Helvetica Neue", Arial, sans-serif;
         background: #000; 
         color: #fff;
@@ -31,10 +30,10 @@
       height: var(--header-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px;
-      background: rgba(0,0,0,.9);
-      border-bottom: 1px solid rgba(255,255,255,.1);
+      background: rgba(0,0,0,0.4); /* Made more transparent for the vibe */
       z-index: 100;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s;
     }
     
     header.fixed-nav .logo {
@@ -43,7 +42,6 @@
       text-transform: uppercase;
       letter-spacing: .12em;
       color: #fff;
-      font-family: "Helvetica Neue", Arial, sans-serif;
     }
     
     nav a {
@@ -53,90 +51,110 @@
     }
     nav a:hover { color: #bdbdbd; }
 
-    /* ===== Intro Section ===== */
+    /* ===== Atmospheric Intro (Now an Overlay) ===== */
     .intro-block {
-        background-color: #000000;
-        color: #ffffff;
-        padding: 18vh 5% 12vh;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100vh; /* Full screen height */
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: var(--header-h);
+        align-items: center;
+        text-align: center;
+        z-index: 10;
+        padding: 0 10%;
+        pointer-events: none; /* Allows scrolling/clicking through to the video content */
     }
 
     .intro-headline {
         font-family: "Helvetica Neue", Arial, sans-serif; 
-        font-size: clamp(3rem, 6.5vw, 6rem);
+        font-size: clamp(2.5rem, 7vw, 5.5rem);
         font-weight: 700; 
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-bottom: 2.5rem;
-        margin-top: 0;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 4px 30px rgba(0,0,0,0.5); /* Depth for readability over video */
     }
 
-    /* The "Keyword" styling */
     .intro-headline em {
-        font-family: 'Fraunces', serif; /* The decorative font */
+        font-family: 'Fraunces', serif;
         font-weight: 300;
         font-style: italic;
-        color: #e0e0e0;
+        color: #fff;
     }
 
     .intro-subtext {
         font-family: "Helvetica Neue", Arial, sans-serif;
         font-size: 1.1rem;
-        color: #888;
-        max-width: 500px;
+        color: rgba(255,255,255,0.9);
+        max-width: 600px;
         line-height: 1.6;
+        text-shadow: 0 2px 15px rgba(0,0,0,0.5);
     }
 
     /* ===== Video Sections ===== */
     .section {
-      position: relative; min-height: 90vh; width: 100%;
-      display: flex; align-items: center; justify-content: flex-start;
+      position: relative; 
+      min-height: 100vh; /* Changed to 100vh for full-screen impact */
+      width: 100%;
+      display: flex; 
+      align-items: center; 
+      justify-content: flex-start;
       overflow: clip;
-      opacity: 0; transform: translateY(40px);
-      transition: opacity var(--fade-dur) var(--easing), transform var(--fade-dur) var(--easing);
     }
-    .section.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* Smooth entry animation */
+    .section-content {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity var(--fade-dur) var(--easing), transform var(--fade-dur) var(--easing);
+      width: 100%;
+      z-index: 1;
+    }
+    .section.is-visible .section-content { opacity: 1; transform: translateY(0); }
 
     .section video, .section img.bg {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; z-index: 0; pointer-events: none;
-      filter: brightness(.65);
+      filter: brightness(.55); /* Darkened slightly to let text pop */
     }
     
     .overlay {
-      position: relative; z-index: 1; text-align: left;
-      max-width: 640px; padding: 0 40px;
+      text-align: left;
+      max-width: 640px; padding: 0 60px;
     }
+
+    /* Offset the first video's text so it doesn't collide with the big headline */
+    #section1 .overlay {
+        margin-top: 60vh; 
+    }
+
     .overlay h2 {
-      margin: 0 0 12px; font-size: clamp(1.5rem, 4vw, 3rem);
+      margin: 0 0 12px; font-size: clamp(1.5rem, 4vw, 2.5rem);
       text-transform: uppercase; letter-spacing: .06em;
-      color: #fff;
     }
     .overlay p {
-      margin: 0 0 20px; font-size: 1.05rem; line-height: 1.5;
-      color: #e6e6e6;
+      margin: 0 0 24px; font-size: 1.05rem; line-height: 1.5; color: #e6e6e6;
     }
     .overlay a {
       display: inline-block; text-decoration: none;
-      padding: 14px 24px; background: #fff; color: #000;
-      font-weight: 800; text-transform: uppercase; border-radius: 4px;
-      transition: transform .15s, background .25s;
+      padding: 14px 32px; background: #fff; color: #000;
+      font-weight: 800; text-transform: uppercase; border-radius: 2px;
+      transition: all .3s ease;
+      pointer-events: auto; /* Ensures buttons are clickable */
     }
-    .overlay a:hover { background: #eaeaea; transform: translateY(-1px); }
+    .overlay a:hover { background: #bdbdbd; transform: scale(1.05); }
 
     footer {
-      text-align: center; padding: 40px 20px;
-      font-size: .9rem; color: #444; background: #000;
-      border-top: 1px solid #222;
+      text-align: center; padding: 60px 20px;
+      font-size: .85rem; color: #666; background: #000;
     }
 
     @media (max-width: 768px) {
-        .intro-block { padding: 12vh 5%; }
         .intro-headline { font-size: 2.8rem; }
+        .overlay { padding: 0 30px; }
+        #section1 .overlay { margin-top: 50vh; }
     }
   </style>
 </head>
@@ -154,13 +172,11 @@
     
     <section class="intro-block">
         <h1 class="intro-headline">
-            Building Brands with Soul:,<br>
-            Identity,  <br>
-            Direction & <br>
-            <em>Strategy.</em>
+            Building Brands <br>with <em>Soul</em>: <br>
+            Identity, Direction <br>& <em>Strategy.</em>
         </h1>
         <p class="intro-subtext">
-            I build brands that feel like people. With a natural eye for identity and a focus on human connection, I bridge the gap between a business and its soul to create the perfect brand. Based in Denver.
+            I build brands that feel like people. With a natural instinct for identity and an intense focus on human connection, I bridge the gap between a business and its soul. Based in Denver.
         </p>
     </section>
 
@@ -168,10 +184,12 @@
       <video autoplay muted loop playsinline preload="metadata">
         <source src="assets/Cover Video.mp4" type="video/mp4"/>
       </video>
-      <div class="overlay">
-        <h2>David Yurman</h2>
-        <p>Create Joy Holiday Campaign: a luxury film celebrating light, emotion, and craftsmanship.</p>
-        <a href="david-yurman.html">See More</a>
+      <div class="section-content">
+          <div class="overlay">
+            <h2>David Yurman</h2>
+            <p>Create Joy Holiday Campaign: a luxury film celebrating light, emotion, and craftsmanship.</p>
+            <a href="david-yurman.html">See More</a>
+          </div>
       </div>
     </section>
 
@@ -179,10 +197,12 @@
       <video autoplay muted loop playsinline preload="metadata">
         <source src="assets/CJM Daytona 1 (Beeps).mp4" type="video/mp4"/>
       </video>
-      <div class="overlay">
-        <h2>NASCAR</h2>
-        <p>Capturing high-speed excitement and behind-the-scenes storytelling on the track.</p>
-        <a href="nascar.html">See More</a>
+      <div class="section-content">
+          <div class="overlay">
+            <h2>NASCAR</h2>
+            <p>Capturing high-speed excitement and behind-the-scenes storytelling on the track.</p>
+            <a href="nascar.html">See More</a>
+          </div>
       </div>
     </section>
 
@@ -190,26 +210,30 @@
       <video autoplay muted loop playsinline preload="metadata">
         <source src="assets/Main Street Auto Cover Video.mp4" type="video/mp4"/>
       </video>
-      <div class="overlay">
-        <h2>Main Street Auto</h2>
-        <p>A Southeast-wide rebrand grounded in trust, transparency, and strong community roots.</p>
-        <a href="main-street-auto.html">See More</a>
+      <div class="section-content">
+          <div class="overlay">
+            <h2>Main Street Auto</h2>
+            <p>A Southeast-wide rebrand grounded in trust, transparency, and strong community roots.</p>
+            <a href="main-street-auto.html">See More</a>
+          </div>
       </div>
     </section>
 
   </main>
 
   <footer>
-    &copy; 2025 Alexandra Hartinger. All Rights Reserved.
+    &copy; 2026 Alexandra Hartinger. All Rights Reserved.
   </footer>
 
   <script>
     const sections = document.querySelectorAll(".section");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+        }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.2 });
     sections.forEach(s => io.observe(s));
   </script>
 
