@@ -11,7 +11,7 @@
     :root {
       --header-h: 80px;
       --fade-dur: 900ms;
-      --easing: cubic-bezier(.2,.7,.2,1);
+      --easing: cubic-bezier(0.9, 0, 0.1, 1);
     }
 
     * { box-sizing: border-box; }
@@ -24,76 +24,99 @@
         overflow-x: hidden;
     }
 
+    /* ===== A-ROCK Style Preloader ===== */
+    #preloader {
+        position: fixed; inset: 0;
+        background: #000; z-index: 2000;
+        display: flex; align-items: center; justify-content: center;
+        transition: transform 1.2s var(--easing);
+    }
+    #preloader.hidden { transform: translateY(-100%); }
+    
+    .preloader-text {
+        font-size: 1.2rem; font-weight: 800; text-transform: uppercase;
+        letter-spacing: 0.4em; overflow: hidden;
+    }
+    .preloader-text span {
+        display: block; transform: translateY(100%);
+        animation: slideUp 0.8s var(--easing) forwards;
+    }
+    @keyframes slideUp { to { transform: translateY(0); } }
+
     /* ===== Navigation ===== */
     header.fixed-nav {
       position: fixed; top: 0; left: 0; right: 0;
       height: var(--header-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.2);
       z-index: 100;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     
     header.fixed-nav .logo {
       font-size: 1.1rem; 
       font-weight: 800; 
       text-transform: uppercase;
-      letter-spacing: .12em;
+      letter-spacing: .15em;
       color: #fff;
     }
     
     nav a {
       color: #fff; text-decoration: none; margin-left: 28px;
-      font-size: .9rem; font-weight: 700; text-transform: uppercase;
+      font-size: .8rem; font-weight: 700; text-transform: uppercase;
       transition: color .25s;
     }
     nav a:hover { color: #bdbdbd; }
 
-    /* ===== Clean Intro Section (No Block) ===== */
+    /* ===== Thinner, Sleeker Intro ===== */
     .intro-header-section {
-        padding: 15vh 40px 10vh;
+        padding: 6vh 7% 4vh; /* Reduced significantly from 15vh */
         margin-top: var(--header-h);
         text-align: left;
-        max-width: 1200px;
+        max-width: 1400px;
+        min-height: 35vh; /* Sits higher up the fold */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
 
     .intro-headline {
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-size: clamp(2.2rem, 5vw, 3.8rem); /* Slightly more refined size */
         font-weight: 700;
-        line-height: 1.1;
+        line-height: 1;
         letter-spacing: -0.02em;
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 1.2rem 0;
     }
 
     .intro-headline em {
         font-family: 'Fraunces', serif;
         font-weight: 300;
         font-style: italic;
-        color: #ddd;
+        color: #fff;
     }
 
     .intro-subtext {
-        font-size: 1.1rem;
-        color: #888;
-        max-width: 550px;
-        line-height: 1.6;
+        font-size: 0.95rem;
+        color: #666; /* Muted to let headline and videos lead */
+        max-width: 450px;
+        line-height: 1.5;
     }
 
-    /* ===== Consistent Project Sections ===== */
+    /* ===== Framed Project Sections ===== */
     .section {
       position: relative; 
-      min-height: 90vh; /* Consistent height for all */
-      width: 100%;
+      min-height: 85vh; /* Shorter height to keep the pace up */
+      width: calc(100% - 40px); /* Creates the "Gallery Frame" effect */
+      margin: 0 auto 20px auto; 
       display: flex; 
       align-items: center; 
       justify-content: flex-start;
       overflow: clip;
-      margin-bottom: 2px; /* Subtle separation */
       opacity: 0; 
       transform: translateY(30px);
       transition: opacity var(--fade-dur) var(--easing), transform var(--fade-dur) var(--easing);
+      border-radius: 4px;
     }
     .section.is-visible { opacity: 1; transform: translateY(0); }
 
@@ -107,39 +130,47 @@
       position: relative; 
       z-index: 1; 
       text-align: left;
-      max-width: 640px; 
+      max-width: 600px; 
       padding: 0 40px;
     }
 
     .overlay h2 {
-      margin: 0 0 10px; font-size: clamp(1.5rem, 4vw, 2.5rem);
-      text-transform: uppercase; letter-spacing: .06em;
+      margin: 0 0 8px; font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      text-transform: uppercase; letter-spacing: .08em;
       color: #fff;
     }
     .overlay p {
-      margin: 0 0 20px; font-size: 1rem; line-height: 1.5;
-      color: #e6e6e6;
+      margin: 0 0 20px; font-size: 0.95rem; line-height: 1.5;
+      color: #ccc;
     }
     .overlay a {
       display: inline-block; text-decoration: none;
-      padding: 12px 28px; background: #fff; color: #000;
+      padding: 10px 24px; background: #fff; color: #000;
       font-weight: 800; text-transform: uppercase; border-radius: 2px;
+      font-size: 0.75rem;
       transition: all 0.3s ease;
     }
-    .overlay a:hover { background: #bdbdbd; transform: translateY(-2px); }
+    .overlay a:hover { background: #bdbdbd; transform: scale(1.05); }
 
     footer {
-      text-align: center; padding: 60px 20px;
-      font-size: .85rem; color: #444; background: #000;
+      text-align: center; padding: 80px 20px;
+      font-size: .75rem; color: #222; text-transform: uppercase; letter-spacing: 0.2em;
     }
 
     @media (max-width: 768px) {
-        .intro-header-section { padding: 10vh 20px 5vh; }
+        .intro-header-section { padding: 4vh 20px; }
+        .section { width: calc(100% - 20px); }
         .overlay { padding: 0 20px; }
     }
   </style>
 </head>
 <body>
+
+  <div id="preloader">
+      <div class="preloader-text">
+          <span>Alexandra Hartinger</span>
+      </div>
+  </div>
 
   <header class="fixed-nav">
     <div class="logo">Alexandra Hartinger</div>
@@ -154,7 +185,7 @@
     <section class="intro-header-section">
         <h1 class="intro-headline">Building Brands with <em>Soul:</em><br>Identity, Direction & <em>Strategy.</em></h1>
         <p class="intro-subtext">
-            I build brands that feel like people. With a natural instinct for identity and a focus on human connection, I bridge the gap between a business and its soul. Based in Denver.
+            I build brands that feel like people. From Denver, CO, I translate human truths into clear, soulful brand identities.
         </p>
     </section>
 
@@ -164,7 +195,7 @@
       </video>
       <div class="overlay">
         <h2>Sole 1</h2>
-        <p>Founder & Creative Director: Crafting a new standard for holistic movement and foot health.</p>
+        <p>Founder & Creative Director: Redefining holistic movement through intentional brand DNA.</p>
         <a href="sole-1.html">View Case Study</a>
       </div>
     </section>
@@ -209,6 +240,14 @@
   </footer>
 
   <script>
+    // Preloader Trigger
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('preloader').classList.add('hidden');
+        }, 1500);
+    });
+
+    // Scroll Fade In
     const sections = document.querySelectorAll(".section");
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
