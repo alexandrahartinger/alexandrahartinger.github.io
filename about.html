@@ -1,275 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | Alexandra Hartinger</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6ef">
+  <meta name="description" content="Meet Alex Hart, a Denver-based social content creative and art director.">
+  <title>About — Alex Hart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { 
-        --header-h: 72px; 
-        --easing: cubic-bezier(0.9, 0, 0.1, 1);
-    }
-    * { box-sizing: border-box; }
-    body {
-        margin: 0; padding: 0;
-        font-family: "Helvetica Neue", Arial, sans-serif;
-        background: #000; color: #fff;
-        overflow-x: hidden; line-height: 1.6;
-    }
-
-    /* ===== A-ROCK Inspired Preloader ===== */
-    #preloader {
-        position: fixed; inset: 0;
-        background: #000; z-index: 2000;
-        display: flex; align-items: center; justify-content: center;
-        transition: transform 1.2s var(--easing);
-    }
-    #preloader.hidden { transform: translateY(-100%); }
-    
-    .preloader-text {
-        font-size: 1.2rem; font-weight: 800; text-transform: uppercase;
-        letter-spacing: 0.4em; overflow: hidden;
-    }
-    .preloader-text span {
-        display: block; transform: translateY(100%);
-        animation: slideUp 0.8s var(--easing) forwards;
-    }
-    @keyframes slideUp { to { transform: translateY(0); } }
-
-    /* ===== Navigation ===== */
-    header.fixed-nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--header-h);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 40px; background: rgba(0,0,0,0.2);
-      z-index: 100; backdrop-filter: blur(10px);
-    }
-    header.fixed-nav .logo {
-      font-size: 1.1rem; font-weight: 800; text-transform: uppercase;
-      letter-spacing: .15em; color: #fff; text-decoration: none;
-    }
-    nav a {
-      color: #fff; text-decoration: none; margin-left: 28px;
-      font-size: .85rem; font-weight: 700; text-transform: uppercase;
-      transition: color .25s;
-    }
-    nav a:hover { color: #bdbdbd; }
-
-    /* ===== Sleeker Profile Section ===== */
-    .profile-section {
-        margin-top: var(--header-h);
-        padding: 6vh 7% 4vh;
-        max-width: 1300px;
-        margin-left: auto; margin-right: auto;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 4rem;
-    }
-    .profile-img-container {
-        width: 380px; aspect-ratio: 1/1.2;
-        overflow: hidden; border: 1px solid #1a1a1a;
-        filter: grayscale(100%);
-        transition: filter 0.6s ease;
-    }
-    .profile-img-container:hover { filter: grayscale(0%); }
-    .profile-img { width: 100%; height: 100%; object-fit: cover; }
-    
-    .bio-content { max-width: 500px; padding-bottom: 20px; }
-    .bio-content h1 {
-        font-family: 'Fraunces', serif;
-        font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1;
-        margin-bottom: 1.5rem; font-weight: 300;
-    }
-    .bio-content em { font-style: italic; }
-    .bio-content p { font-size: 0.95rem; color: #888; margin-bottom: 1.2rem; }
-
-    /* ===== Stills Grid ===== */
-    .stills-container { 
-        padding: 40px 7%; 
-        max-width: 1300px; 
-        margin: 0 auto; 
-    }
-    .stills-container h2 {
-      text-transform: uppercase; margin-bottom: 25px;
-      font-size: 0.7rem; letter-spacing: 0.3em; color: #444;
-    }
-    .stills { 
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px; 
-    }
-    .resume-box {
-      position: relative; 
-      overflow: hidden;
-      border: 1px solid #111; 
-      background: #000;
-      transition: transform 0.4s var(--easing);
-    }
-    .resume-box img { 
-        width: 100%; height: 100%; 
-        object-fit: cover; opacity: 0.7;
-        transition: 0.6s var(--easing); 
-    }
-    .resume-box:hover img { transform: scale(1.03); opacity: 1; }
-
-    /* ===== Atmospheric Contact Section ===== */
-    .contact-section {
-        position: relative;
-        padding: 15vh 5% 10vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        background: #000;
-        text-align: center;
-    }
-
-    .contact-glow {
-        position: absolute;
-        bottom: -40%; 
-        left: 50%;
-        transform: translateX(-50%);
-        width: 140vw;
-        height: 100vh;
-        background: radial-gradient(
-            circle at center, 
-            rgba(255, 87, 34, 0.15) 0%,   
-            rgba(255, 193, 7, 0.04) 40%,    
-            transparent 70%
-        );
-        filter: blur(100px); 
-        z-index: 0;
-        pointer-events: none;
-    }
-
-    .contact-content {
-        position: relative;
-        z-index: 1;
-        max-width: 900px;
-    }
-
-    .contact-headline {
-        font-family: 'Fraunces', serif;
-        font-size: clamp(3.5rem, 12vw, 8rem);
-        font-weight: 300;
-        letter-spacing: -0.04em;
-        line-height: 0.8;
-        margin-bottom: 3rem;
-    }
-    .contact-headline em { font-style: italic; }
-
-    .contact-details {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 24px;
-        flex-wrap: wrap;
-    }
-
-    .contact-link {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 500;
-        letter-spacing: 0.05em;
-        transition: 0.3s;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-        padding-bottom: 4px;
-    }
-
-    .contact-link:hover {
-        color: #ff5722;
-        border-color: #ff5722;
-        transform: translateY(-2px);
-    }
-
-    .contact-divider { color: #333; font-size: 1.2rem; }
-
-    /* Footer */
-    footer { text-align: center; padding: 5vh; color: #222; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
-
-    @media (max-width: 768px) {
-        .profile-section { flex-direction: column-reverse; align-items: flex-start; padding-top: 4rem; }
-        .profile-img-container { width: 100%; }
-        .stills { grid-template-columns: 1fr; }
-        .contact-headline { font-size: 4.5rem; }
-        .contact-details { flex-direction: column; gap: 15px; }
-        .contact-divider { display: none; }
-    }
+    :root{--paper:#f8f6ef;--ink:#24352b;--green:#42604a;--blue:#1946dc;--yellow:#ffdf74;--line:#d6d9ce;--font:Manrope,'Helvetica Neue',Arial,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--font);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid var(--blue);outline-offset:5px}h1,h2,h3,p,figure{margin:0}h1,h2,h3{letter-spacing:-.055em;line-height:1.08}img{display:block;width:100%;max-width:100%}p{max-width:62ch}::selection{background:var(--yellow);color:var(--ink)}
+    .wrap{width:min(1440px,calc(100% - 120px));margin-inline:auto}.skip{position:absolute;z-index:10;top:10px;left:10px;padding:10px;background:var(--paper);transform:translateY(-160%)}.skip:focus{transform:none}.nav{min-height:87px;display:flex;align-items:center;justify-content:space-between;gap:20px}.wordmark{font-size:1.65rem;font-weight:800;letter-spacing:-.09em;white-space:nowrap}.dot{color:#b68a17}.nav-links{display:flex;align-items:center;gap:clamp(18px,3vw,46px);font-size:.91rem;font-weight:700}.nav-links a:hover,.text-link:hover,.contact-links a:hover{color:var(--blue)}.nav-links [aria-current=page]{border-bottom:1px solid currentColor}.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;line-height:1.5;color:var(--green)}
+    .profile{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(36px,8vw,120px);padding:clamp(38px,6vw,80px) 0 clamp(64px,8vw,110px);border-bottom:1px solid var(--line)}.bio{max-width:650px}.bio h1{font-size:clamp(4.4rem,8.2vw,8.1rem);font-weight:700;letter-spacing:-.085em;line-height:.98;margin:18px 0 20px}.role{font-size:clamp(.9rem,1.4vw,1.08rem);font-weight:750;color:var(--green);margin-bottom:25px;line-height:1.4}.body-copy{font-size:clamp(1rem,1.4vw,1.18rem);line-height:1.8}.body-copy+p{margin-top:18px}.profile-image{position:relative;align-self:center;max-width:620px;justify-self:end}.profile-image img{aspect-ratio:4/5;object-fit:cover;object-position:center; background:#e0e1d9}.photo-caption{display:flex;justify-content:space-between;align-items:baseline;gap:15px;color:var(--green);font-size:.79rem;font-weight:600;margin-top:13px}.action-row{display:flex;align-items:center;flex-wrap:wrap;gap:18px 27px;margin-top:29px}.resume-link{display:inline-flex;align-items:center;gap:28px;font-weight:800;font-size:.96rem;background:var(--yellow);padding:14px 21px;color:var(--ink);transition:background .2s}.resume-link:hover{background:#f7cf48}.resume-link span{font-size:1.15rem}.text-link{font-size:.88rem;font-weight:800;border-bottom:1px solid var(--green);padding-bottom:3px;display:inline-block}
+    .contact{padding:clamp(56px,7vw,100px) 0;display:grid;grid-template-columns:1.2fr .8fr;align-items:end;gap:42px;border-bottom:1px solid var(--line)}.contact h2{font-size:clamp(3rem,6.4vw,6.8rem);line-height:1;letter-spacing:-.075em;font-weight:700;margin-top:12px}.contact h2 span{color:var(--green)}.contact-details p{font-size:1.02rem;line-height:1.7;margin-bottom:24px}.contact-links{display:flex;flex-direction:column;align-items:flex-start;gap:14px}.contact-links a{font-size:1.05rem;font-weight:750;border-bottom:1px solid var(--green);padding-bottom:3px;overflow-wrap:anywhere}.footer{padding:30px 0 42px;display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:.83rem;color:var(--green)}.footer a{font-weight:700}.footer a:hover{color:var(--blue)}
+    @media(max-width:1000px){.wrap{width:calc(100% - 72px)}.profile{gap:38px}.bio h1{font-size:clamp(4rem,9vw,6.5rem)}.contact{gap:28px}}
+    @media(max-width:700px){.wrap{width:calc(100% - 36px)}.nav{min-height:70px;gap:12px}.wordmark{font-size:1.35rem}.nav-links{font-size:.78rem;gap:15px}.profile{grid-template-columns:1fr;gap:35px;padding-top:38px}.bio h1{font-size:clamp(3.8rem,13vw,6rem);margin:16px 0 18px}.role{margin-bottom:20px}.body-copy{font-size:1rem;line-height:1.75}.profile-image{justify-self:start;width:100%;max-width:510px}.profile-image img{aspect-ratio:4/5}.contact{grid-template-columns:1fr;gap:25px;padding:50px 0}.contact h2{font-size:clamp(3rem,10.5vw,5rem)}.footer{flex-direction:column;align-items:flex-start;gap:10px}.resume-link{padding:13px 18px;gap:18px}.action-row{gap:16px 21px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
   </style>
 </head>
 <body>
-
-  <div id="preloader">
-      <div class="preloader-text">
-          <span>Alexandra Hartinger</span>
-      </div>
-  </div>
-
-  <header class="fixed-nav">
-    <a href="index.html" class="logo">AH.</a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-    </nav>
+  <a class="skip" href="#main">Skip to about</a>
+  <header class="nav wrap">
+    <a class="wordmark" href="index.html" aria-label="Alex Hart home">alex hart<span class="dot">.</span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="index.html#work">Work</a><a href="about.html" aria-current="page">About</a><a href="mailto:lexhartinger@gmail.com">Contact</a></nav>
   </header>
-
-  <main>
-    <section class="profile-section">
-      <div class="bio-content">
-          <h1>Storyteller.<br>Translator.<br><em>Strategist.</em></h1>
-          <p>I build brands that feel like people. Based in Denver, I translate human truths into clear, soulful brand identities.</p>
-          <p style="font-size: 0.7rem; letter-spacing: 0.15em; color: #444; text-transform: uppercase;">B.F.A. Advertising & Branding, SCAD</p>
+  <main id="main" class="wrap">
+    <section class="profile" aria-labelledby="about-title">
+      <div class="bio">
+        <p class="eyebrow">A little about me / Denver, Colorado</p>
+        <h1 id="about-title">Hey, I’m Alex<span class="dot">!</span></h1>
+        <p class="role">Social Content Creative &amp; Art Director</p>
+        <p class="body-copy">I’m a Denver-based creative who loves good design, compelling storytelling, and finding unexpected ways to connect brands with people.</p>
+        <p class="body-copy">With a background in advertising and art direction from SCAD, I bring curiosity, strategy, and a hands-on creative approach to everything from brand development to social content. I love taking an idea and turning it into something worth stopping the scroll for.</p>
+        <div class="action-row"><a class="resume-link" href="assets/AlexandraHartinger_Resume.pdf?v=20261119" target="_blank" rel="noopener noreferrer">View my résumé <span aria-hidden="true">↗</span></a><a class="text-link" href="https://www.linkedin.com/in/alexhartinger/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
       </div>
-      <div class="profile-img-container">
-          <img src="assets/Headshot.png" alt="Alexandra Hartinger" class="profile-img">
-      </div>
+      <figure class="profile-image"><img src="assets/Headshot.png" alt="Alexandra Hartinger" fetchpriority="high"><figcaption class="photo-caption"><span>Alexandra Hartinger</span><span>Denver, CO</span></figcaption></figure>
     </section>
-
-    <section class="stills-container">
-        <h2>CONNECT & REVIEW</h2>
-        <div class="stills">
-          <div class="resume-box">
-            <img src="assets/MeButton.png" alt="Alexandra Hartinger">
-          </div>
-          <a href="assets/AlexandraHartinger_Resume.pdf" target="_blank" class="resume-box">
-            <img src="assets/ResumeButton.png" alt="View Resume"> 
-          </a>
-          <a href="https://www.linkedin.com/in/alexhartinger/" target="_blank" class="resume-box">
-            <img src="assets/LinkInButton.png" alt="LinkedIn Profile">
-          </a>
-        </div>
-    </section>
-
-    <section class="contact-section">
-        <div class="contact-glow"></div>
-        <div class="contact-content">
-            <h2 class="contact-headline">Let's build <br>something <em>soulful.</em></h2>
-            
-            <div class="contact-details">
-                <a href="mailto:lexhartinger@gmail.com" class="contact-link">lexhartinger@gmail.com</a>
-                <span class="contact-divider">/</span>
-                <a href="tel:4049834241" class="contact-link">404.983.4241</a>
-            </div>
-        </div>
-    </section>
+    <section class="contact" id="contact" aria-labelledby="contact-title"><div><p class="eyebrow">Let’s connect</p><h2 id="contact-title">Let’s make<br><span>something good.</span></h2></div><div class="contact-details"><p>Always up for a good conversation, a new creative challenge, or a story worth telling.</p><div class="contact-links"><a href="mailto:lexhartinger@gmail.com">lexhartinger@gmail.com ↗</a><a href="https://www.linkedin.com/in/alexhartinger/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn ↗</a></div></div></section>
   </main>
-
-  <footer>&copy; 2026 Alexandra Hartinger</footer>
-
+  <footer class="footer wrap"><a href="index.html" class="wordmark" aria-label="Alex Hart home">alex hart<span class="dot">.</span></a><a href="index.html#work">Back to selected work ↗</a><span>© 2026 Alexandra Hartinger</span></footer>
   <script>
-    // Preloader Trigger
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.getElementById('preloader').classList.add('hidden');
-        }, 1500);
-    });
+    // Local review uses the existing site headshot; the resume stays next to this file.
+    if(location.protocol==='file:'){
+      const live='https://alexandrahartinger.github.io/';
+      document.querySelectorAll('img[src^="assets/"],a[href^="index.html"]').forEach(el=>{
+        const attr=el.tagName==='IMG'?'src':'href';el.setAttribute(attr,new URL(el.getAttribute(attr),live).href);
+      });
+    }
   </script>
-
 </body>
 </html>
